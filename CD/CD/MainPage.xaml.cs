@@ -17,6 +17,10 @@ namespace CD
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
 
         private async void OnSettingsClicked(object sender, EventArgs e)
         {

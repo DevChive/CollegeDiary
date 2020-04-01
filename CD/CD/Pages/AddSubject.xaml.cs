@@ -16,5 +16,10 @@ namespace CD.Pages
         {
             InitializeComponent();
         }
+
+        private void Save_Subject(object sender, EventArgs e)
+        {
+            DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}","OK");
+        }
     }
 }
