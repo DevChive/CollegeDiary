@@ -10,7 +10,7 @@ namespace CD
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage (new CD.MainPage());
         }
 
         protected override void OnStart()
