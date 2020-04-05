@@ -11,12 +11,12 @@ namespace CD.Helper
 {
     class FireBaseHelper
     {
-        private readonly string SubjectName = "Subject";
-        readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/Subjects");
+        private readonly string Subject_Name = "Subjects";
+        readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
 
         public async Task<List<Subject>> GetAllSubjects()
         {
-            return (await firebase.Child(SubjectName).OnceAsync<Subject>()).Select(item => new Subject
+            return (await firebase.Child(Subject_Name).OnceAsync<Subject>()).Select(item => new Subject
             {
                 SubjectName = item.Object.SubjectName,
                 SubjectID = item.Object.SubjectID,
@@ -29,7 +29,7 @@ namespace CD.Helper
 
         public async Task AddSubject(string subjectName, string lecturerName, string lecturerEmail, int ca, int finalExam)
         {
-            await firebase.Child(subjectName).PostAsync(new Subject()
+            await firebase.Child(Subject_Name).PostAsync(new Subject()
             {
                 SubjectID = Guid.NewGuid(),
                 SubjectName = subjectName,
@@ -43,14 +43,14 @@ namespace CD.Helper
         public async Task<Subject> GetSubject(Guid subjectID)
         {
             var allSubjects = await GetAllSubjects();
-            await firebase.Child(SubjectName).OnceAsync<Subject>();
+            await firebase.Child(Subject_Name).OnceAsync<Subject>();
             return allSubjects.FirstOrDefault(a => a.SubjectID == subjectID);
         }
 
         public async Task<Subject> GetSubject(string subjectname)
         {
             var allSubjects = await GetAllSubjects();
-            await firebase.Child(SubjectName).OnceAsync<Subject>();
+            await firebase.Child(Subject_Name).OnceAsync<Subject>();
             return allSubjects.FirstOrDefault(a => a.SubjectName == subjectname);
         }
     }
