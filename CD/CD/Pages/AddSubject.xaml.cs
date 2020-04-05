@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Models;
 using CD.Helper;
+using CD.Pages;
 
 namespace CD.Pages
 {
@@ -34,6 +35,7 @@ namespace CD.Pages
 
                 await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
                 await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
+                await Navigation.PushAsync(new MainPage());
             }
             else
                 await DisplayAlert("Subject not added!", $"Continuous Assessment = {this.CA.Text}%\n" +
