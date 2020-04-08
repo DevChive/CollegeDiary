@@ -7,7 +7,6 @@ using Firebase.Database.Query;
 using CD.Models;
 
 namespace CD.Helper
-
 {
     class FireBaseHelper
     {
@@ -39,7 +38,6 @@ namespace CD.Helper
                 FinalExam = finalExam
             }); 
         }
-
         public async Task<Subject> GetSubject(Guid subjectID)
         {
             var allSubjects = await GetAllSubjects();
