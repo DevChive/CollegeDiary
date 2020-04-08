@@ -23,6 +23,7 @@
             <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric"/>
 
             <Button Text="Save" Clicked="Save_Subject" />
+            <Button Text="Cancel" Clicked="Cancel_Subject"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CD.Models
 {
-    class Subject
+    public class Subject
     {
         public Guid SubjectID { get; set; }
         public String SubjectName { get; set; }

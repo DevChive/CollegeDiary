@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CD.Helper;
 using CD.Models;
-using CD.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Firebase.Database;
-using Firebase.Database.Query;
 
 namespace CD.Pages
 {
@@ -29,18 +22,6 @@ namespace CD.Pages
         {
             base.OnAppearing();
             await FetchAllSubjects();
-
-        }
-
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
         }
 
         private async Task FetchAllSubjects()
@@ -50,5 +31,12 @@ namespace CD.Pages
         }
 
         private Subject SelectedSubject => (Subject)LstSubjects.SelectedItem;
+
+        private async void LstSubjects_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Subject subject = await fireBaseHelper.GetSubject(SelectedSubject.SubjectID);
+
+            await Navigation.PushAsync(new SubjectSelected(subject));
+        }
     }
 }

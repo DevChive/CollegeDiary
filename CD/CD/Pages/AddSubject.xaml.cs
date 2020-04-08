@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Firebase.Database;
-using Firebase.Database.Query;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CD.Models;
 using CD.Helper;
-using CD.Pages;
 
 namespace CD.Pages
 {
@@ -40,6 +32,11 @@ namespace CD.Pages
             else
                 await DisplayAlert("Subject not added!", $"Continuous Assessment = {this.CA.Text}%\n" +
                     $"Final Exam = {this.finalExam.Text}%\nThey should add up to 100", "OK");
+        }
+
+        private async void Cancel_Subject(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }
