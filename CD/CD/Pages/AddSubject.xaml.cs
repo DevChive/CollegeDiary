@@ -2,6 +2,10 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Helper;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using Xamarin.Forms.PlatformConfiguration;
+using System.Linq;
 
 namespace CD.Pages
 {
@@ -11,27 +15,35 @@ namespace CD.Pages
 
         readonly FireBaseHelper fireBaseHelper = new FireBaseHelper();
 
-        public AddSubject()
+        public AddSubject() // So here is where the code will go for the validation?
         {
-            InitializeComponent();
+            InitializeComponent();// Loading this page
         }
-
         private async void Save_Subject(object sender, EventArgs e)
         {
-            int CA = Int32.Parse(this.CA.Text);
-            int FinalExam = Int32.Parse(this.finalExam.Text);
+            bool validate = true;
 
-            if (CA + FinalExam == 100)
+
+            if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrEmpty(this.lecturerEmail.Text) || 
+                string.IsNullOrEmpty(this.lecturerName.Text) || string.IsNullOrEmpty(this.CA.Text) || 
+                string.IsNullOrEmpty(this.finalExam.Text))
+                validate = false;
+
+            if (validate)
             {
-                var subject = await fireBaseHelper.GetSubject(subjectName.Text);
+                int CA = Int32.Parse(this.CA.Text);
+                int FinalExam = Int32.Parse(this.finalExam.Text);
+                if (CA + FinalExam == 100)
+                {   
+                    var subject = await fireBaseHelper.GetSubject(subjectName.Text);
 
-                await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
-                await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
-                await Navigation.PushAsync(new MainPage());
+                    await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
+                    await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
+                    await Navigation.PushAsync(new MainPage());
+                }
             }
             else
-                await DisplayAlert("Subject not added!", $"Continuous Assessment = {this.CA.Text}%\n" +
-                    $"Final Exam = {this.finalExam.Text}%\nThey should add up to 100", "OK");
+                await DisplayAlert("Subject not added!","All fields are required and the weight of the module needs to add up to 100", "OK");
         }
 
         private async void Cancel_Subject(object sender, EventArgs e)
