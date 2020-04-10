@@ -2,10 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Helper;
-using System.Text.RegularExpressions;
-using System.Collections.Generic;
-using Xamarin.Forms.PlatformConfiguration;
-using System.Linq;
 
 namespace CD.Pages
 {

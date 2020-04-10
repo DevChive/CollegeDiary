@@ -51,5 +51,12 @@ namespace CD.Helper
             await firebase.Child(Subject_Name).OnceAsync<Subject>();
             return allSubjects.FirstOrDefault(a => a.SubjectName == subjectname);
         }
+
+        public async Task DeleteSubject(Guid subjectID)
+        {
+            var toDeleteSubject = (await firebase.Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault
+                (a => a.Object.SubjectID == subjectID);
+            await firebase.Child(Subject_Name).Child(toDeleteSubject.Key).DeleteAsync();
+        }
     }
 }
