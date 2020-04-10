@@ -24,10 +24,12 @@ namespace CD.Pages
             bool validate = true;
 
 
-            if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrEmpty(this.lecturerEmail.Text) || 
-                string.IsNullOrEmpty(this.lecturerName.Text) || string.IsNullOrEmpty(this.CA.Text) || 
+            if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrEmpty(this.lecturerEmail.Text) ||
+                string.IsNullOrEmpty(this.lecturerName.Text) || string.IsNullOrEmpty(this.CA.Text) ||
                 string.IsNullOrEmpty(this.finalExam.Text))
+            {
                 validate = false;
+            }
 
             if (validate)
             {
