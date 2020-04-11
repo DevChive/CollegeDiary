@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Rg.Plugins.Popup;
 
 namespace CD
 {

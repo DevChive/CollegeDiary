@@ -121,6 +121,10 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[2.0.0.2, )"
+            },
             "Xam.Plugin.Connectivity": {
               "target": "Package",
               "version": "[3.2.0, )"
@@ -131,7 +135,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.4.0.991265, )"
+              "version": "[4.5.0.530, )"
             }
           },
           "imports": [

@@ -9,5 +9,7 @@ namespace CD.Models
         string SubjectID { get; set; }
         int weight { get; set; }
         int result { get; set; }
+        int CAWeight { get; set; }
+        int FinalExamWeight { get; set; }
     }
 }

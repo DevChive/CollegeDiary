@@ -21,7 +21,8 @@
             <Label></Label>
             <Label Text="FinalExam"/>
             <ProgressBar x:Name="statusFinalExam" Progress="0.0"/>
-
+            <Label></Label>
+            <Button Text="Add mark" Clicked="add_new_mark"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

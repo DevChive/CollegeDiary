@@ -11,7 +11,7 @@ namespace CD.Pages
     public partial class ListViewSubjects : ContentPage
     {
 
-        readonly FireBaseHelper fireBaseHelper = new FireBaseHelper();
+        readonly FireBaseHelperSubject fireBaseHelper = new FireBaseHelperSubject();
 
         public ListViewSubjects()
         {

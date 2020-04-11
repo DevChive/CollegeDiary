@@ -12,7 +12,7 @@ D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.pdb
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\AddSubject.xaml.g.cs
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\ListViewSubjects.xaml.g.cs
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\Settings.xaml.g.cs
+D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\SubjectSelected.xaml.g.cs
+D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\AddMarkToSubject.xaml.g.cs
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.csproj.CoreCompileInputs.cache
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\XamlC.stamp
-D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\SubjectSelected.xaml.g.cs
-D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.csprojAssemblyReference.cache

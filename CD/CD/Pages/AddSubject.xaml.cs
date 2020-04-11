@@ -9,7 +9,7 @@ namespace CD.Pages
     public partial class AddSubject : ContentPage
     {
 
-        readonly FireBaseHelper fireBaseHelper = new FireBaseHelper();
+        readonly FireBaseHelperSubject fireBaseHelper = new FireBaseHelperSubject();
 
         public AddSubject() // So here is where the code will go for the validation?
         {

@@ -3,6 +3,7 @@ using CD.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Helper;
+using Rg.Plugins.Popup.Services;
 
 namespace CD.Pages
 {
@@ -11,7 +12,7 @@ namespace CD.Pages
     public partial class SubjectSelected : ContentPage
     {
         public Subject _subject;
-        readonly FireBaseHelper fireBaseHelper = new FireBaseHelper();
+        readonly FireBaseHelperSubject fireBaseHelper = new FireBaseHelperSubject();
 
         public SubjectSelected(Subject subject)
         {
@@ -32,9 +33,14 @@ namespace CD.Pages
         private async void DeleteItem(object sender, EventArgs e)
         {
             await fireBaseHelper.DeleteSubject(_subject.SubjectID);
-            await DisplayAlert("Success", "Subject Deleted", "OK");
+            await DisplayAlert("Success", "Subject Deleted", "OK"); // add a toast message
             await Navigation.PushAsync(new MainPage());
         }
-    }
 
+        [Obsolete]
+        private void add_new_mark(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new AddMarkToSubject());
+        }
+    }
 }
