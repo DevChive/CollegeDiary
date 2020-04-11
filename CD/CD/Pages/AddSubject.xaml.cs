@@ -39,9 +39,12 @@ namespace CD.Pages
                     await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
                     await Navigation.PushAsync(new MainPage());
                 }
+                else
+                    await DisplayAlert("Subject not added!", "Modules weight need to add up to 100", "OK");
+
             }
             else
-                await DisplayAlert("Subject not added!","All fields are required and the weight of the module needs to add up to 100", "OK");
+                await DisplayAlert("Subject not added!","All fields are required", "OK");
         }
 
         private async void Cancel_Subject(object sender, EventArgs e)
