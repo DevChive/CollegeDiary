@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="CD.Pages.ListViewSubjects">
     <ScrollView>
-        <StackLayout Margin="40">
+        <StackLayout >
             <ListView x:Name="LstSubjects" ItemSelected="LstSubjects_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>

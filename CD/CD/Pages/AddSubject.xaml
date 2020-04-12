@@ -21,9 +21,11 @@
 
             <Label Text="Final Exam Weight"/>
             <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric"/>
-
-            <Button Text="Save" Clicked="Save_Subject" />
-            <Button Text="Cancel" Clicked="Cancel_Subject"/>
+            <Label></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Save" Clicked="Save_Subject" />
+                <Button Text="Cancel" Clicked="Cancel_Subject"/>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

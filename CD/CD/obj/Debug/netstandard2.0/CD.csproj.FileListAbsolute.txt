@@ -1,3 +1,7 @@
+D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\CD.deps.json
+D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\CD.dll
+D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\ref\CD.dll
+D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\CD.pdb
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\AddMarkToSubject.xaml.g.cs
@@ -8,12 +12,8 @@ D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\Pages\SubjectSelected.xaml
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.csproj.CoreCompileInputs.cache
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.AssemblyInfoInputs.cache
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.AssemblyInfo.cs
+D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\XamlC.stamp
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.dll
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\ref\CD.dll
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.pdb
-D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\CD.deps.json
-D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\CD.dll
-D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\ref\CD.dll
-D:\--- Apps\Xamarin\CD\CD\CD\bin\Debug\netstandard2.0\CD.pdb
-D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\XamlC.stamp
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.csprojAssemblyReference.cache

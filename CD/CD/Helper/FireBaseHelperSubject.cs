@@ -25,7 +25,6 @@ namespace CD.Helper
                 FinalExam = item.Object.FinalExam
             }).ToList();
         }
-
         public async Task AddSubject(string subjectName, string lecturerName, string lecturerEmail, int ca, int finalExam)
         {
             await firebase.Child(Subject_Name).PostAsync(new Subject()
@@ -51,7 +50,6 @@ namespace CD.Helper
             await firebase.Child(Subject_Name).OnceAsync<Subject>();
             return allSubjects.FirstOrDefault(a => a.SubjectName == subjectname);
         }
-
         public async Task DeleteSubject(Guid subjectID)
         {
             var toDeleteSubject = (await firebase.Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault

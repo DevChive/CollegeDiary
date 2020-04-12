@@ -3,7 +3,9 @@ using CD.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Helper;
+using CD.ViewModel;
 using Rg.Plugins.Popup.Services;
+using System.Collections.Generic;
 
 namespace CD.Pages
 {
@@ -12,7 +14,9 @@ namespace CD.Pages
     public partial class SubjectSelected : ContentPage
     {
         private Subject _subject;
-        readonly FireBaseHelperSubject fireBaseHelper = new FireBaseHelperSubject();
+        private SubjectMark subjectMark;
+        readonly FireBaseHelperSubject fireBaseHelperSubject = new FireBaseHelperSubject();
+        readonly FireBaseHelperMark fireBaseHelperMark = new FireBaseHelperMark();
 
         public SubjectSelected(Subject subject)
         {
@@ -22,17 +26,23 @@ namespace CD.Pages
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            this.BindingContext = _subject;
+
+            List<Mark> listMarks = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
+            subjectMark = new SubjectMark(_subject, listMarks);
+
+            this.BindingContext = subjectMark; //!!!
+
             statusCA.ProgressColor = Color.Green; // depending on student's progree
             await statusCA.ProgressTo(0.2, 500, Easing.Linear);
             await statusFinalExam.ProgressTo(0.7, 500, Easing.Linear);
 
-            // add delete button and update button
+            // update button
         }
 
         private async void DeleteItem(object sender, EventArgs e)
         {
-            await fireBaseHelper.DeleteSubject(_subject.SubjectID);
+            await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
+            await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
             await DisplayAlert("Success", "Subject Deleted", "OK"); // add a toast message
             await Navigation.PushAsync(new MainPage());
         }
@@ -41,6 +51,11 @@ namespace CD.Pages
         private void add_new_mark(object sender, EventArgs e)
         {
             PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
+        }
+
+        private void LstMarks_Selected(object sender, SelectedItemChangedEventArgs e)
+        {
+
         }
     }
 }

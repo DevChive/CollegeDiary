@@ -9,11 +9,13 @@
              x:Class="CD.Pages.AddMarkToSubject"
              Title="Add Result">
     <ContentPage.Content>
-        <StackLayout Margin="8"
-                     Padding="15"
+        <StackLayout Margin="20"
+                     Padding="30"
                      BackgroundColor="WhiteSmoke"
-                     HorizontalOptions="FillAndExpand"
-                     VerticalOptions="Start">
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Center">
+            <Label Text="Add a result" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+            <Label></Label>
             <Label Text="Select category:"/>
             <Picker x:Name="categoryPicker" SelectedIndex="1">
                 <Picker.Items>
@@ -27,8 +29,11 @@
             <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric"/>
             <Label Text="result in % from 100"/>
             <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric"/>
-            <Button Text="Save" Clicked="Save_Mark"/>
-            <Button Text="Cancel" Clicked="Cancel_Mark"/>
+            <Label></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Save" Clicked="Save_Mark"/>
+                <Button Text="Cancel" Clicked="Cancel_Mark"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </pages:PopupPage>

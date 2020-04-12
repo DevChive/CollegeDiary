@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CD.Helper;
-using CD.Pages;
 using CD.Models;
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 
@@ -16,11 +10,13 @@ namespace CD.Pages
     public partial class AddMarkToSubject
     {
         private Subject _subject;
-        readonly FireBaseHelperMarks fireBaseHelper = new FireBaseHelperMarks();
+        readonly FireBaseHelperMark fireBaseHelper = new FireBaseHelperMark();
+
         public AddMarkToSubject(Subject subject)
         {
             _subject = subject;
             InitializeComponent();
+            categoryPicker.SelectedIndex =  0; 
         }
 
         [Obsolete]
@@ -40,6 +36,7 @@ namespace CD.Pages
                 var mark = await fireBaseHelper.GetMark(mark_name.Text);
                 await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, categoryPicker.Items[categoryPicker.SelectedIndex]);
                 await DisplayAlert("Mark Added", "Something", "OK");
+                // refresh the page to show the added mark to the subject
                 await PopupNavigation.RemovePageAsync(this);
             }
         }
