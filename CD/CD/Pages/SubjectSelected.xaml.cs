@@ -11,7 +11,7 @@ namespace CD.Pages
 
     public partial class SubjectSelected : ContentPage
     {
-        public Subject _subject;
+        private Subject _subject;
         readonly FireBaseHelperSubject fireBaseHelper = new FireBaseHelperSubject();
 
         public SubjectSelected(Subject subject)
@@ -40,7 +40,7 @@ namespace CD.Pages
         [Obsolete]
         private void add_new_mark(object sender, EventArgs e)
         {
-            PopupNavigation.PushAsync(new AddMarkToSubject());
+            PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
         }
     }
 }
