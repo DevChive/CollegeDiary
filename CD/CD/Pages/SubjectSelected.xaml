@@ -26,7 +26,7 @@
             <ListView x:Name="LstMarks" ItemSelected="LstMarks_Selected" ItemsSource="{Binding MarkListL}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding MarkName}"></TextCell>
+                        <TextCell Text="{Binding MarkName}" Detail="{Binding Result,StringFormat='Result: {0:N} %'}" ></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
