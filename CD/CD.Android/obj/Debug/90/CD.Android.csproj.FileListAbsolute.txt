@@ -963,3 +963,10 @@ C:\Users\damie\test\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_ConvertResour
 C:\Users\damie\test\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\damie\test\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\damie\test\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+D:\--- Apps\Xamarin\CD\CD\CD.Android\obj\Debug\90\android\typemap.jm.x86.s
+D:\--- Apps\Xamarin\CD\CD\CD.Android\obj\Debug\90\android\typemap.mj.x86.s
+D:\--- Apps\Xamarin\CD\CD\CD.Android\obj\Debug\90\android\environment.x86.s
+D:\--- Apps\Xamarin\CD\CD\CD.Android\obj\Debug\90\android\typemap.jm.x86.o
+D:\--- Apps\Xamarin\CD\CD\CD.Android\obj\Debug\90\android\typemap.mj.x86.o
+D:\--- Apps\Xamarin\CD\CD\CD.Android\obj\Debug\90\android\environment.x86.o
+D:\--- Apps\Xamarin\CD\CD\CD.Android\obj\Debug\90\app_shared_libraries\x86\libxamarin-app.so

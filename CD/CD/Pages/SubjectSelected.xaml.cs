@@ -6,6 +6,7 @@ using CD.Helper;
 using CD.ViewModel;
 using Rg.Plugins.Popup.Services;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CD.Pages
 {
@@ -32,11 +33,60 @@ namespace CD.Pages
 
             this.BindingContext = subjectMark; //!!!
 
-            statusCA.ProgressColor = Color.Green; // depending on student's progree
-            await statusCA.ProgressTo(0.2, 500, Easing.Linear);
-            await statusFinalExam.ProgressTo(0.7, 500, Easing.Linear);
+            status_bars();
+        }
 
-            // update button
+        private async Task<decimal> CA_Progress()
+        {
+            var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
+            decimal total_CA_all_Marks = 0;
+            foreach (Mark m in marks_belonging_to_subject)
+            {
+                if (m.Category.Equals("Continuous Assessment"))
+                {
+                    decimal result = m.Result;
+                    total_CA_all_Marks += ((result / 100) * m.Weight);
+                }
+            }
+            return total_CA_all_Marks/100;
+        }
+
+        private async Task<decimal> Final_Exam_Progress()
+        {
+            var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
+            decimal finalExam = 0;
+            foreach (Mark m in marks_belonging_to_subject)
+            {
+                if (m.Category.Equals("Final Exam"))
+                {
+                    decimal result = m.Result;
+                    finalExam = result / 100;
+                }
+            }
+            return finalExam;
+        }
+
+        private async void status_bars()
+        {
+            decimal CAProgress = await CA_Progress();
+            decimal FinalExamProgress = await Final_Exam_Progress();
+
+            double CA = Decimal.ToDouble(CAProgress);
+            double FE = Decimal.ToDouble(FinalExamProgress);
+            decimal pass = 0.4m;
+            decimal distinction = 0.7m;
+            Console.WriteLine(CAProgress < pass);
+
+            if (CAProgress < pass) { statusCA.ProgressColor = Color.Red; }
+            else if (CAProgress >= pass && CAProgress < distinction) { statusCA.ProgressColor = Color.Orange; }
+            else if (CAProgress >= distinction){ statusCA.ProgressColor = Color.LightGreen; }
+
+            if (FinalExamProgress < pass) { statusFinalExam.ProgressColor = Color.Red; }
+            else if (FinalExamProgress >= pass && FinalExamProgress < distinction) { statusFinalExam.ProgressColor = Color.Orange; }
+            else if(FinalExamProgress >= distinction) { statusFinalExam.ProgressColor = Color.LightGreen; }
+
+            await statusCA.ProgressTo(CA, 500, Easing.Linear);
+            await statusFinalExam.ProgressTo(FE, 500, Easing.Linear);
         }
 
         private async void DeleteItem(object sender, EventArgs e)
