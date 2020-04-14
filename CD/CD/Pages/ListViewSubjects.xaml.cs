@@ -39,5 +39,10 @@ namespace CD.Pages
 
             await Navigation.PushAsync(new SubjectSelected(subject));
         }
+
+        private async void load_login(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LogIn());
+        }
     }
 }
