@@ -35,3 +35,4 @@ C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.dll
 C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\ref\CD.dll
 C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.pdb
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.csprojAssemblyReference.cache
