@@ -17,3 +17,21 @@ D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.dll
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\ref\CD.dll
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.pdb
 D:\--- Apps\Xamarin\CD\CD\CD\obj\Debug\netstandard2.0\CD.csprojAssemblyReference.cache
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\AddMarkToSubject.xaml.g.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\AddSubject.xaml.g.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\ListViewSubjects.xaml.g.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\Settings.xaml.g.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\SubjectSelected.xaml.g.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.csproj.CoreCompileInputs.cache
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.AssemblyInfoInputs.cache
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.AssemblyInfo.cs
+C:\Users\damie\test\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.deps.json
+C:\Users\damie\test\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.dll
+C:\Users\damie\test\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\ref\CD.dll
+C:\Users\damie\test\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.pdb
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.dll
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\ref\CD.dll
+C:\Users\damie\test\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.pdb
