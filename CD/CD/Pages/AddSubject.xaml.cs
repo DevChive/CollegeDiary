@@ -59,7 +59,12 @@ namespace CD.Pages
                     await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
                     await Navigation.PushAsync(new MainPage());
                 }
-            }      
+                else
+                {
+                    await DisplayAlert("Subject not added!", "The Final Exam and CA need to add up to 100", "OK");
+                }
+            }    
+            
         }
 
         private async void Cancel_Subject(object sender, EventArgs e)
