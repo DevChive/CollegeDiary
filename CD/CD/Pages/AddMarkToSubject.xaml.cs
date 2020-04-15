@@ -21,14 +21,17 @@ namespace CD.Pages
         }
 
         // check if the weight of the current CA is not exceeding the overall weight of the CA
-        public async Task<bool> Check_CA_Weight(Subject subject, string Category, int weight)
+        public async Task<bool> Check_CA_Weight(Subject subject, int weight)
         {
             var marks_belonging_to_subject = await fireBaseHelper.GetMarksForSubject(subject.SubjectID);
             double total_CA_all_Marks = 0;
 
             foreach (Mark m in marks_belonging_to_subject)
             {
-                total_CA_all_Marks += m.Weight;
+                if (m.Category.Equals("Continuous Assessment")) 
+                {
+                    total_CA_all_Marks += m.Weight; 
+                }
             }
             if (total_CA_all_Marks + weight > subject.CA)
             {
@@ -39,9 +42,19 @@ namespace CD.Pages
             return true;
         }
         // check if the weight of the current CA is not exceeding the overall weight of the CA
-        public async Task<bool> Check_FinalExam_Weight(Subject subject, string Category, int weight)
+        public async Task<bool> Check_FinalExam_Weight(Subject subject, int weight)
         {
-            if (weight != subject.FinalExam)
+            var marks_belonging_to_subject = await fireBaseHelper.GetMarksForSubject(subject.SubjectID);
+            double total_FinalExams_all_Marks = 0;
+
+            foreach (Mark m in marks_belonging_to_subject)
+            {
+                if (m.Category.Equals("Final Exam"))
+                {
+                    total_FinalExams_all_Marks += m.Weight;
+                }
+            }
+            if (weight != subject.FinalExam || total_FinalExams_all_Marks != 0)
             {
                 await DisplayAlert("Mark not added", "The exam percentange is incorrect", "OK");
                 return false;
@@ -64,12 +77,12 @@ namespace CD.Pages
 
             if (this.categoryPicker.Items[categoryPicker.SelectedIndex].Equals("Continuous Assessment"))
             {
-                validate = await Check_CA_Weight(_subject, this.categoryPicker.Items[categoryPicker.SelectedIndex], Int32.Parse(this.weight.Text));
+                validate = await Check_CA_Weight(_subject, int.Parse(this.weight.Text));
             }
 
             if (this.categoryPicker.Items[categoryPicker.SelectedIndex].Equals("Final Exam"))
             {
-                validate = await Check_FinalExam_Weight(_subject, this.categoryPicker.Items[categoryPicker.SelectedIndex], Int32.Parse(this.weight.Text));
+                validate = await Check_FinalExam_Weight(_subject, int.Parse(this.weight.Text));
             }
 
             if (validate)
