@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.iOS\\CD.iOS.csproj": {}
+    "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.iOS\\CD.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.iOS\\CD.iOS.csproj": {
+    "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.iOS\\CD.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.iOS\\CD.iOS.csproj",
+        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.iOS\\CD.iOS.csproj",
         "projectName": "CD.iOS",
-        "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.iOS\\CD.iOS.csproj",
-        "packagesPath": "C:\\Users\\damie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.iOS\\obj\\",
+        "projectPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.iOS\\CD.iOS.csproj",
+        "packagesPath": "C:\\Users\\dorat\\.nuget\\packages\\",
+        "outputPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\damie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dorat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj": {
-                "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj"
+              "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj": {
+                "projectPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj"
               }
             }
           }
@@ -73,20 +73,20 @@
         }
       }
     },
-    "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj": {
+    "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj",
+        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj",
         "projectName": "CD",
-        "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj",
-        "packagesPath": "C:\\Users\\damie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\obj\\",
+        "projectPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj",
+        "packagesPath": "C:\\Users\\dorat\\.nuget\\packages\\",
+        "outputPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\damie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dorat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

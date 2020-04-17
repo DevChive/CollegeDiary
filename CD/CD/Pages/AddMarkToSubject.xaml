@@ -27,7 +27,7 @@
             <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text"/>
             <Label Text="Exam weight"/>
             <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric"/>
-            <Label Text="result in % from 100"/>
+            <Label Text="Result in % (from 100)"/>
             <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric"/>
             <Label></Label>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
