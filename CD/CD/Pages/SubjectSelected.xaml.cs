@@ -48,7 +48,7 @@ namespace CD.Pages
                     total_CA_all_Marks += ((result / 100) * m.Weight);
                 }
             }
-            return total_CA_all_Marks/100;
+            return total_CA_all_Marks/_subject.CA;
         }
 
         private async Task<decimal> Final_Exam_Progress()
@@ -104,7 +104,7 @@ namespace CD.Pages
         }
         private void add_final_exam(object sender, EventArgs e)
         {
-
+            PopupNavigation.PushAsync(new AddFinalExamToSubject(_subject));
         }
         private void LstMarks_Selected(object sender, SelectedItemChangedEventArgs e)
         {

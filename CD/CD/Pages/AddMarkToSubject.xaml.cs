@@ -40,27 +40,6 @@ namespace CD.Pages
 
             return true;
         }
-        // check if the weight of the current CA is not exceeding the overall weight of the CA
-        public async Task<bool> Check_FinalExam_Weight(Subject subject, int weight)
-        {
-            var marks_belonging_to_subject = await fireBaseHelper.GetMarksForSubject(subject.SubjectID);
-            double total_FinalExams_all_Marks = 0;
-
-            foreach (Mark m in marks_belonging_to_subject)
-            {
-                if (m.Category.Equals("Final Exam"))
-                {
-                    total_FinalExams_all_Marks += m.Weight;
-                }
-            }
-            if (weight != subject.FinalExam || total_FinalExams_all_Marks != 0)
-            {
-                await DisplayAlert("Mark not added", "The exam percentange is incorrect", "OK");
-                return false;
-            }
-
-            return true;
-        }
 
         [Obsolete]
         private async void Save_Mark(object sender, EventArgs e)
@@ -81,9 +60,10 @@ namespace CD.Pages
                 int weight = Int32.Parse(this.weight.Text);
                 var mark = await fireBaseHelper.GetMark(mark_name.Text);
                 await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
-                await DisplayAlert("Result Added", "Your result had been recorded", "OK");
+                await DisplayAlert("Success", "Your result had been recorded", "OK");
                 // refresh the page to show the added mark to the subject
                 await PopupNavigation.RemovePageAsync(this);
+                base.OnAppearing();
             }
         }
 
