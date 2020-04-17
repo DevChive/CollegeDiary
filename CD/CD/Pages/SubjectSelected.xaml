@@ -4,21 +4,59 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CD.Pages.SubjectSelected" Title="{Binding subjectL.SubjectName}">
+             x:Class="CD.Pages.SubjectSelected" Title="{Binding subjectL.SubjectName}"
+             BackgroundColor="WhiteSmoke">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Delete" Order="Primary" Clicked="DeleteItem"/>
     </ContentPage.ToolbarItems>
-    <StackLayout Margin="20">
-        <Label Text="{Binding subjectL.SubjectName}"/>
-        <Label Text="{Binding subjectL.LecturerName}"/>
-        <Label Text="{Binding subjectL.LecturerEmail}"/>
-        <Label Text="{Binding subjectL.CA}"/>
-        <Label Text="{Binding subjectL.FinalExam}"/>
+    <StackLayout Margin="30">
+        <Label Text="Subject Details" TextColor="LightSlateGray" FontSize="20" FontAttributes="Bold" />
+        <Label/>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Subject: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
+                    <Span Text="{Binding subjectL.SubjectName}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Lecturer: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
+                    <Span Text="{Binding subjectL.LecturerName}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Lecturer Email: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
+                    <Span Text="{Binding subjectL.LecturerEmail}"/>
+                   </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Continuous Assessment: " TextColor="MediumVioletRed" FontAttributes="Bold"/>
+                    <Span Text="{Binding subjectL.CA,StringFormat='{0:N} %'}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Final Exam: " TextColor="MediumVioletRed" FontAttributes="Bold"/>
+                    <Span Text="{Binding subjectL.FinalExam,StringFormat='{0:N} %'}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
         <Label></Label>
         <Label Text="Continuous Assessment"/>
         <ProgressBar x:Name="statusCA" Progress="0.0"/>
         <Label></Label>
-        <Label Text="FinalExam"/>
+        <Label Text="Final Exam"/>
         <ProgressBar x:Name="statusFinalExam" Progress="0.0"/>
         <Label></Label>
         <Label></Label>
@@ -26,7 +64,7 @@
             <ListView x:Name="LstMarks" ItemSelected="LstMarks_Selected" ItemsSource="{Binding MarkListL}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding MarkName}" Detail="{Binding Result,StringFormat='Result: {0:N} %'}" ></TextCell>
+                        <TextCell Text="{Binding MarkName}" Detail="{Binding Result,StringFormat='Result: {0:N}%'}" ></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

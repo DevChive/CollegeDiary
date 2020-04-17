@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj": {}
+    "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj": {
+    "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
+        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
         "projectName": "CD.Android",
-        "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
-        "packagesPath": "C:\\Users\\damie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\obj\\",
+        "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
+        "packagesPath": "C:\\Users\\dorat\\.nuget\\packages\\",
+        "outputPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\damie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dorat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj": {
-                "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj"
+              "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj": {
+                "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj"
               }
             }
           }
@@ -90,20 +90,20 @@
         }
       }
     },
-    "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj": {
+    "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj",
+        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj",
         "projectName": "CD",
-        "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj",
-        "packagesPath": "C:\\Users\\damie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\obj\\",
+        "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj",
+        "packagesPath": "C:\\Users\\dorat\\.nuget\\packages\\",
+        "outputPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\damie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dorat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -148,11 +148,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.5.2, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.530, )"
+              "version": "[4.5.0.617, )"
             }
           },
           "imports": [

@@ -1247,8 +1247,8 @@
           "FirebaseDatabase.net": "4.0.4",
           "Rg.Plugins.Popup": "2.0.0.2",
           "Xam.Plugin.Connectivity": "3.2.0",
-          "Xamarin.Essentials": "1.3.1",
-          "Xamarin.Forms": "4.5.0.530"
+          "Xamarin.Essentials": "1.5.2",
+          "Xamarin.Forms": "4.5.0.617"
         },
         "compile": {
           "bin/placeholder/CD.dll": {}
@@ -1645,6 +1645,7 @@
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.xml",
         "lib/MonoAndroid10/Plugin.Connectivity.dll",
+        "lib/MonoAndroid10/Plugin.Connectivity.dll.mdb",
         "lib/MonoAndroid10/Plugin.Connectivity.pdb",
         "lib/MonoAndroid10/Plugin.Connectivity.xml",
         "lib/UAP10/Plugin.Connectivity.Abstractions.dll",
@@ -1665,6 +1666,7 @@
         "lib/Xamarin.iOS10/Plugin.Connectivity.Abstractions.pdb",
         "lib/Xamarin.iOS10/Plugin.Connectivity.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Connectivity.dll",
+        "lib/Xamarin.iOS10/Plugin.Connectivity.dll.mdb",
         "lib/Xamarin.iOS10/Plugin.Connectivity.pdb",
         "lib/Xamarin.iOS10/Plugin.Connectivity.xml",
         "lib/XamarinTVOS/Plugin.Connectivity.Abstractions.dll",
@@ -3014,24 +3016,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\damie\\.nuget\\packages\\": {},
+    "C:\\Users\\dorat\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
+      "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
       "projectName": "CD.Android",
-      "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
-      "packagesPath": "C:\\Users\\damie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD.Android\\obj\\",
+      "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
+      "packagesPath": "C:\\Users\\dorat\\.nuget\\packages\\",
+      "outputPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\damie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dorat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -3045,8 +3047,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj": {
-              "projectPath": "C:\\Users\\damie\\test\\CollegeDiary\\CD\\CD\\CD.csproj"
+            "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj": {
+              "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj"
             }
           }
         }
@@ -3108,7 +3110,17 @@
       "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.530 to 4.4.0.991265. Reference the package directly from the project to select a different version. \r\n CD.Android -> CD -> Xamarin.Forms (>= 4.5.0.530) \r\n CD.Android -> Xamarin.Forms (>= 4.4.0.991265)",
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.5.2 to 1.3.1. Reference the package directly from the project to select a different version. \r\n CD.Android -> CD -> Xamarin.Essentials (>= 1.5.2) \r\n CD.Android -> Xamarin.Essentials (>= 1.3.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "MonoAndroid,Version=v9.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.617 to 4.4.0.991265. Reference the package directly from the project to select a different version. \r\n CD.Android -> CD -> Xamarin.Forms (>= 4.5.0.617) \r\n CD.Android -> Xamarin.Forms (>= 4.4.0.991265)",
       "libraryId": "Xamarin.Forms",
       "targetGraphs": [
         "MonoAndroid,Version=v9.0"
