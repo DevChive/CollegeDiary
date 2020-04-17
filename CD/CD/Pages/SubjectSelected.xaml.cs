@@ -102,7 +102,10 @@ namespace CD.Pages
         {
             PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
         }
+        private void add_final_exam(object sender, EventArgs e)
+        {
 
+        }
         private void LstMarks_Selected(object sender, SelectedItemChangedEventArgs e)
         {
 

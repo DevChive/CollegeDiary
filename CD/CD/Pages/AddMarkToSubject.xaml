@@ -14,15 +14,8 @@
                      BackgroundColor="WhiteSmoke"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-            <Label Text="Add a result" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+            <Label Text="Continuous Assessment" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
             <Label></Label>
-            <Label Text="Select category:"/>
-            <Picker x:Name="categoryPicker" SelectedIndex="1">
-                <Picker.Items>
-                    <x:String>Continuous Assessment</x:String>
-                    <x:String>Final Exam</x:String>
-                </Picker.Items>
-            </Picker>
             <Label Text="Name of the assessment"/>
             <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text"/>
             <Label Text="Exam weight"/>

@@ -17,7 +17,6 @@ namespace CD.Pages
         {
             _subject = subject;
             InitializeComponent();
-            categoryPicker.SelectedIndex =  0; 
         }
 
         // check if the weight of the current CA is not exceeding the overall weight of the CA
@@ -68,30 +67,21 @@ namespace CD.Pages
         {
             bool validate = true;
 
-            if (string.IsNullOrEmpty(this.categoryPicker.Items[categoryPicker.SelectedIndex]) ||
-                string.IsNullOrEmpty(this.mark_name.Text) || string.IsNullOrEmpty(this.weight.Text)
+            if (string.IsNullOrEmpty(this.mark_name.Text) || string.IsNullOrEmpty(this.weight.Text)
                 || string.IsNullOrEmpty(this.result.Text))
             {
                 validate = false;
             }
 
-            if (this.categoryPicker.Items[categoryPicker.SelectedIndex].Equals("Continuous Assessment"))
-            {
-                validate = await Check_CA_Weight(_subject, int.Parse(this.weight.Text));
-            }
-
-            if (this.categoryPicker.Items[categoryPicker.SelectedIndex].Equals("Final Exam"))
-            {
-                validate = await Check_FinalExam_Weight(_subject, int.Parse(this.weight.Text));
-            }
+            validate = await Check_CA_Weight(_subject, int.Parse(this.weight.Text));
 
             if (validate)
             {
                 int result = Int32.Parse(this.result.Text);
                 int weight = Int32.Parse(this.weight.Text);
                 var mark = await fireBaseHelper.GetMark(mark_name.Text);
-                await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, categoryPicker.Items[categoryPicker.SelectedIndex]);
-                await DisplayAlert("Mark Added", "Something", "OK");
+                await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
+                await DisplayAlert("Result Added", "Your result had been recorded", "OK");
                 // refresh the page to show the added mark to the subject
                 await PopupNavigation.RemovePageAsync(this);
             }
