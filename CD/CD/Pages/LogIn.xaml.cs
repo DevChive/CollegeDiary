@@ -15,7 +15,6 @@ namespace CD.Pages
 		public LogIn()
 		{
 			InitializeComponent();
-
 		}
 
 
