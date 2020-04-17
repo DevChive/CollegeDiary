@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rer2zK5er8fKI/s5sGrnJOLxcvVNPgz7pyEqd+KaxwCpjqDmvyL3RNVnCs/ikjyMOrd0lzQXKeBHdsHd6/mTaA==",
+  "dgSpecHash": "WCz1vmTyOs8KfY7y5c6XojSlC2eyTjIglcIwoJyazrQtMFVH9WOVfpcs1tSpjhXeUwi9Kfm0vfojAqRZCR8tMw==",
   "success": true,
-  "projectFilePath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj",
+  "projectFilePath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dorat\\.nuget\\packages\\firebasedatabase.net\\4.0.4\\firebasedatabase.net.4.0.4.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
@@ -22,8 +22,8 @@
     "C:\\Users\\dorat\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xam.plugin.connectivity\\3.2.0\\xam.plugin.connectivity.3.2.0.nupkg.sha512",
-    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
-    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.5.0.530\\xamarin.forms.4.5.0.530.nupkg.sha512"
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.essentials\\1.5.2\\xamarin.essentials.1.5.2.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.5.0.617\\xamarin.forms.4.5.0.617.nupkg.sha512"
   ],
   "logs": []
 }

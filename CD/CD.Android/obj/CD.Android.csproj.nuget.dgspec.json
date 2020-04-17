@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.Android\\CD.Android.csproj": {}
+    "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj": {}
   },
   "projects": {
-    "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.Android\\CD.Android.csproj": {
+    "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.Android\\CD.Android.csproj",
+        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
         "projectName": "CD.Android",
-        "projectPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.Android\\CD.Android.csproj",
+        "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
         "packagesPath": "C:\\Users\\dorat\\.nuget\\packages\\",
-        "outputPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.Android\\obj\\",
+        "outputPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj": {
-                "projectPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj"
+              "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj": {
+                "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj"
               }
             }
           }
@@ -58,22 +58,46 @@
               "target": "Package",
               "version": "[1.3.1, )"
             },
+            "Xamarin.Firebase.Common": {
+              "target": "Package",
+              "version": "[71.1610.0, )"
+            },
+            "Xamarin.Firebase.Config": {
+              "target": "Package",
+              "version": "[71.1610.0, )"
+            },
+            "Xamarin.Firebase.Iid": {
+              "target": "Package",
+              "version": "[71.1710.0, )"
+            },
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.4.0.991265, )"
+            },
+            "Xamarin.GooglePlayServices.Base": {
+              "target": "Package",
+              "version": "[71.1610.0, )"
+            },
+            "Xamarin.GooglePlayServices.Basement": {
+              "target": "Package",
+              "version": "[71.1620.0, )"
+            },
+            "Xamarin.GooglePlayServices.Tasks": {
+              "target": "Package",
+              "version": "[71.1601.0, )"
             }
           }
         }
       }
     },
-    "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj": {
+    "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj",
+        "projectUniqueName": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj",
         "projectName": "CD",
-        "projectPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\CD.csproj",
+        "projectPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj",
         "packagesPath": "C:\\Users\\dorat\\.nuget\\packages\\",
-        "outputPath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD\\obj\\",
+        "outputPath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -124,11 +148,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.5.2, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.530, )"
+              "version": "[4.5.0.617, )"
             }
           },
           "imports": [

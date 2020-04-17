@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NEvVrppvzX1anqmJvvquA06sx25DwnA/X/j7gWopT/ACyc3p/1oGiduxWiL4bUk7WmQnq1DZiCazLnSNIQUxxg==",
+  "dgSpecHash": "guR4BQ7smAhsllFRVP+r1xWYiGJ4/sHKOSb6kIBF9LfKy9ls0fMlq1fN3ezO+VJa3gMsZJ+SdYObnIIwDy0sRg==",
   "success": true,
-  "projectFilePath": "D:\\--- Apps\\Xamarin\\CD\\CD\\CD.Android\\CD.Android.csproj",
+  "projectFilePath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dorat\\.nuget\\packages\\firebasedatabase.net\\4.0.4\\firebasedatabase.net.4.0.4.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
@@ -51,15 +51,42 @@
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.android.support.vector.drawable\\28.0.0.3\\xamarin.android.support.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.build.download\\0.4.11\\xamarin.build.download.0.4.11.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
-    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.4.0.991265\\xamarin.forms.4.4.0.991265.nupkg.sha512"
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.firebase.abt\\71.1601.0\\xamarin.firebase.abt.71.1601.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.firebase.analytics\\71.1606.0\\xamarin.firebase.analytics.71.1606.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.firebase.analytics.impl\\71.1624.0\\xamarin.firebase.analytics.impl.71.1624.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.firebase.common\\71.1610.0\\xamarin.firebase.common.71.1610.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.firebase.config\\71.1610.0\\xamarin.firebase.config.71.1610.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.firebase.iid\\71.1710.0\\xamarin.firebase.iid.71.1710.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.firebase.iid.interop\\71.1601.0\\xamarin.firebase.iid.interop.71.1601.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.4.0.991265\\xamarin.forms.4.4.0.991265.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.google.autovalue.annotations\\1.6.5\\xamarin.google.autovalue.annotations.1.6.5.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.ads.identifier\\71.1600.0\\xamarin.googleplayservices.ads.identifier.71.1600.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.base\\71.1610.0\\xamarin.googleplayservices.base.71.1610.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.basement\\71.1620.0\\xamarin.googleplayservices.basement.71.1620.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.measurement.api\\71.1604.0\\xamarin.googleplayservices.measurement.api.71.1604.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.measurement.base\\71.1605.0\\xamarin.googleplayservices.measurement.base.71.1605.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.phenotype\\71.1600.0\\xamarin.googleplayservices.phenotype.71.1600.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.stats\\71.1601.0\\xamarin.googleplayservices.stats.71.1601.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.tasks\\71.1601.0\\xamarin.googleplayservices.tasks.71.1601.0.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.530 to 4.4.0.991265. Reference the package directly from the project to select a different version. \r\n CD.Android -> CD -> Xamarin.Forms (>= 4.5.0.530) \r\n CD.Android -> Xamarin.Forms (>= 4.4.0.991265)",
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.5.2 to 1.3.1. Reference the package directly from the project to select a different version. \r\n CD.Android -> CD -> Xamarin.Essentials (>= 1.5.2) \r\n CD.Android -> Xamarin.Essentials (>= 1.3.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "MonoAndroid,Version=v9.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.617 to 4.4.0.991265. Reference the package directly from the project to select a different version. \r\n CD.Android -> CD -> Xamarin.Forms (>= 4.5.0.617) \r\n CD.Android -> Xamarin.Forms (>= 4.4.0.991265)",
       "libraryId": "Xamarin.Forms",
       "targetGraphs": [
         "MonoAndroid,Version=v9.0"
