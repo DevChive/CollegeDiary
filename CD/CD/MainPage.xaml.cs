@@ -10,9 +10,13 @@ namespace CD
     [DesignTimeVisible(false)]
     public partial class MainPage : TabbedPage
     {
+        public static MainPage Instance; 
+
         public MainPage()
         {
+            Instance = this;
             InitializeComponent();
+
         }
         protected override void OnAppearing()
         {
@@ -22,6 +26,11 @@ namespace CD
         private async void OnSettingsClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.Settings());
+        }
+
+        public void toFirstTab()
+        {
+            this.CurrentPage = this.Children[0];
         }
     }
 }

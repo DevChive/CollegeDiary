@@ -39,13 +39,16 @@ namespace CD.Pages
             bool validate = true;
             if (string.IsNullOrEmpty(this.result.Text)) { validate = false; }
 
-            validate = await Check_FinalExam_Weight(_subject);
+            if(validate) { validate = await Check_FinalExam_Weight(_subject); }
+            
 
             if (validate)
             {
                 int result = Int32.Parse(this.result.Text);
                 await DisplayAlert("Success", "Your final exam result had been recorded", "OK");
                 await fireBaseHelper.AddMark(_subject.SubjectID, "Final Exam", result, _subject.FinalExam, "Final Exam");
+                await Navigation.PushAsync(new SubjectSelected(_subject), false);
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
             }
             else

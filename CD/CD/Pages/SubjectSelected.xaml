@@ -9,68 +9,68 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Delete" Order="Primary" Clicked="DeleteItem"/>
     </ContentPage.ToolbarItems>
-    <StackLayout Margin="30">
-        <Label Text="Subject Details" TextColor="LightSlateGray" FontSize="20" FontAttributes="Bold" />
-        <Label/>
-        <Label>
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Subject: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
-                    <Span Text="{Binding subjectL.SubjectName}"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <Label>
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Lecturer: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
-                    <Span Text="{Binding subjectL.LecturerName}"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <Label>
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Lecturer Email: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
-                    <Span Text="{Binding subjectL.LecturerEmail}"/>
-                   </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <Label>
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Continuous Assessment: " TextColor="MediumVioletRed" FontAttributes="Bold"/>
-                    <Span Text="{Binding subjectL.CA,StringFormat='{0:N} %'}"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <Label>
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Final Exam: " TextColor="MediumVioletRed" FontAttributes="Bold"/>
-                    <Span Text="{Binding subjectL.FinalExam,StringFormat='{0:N} %'}"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <Label></Label>
-        <Button Text="Add CA Result" Clicked="add_new_mark"/>
-        <Button Text="Add Final Exam" Clicked="add_final_exam"/>
+    <ScrollView>
+        <StackLayout Margin="30">
+            <Label Text="Subject Details" TextColor="LightSlateGray" FontSize="20" FontAttributes="Bold" />
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Subject: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
+                        <Span Text="{Binding subjectL.SubjectName}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Lecturer: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
+                        <Span Text="{Binding subjectL.LecturerName}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Lecturer Email: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
+                        <Span Text="{Binding subjectL.LecturerEmail}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Continuous Assessment: " TextColor="MediumVioletRed" FontAttributes="Bold"/>
+                        <Span Text="{Binding subjectL.CA,StringFormat='{0:N} %'}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Final Exam: " TextColor="MediumVioletRed" FontAttributes="Bold"/>
+                        <Span Text="{Binding subjectL.FinalExam,StringFormat='{0:N} %'}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label></Label>
+        <StackLayout Orientation="Horizontal">
+                <Button Text="Add CA Result" Clicked="add_new_mark"/>
+            <Button Text="Add Final Exam" Clicked="add_final_exam"/>
+        </StackLayout>
         <Label></Label>
         <Label Text="Continuous Assessment"/>
         <ProgressBar x:Name="statusCA" Progress="0.0"/>
         <Label></Label>
         <Label Text="Final Exam"/>
-        <ProgressBar x:Name="statusFinalExam" Progress="0.0"/>
-        <Label></Label>
-        <Label></Label>
-        <ScrollView>
-            <ListView x:Name="LstMarks" ItemSelected="LstMarks_Selected" ItemsSource="{Binding MarkListL}">
+            <ProgressBar x:Name="statusFinalExam" Progress="0.0"/>
+            <Label Text="Results" TextColor="LightSlateGray" FontSize="20" FontAttributes="Bold" />
+            <ListView x:Name="LstMarks" ItemSelected="LstMarks_Selected" ItemsSource="{Binding MarkListL}" HeightRequest="300">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding MarkName}" Detail="{Binding Result,StringFormat='Result: {0:N}%'}" ></TextCell>
+                        <TextCell Text="{Binding MarkName}" Detail="{Binding Result,StringFormat='Result: {0:N}%'}" TextColor="MediumVioletRed"></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollView>
-    </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

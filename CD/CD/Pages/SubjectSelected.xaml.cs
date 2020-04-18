@@ -93,8 +93,9 @@ namespace CD.Pages
         {
             await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
             await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
-            await DisplayAlert("Success", "Subject Deleted", "OK"); // add a toast message
-            await Navigation.PushAsync(new MainPage());
+            await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
+
+            await Navigation.PopAsync();
         }
 
         [Obsolete]

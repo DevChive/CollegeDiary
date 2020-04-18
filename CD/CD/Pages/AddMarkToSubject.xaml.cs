@@ -52,7 +52,7 @@ namespace CD.Pages
                 validate = false;
             }
 
-            validate = await Check_CA_Weight(_subject, int.Parse(this.weight.Text));
+            if (validate) { validate = await Check_CA_Weight(_subject, int.Parse(this.weight.Text)); }
 
             if (validate)
             {
@@ -62,8 +62,13 @@ namespace CD.Pages
                 await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
                 await DisplayAlert("Success", "Your result had been recorded", "OK");
                 // refresh the page to show the added mark to the subject
+                await Navigation.PushAsync(new SubjectSelected(_subject), false);
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
-                base.OnAppearing();
+            }
+            else
+            {
+                await DisplayAlert("Result not added", "", "OK");
             }
         }
 
