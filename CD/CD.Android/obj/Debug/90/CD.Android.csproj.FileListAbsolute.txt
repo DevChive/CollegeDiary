@@ -1,3 +1,11 @@
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.Android.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.Android.pdb
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd.apk
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd.aab
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd-Signed.aab
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd-Signed.apk
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\build.props
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\adb.props
@@ -39,14 +47,6 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\flata\compiled.
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\R.txt
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\R.cs.flag
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\CD.Android.csproj.CoreCompileInputs.cache
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.Android.dll
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.Android.pdb
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd.apk
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd.aab
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd-Signed.aab
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\com.companyname.cd-Signed.apk
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.dll
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\bin\Debug\CD.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\XamlC.stamp
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\CD.Android.csproj.CopyComplete
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\CD.Android.dll

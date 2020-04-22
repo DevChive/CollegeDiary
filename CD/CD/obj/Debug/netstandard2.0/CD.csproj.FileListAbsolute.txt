@@ -1,5 +1,10 @@
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.deps.json
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\ref\CD.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\AddFinalExamToSubject.xaml.g.cs
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\AddMarkToSubject.xaml.g.cs
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\AddSubject.xaml.g.cs
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\ListViewSubjects.xaml.g.cs
@@ -9,11 +14,8 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\Pages\Subje
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.csproj.CoreCompileInputs.cache
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.AssemblyInfoInputs.cache
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.AssemblyInfo.cs
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\XamlC.stamp
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\ref\CD.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.pdb
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.deps.json
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.dll
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\ref\CD.dll
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\bin\Debug\netstandard2.0\CD.pdb
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\XamlC.stamp
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD\obj\Debug\netstandard2.0\CD.csprojAssemblyReference.cache

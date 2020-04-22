@@ -1,11 +1,3 @@
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\optimized\
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csprojAssemblyReference.cache
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csproj.CoreCompileInputs.cache
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\CD.iOS.exe
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\CD.iOS.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Firebase.dll
@@ -63,6 +55,14 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\CD.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\CD.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.pdb
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\optimized\
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csprojAssemblyReference.cache
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csproj.CoreCompileInputs.cache
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\XamlC.stamp
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csproj.CopyComplete
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.exe

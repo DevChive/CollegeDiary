@@ -48,7 +48,7 @@ namespace CD.Pages
                     total_CA_all_Marks += ((result / 100) * m.Weight);
                 }
             }
-            return total_CA_all_Marks/100;
+            return total_CA_all_Marks/_subject.CA;
         }
 
         private async Task<decimal> Final_Exam_Progress()
@@ -93,8 +93,9 @@ namespace CD.Pages
         {
             await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
             await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
-            await DisplayAlert("Success", "Subject Deleted", "OK"); // add a toast message
-            await Navigation.PushAsync(new MainPage());
+            await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
+
+            await Navigation.PopAsync();
         }
 
         [Obsolete]
@@ -102,7 +103,10 @@ namespace CD.Pages
         {
             PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
         }
-
+        private void add_final_exam(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new AddFinalExamToSubject(_subject));
+        }
         private void LstMarks_Selected(object sender, SelectedItemChangedEventArgs e)
         {
 

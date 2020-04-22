@@ -1,0 +1,48 @@
+@string/appbar_scrolling_view_behavior;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\flyoutcontent.xml
+@string/appbar_scrolling_view_behavior;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\rootlayout.xml
+adaptive-icon;obj\Release\90\res\mipmap-anydpi-v26\icon.xml
+adaptive-icon;obj\Release\90\res\mipmap-anydpi-v26\icon_round.xml
+alpha;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\enterfromleft.xml
+alpha;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\exittoleft.xml
+android.support.design.widget.AppBarLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\flyoutcontent.xml
+android.support.design.widget.AppBarLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\rootlayout.xml
+android.support.design.widget.AppBarLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\shellcontent.xml
+android.support.design.widget.BottomNavigationView;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\bottomtablayout.xml
+android.support.design.widget.CoordinatorLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\flyoutcontent.xml
+android.support.design.widget.CoordinatorLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\rootlayout.xml
+android.support.design.widget.CoordinatorLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\shellcontent.xml
+android.support.design.widget.TabLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\rootlayout.xml
+android.support.design.widget.TabLayout;obj\Release\90\res\layout\tabbar.xml
+android.support.v7.widget.RecyclerView;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\flyoutcontent.xml
+android.support.v7.widget.Toolbar;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\rootlayout.xml
+android.support.v7.widget.Toolbar;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\shellcontent.xml
+android.support.v7.widget.Toolbar;obj\Release\90\res\layout\toolbar.xml
+background;obj\Release\90\res\mipmap-anydpi-v26\icon.xml
+background;obj\Release\90\res\mipmap-anydpi-v26\icon_round.xml
+cache-path;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+color;obj\Release\90\res\values\colors.xml
+external-cache-path;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+foreground;obj\Release\90\res\mipmap-anydpi-v26\icon.xml
+foreground;obj\Release\90\res\mipmap-anydpi-v26\icon_round.xml
+FrameLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\bottomtablayout.xml
+item;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\values\styles.xml
+item;obj\Release\90\res\values\styles.xml
+LinearLayout;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\bottomtablayout.xml
+paths;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+resources;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\googsvcsjson\values\goog_svcs_json.xml
+resources;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\values\styles.xml
+resources;obj\Release\90\res\values\colors.xml
+resources;obj\Release\90\res\values\styles.xml
+set;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\enterfromleft.xml
+set;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\enterfromright.xml
+set;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\exittoleft.xml
+set;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\exittoright.xml
+string;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\googsvcsjson\values\goog_svcs_json.xml
+style;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\values\styles.xml
+style;obj\Release\90\res\values\styles.xml
+translate;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\enterfromleft.xml
+translate;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\enterfromright.xml
+translate;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\exittoleft.xml
+translate;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\anim\exittoright.xml
+xamarin.forms.platform.android.appcompat.FormsViewPager;D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Release\90\lp\48\jl\res\layout\rootlayout.xml

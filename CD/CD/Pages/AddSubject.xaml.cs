@@ -74,19 +74,20 @@ namespace CD.Pages
               
                     await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
                     await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
-                    await Navigation.PushAsync(new MainPage());
+                    //TODO: clear all entires!!!
+                    MainPage.Instance.toFirstTab();
+
                 }
                 else
                 {
                     await DisplayAlert("Subject not added", "The Final Exam and CA need to add up to 100", "OK");
                 }
-            }    
-            
+            }           
         }
 
         private async void Cancel_Subject(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            MainPage.Instance.toFirstTab();
         }
     }
 }
