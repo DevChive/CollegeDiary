@@ -15,8 +15,8 @@ namespace CD.Pages
 		public LogIn()
 		{
 			InitializeComponent();
-		}
 
+		}
 
 		private async void Login(object sender, EventArgs e)
 		{
@@ -27,13 +27,14 @@ namespace CD.Pages
 		{
 			await Navigation.PushAsync(new LogIn());
 		}
-
 		private async void Gmail(object sender, EventArgs e)
 		{
-			ProcessStartInfo startInfo = new ProcessStartInfo("iexplore.exe", "http://www.google.com/");
-			_ = Process.Start(startInfo);
+			await Navigation.PushAsync(new LogIn());
 
 		}
-
+		private async void ForgotPasswordCommand(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new ForgotPassword());
+		}
 	}
 }

@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pages="clr-namespace:CD.Pages"
-            mc:Ignorable="d" Title="College Diary"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              x:Class="CD.MainPage">
-
-    <TabbedPage.ToolbarItems>
-        <ToolbarItem Text="Settings" Order="Primary" Clicked="OnSettingsClicked"/>
-    </TabbedPage.ToolbarItems>
-
-    <TabbedPage.Children>
-        <pages:ListViewSubjects Title="Progress"/>
-        <pages:AddSubject Title="Add Subject"/>
-    </TabbedPage.Children>
-
-</TabbedPage>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Here will be the user profile!" TextColor="Green" FontSize="30"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Subjects List" Clicked="load_subject_list"/>
+            <Button Text="Add Subject" Clicked="load_add_subject"/>
+            <Button Text="Create Student" Clicked="load_create_student"/>
+            <Button Text="Log in" Clicked="load_login"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -75,7 +75,7 @@ namespace CD.Pages
                     await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
                     await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
                     //TODO: clear all entires!!!
-                    MainPage.Instance.toFirstTab();
+                    //MainPage.Instance.toFirstTab();
 
                 }
                 else
@@ -87,7 +87,7 @@ namespace CD.Pages
 
         private async void Cancel_Subject(object sender, EventArgs e)
         {
-            MainPage.Instance.toFirstTab();
+            //MainPage.Instance.toFirstTab();
         }
     }
 }
