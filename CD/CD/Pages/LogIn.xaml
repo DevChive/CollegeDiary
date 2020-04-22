@@ -14,6 +14,11 @@
 
                 <Label Text="Password" />
                 <Entry Placeholder="Password" x:Name="password" ReturnType="Next" Keyboard="Text" />
+                <Label HorizontalOptions="Start" TextColor="Blue" FontSize="10" Text="Forgot Password?" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ForgotPasswordCommand" />
+                    </Label.GestureRecognizers>
+                </Label>
 
                 <Label></Label>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
