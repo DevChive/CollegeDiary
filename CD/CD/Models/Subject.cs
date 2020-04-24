@@ -10,5 +10,7 @@ namespace CD.Models
         public String LecturerEmail { get; set; }
         public int CA { get; set; }
         public int FinalExam { get; set; }
+        public double TotalCA { get; set; }
+        public double TotalFinalExam { get; set; }
     }
 }

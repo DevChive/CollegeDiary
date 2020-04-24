@@ -10,30 +10,25 @@ using CD.Pages;
 namespace CD
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
+        public static MainPage Instance;
         public MainPage()
         {
+            Instance = this;
             InitializeComponent();
         }
-
-        private void load_subject_list(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            Navigation.PushAsync(new ListViewSubjects());
+            base.OnAppearing();
         }
-
-        private void load_add_subject(object sender, EventArgs e)
+        private async void OnSettingsClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddSubject());
-            //TODO: make the add subject, after submission to load the home page
+            await Navigation.PushAsync(new Pages.Settings());
         }
-        private void load_create_student(object sender, EventArgs e)
+        public void toFirstTab()
         {
-            Navigation.PushAsync(new AddStudent());
-        }
-        private async void load_login(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new LogIn());
+            this.CurrentPage = this.Children[0];
         }
     }
 }

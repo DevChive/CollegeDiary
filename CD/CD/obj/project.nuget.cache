@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WCz1vmTyOs8KfY7y5c6XojSlC2eyTjIglcIwoJyazrQtMFVH9WOVfpcs1tSpjhXeUwi9Kfm0vfojAqRZCR8tMw==",
+  "dgSpecHash": "kgH4aRXJZgezFeBUkAHFIZY5Fd/nTpssQB+JxHm1NLZ6vw6WQJJ6TXdxUk/zKjbsU8YDc27ew59z4bvlosCeyA==",
   "success": true,
   "projectFilePath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dorat\\.nuget\\packages\\firebasedatabase.net\\4.0.4\\firebasedatabase.net.4.0.4.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\ikvm\\8.1.5717\\ikvm.8.1.5717.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -25,5 +26,16 @@
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.essentials\\1.5.2\\xamarin.essentials.1.5.2.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.5.0.617\\xamarin.forms.4.5.0.617.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IKVM 8.1.5717' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

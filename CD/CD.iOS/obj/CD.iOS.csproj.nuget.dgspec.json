@@ -115,6 +115,10 @@
               "target": "Package",
               "version": "[4.0.4, )"
             },
+            "IKVM": {
+              "target": "Package",
+              "version": "[8.1.5717, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

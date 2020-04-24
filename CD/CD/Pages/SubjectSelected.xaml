@@ -58,10 +58,24 @@
             <Button Text="Add Final Exam" Clicked="add_final_exam"/>
         </StackLayout>
         <Label></Label>
-        <Label Text="Continuous Assessment"/>
-        <ProgressBar x:Name="statusCA" Progress="0.0"/>
-        <Label></Label>
-        <Label Text="Final Exam"/>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Continuous Assessment  " />
+                        <Span Text="{Binding subjectL.TotalCA, StringFormat='{0:N} %'}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <ProgressBar x:Name="statusCA" Progress="0.0"/>
+            <Label></Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Final Exam  "/>
+                        <Span Text="{Binding subjectL.TotalFinalExam, StringFormat='{0:N} %'}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
             <ProgressBar x:Name="statusFinalExam" Progress="0.0"/>
             <Label Text="Results" TextColor="LightSlateGray" FontSize="20" FontAttributes="Bold" />
             <ListView x:Name="LstMarks" ItemSelected="LstMarks_Selected" ItemsSource="{Binding MarkListL}" HeightRequest="300">

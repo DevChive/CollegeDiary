@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UKL26HoiuFc3c29ALlI5C6z2cPeCy36J9TncIKd3MedtaHWFkqNJQtnWcQk9MwCUFM/K6Fbi9WVOqQcOoFTRxQ==",
-  "success": true,
+  "dgSpecHash": "sHNLNz6bAH07VarvIqqFIsQq6rhFpcED/ExMqt2B/sG6B6deDFHn9WztC/OekKLhN6YR3/PIW1tnu9caa3Fmcg==",
+  "success": false,
   "projectFilePath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.iOS\\CD.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dorat\\.nuget\\packages\\firebasedatabase.net\\4.0.4\\firebasedatabase.net.4.0.4.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\ikvm\\8.1.5717\\ikvm.8.1.5717.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\rg.plugins.popup\\2.0.0.2\\rg.plugins.popup.2.0.0.2.nupkg.sha512",
@@ -16,5 +17,42 @@
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.essentials\\1.5.2\\xamarin.essentials.1.5.2.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.5.0.617\\xamarin.forms.4.5.0.617.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package IKVM 8.1.5717 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package IKVM 8.1.5717 supports: net (.NETFramework,Version=v0.0)",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package IKVM 8.1.5717 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package IKVM 8.1.5717 supports: net (.NETFramework,Version=v0.0)",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package IKVM 8.1.5717 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package IKVM 8.1.5717 supports: net (.NETFramework,Version=v0.0)",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x64"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package IKVM 8.1.5717 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package IKVM 8.1.5717 supports: net (.NETFramework,Version=v0.0)",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

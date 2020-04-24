@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "guR4BQ7smAhsllFRVP+r1xWYiGJ4/sHKOSb6kIBF9LfKy9ls0fMlq1fN3ezO+VJa3gMsZJ+SdYObnIIwDy0sRg==",
-  "success": true,
+  "dgSpecHash": "pJw++j+L1ydxaVyHVWZpcJ2yyj1656wVXIGRzRuQ5ZWve7QTruohCVuqFGlHJVLdgEJdbRcJXd5wikT7SMlwrg==",
+  "success": false,
   "projectFilePath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dorat\\.nuget\\packages\\firebasedatabase.net\\4.0.4\\firebasedatabase.net.4.0.4.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\ikvm\\8.1.5717\\ikvm.8.1.5717.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\rg.plugins.popup\\2.0.0.2\\rg.plugins.popup.2.0.0.2.nupkg.sha512",
@@ -88,6 +89,15 @@
       "warningLevel": 1,
       "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.617 to 4.4.0.991265. Reference the package directly from the project to select a different version. \r\n CD.Android -> CD -> Xamarin.Forms (>= 4.5.0.617) \r\n CD.Android -> Xamarin.Forms (>= 4.4.0.991265)",
       "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "MonoAndroid,Version=v9.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package IKVM 8.1.5717 is not compatible with monoandroid90 (MonoAndroid,Version=v9.0). Package IKVM 8.1.5717 supports: net (.NETFramework,Version=v0.0)",
+      "libraryId": "IKVM",
       "targetGraphs": [
         "MonoAndroid,Version=v9.0"
       ]

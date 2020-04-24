@@ -36,46 +36,16 @@ namespace CD.Pages
             status_bars();
         }
 
-        private async Task<decimal> CA_Progress()
-        {
-            var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
-            decimal total_CA_all_Marks = 0;
-            foreach (Mark m in marks_belonging_to_subject)
-            {
-                if (m.Category.Equals("Continuous Assessment"))
-                {
-                    decimal result = m.Result;
-                    total_CA_all_Marks += ((result / 100) * m.Weight);
-                }
-            }
-            return total_CA_all_Marks/_subject.CA;
-        }
-
-        private async Task<decimal> Final_Exam_Progress()
-        {
-            var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
-            decimal finalExam = 0;
-            foreach (Mark m in marks_belonging_to_subject)
-            {
-                if (m.Category.Equals("Final Exam"))
-                {
-                    decimal result = m.Result;
-                    finalExam = result / 100;
-                }
-            }
-            return finalExam;
-        }
-
         private async void status_bars()
         {
-            decimal CAProgress = await CA_Progress();
-            decimal FinalExamProgress = await Final_Exam_Progress();
+            decimal CAProgress = await fireBaseHelperSubject.getTotalCA(_subject.SubjectID);
+            decimal FinalExamProgress = await fireBaseHelperSubject.Final_Exam_Progress(_subject.SubjectID);
 
             double CA = Decimal.ToDouble(CAProgress);
             double FE = Decimal.ToDouble(FinalExamProgress);
             decimal pass = 0.4m;
             decimal distinction = 0.7m;
-            Console.WriteLine(CAProgress < pass);
+            //Console.WriteLine(CAProgress < pass);
 
             if (CAProgress < pass) { statusCA.ProgressColor = Color.Red; }
             else if (CAProgress >= pass && CAProgress < distinction) { statusCA.ProgressColor = Color.Orange; }
@@ -87,6 +57,9 @@ namespace CD.Pages
 
             await statusCA.ProgressTo(CA, 500, Easing.Linear);
             await statusFinalExam.ProgressTo(FE, 500, Easing.Linear);
+
+            Console.WriteLine("-------------" + _subject.SubjectName + " - " + _subject.TotalCA + 
+                " Final Exam Weight " + _subject.CA);
         }
 
         private async void DeleteItem(object sender, EventArgs e)
