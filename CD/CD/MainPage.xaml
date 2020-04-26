@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:pages="clr-namespace:CD.Pages"
+             xmlns:pages1="clr-namespace:CD.Pages.Calendar"
              x:Class="CD.MainPage"
              Title="College Diary">
 
@@ -14,7 +15,7 @@
 
     <TabbedPage.Children>
         <pages:MyAccount Title="My Account"/>
-        <pages:Calendar Title="Calendar"/>
+        <pages1:Calendar Title="Calendar"/>
     </TabbedPage.Children>
     
 </TabbedPage>

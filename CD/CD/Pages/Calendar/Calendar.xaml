@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:CD.Pages.Calendar"
+             Title="Your Calendar"
+             x:Class="CD.Pages.Calendar.Calendar">
+    <views:SimplePage Title="Simple" IconImageSource="baseline_calendar_today_black_24" />
+    <views:AdvancedPage Title="Advanced" IconImageSource="baseline_date_range_black_24" />
+</TabbedPage>

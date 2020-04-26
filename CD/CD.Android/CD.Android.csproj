@@ -99,6 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <GoogleServicesJson Include="google-services.json" />
+    <AndroidAsset Include="Assets\font-awesome-5-free-solid.otf" />
+    <AndroidAsset Include="Assets\font-awesome-5-free-regular.otf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

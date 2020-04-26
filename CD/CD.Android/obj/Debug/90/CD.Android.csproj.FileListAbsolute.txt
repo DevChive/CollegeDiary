@@ -197,6 +197,8 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Phenotype.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Stats.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Tasks.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\Xamarin.Plugin.Calendar.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\Xamarin.Plugin.Calendar.dll.mdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\typemap.jm.armeabi-v7a.s
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\typemap.jm.x86.s
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\typemap.jm.arm64-v8a.s
@@ -437,6 +439,7 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc64ee486da937c010f4\FrameRenderer.java
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc64ee486da937c010f4\ImageRenderer.java
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc64ee486da937c010f4\LabelRenderer.java
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc64ef2c1b6c62d0b349\SwipeAwareContainerRenderer.java
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc64fdbeeba101bd56dc\RgGestureDetectorListener.java
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc64ff1c0b0823be51bb\MainActivity.java
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\mono\android\app\ApplicationRegistration.java
@@ -531,6 +534,3 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_ConvertR
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\Xamarin.Plugin.Calendar.dll
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\assets\Xamarin.Plugin.Calendar.dll.mdb
-D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.Android\obj\Debug\90\android\src\crc64ef2c1b6c62d0b349\SwipeAwareContainerRenderer.java
