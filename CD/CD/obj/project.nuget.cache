@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kgH4aRXJZgezFeBUkAHFIZY5Fd/nTpssQB+JxHm1NLZ6vw6WQJJ6TXdxUk/zKjbsU8YDc27ew59z4bvlosCeyA==",
+  "dgSpecHash": "FqNKVGHqE1DLwN+8F9yodhvNb/RNbvoJXR/LZYkzFTJ8x/icS4Nz13Co1wS1c1oPNCts0X3iYJixtRA7ya8G5Q==",
   "success": true,
   "projectFilePath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD\\CD.csproj",
   "expectedPackageFiles": [
@@ -24,7 +24,8 @@
     "C:\\Users\\dorat\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xam.plugin.connectivity\\3.2.0\\xam.plugin.connectivity.3.2.0.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.essentials\\1.5.2\\xamarin.essentials.1.5.2.nupkg.sha512",
-    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.5.0.617\\xamarin.forms.4.5.0.617.nupkg.sha512"
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.forms\\4.5.0.617\\xamarin.forms.4.5.0.617.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.plugin.calendar\\1.2.1081\\xamarin.plugin.calendar.1.2.1081.nupkg.sha512"
   ],
   "logs": [
     {

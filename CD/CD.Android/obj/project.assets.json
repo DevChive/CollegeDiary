@@ -1243,6 +1243,21 @@
           "build/MonoAndroid90/Xamarin.GooglePlayServices.Tasks.targets": {}
         }
       },
+      "Xamarin.Plugin.Calendar/1.2.1081": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.3.0.912540"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid81/Xamarin.Plugin.Calendar.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid81/Xamarin.Plugin.Calendar.dll": {}
+        }
+      },
       "CD/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -1252,7 +1267,8 @@
           "Rg.Plugins.Popup": "2.0.0.2",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Essentials": "1.5.2",
-          "Xamarin.Forms": "4.5.0.617"
+          "Xamarin.Forms": "4.5.0.617",
+          "Xamarin.Plugin.Calendar": "1.2.1081"
         },
         "compile": {
           "bin/placeholder/CD.dll": {}
@@ -3041,6 +3057,26 @@
         "lib/monoandroid90/Xamarin.GooglePlayServices.Tasks.dll",
         "xamarin.googleplayservices.tasks.71.1601.0.nupkg.sha512",
         "xamarin.googleplayservices.tasks.nuspec"
+      ]
+    },
+    "Xamarin.Plugin.Calendar/1.2.1081": {
+      "sha512": "Vr4zxMYvUwGe2iKeZjdUuhs+e2oak60H84qOwEhROMRr7L+CATXY9Y6gX0L9kiTRK3/3eD25QXpmzcpVU7AC4Q==",
+      "type": "package",
+      "path": "xamarin.plugin.calendar/1.2.1081",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid81/Xamarin.Plugin.Calendar.dll",
+        "lib/monoandroid81/Xamarin.Plugin.Calendar.pdb",
+        "lib/monoandroid81/Xamarin.Plugin.Calendar.xml",
+        "lib/netstandard2.0/Xamarin.Plugin.Calendar.dll",
+        "lib/netstandard2.0/Xamarin.Plugin.Calendar.pdb",
+        "lib/netstandard2.0/Xamarin.Plugin.Calendar.xml",
+        "lib/xamarinios10/Xamarin.Plugin.Calendar.dll",
+        "lib/xamarinios10/Xamarin.Plugin.Calendar.pdb",
+        "lib/xamarinios10/Xamarin.Plugin.Calendar.xml",
+        "xamarin.plugin.calendar.1.2.1081.nupkg.sha512",
+        "xamarin.plugin.calendar.nuspec"
       ]
     },
     "CD/1.0.0": {

@@ -58,8 +58,6 @@ namespace CD.Pages
             await statusCA.ProgressTo(CA, 500, Easing.Linear);
             await statusFinalExam.ProgressTo(FE, 500, Easing.Linear);
 
-            Console.WriteLine("-------------" + _subject.SubjectName + " - " + _subject.TotalCA + 
-                " Final Exam Weight " + _subject.CA);
         }
 
         private async void DeleteItem(object sender, EventArgs e)

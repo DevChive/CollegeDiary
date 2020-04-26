@@ -70,6 +70,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.GooglePlayServices.Phenotype.dll",
 		"Xamarin.GooglePlayServices.Stats.dll",
 		"Xamarin.GooglePlayServices.Tasks.dll",
+		"Xamarin.Plugin.Calendar.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

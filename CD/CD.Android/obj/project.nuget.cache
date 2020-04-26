@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pJw++j+L1ydxaVyHVWZpcJ2yyj1656wVXIGRzRuQ5ZWve7QTruohCVuqFGlHJVLdgEJdbRcJXd5wikT7SMlwrg==",
+  "dgSpecHash": "5vM1M9WttjgYT7JeYVkabKPXHSD1JOYagFrwOGo7TCcKTqbuzq49JD14Ht6xa7T7BiUuN+8FmmG6dQCTlUBSmw==",
   "success": false,
   "projectFilePath": "D:\\--- Apps\\Xamarin\\CD-1\\CollegeDiary\\CD\\CD.Android\\CD.Android.csproj",
   "expectedPackageFiles": [
@@ -70,7 +70,8 @@
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.measurement.base\\71.1605.0\\xamarin.googleplayservices.measurement.base.71.1605.0.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.phenotype\\71.1600.0\\xamarin.googleplayservices.phenotype.71.1600.0.nupkg.sha512",
     "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.stats\\71.1601.0\\xamarin.googleplayservices.stats.71.1601.0.nupkg.sha512",
-    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.tasks\\71.1601.0\\xamarin.googleplayservices.tasks.71.1601.0.nupkg.sha512"
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.googleplayservices.tasks\\71.1601.0\\xamarin.googleplayservices.tasks.71.1601.0.nupkg.sha512",
+    "C:\\Users\\dorat\\.nuget\\packages\\xamarin.plugin.calendar\\1.2.1081\\xamarin.plugin.calendar.1.2.1081.nupkg.sha512"
   ],
   "logs": [
     {
