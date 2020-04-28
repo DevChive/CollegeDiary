@@ -95,14 +95,14 @@ namespace CD.ViewModel.Calendar
             set => SetProperty(ref _selectedDate, value);
         }
 
-        private DateTime _minimumDate = new DateTime(2019, 4, 29);
+        private DateTime _minimumDate = new DateTime(2000, 4, 29);
         public DateTime MinimumDate
         {
             get => _minimumDate;
             set => SetProperty(ref _minimumDate, value);
         }
 
-        private DateTime _maximumDate = DateTime.Today.AddMonths(5);
+        private DateTime _maximumDate = DateTime.Today.AddMonths(50);
         public DateTime MaximumDate
         {
             get => _maximumDate;
