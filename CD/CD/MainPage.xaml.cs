@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CD.Pages;
 
 namespace CD
 {
@@ -24,7 +19,7 @@ namespace CD
         }
         private async void OnSettingsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pages.Settings());
+            await Navigation.PushAsync(new Views.Settings());
         }
         public void toFirstTab()
         {

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CD.Views.AddSubject"
+             Title="Add new subject">
+    <ScrollView>
+        <StackLayout Margin="40">
+            <Label Text="Subject Name"/>
+            <Entry Placeholder="Subject Name" x:Name="subjectName" ReturnType="Next" Keyboard="Text"/>
+
+            <Label Text="Lecturer Name"/>
+            <Entry Placeholder="Lecturer Name" x:Name="lecturerName" ReturnType="Next" Keyboard="Text"/>
+
+            <Label Text="Lecturer Email"/>
+            <Entry Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email"/>
+
+            <Label Text="Continuous Assessment Weight"/>
+            <Entry Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric"/>
+
+            <Label Text="Final Exam Weight"/>
+            <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric"/>
+            <Label></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Save" Clicked="Save_Subject" />
+                <Button Text="Cancel" Clicked="Cancel_Subject"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
