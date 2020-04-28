@@ -15,7 +15,6 @@
 
     <TabbedPage.Children>
         <pages:MyAccount Title="My Account"/>
-        <pages1:Calendar Title="Calendar"/>
+        <pages1:SimplePage Title="Calendar"/>
     </TabbedPage.Children>
-    
 </TabbedPage>
