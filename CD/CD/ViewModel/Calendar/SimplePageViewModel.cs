@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Xamarin.Plugin.Calendar.Models;
 using System.ComponentModel;
 using System.Threading.Tasks;

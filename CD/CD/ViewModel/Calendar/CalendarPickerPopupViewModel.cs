@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Rg.Plugins.Popup.Services;
 using CD.Models.Calendar;
 using System.ComponentModel;
