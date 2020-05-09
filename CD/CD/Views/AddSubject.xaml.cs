@@ -88,8 +88,9 @@ namespace CD.Views
 
         private async void Cancel_Subject(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage(), false);
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            //await Navigation.PushAsync(new MainPage(), false);
+            //Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PopAsync();
             //MainPage.Instance.toFirstTab();
         }
     }
