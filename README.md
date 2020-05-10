@@ -6,6 +6,7 @@ The application will allow students to:
   - add marks and final exams to subjects
   - check their progress for each subject
   - use a calendar for reminders
+  - get nottifications for upcoming exams and projects
   - other features
   
   
