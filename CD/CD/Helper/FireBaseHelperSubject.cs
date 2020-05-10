@@ -11,6 +11,7 @@ namespace CD.Helper
 {
     class FireBaseHelperSubject
     {
+        private readonly string UserUID = App.Token;
         private readonly string Subject_Name = "Subjects";
         readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
 
@@ -18,7 +19,7 @@ namespace CD.Helper
 
         public async Task<List<Subject>> GetAllSubjects()
         {
-            return (await firebase.Child(Subject_Name).OnceAsync<Subject>()).Select(item => new Subject
+            return (await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>()).Select(item => new Subject
             {
                 SubjectName = item.Object.SubjectName,
                 SubjectID = item.Object.SubjectID,
@@ -32,7 +33,7 @@ namespace CD.Helper
         }
         public async Task AddSubject(string subjectName, string lecturerName, string lecturerEmail, int ca, int finalExam)
         {
-            await firebase.Child(Subject_Name).PostAsync(new Subject()
+            await firebase.Child(UserUID).Child(Subject_Name).PostAsync(new Subject()
             {
                 SubjectID = Guid.NewGuid(),
                 SubjectName = subjectName,
@@ -47,22 +48,22 @@ namespace CD.Helper
         public async Task<Subject> GetSubject(Guid subjectID)
         {
             var allSubjects = await GetAllSubjects();
-            await firebase.Child(Subject_Name).OnceAsync<Subject>();
+            await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>();
             return allSubjects.FirstOrDefault(a => a.SubjectID == subjectID);
         }
 
         public async Task<Subject> GetSubject(string subjectname)
         {
             var allSubjects = await GetAllSubjects();
-            await firebase.Child(Subject_Name).OnceAsync<Subject>();
+            await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>();
             return allSubjects.FirstOrDefault(a => a.SubjectName == subjectname);
         }
 
         public async Task DeleteSubject(Guid subjectID)
         {
-            var toDeleteSubject = (await firebase.Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault
+            var toDeleteSubject = (await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault
                 (a => a.Object.SubjectID == subjectID);
-            await firebase.Child(Subject_Name).Child(toDeleteSubject.Key).DeleteAsync();
+            await firebase.Child(UserUID).Child(Subject_Name).Child(toDeleteSubject.Key).DeleteAsync();
         }
 
         public async Task<Decimal> getTotalCA(Guid SubjectID)
@@ -81,8 +82,8 @@ namespace CD.Helper
             Subject this_subject = await GetSubject(SubjectID);
             decimal totalCA = total_CA_all_Marks / this_subject.CA;
 
-            var subjectToUpdate = (await firebase.Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault(a => a.Object.SubjectID == SubjectID);
-            await firebase.Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalCA").PutAsync(totalCA * 100);
+            var subjectToUpdate = (await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault(a => a.Object.SubjectID == SubjectID);
+            await firebase.Child(UserUID).Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalCA").PutAsync(totalCA * 100);
 
             return totalCA;
         }
@@ -100,8 +101,8 @@ namespace CD.Helper
                 }
             }
 
-            var subjectToUpdate = (await firebase.Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault(a => a.Object.SubjectID == SubjectID);
-            await firebase.Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalFinalExam").PutAsync(finalExam * 100);
+            var subjectToUpdate = (await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault(a => a.Object.SubjectID == SubjectID);
+            await firebase.Child(UserUID).Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalFinalExam").PutAsync(finalExam * 100);
 
             return finalExam;
         }

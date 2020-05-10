@@ -2,6 +2,8 @@
 using CD.ViewModel.Auth;
 using CD.Helper;
 using Autofac;
+using sun.security.action;
+using java.util;
 
 namespace CD
 {
@@ -9,6 +11,7 @@ namespace CD
     {
         public IContainer Container { get; }
         public string AuthToken { get; set; }
+        static public string Token { get; set; } = "";
         public App(Module module)
         {
             InitializeComponent();

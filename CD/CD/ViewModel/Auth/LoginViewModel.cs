@@ -8,6 +8,7 @@ using System.Windows.Input;
 using CD.Validations;
 using Xamarin.Forms;
 using Rg.Plugins.Popup.Services;
+using com.sun.xml.@internal.rngom.parse.compact;
 
 namespace CD.ViewModel.Auth
 {
@@ -41,8 +42,7 @@ namespace CD.ViewModel.Auth
             propChangedCallBack();
             try
                 {
-                    (Application.Current as App).AuthToken = await firebaseAuthenticator.LoginWithEmailPassword(Email.Value, Password.Value);
-
+                    App.Token = (Application.Current as App).AuthToken = await firebaseAuthenticator.LoginWithEmailPassword(Email.Value, Password.Value);
                     await navigationService.PushAsync(new MainPage());
                     IsBusy = false;
                     propChangedCallBack();
@@ -50,7 +50,9 @@ namespace CD.ViewModel.Auth
                 catch (Exception)
                 {
                     await navigationService.PushAsync(new LogIn());
-                }
+                    App.Token = "";
+            }
+            
         }
     }
 }

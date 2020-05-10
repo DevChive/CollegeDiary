@@ -21,7 +21,7 @@ namespace CD.Droid
             var user = await FirebaseAuth.Instance.
                             SignInWithEmailAndPasswordAsync(email, password);
             var token = await user.User.GetIdTokenAsync(false);
-            return token.Token;
+            return user.User.Uid;
         }
     }
 }
