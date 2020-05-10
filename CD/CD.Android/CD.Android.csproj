@@ -71,28 +71,33 @@
     <PackageReference Include="Xamarin.Android.Support.Design">
       <Version>28.0.0.3</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.Auth">
+      <Version>60.1142.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Common">
-      <Version>71.1610.0</Version>
+      <Version>60.1142.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Config">
-      <Version>71.1610.0</Version>
+      <Version>60.1142.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Iid">
-      <Version>71.1710.0</Version>
+      <Version>60.1142.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.Base">
-      <Version>71.1610.0</Version>
+      <Version>60.1142.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Basement">
-      <Version>71.1620.0</Version>
+      <Version>60.1142.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Tasks">
-      <Version>71.1601.0</Version>
+      <Version>60.1142.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DroidModule.cs" />
+    <Compile Include="FirebaseAuthenticator.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

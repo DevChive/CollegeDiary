@@ -11,12 +11,13 @@ namespace CD.Helper
 {
     class FireBaseHelperMark
     {
+        private readonly string UserUID = App.Token;
         private readonly string Marks_Name = "Marks";
         readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
 
         public async Task AddMark(Guid subjectID, string mark_name, int result, int weight, string category)
         {
-            await firebase.Child(Marks_Name).PostAsync(new Mark()
+            await firebase.Child(UserUID).Child(Marks_Name).PostAsync(new Mark()
             {
                 SubjectID = subjectID,
                 MarkName = mark_name,
@@ -28,7 +29,7 @@ namespace CD.Helper
 
         public async Task<List<Mark>> GetAllMarks()
         {
-            return (await firebase.Child(Marks_Name).OnceAsync<Mark>()).Select(item => new Mark
+            return (await firebase.Child(UserUID).Child(Marks_Name).OnceAsync<Mark>()).Select(item => new Mark
             {
                 SubjectID = item.Object.SubjectID,
                 MarkName = item.Object.MarkName,
@@ -41,7 +42,7 @@ namespace CD.Helper
         public async Task<Mark> GetMark(string markname)
         {
             var allMarks = await GetAllMarks();
-            await firebase.Child(Marks_Name).OnceAsync<Mark>();
+            await firebase.Child(UserUID).Child(Marks_Name).OnceAsync<Mark>();
             return allMarks.FirstOrDefault(a => a.MarkName == markname);
         }
 
@@ -65,9 +66,9 @@ namespace CD.Helper
             var allMarks = await GetMarksForSubject(s_ID);
             foreach (Mark m in allMarks)
             {
-                var toDeleteMark = (await firebase.Child(Marks_Name).OnceAsync<Mark>()).FirstOrDefault
+                var toDeleteMark = (await firebase.Child(UserUID).Child(Marks_Name).OnceAsync<Mark>()).FirstOrDefault
                     (a => a.Object.SubjectID == s_ID);
-                await firebase.Child(Marks_Name).Child(toDeleteMark.Key).DeleteAsync();
+                await firebase.Child(UserUID).Child(Marks_Name).Child(toDeleteMark.Key).DeleteAsync();
             }
         }
     }

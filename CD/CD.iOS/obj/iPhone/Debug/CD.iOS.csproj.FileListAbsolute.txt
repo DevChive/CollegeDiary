@@ -1,8 +1,10 @@
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\CD.iOS.exe
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\CD.iOS.pdb
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Autofac.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Firebase.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\LiteDB.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\PropertyChanged.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Rg.Plugins.Popup.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Rg.Plugins.Popup.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\System.Reactive.dll
@@ -12,6 +14,10 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Plugin.Connecti
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Plugin.Connectivity.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Xamarin.Essentials.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Xamarin.Essentials.pdb
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Firebase.Analytics.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Firebase.Auth.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Firebase.Core.dll
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Firebase.InstanceID.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.pdb
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.dll
@@ -64,6 +70,10 @@ D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\coremlc\_Partia
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\optimized\
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csprojAssemblyReference.cache
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\XbdMerge\Firebase.InstanceID.dll.stamp
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\XbdMerge\Firebase.Core.dll.stamp
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\XbdMerge\Firebase.Analytics.dll.stamp
+D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\XbdMerge\Firebase.Auth.dll.stamp
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csproj.CoreCompileInputs.cache
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\XamlC.stamp
 D:\--- Apps\Xamarin\CD-1\CollegeDiary\CD\CD.iOS\obj\iPhone\Debug\CD.iOS.csproj.CopyComplete

@@ -42,6 +42,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[4.6.2, )"
+            },
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.0.4, )"
@@ -55,6 +59,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[2.2.9, )"
             },
             "Rg.Plugins.Popup": {
               "target": "Package",
@@ -70,7 +78,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.617, )"
+              "version": "[4.6.0.726, )"
             },
             "Xamarin.Plugin.Calendar": {
               "target": "Package",

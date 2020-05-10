@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Autofac/4.6.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
       "FirebaseDatabase.net/4.0.4": {
         "type": "package",
         "dependencies": {
@@ -14,6 +27,12 @@
         },
         "runtime": {
           "lib/netstandard2.0/Firebase.dll": {}
+        }
+      },
+      "Fody/2.4.4": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "IKVM/8.1.5717": {
@@ -41,6 +60,19 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "PropertyChanged.Fody/2.2.9": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "2.4.4",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        }
+      },
       "Rg.Plugins.Popup/2.0.0.2": {
         "type": "package",
         "dependencies": {
@@ -51,6 +83,15 @@
         },
         "runtime": {
           "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
+        }
+      },
+      "System.ComponentModel/4.0.1": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "System.Reactive/4.0.0": {
@@ -104,6 +145,13 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.4.6": {
+        "type": "package",
+        "build": {
+          "build/Xamarin.Build.Download.props": {},
+          "build/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -115,6 +163,71 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Analytics/4.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/4.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Analytics": "4.0.5",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Auth.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/4.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.InstanceID/2.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.5.0.617": {
@@ -254,12 +367,14 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Autofac": "4.6.2",
           "FirebaseDatabase.net": "4.0.4",
           "IKVM": "8.1.5717",
+          "PropertyChanged.Fody": "2.2.9",
           "Rg.Plugins.Popup": "2.0.0.2",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Essentials": "1.5.2",
-          "Xamarin.Forms": "4.5.0.617",
+          "Xamarin.Forms": "4.6.0.726",
           "Xamarin.Plugin.Calendar": "1.2.1081"
         },
         "compile": {
@@ -271,6 +386,19 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Autofac/4.6.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
       "FirebaseDatabase.net/4.0.4": {
         "type": "package",
         "dependencies": {
@@ -283,6 +411,12 @@
         },
         "runtime": {
           "lib/netstandard2.0/Firebase.dll": {}
+        }
+      },
+      "Fody/2.4.4": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "IKVM/8.1.5717": {
@@ -310,6 +444,19 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "PropertyChanged.Fody/2.2.9": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "2.4.4",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        }
+      },
       "Rg.Plugins.Popup/2.0.0.2": {
         "type": "package",
         "dependencies": {
@@ -320,6 +467,15 @@
         },
         "runtime": {
           "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
+        }
+      },
+      "System.ComponentModel/4.0.1": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "System.Reactive/4.0.0": {
@@ -373,6 +529,13 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.4.6": {
+        "type": "package",
+        "build": {
+          "build/Xamarin.Build.Download.props": {},
+          "build/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -384,6 +547,71 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Analytics/4.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/4.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Analytics": "4.0.5",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Auth.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/4.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.InstanceID/2.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.5.0.617": {
@@ -523,12 +751,14 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Autofac": "4.6.2",
           "FirebaseDatabase.net": "4.0.4",
           "IKVM": "8.1.5717",
+          "PropertyChanged.Fody": "2.2.9",
           "Rg.Plugins.Popup": "2.0.0.2",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Essentials": "1.5.2",
-          "Xamarin.Forms": "4.5.0.617",
+          "Xamarin.Forms": "4.6.0.726",
           "Xamarin.Plugin.Calendar": "1.2.1081"
         },
         "compile": {
@@ -540,6 +770,19 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Autofac/4.6.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
       "FirebaseDatabase.net/4.0.4": {
         "type": "package",
         "dependencies": {
@@ -552,6 +795,12 @@
         },
         "runtime": {
           "lib/netstandard2.0/Firebase.dll": {}
+        }
+      },
+      "Fody/2.4.4": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "IKVM/8.1.5717": {
@@ -579,6 +828,19 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "PropertyChanged.Fody/2.2.9": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "2.4.4",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        }
+      },
       "Rg.Plugins.Popup/2.0.0.2": {
         "type": "package",
         "dependencies": {
@@ -589,6 +851,15 @@
         },
         "runtime": {
           "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
+        }
+      },
+      "System.ComponentModel/4.0.1": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "System.Reactive/4.0.0": {
@@ -642,6 +913,13 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.4.6": {
+        "type": "package",
+        "build": {
+          "build/Xamarin.Build.Download.props": {},
+          "build/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -653,6 +931,71 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Analytics/4.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/4.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Analytics": "4.0.5",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Auth.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/4.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.InstanceID/2.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.5.0.617": {
@@ -792,12 +1135,14 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Autofac": "4.6.2",
           "FirebaseDatabase.net": "4.0.4",
           "IKVM": "8.1.5717",
+          "PropertyChanged.Fody": "2.2.9",
           "Rg.Plugins.Popup": "2.0.0.2",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Essentials": "1.5.2",
-          "Xamarin.Forms": "4.5.0.617",
+          "Xamarin.Forms": "4.6.0.726",
           "Xamarin.Plugin.Calendar": "1.2.1081"
         },
         "compile": {
@@ -809,6 +1154,19 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Autofac/4.6.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
       "FirebaseDatabase.net/4.0.4": {
         "type": "package",
         "dependencies": {
@@ -821,6 +1179,12 @@
         },
         "runtime": {
           "lib/netstandard2.0/Firebase.dll": {}
+        }
+      },
+      "Fody/2.4.4": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "IKVM/8.1.5717": {
@@ -848,6 +1212,19 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "PropertyChanged.Fody/2.2.9": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "2.4.4",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        }
+      },
       "Rg.Plugins.Popup/2.0.0.2": {
         "type": "package",
         "dependencies": {
@@ -858,6 +1235,15 @@
         },
         "runtime": {
           "lib/xamarinios10/Rg.Plugins.Popup.dll": {}
+        }
+      },
+      "System.ComponentModel/4.0.1": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
         }
       },
       "System.Reactive/4.0.0": {
@@ -911,6 +1297,13 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.4.6": {
+        "type": "package",
+        "build": {
+          "build/Xamarin.Build.Download.props": {},
+          "build/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -922,6 +1315,71 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Analytics/4.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/4.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6",
+          "Xamarin.Firebase.iOS.Analytics": "4.0.5",
+          "Xamarin.Firebase.iOS.Core": "4.0.13",
+          "Xamarin.Firebase.iOS.InstanceID": "2.0.8"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Auth.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Auth.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/4.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Core.targets": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.InstanceID/2.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.6"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.5.0.617": {
@@ -1061,12 +1519,14 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Autofac": "4.6.2",
           "FirebaseDatabase.net": "4.0.4",
           "IKVM": "8.1.5717",
+          "PropertyChanged.Fody": "2.2.9",
           "Rg.Plugins.Popup": "2.0.0.2",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Essentials": "1.5.2",
-          "Xamarin.Forms": "4.5.0.617",
+          "Xamarin.Forms": "4.6.0.726",
           "Xamarin.Plugin.Calendar": "1.2.1081"
         },
         "compile": {
@@ -1079,6 +1539,21 @@
     }
   },
   "libraries": {
+    "Autofac/4.6.2": {
+      "sha512": "wKI7F6+n45gqfq0T8FuB3hFzaCkuegiFo5in6uB1y2Ai9ZYcjue8yqk3yzyNEwBDS7AyvlTUGSoNovwpUuKqTw==",
+      "type": "package",
+      "path": "autofac/4.6.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.4.6.2.nupkg.sha512",
+        "autofac.nuspec",
+        "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.xml",
+        "lib/netstandard1.1/Autofac.dll",
+        "lib/netstandard1.1/Autofac.xml"
+      ]
+    },
     "FirebaseDatabase.net/4.0.4": {
       "sha512": "XkdKzFT4rU7x1GEO3v0bGmLT7eXDZ/kHa+77mCHn9LP2KjCEQqt1R5tIctwmlaOEVy66Eb4QxHJ5rjaG8Et1/A==",
       "type": "package",
@@ -1090,6 +1565,50 @@
         "firebasedatabase.net.nuspec",
         "lib/netstandard2.0/Firebase.dll",
         "lib/netstandard2.0/Firebase.xml"
+      ]
+    },
+    "Fody/2.4.4": {
+      "sha512": "r0luGiCgDKYqTet2xN10UVTrcLnATm0zDTK+zSfWIRW/YtQy339Uarq7GUwr/iZt1hz8SSKL1tVNs9MvJNwr2w==",
+      "type": "package",
+      "path": "fody/2.4.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Fody.targets",
+        "fody.2.4.4.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/Fody.pdb",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyCommon.pdb",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyHelpers.pdb",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/FodyIsolated.pdb",
+        "netclassictask/Mono.Cecil.Mdb.dll",
+        "netclassictask/Mono.Cecil.Mdb.pdb",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/Fody.pdb",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyCommon.pdb",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyHelpers.pdb",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/FodyIsolated.pdb",
+        "netstandardtask/Mono.Cecil.Mdb.dll",
+        "netstandardtask/Mono.Cecil.Mdb.pdb",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
       ]
     },
     "IKVM/8.1.5717": {
@@ -1187,6 +1706,25 @@
         "newtonsoft.json.nuspec"
       ]
     },
+    "PropertyChanged.Fody/2.2.9": {
+      "sha512": "6fM+y8qZf9ZCWG25nxsnOF8F8sAmwwjuicuM6ufidoS4xDX0Fpzbu+gm9+f87fn0SWqFe0bh0GQ98W5xs6cuyQ==",
+      "type": "package",
+      "path": "propertychanged.fody/2.2.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/PropertyChanged.dll",
+        "lib/net452/PropertyChanged.xml",
+        "lib/netstandard1.0/PropertyChanged.dll",
+        "lib/netstandard1.0/PropertyChanged.xml",
+        "netclassicweaver/PropertyChanged.Fody.dll",
+        "netclassicweaver/PropertyChanged.Fody.pdb",
+        "netstandardweaver/PropertyChanged.Fody.dll",
+        "netstandardweaver/PropertyChanged.Fody.pdb",
+        "propertychanged.fody.2.2.9.nupkg.sha512",
+        "propertychanged.fody.nuspec"
+      ]
+    },
     "Rg.Plugins.Popup/2.0.0.2": {
       "sha512": "UExzgLevcih/oDokftGPKRqaefS65ByAOeaFzfr1Qy2opeyv9+eR0hDWotGb0hPI5JFHD7NJv5aK6NbTM3WuLw==",
       "type": "package",
@@ -1233,6 +1771,65 @@
         "readme.txt",
         "rg.plugins.popup.2.0.0.2.nupkg.sha512",
         "rg.plugins.popup.nuspec"
+      ]
+    },
+    "System.ComponentModel/4.0.1": {
+      "sha512": "oBZFnm7seFiVfugsIyOvQCWobNZs7FzqDV/B7tx20Ep/l3UUFCPDkdTnCNaJZTU27zjeODmy2C/cP60u3D4c9w==",
+      "type": "package",
+      "path": "system.componentmodel/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.ComponentModel.dll",
+        "lib/netstandard1.3/System.ComponentModel.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/System.ComponentModel.dll",
+        "ref/netcore50/System.ComponentModel.xml",
+        "ref/netcore50/de/System.ComponentModel.xml",
+        "ref/netcore50/es/System.ComponentModel.xml",
+        "ref/netcore50/fr/System.ComponentModel.xml",
+        "ref/netcore50/it/System.ComponentModel.xml",
+        "ref/netcore50/ja/System.ComponentModel.xml",
+        "ref/netcore50/ko/System.ComponentModel.xml",
+        "ref/netcore50/ru/System.ComponentModel.xml",
+        "ref/netcore50/zh-hans/System.ComponentModel.xml",
+        "ref/netcore50/zh-hant/System.ComponentModel.xml",
+        "ref/netstandard1.0/System.ComponentModel.dll",
+        "ref/netstandard1.0/System.ComponentModel.xml",
+        "ref/netstandard1.0/de/System.ComponentModel.xml",
+        "ref/netstandard1.0/es/System.ComponentModel.xml",
+        "ref/netstandard1.0/fr/System.ComponentModel.xml",
+        "ref/netstandard1.0/it/System.ComponentModel.xml",
+        "ref/netstandard1.0/ja/System.ComponentModel.xml",
+        "ref/netstandard1.0/ko/System.ComponentModel.xml",
+        "ref/netstandard1.0/ru/System.ComponentModel.xml",
+        "ref/netstandard1.0/zh-hans/System.ComponentModel.xml",
+        "ref/netstandard1.0/zh-hant/System.ComponentModel.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.componentmodel.4.0.1.nupkg.sha512",
+        "system.componentmodel.nuspec"
       ]
     },
     "System.Reactive/4.0.0": {
@@ -1521,6 +2118,24 @@
         "xam.plugin.connectivity.nuspec"
       ]
     },
+    "Xamarin.Build.Download/0.4.6": {
+      "sha512": "MCcNQa7gHQVYDzt6YKSrAjOBNqgb3JQYZDPubtWk2s/eV4eUBicuxZczchcvuk2+US3AOuyFxIcMwnej74dWaA==",
+      "type": "package",
+      "path": "xamarin.build.download/0.4.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Mono.Cecil.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/System.Net.Http.Formatting.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.4.6.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.5.2": {
       "sha512": "qHxkrkx5jIC0X/qWhxCPZ3MuuOJm8bfCzAoUtlpOBSE4oV0JhrkTezK0A+IV+k/MeJ3zKc8FexaIXah9rlCTIw==",
       "type": "package",
@@ -1567,6 +2182,59 @@
         "readme.txt",
         "xamarin.essentials.1.5.2.nupkg.sha512",
         "xamarin.essentials.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Analytics/4.0.5": {
+      "sha512": "dxcY457QX3Z/abJtQHm/Jz9ROdE6v6LBI/H5TNk9yMMq+aHnMFH7Qg56ZMUpJAa/d7rQ3dJQxZiZuVVIwrFWcA==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.analytics/4.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Xamarin.Firebase.iOS.Analytics.targets",
+        "lib/Xamarin.iOS10/Firebase.Analytics.dll",
+        "xamarin.firebase.ios.analytics.4.0.5.nupkg.sha512",
+        "xamarin.firebase.ios.analytics.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Auth/4.4.1": {
+      "sha512": "0m2r7KQ6rpj952XNedtVxP8iFA8zhl6CJ0sUtLPG0eaga8E+0ik5fORnlmtKL44nzER+57nQnYiOC5AF7KQX6Q==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.auth/4.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Xamarin.Firebase.iOS.Auth.targets",
+        "lib/Xamarin.iOS10/Firebase.Auth.dll",
+        "xamarin.firebase.ios.auth.4.4.1.nupkg.sha512",
+        "xamarin.firebase.ios.auth.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Core/4.0.13": {
+      "sha512": "wNCW4IE4Xj4qg/kYhVQWXgxIjWkFXpUZM1b4ajVwiUt0BL1vHAriGLp1Eb1rVTo5RzDI0rs0eYXavZqGjoHX1w==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.core/4.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICES",
+        "build/Xamarin.Firebase.iOS.Core.targets",
+        "lib/Xamarin.iOS10/Firebase.Core.dll",
+        "xamarin.firebase.ios.core.4.0.13.nupkg.sha512",
+        "xamarin.firebase.ios.core.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.InstanceID/2.0.8": {
+      "sha512": "SGG0uH5WDSIjLUhm/qV5dIKsqScffR45PpKNYl5vnXlrdPkiP9xDQK1CBWU1zBFc+orGPMUy+nBctileV9jRQg==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.instanceid/2.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Xamarin.Firebase.iOS.InstanceID.targets",
+        "lib/Xamarin.iOS10/Firebase.InstanceID.dll",
+        "xamarin.firebase.ios.instanceid.2.0.8.nupkg.sha512",
+        "xamarin.firebase.ios.instanceid.nuspec"
       ]
     },
     "Xamarin.Forms/4.5.0.617": {
@@ -1913,8 +2581,10 @@
     "Xamarin.iOS,Version=v1.0": [
       "CD >= 1.0.0",
       "FirebaseDatabase.net >= 4.0.4",
+      "Fody >= 2.4.4",
       "Xam.Plugin.Connectivity >= 3.2.0",
       "Xamarin.Essentials >= 1.5.2",
+      "Xamarin.Firebase.iOS.Auth >= 4.4.1",
       "Xamarin.Forms >= 4.5.0.617"
     ]
   },
@@ -1964,6 +2634,12 @@
             "target": "Package",
             "version": "[4.0.4, )"
           },
+          "Fody": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.4.4, )"
+          },
           "Xam.Plugin.Connectivity": {
             "target": "Package",
             "version": "[3.2.0, )"
@@ -1971,6 +2647,10 @@
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.2, )"
+          },
+          "Xamarin.Firebase.iOS.Auth": {
+            "target": "Package",
+            "version": "[4.4.1, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
@@ -1992,6 +2672,19 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 4.6.0.726 to 4.5.0.617. Reference the package directly from the project to select a different version. \r\n CD.iOS -> CD -> Xamarin.Forms (>= 4.6.0.726) \r\n CD.iOS -> Xamarin.Forms (>= 4.5.0.617)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
     {
       "code": "NU1202",
       "level": "Error",

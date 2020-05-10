@@ -21,13 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
     <PackageReference Include="IKVM" Version="8.1.5717" />
+    <PackageReference Include="PropertyChanged.Fody" Version="2.2.9" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <PackageReference Include="Xamarin.Plugin.Calendar" Version="1.2.1081" />
+	<GoogleServicesJson Include="google-services.json" />
   </ItemGroup>
 
   <ItemGroup>
