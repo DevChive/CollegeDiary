@@ -32,8 +32,8 @@ namespace CD.ViewModel.Auth
 
             LoginCmd = new Command(async () => await Login(), () => Email.IsValid && Password.IsValid && !IsBusy);
 
-            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "myuser@service.com" };
-            Password = new ValidatableObject<string>(propChangedCallBack, new PasswordValidator()) { Value = "Qwerty123" };
+            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "test@yahoo.com" };
+            Password = new ValidatableObject<string>(propChangedCallBack, new PasswordValidator()) { Value = "test123" };
         }
 
         async Task Login()
@@ -43,14 +43,13 @@ namespace CD.ViewModel.Auth
             try
                 {
                     App.Token = (Application.Current as App).AuthToken = await firebaseAuthenticator.LoginWithEmailPassword(Email.Value, Password.Value);
-                    await navigationService.PushAsync(new MainPage());
                     IsBusy = false;
                     propChangedCallBack();
                 }
                 catch (Exception)
                 {
-                    await navigationService.PushAsync(new LogIn());
                     App.Token = "";
+                    App.Current.MainPage = new NavigationPage(new LogIn());
             }
             
         }

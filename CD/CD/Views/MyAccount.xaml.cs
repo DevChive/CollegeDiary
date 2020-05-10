@@ -24,7 +24,6 @@ namespace CD.Views
         private void load_add_subject(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddSubject());
-            //TODO: make the add subject, after submission to load the home page
         }
         private void load_create_student(object sender, EventArgs e)
         {

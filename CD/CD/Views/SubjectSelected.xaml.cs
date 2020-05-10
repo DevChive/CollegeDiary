@@ -31,7 +31,6 @@ namespace CD.Views
             subjectMark = new SubjectMark(_subject, listMarks);
 
             this.BindingContext = subjectMark; //!!!
-
             status_bars();
         }
 
@@ -54,8 +53,11 @@ namespace CD.Views
             else if (FinalExamProgress >= pass && FinalExamProgress < distinction) { statusFinalExam.ProgressColor = Color.Orange; }
             else if(FinalExamProgress >= distinction) { statusFinalExam.ProgressColor = Color.LightGreen; }
 
-            await statusCA.ProgressTo(CA, 500, Easing.Linear);
-            await statusFinalExam.ProgressTo(FE, 500, Easing.Linear);
+            Ca_StatusBar.Text = (CA*100).ToString("F2") + "%";
+            await statusCA.ProgressTo(CA, 100, Easing.Linear);
+
+            Fe_StatusBar.Text = (FE*100).ToString("F2") + "%";
+            await statusFinalExam.ProgressTo(FE, 100, Easing.Linear);
 
         }
 
