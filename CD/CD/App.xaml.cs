@@ -2,8 +2,7 @@
 using CD.ViewModel.Auth;
 using CD.Helper;
 using Autofac;
-using sun.security.action;
-using java.util;
+using CD.Views;
 
 namespace CD
 {
@@ -16,7 +15,14 @@ namespace CD
         {
             InitializeComponent();
             Container = BuildContainer(module);
-            MainPage = new NavigationPage (new MainPage());
+            if (string.IsNullOrEmpty(App.Token))
+            {
+                MainPage = new NavigationPage(new LogIn());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
         }
 
         protected override void OnStart()

@@ -62,7 +62,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Continuous Assessment  " />
-                        <Span Text="{Binding subjectL.TotalCA, StringFormat='{0:N} %'}"/>
+                        <Span x:Name="Ca_StatusBar" Text="{Binding subjectL.TotalCA, StringFormat='{0:N} %'}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -72,7 +72,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Final Exam  "/>
-                        <Span Text="{Binding subjectL.TotalFinalExam, StringFormat='{0:N} %'}"/>
+                        <Span x:Name="Fe_StatusBar" Text="{Binding subjectL.TotalFinalExam, StringFormat='{0:N} %'}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

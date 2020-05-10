@@ -6,7 +6,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local="clr-namespace:CD"
-             x:Class="CD.Views.LogIn">
+             x:Class="CD.Views.LogIn"
+             Title="College Diary">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:InvertBooleanConverter x:Key="invertBooleanConverter" />

@@ -61,6 +61,7 @@ namespace CD.Views
                 var mark = await fireBaseHelper.GetMark(mark_name.Text);
                 await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
                 await DisplayAlert("Success", "Your result had been recorded", "OK");
+
                 // refresh the page to show the added mark to the subject
                 await Navigation.PushAsync(new SubjectSelected(_subject), false);
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);

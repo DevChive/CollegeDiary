@@ -10,6 +10,7 @@ namespace CD.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LogIn : ContentPage
 	{
+
 		public LogIn()
 		{
 			InitializeComponent();
@@ -18,8 +19,8 @@ namespace CD.Views
 
 		private async void Login(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new MainPage());
-
+			App.Current.MainPage = new NavigationPage(new MainPage());
+			//TODO: Put a wrong password message and clear the password field
 		}
 		private async void Cancel_Login(object sender, EventArgs e)
 		{
