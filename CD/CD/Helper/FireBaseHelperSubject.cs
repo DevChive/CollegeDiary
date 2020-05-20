@@ -11,7 +11,7 @@ namespace CD.Helper
 {
     class FireBaseHelperSubject
     {
-        private readonly string UserUID = App.Token;
+        private readonly string UserUID = App.UserUID;
         private readonly string Subject_Name = "Subjects";
         readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
 

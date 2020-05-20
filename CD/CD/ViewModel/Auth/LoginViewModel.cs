@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using CD.Helper;
 using CD.Views;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CD.Validations;
 using Xamarin.Forms;
-using Rg.Plugins.Popup.Services;
-using com.sun.xml.@internal.rngom.parse.compact;
+using Firebase.Database;
 
 namespace CD.ViewModel.Auth
 {
@@ -17,6 +14,7 @@ namespace CD.ViewModel.Auth
         public ValidatableObject<string> Email { get; }
         public ValidatableObject<string> Password { get; }
         public ICommand LoginCmd { get; }
+        public static IFirebaseAuthenticator auth;
 
         readonly IFirebaseAuthenticator firebaseAuthenticator;
         readonly NavigationService navigationService;
@@ -38,20 +36,32 @@ namespace CD.ViewModel.Auth
 
         async Task Login()
         {
-            IsBusy = true;
-            propChangedCallBack();
             try
+            {
+                IsBusy = true;
+                propChangedCallBack();
+
+                App.UserUID = (Application.Current as App).AuthToken = await firebaseAuthenticator.LoginWithEmailPassword(Email.Value, Password.Value);
+                auth = firebaseAuthenticator;
+                if (auth.IsSignedIn())
                 {
-                    App.Token = (Application.Current as App).AuthToken = await firebaseAuthenticator.LoginWithEmailPassword(Email.Value, Password.Value);
-                    IsBusy = false;
-                    propChangedCallBack();
+                    App.Current.MainPage = new NavigationPage(new MainPage());
                 }
-                catch (Exception)
+                else 
                 {
-                    App.Token = "";
+                    App.UserUID = "";
                     App.Current.MainPage = new NavigationPage(new LogIn());
+                }
+                IsBusy = false;
+                propChangedCallBack();
             }
             
+            catch (Exception e)
+            {
+                App.UserUID = "";
+                App.Current.MainPage.DisplayAlert("Error", "Invalid e-mail or password","OK");
+                App.Current.MainPage = new NavigationPage(new LogIn());
+            } 
         }
     }
 }

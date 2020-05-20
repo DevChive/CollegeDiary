@@ -3,6 +3,7 @@ using CD.ViewModel.Auth;
 using CD.Helper;
 using Autofac;
 using CD.Views;
+using com.sun.org.apache.xml.@internal.security.signature;
 
 namespace CD
 {
@@ -10,12 +11,13 @@ namespace CD
     {
         public IContainer Container { get; }
         public string AuthToken { get; set; }
-        static public string Token { get; set; } = "";
+        static public string UserUID { get; set; } = "";
+
         public App(Module module)
         {
             InitializeComponent();
             Container = BuildContainer(module);
-            if (string.IsNullOrEmpty(App.Token))
+            if (string.IsNullOrEmpty(App.UserUID))
             {
                 MainPage = new NavigationPage(new LogIn());
             }

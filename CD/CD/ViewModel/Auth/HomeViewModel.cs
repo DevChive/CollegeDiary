@@ -22,7 +22,7 @@ namespace CD.ViewModel.Auth
             MakeApiRequestCmd = new Command<bool>(async (authorized) => await MakeApiRequest(authorized), _ => !IsBusy);
         }
 
-        // Without provided Token a 401 will be returned
+        // Without provided UserUID a 401 will be returned
         async Task MakeApiRequest(bool authorized)
         {
             try
