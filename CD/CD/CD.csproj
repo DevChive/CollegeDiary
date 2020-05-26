@@ -18,6 +18,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\fb.png" />
     <EmbeddedResource Include="Images\gmail.png" />
+	<EmbeddedResource Include="Images\ic.png" />
+	
   </ItemGroup>
 
   <ItemGroup>

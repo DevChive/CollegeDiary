@@ -56,7 +56,7 @@ namespace CD.ViewModel.Auth
                 propChangedCallBack();
             }
             
-            catch (Exception e)
+            catch (Exception)
             {
                 App.UserUID = "";
                 App.Current.MainPage.DisplayAlert("Error", "Invalid e-mail or password","OK");

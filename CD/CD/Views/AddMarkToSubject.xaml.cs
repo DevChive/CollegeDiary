@@ -56,7 +56,7 @@ namespace CD.Views
 
             if (validate)
             {
-                int result = Int32.Parse(this.result.Text);
+                decimal result = Decimal.Parse(this.result.Text);
                 int weight = Int32.Parse(this.weight.Text);
                 var mark = await fireBaseHelper.GetMark(mark_name.Text);
                 await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
