@@ -72,7 +72,7 @@ namespace CD.ViewModel.Calendar
 
         public EventCollection Events { get; }
 
-        private int _month = DateTime.Today.Month;
+        public int _month = DateTime.Today.Month;
         public int Month
         {
             get => _month;
@@ -86,8 +86,7 @@ namespace CD.ViewModel.Calendar
             set => SetProperty(ref _year, value);
         }
 
-
-        private DateTime _selectedDate = DateTime.Today;
+        public static DateTime _selectedDate = DateTime.Today;
         public DateTime SelectedDate
         {
             get => _selectedDate;
@@ -114,6 +113,12 @@ namespace CD.ViewModel.Calendar
             {
                 await App.Current.MainPage.DisplayAlert(eventModel.Name, eventModel.Description, "Ok");
             }
+        }
+
+        public static DateTime theSelectedDate()
+        {
+            // returns the selected day from the calendar
+            return _selectedDate;
         }
     }
 }

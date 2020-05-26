@@ -41,7 +41,7 @@ namespace CD.Views
 
             if (validate)
             {
-                int result = Int32.Parse(this.result.Text);
+                decimal result = Decimal.Parse(this.result.Text);
                 await DisplayAlert("Success", "Your final exam result had been recorded", "OK");
                 await fireBaseHelper.AddMark(_subject.SubjectID, "Final Exam", result, _subject.FinalExam, "Final Exam");
                 await Navigation.PushAsync(new SubjectSelected(_subject), false);

@@ -58,11 +58,11 @@
                 </StackLayout>
                 <Label></Label>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button ImageSource ="{local:ImageResource CD.Images.fb.png}" ContentLayout="Left, 40" Clicked="Gmail"/>
+                    <Button ImageSource ="{local:ImageResource CD.Images.fb.png}" BackgroundColor="Transparent" ContentLayout="Left, 40" Clicked="Facebook"/>
                     <ActivityIndicator
                         IsVisible="{Binding IsBusy}"
-                        IsRunning="{Binding IsBusy}" />     
-                    <Button ImageSource ="{local:ImageResource CD.Images.gmail.png}" ContentLayout="Right, 40" Clicked="Gmail" />
+                        IsRunning="{Binding IsBusy}" />
+                    <Button ImageSource ="{local:ImageResource CD.Images.gmail.png}" BackgroundColor="Transparent" ContentLayout="Right, 40" Clicked="Gmail" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

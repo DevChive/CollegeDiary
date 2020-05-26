@@ -15,7 +15,7 @@ namespace CD.Helper
         private readonly string Marks_Name = "Marks";
         readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
 
-        public async Task AddMark(Guid subjectID, string mark_name, int result, int weight, string category)
+        public async Task AddMark(Guid subjectID, string mark_name, decimal result, int weight, string category)
         {
             await firebase.Child(UserUID).Child(Marks_Name).PostAsync(new Mark()
             {

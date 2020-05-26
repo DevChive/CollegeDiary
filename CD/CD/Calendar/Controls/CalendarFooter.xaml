@@ -18,7 +18,6 @@
             TextColor="{Binding SelectedDateColor}"
             VerticalOptions="CenterAndExpand"
             VerticalTextAlignment="Center" />
-
         <Label
             x:Name="showHideLabel"
             Grid.Column="1"

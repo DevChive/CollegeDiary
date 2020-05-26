@@ -38,5 +38,10 @@ namespace CD.Views
 		{
 			 await DisplayAlert("Authentication Failed", "Email or password are incorrect. Try again!", "OK");
 		}
+
+		private void Facebook(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
