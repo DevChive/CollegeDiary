@@ -25,5 +25,32 @@ namespace CD.Helper
                 Time = time
             });
         }
+        public async Task<List<EventModel>> GetAllEvents()
+        {
+            return (await firebase.Child(UserUID).Child(Calendar_Name).OnceAsync<EventModel>()).Select(item => new EventModel
+            {
+                Name = item.Object.Name,
+                Description = item.Object.Description,
+                EventDate = item.Object.EventDate,
+                Time = item.Object.Time
+            }).ToList();
+        }
+
+        public async Task<List<EventModel>> GetEventsForThisDay(DateTime thisDate)
+        {
+            var allEvents = await GetAllEvents();
+            var allEventsOfThisDay = new List<EventModel>();
+            string daySelected = thisDate.Date.Day + "/" + thisDate.Date.Month + "/" + thisDate.Date.Year;
+            foreach (EventModel e in allEvents)
+            {
+                if (daySelected == e.EventDate)
+                {
+                    allEventsOfThisDay.Add(e);
+                }
+            }
+            return allEventsOfThisDay;
+        }
+
+
     }
 }
