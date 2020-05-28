@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CD.Views.Calendar.AddCalendarEvent">
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     Padding="30"
+                     BackgroundColor="WhiteSmoke"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Center">
+            <Label Text="New calendar event" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+            <Label></Label>
+            <Label Text="Name of the event"/>
+            <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"/>
+            <Label Text="Description"/>
+            <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text"/>
+            <Label Text="Date of the event"/>
+            <DatePicker 
+                x:Name="TheDaySelected"
+                Format="dd/MM/yyyy"
+                Date="{Binding selectedDate, Mode=TwoWay}" />
+            <Label Text="Time of the event"/>
+            <TimePicker x:Name="timePicker"
+                    Time="12:00"
+                    Format="T"
+                    PropertyChanged="OnTimePickerPropertyChanged" />
+            <Label></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Save" Clicked="Save_Event"/>
+                <Button Text="Cancel" Clicked="Cancel_Event"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>
