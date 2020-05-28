@@ -22,6 +22,7 @@ namespace CD.ViewModel.Calendar
             storage = value;
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         }
 
         #endregion

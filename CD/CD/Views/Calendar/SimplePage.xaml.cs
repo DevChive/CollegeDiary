@@ -3,16 +3,18 @@ using CD.ViewModel.Calendar;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
+using CD.Helper;
 
 namespace CD.Views.Calendar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SimplePage : ContentPage
     {
-        public string DateSelected = "";
+        readonly FireBaseHelperCalendarEvents fireBaseHelper = new FireBaseHelperCalendarEvents();
         public SimplePage()
         {
             InitializeComponent();
+            // TODO: Console.WriteLine("**********************" + fireBaseHelper.GetEventsForThisDay(SimplePageViewModel.theSelectedDate()));
         }
 
         private void AddEvent(object sender, EventArgs e)

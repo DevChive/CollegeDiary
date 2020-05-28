@@ -1,9 +1,7 @@
 ﻿using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
-using CD.ViewModel.Calendar;
 using System;
 using CD.Helper;
-using System;
 
 namespace CD.Views.Calendar
 {
@@ -27,15 +25,22 @@ namespace CD.Views.Calendar
         {
             string name = event_name.Text;
             string desc = event_description.Text;
-            DateTime date = TheDaySelected.Date;
+            string date = TheDaySelected.Date.Day + "/" + TheDaySelected.Date.Month + "/" + TheDaySelected.Date.Year;
             TimeSpan time = timePicker.Time;
-            await fireBaseHelper.AddEvent(name, desc, date.Date.ToString(), time);
-            PopupNavigation.RemovePageAsync(this);
+            if (!string.IsNullOrEmpty(name))
+            {
+                await fireBaseHelper.AddEvent(name, desc, date, time);
+                await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on \n" 
+                    + date + " at " + time.Hours.ToString() + ":" + time.Minutes.ToString(), "OK");
+                await PopupNavigation.RemovePageAsync(this);
+            }
+            else
+                await DisplayAlert("Failed", "Please add a name to the event", "OK");
         }
 
-        private void Cancel_Event(object sender, System.EventArgs e)
+        private async void Cancel_Event(object sender, System.EventArgs e)
         {
-            PopupNavigation.RemovePageAsync(this);
+           await PopupNavigation.RemovePageAsync(this);
         }
 
         private void OnTimePickerPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

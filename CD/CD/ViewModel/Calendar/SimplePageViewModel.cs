@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 using CD.Models.Calendar;
+using CD.Helper;
 
 namespace CD.ViewModel.Calendar
 {
