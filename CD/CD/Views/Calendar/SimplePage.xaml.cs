@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CD.ViewModel.Calendar;
-using java.time;
-using CD.ViewModel.Calendar;
-using CD.Models.Calendar;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using com.sun.xml.@internal.fastinfoset.util;
+using Rg.Plugins.Popup.Services;
 
 namespace CD.Views.Calendar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SimplePage : ContentPage
     {
+        public string DateSelected = "";
         public SimplePage()
         {
             InitializeComponent();
@@ -23,17 +17,14 @@ namespace CD.Views.Calendar
 
         private void AddEvent(object sender, EventArgs e)
         {
-            string date = SimplePageViewModel.theSelectedDate().ToString();
-            String[] theDate = parseDate(date);
-            Console.WriteLine("--------------------------   Add Event Pressed: " + theDate[0] + "/" + theDate[1] + "/" + theDate[2]);
+            PopupNavigation.PushAsync(new AddCalendarEvent(SimplePageViewModel.theSelectedDate()));
         }
 
-        private String[] parseDate(string date)
+        public static String[] parseDate(DateTime date)
         {
-            DateTime theDate = (Convert.ToDateTime(date));
-            String day = theDate.Day.ToString();
-            String month = theDate.Month.ToString();
-            String year = theDate.Year.ToString();
+            String day = date.Day.ToString();
+            String month = date.Month.ToString();
+            String year = date.Year.ToString();
             String[] parsedDate = { day, month, year };
             return parsedDate;
         }
