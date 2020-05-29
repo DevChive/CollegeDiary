@@ -26,12 +26,12 @@ namespace CD.Views.Calendar
             string name = event_name.Text;
             string desc = event_description.Text;
             string date = TheDaySelected.Date.Day + "/" + TheDaySelected.Date.Month + "/" + TheDaySelected.Date.Year;
-            TimeSpan time = timePicker.Time;
+            //TimeSpan time = timePicker.Time;
             if (!string.IsNullOrEmpty(name))
             {
-                await fireBaseHelper.AddEvent(name, desc, date, time);
-                await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on \n" 
-                    + date + " at " + time.Hours.ToString() + ":" + time.Minutes.ToString(), "OK");
+               // await fireBaseHelper.AddEvent(name, desc, DateTime.Parse(date), time);
+                //await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on \n" 
+                //    + date + " at " + time.Hours.ToString() + ":" + time.Minutes.ToString(), "OK");
                 await PopupNavigation.RemovePageAsync(this);
             }
             else

@@ -9,7 +9,7 @@ namespace CD.Models.Calendar
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public string EventDate { get; set; }
-        public TimeSpan Time { get; set; }
+        public DateTime? EventDate { get; set; }
+        public DateTime? EventEndDate { get; set; }
     }
 }

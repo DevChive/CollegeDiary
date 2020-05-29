@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+
+using Syncfusion.SfSchedule.XForms.iOS;
 using UIKit;
 
 namespace CD.iOS
@@ -23,6 +25,7 @@ namespace CD.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SfScheduleRenderer.Init();
             LoadApplication(new App(new IOSModule()));
 
             return base.FinishedLaunching(app, options);

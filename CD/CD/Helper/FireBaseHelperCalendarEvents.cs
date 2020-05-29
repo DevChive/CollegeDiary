@@ -15,14 +15,14 @@ namespace CD.Helper
         private readonly string UserUID = App.UserUID;
         readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
 
-        public async Task AddEvent(string name, string description, string date, TimeSpan time)
+        public async Task AddEvent(string name, string description, DateTime startDate, DateTime endDate)
         {
             await firebase.Child(UserUID).Child(Calendar_Name).PostAsync(new EventModel()
             {
                 Name = name,
                 Description = description,
-                EventDate = date,
-                Time = time
+                EventDate = startDate,
+                EventEndDate = endDate
             });
         }
         public async Task<List<EventModel>> GetAllEvents()
@@ -32,7 +32,7 @@ namespace CD.Helper
                 Name = item.Object.Name,
                 Description = item.Object.Description,
                 EventDate = item.Object.EventDate,
-                Time = item.Object.Time
+                EventEndDate = item.Object.EventEndDate
             }).ToList();
         }
 
@@ -41,13 +41,22 @@ namespace CD.Helper
             var allEvents = await GetAllEvents();
             var allEventsOfThisDay = new List<EventModel>();
             string daySelected = thisDate.Date.Day + "/" + thisDate.Date.Month + "/" + thisDate.Date.Year;
-            foreach (EventModel e in allEvents)
+
+            try
             {
-                if (daySelected == e.EventDate)
+                foreach (EventModel e in allEvents)
                 {
-                    allEventsOfThisDay.Add(e);
+                    if (DateTime.Parse(daySelected) == e.EventDate)
+                    {
+                        allEventsOfThisDay.Add(e);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Something went wrong!", "OK");
+            }
+          
             return allEventsOfThisDay;
         }
 
