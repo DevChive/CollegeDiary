@@ -5,23 +5,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:CD.ViewModel"
     xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar" 
-    xmlns:local="clr-namespace:CD.ViewModel.Calendar"
-    xmlns:local1="clr-namespace:CD"
+   
+    xmlns:local1="clr-namespace:CD" 
+    xmlns:xforms1="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
     x:Name="simpleCalendarPage"
     mc:Ignorable="d">
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding TodayCommand}" Text="Today" />
     </ContentPage.ToolbarItems>
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <local:SimplePageViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <plugin:Calendar
-        Padding="10,0"
+        <!--<plugin:Calendar
+        Padding="10,0"  x:Name="calendarView"
         Events="{Binding Events}"
         HorizontalOptions="FillAndExpand"
         MaximumDate="{Binding MaximumDate}"
@@ -55,7 +57,19 @@
                     </ScrollView>
                 </DataTemplate>
         </plugin:Calendar.EventTemplate>
-    </plugin:Calendar>
+    </plugin:Calendar>-->
+
+        <xforms1:SfSchedule BindingContext="{Binding Source={x:Static local:ZZZ.Instance}}" DataSource="{Binding Events}" ScheduleView="MonthView">
+            <xforms1:SfSchedule.AppointmentMapping>
+                <xforms1:ScheduleAppointmentMapping 
+                    SubjectMapping="Name" 
+                    NotesMapping="Description"
+                    StartTimeMapping="EventDate"
+                    EndTimeMapping="EventEndDate"
+                    />
+            </xforms1:SfSchedule.AppointmentMapping>
+        </xforms1:SfSchedule>
+        
         <Button Image="{local1:ImageResource CD.Images.ic.png}" Grid.Row="0"
                 ContentLayout="Right, 40" HorizontalOptions="End"  BackgroundColor="Transparent"
                 WidthRequest="50" HeightRequest="50" Margin="0,0,20,22" VerticalOptions="End" Clicked="AddEvent"/>
