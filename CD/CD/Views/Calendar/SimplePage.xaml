@@ -7,13 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:CD.ViewModel"
     xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar" 
-   
     xmlns:local1="clr-namespace:CD" 
     xmlns:xforms1="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
     x:Name="simpleCalendarPage"
     mc:Ignorable="d">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding TodayCommand}" Text="Today" />
+        <!-- HERE SOMETHING -->
     </ContentPage.ToolbarItems>
     <!--<ContentPage.BindingContext>
         <local:SimplePageViewModel />
@@ -59,18 +58,16 @@
         </plugin:Calendar.EventTemplate>
     </plugin:Calendar>-->
 
-        <xforms1:SfSchedule BindingContext="{Binding Source={x:Static local:ZZZ.Instance}}" DataSource="{Binding Events}" ScheduleView="MonthView">
+        <xforms1:SfSchedule x:Name="schedule" ScheduleView="MonthView">
             <xforms1:SfSchedule.AppointmentMapping>
                 <xforms1:ScheduleAppointmentMapping 
                     SubjectMapping="Name" 
                     NotesMapping="Description"
-                    StartTimeMapping="EventDate"
-                    EndTimeMapping="EventEndDate"
-                    />
+                    StartTimeMapping="EventDate"/>
             </xforms1:SfSchedule.AppointmentMapping>
         </xforms1:SfSchedule>
-        
-        <Button Image="{local1:ImageResource CD.Images.ic.png}" Grid.Row="0"
+
+        <Button Image="{local1:ImageResource CD.Images.ic.png}" Grid.Row="0" 
                 ContentLayout="Right, 40" HorizontalOptions="End"  BackgroundColor="Transparent"
                 WidthRequest="50" HeightRequest="50" Margin="0,0,20,22" VerticalOptions="End" Clicked="AddEvent"/>
     </Grid>

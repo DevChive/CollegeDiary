@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using CD.Helper;
+using Syncfusion.SfSchedule.XForms;
 
 namespace CD.Views.Calendar
 {
@@ -14,20 +15,26 @@ namespace CD.Views.Calendar
         public SimplePage()
         {
             InitializeComponent();
-            // TODO: Console.WriteLine("**********************" + fireBaseHelper.GetEventsForThisDay(SimplePageViewModel.theSelectedDate()));
+
+            schedule.CellTapped += CellTappedEventHandler;
+            void CellTappedEventHandler(object sender, CellTappedEventArgs e)
+            {
+                PopupNavigation.PushAsync(new DayView());
+            }
         }
 
         private void AddEvent(object sender, EventArgs e)
         {
-            //PopupNavigation.PushAsync(new AddCalendarEvent(SimplePageViewModel.theSelectedDate()));
+            DateTime dateSelected = Convert.ToDateTime(schedule.SelectedDate.ToString());
+            PopupNavigation.PushAsync(new AddCalendarEvent(dateSelected));
         }
 
-        public static String[] parseDate(DateTime date)
+        public static string[] parseDate(DateTime date)
         {
             var day = date.Day.ToString();
             var month = date.Month.ToString();
-            String year = date.Year.ToString();
-            String[] parsedDate = { day, month, year };
+            var year = date.Year.ToString();
+            string[] parsedDate = { day, month, year };
             return parsedDate;
         }
     }

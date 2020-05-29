@@ -20,17 +20,17 @@ namespace CD
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjMzNjE3QDMxMzgyZTMxMmUzMGRDdi8wVjRPNUl5ZjNNSGc2WFAxM3h5K1E3MENsdEswWm5HMUFTMXpZa2M9");
             InitializeComponent();
 
-#if DEBUG
-            var @event = new Models.Calendar.EventModel()
-            {
-                Name = "Test",
-                Description = "Foo bar is a good thing!",
-                EventDate = DateTime.Now,
-                EventEndDate = DateTime.Now.AddHours(5)
-            };
+            //#if DEBUG
+            //            var @event = new Models.Calendar.EventModel()
+            //            {
+            //                Name = "Test",
+            //                Description = "Foo bar is a good thing!",
+            //                EventDate = DateTime.Now,
+            //                EventEndDate = DateTime.Now.AddHours(5)
+            //            };
 
-            ZZZ.Instance.Events.Add(@event);
-#endif
+            //            ZZZ.Instance.Events.Add(@event);
+            //#endif
 
             Container = BuildContainer(module);
             if (string.IsNullOrEmpty(App.UserUID))
