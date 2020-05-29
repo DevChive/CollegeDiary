@@ -10,6 +10,5 @@ namespace CD.Models.Calendar
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime? EventDate { get; set; }
-        public DateTime? EventEndDate { get; set; }
     }
 }
