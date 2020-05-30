@@ -32,7 +32,7 @@ namespace CD.Views.Calendar
             if (!string.IsNullOrEmpty(name))
             {
                 await fireBaseHelper.AddEvent(name, desc, date);
-                await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on \n" 
+                await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on " 
                     +  date.Date.Day.ToString() + "/" + date.Date.Month.ToString() + "/" + date.Date.Year.ToString() + 
                     " at " + date.Hour.ToString() + ":" + date.Minute.ToString(), "OK");
                 await PopupNavigation.RemovePageAsync(this);

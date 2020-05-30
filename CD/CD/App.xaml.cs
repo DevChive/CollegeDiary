@@ -17,7 +17,7 @@ namespace CD
 
         public App(Module module)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjMzNjE3QDMxMzgyZTMxMmUzMGRDdi8wVjRPNUl5ZjNNSGc2WFAxM3h5K1E3MENsdEswWm5HMUFTMXpZa2M9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjY1MDQyQDMxMzgyZTMxMmUzMEhmRHZYL1VQM0pFQjQvOHRuRmtaYTRtYkFCa3NHYmR2Qk9uNWtqQ0lSUHM9");
             InitializeComponent();
 
             //#if DEBUG
