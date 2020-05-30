@@ -5,13 +5,18 @@ using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using CD.Helper;
 using Syncfusion.SfSchedule.XForms;
+using CD.Models.Calendar;
+using System.Collections.Generic;
 
 namespace CD.Views.Calendar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SimplePage : ContentPage
     {
-        readonly FireBaseHelperCalendarEvents fireBaseHelper = new FireBaseHelperCalendarEvents();
+        readonly FireBaseHelperCalendarEvents fireBaseHelperEvents = new FireBaseHelperCalendarEvents();
+        private List<EventModel> listEvents;
+        private DateTime date;
+
         public SimplePage()
         {
             InitializeComponent();
@@ -19,7 +24,24 @@ namespace CD.Views.Calendar
             schedule.CellTapped += CellTappedEventHandler;
             void CellTappedEventHandler(object sender, CellTappedEventArgs e)
             {
-                PopupNavigation.PushAsync(new DayView());
+                date = Convert.ToDateTime(e.Datetime.ToString());
+                schedule.ShowAppointmentsInline = true;
+                trying();
+            }
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var theListOfEvents = await fireBaseHelperEvents.GetAllEvents();
+            listEvents = theListOfEvents;
+        }
+        private async void trying()
+        {
+            listEvents = await fireBaseHelperEvents.GetAllEvents();
+            foreach(EventModel ev in listEvents)
+            {
+                // TODO: here, match the times and bring the events to the app -  check firefox last TAB!!!
+                Console.WriteLine("---------------------- ev->" + ev.EventDate.ToString() + "  -------------------- date->" + date.ToString());
             }
         }
 

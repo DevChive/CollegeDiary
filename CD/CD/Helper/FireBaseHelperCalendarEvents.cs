@@ -30,7 +30,7 @@ namespace CD.Helper
             {
                 Name = item.Object.Name,
                 Description = item.Object.Description,
-                EventDate = item.Object.EventDate
+                EventDate = item.Object.EventDate,
             }).ToList();
         }
 
