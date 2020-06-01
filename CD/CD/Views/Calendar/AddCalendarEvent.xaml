@@ -19,13 +19,23 @@
             <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"/>
             <Label Text="Description"/>
             <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text"/>
-            <Label Text="Date of the event"/>
+            <Label Text="Start datet"/>
             <DatePicker 
-                x:Name="TheDaySelected"
+                x:Name="startDate"
                 Format="dd/MM/yyyy"
                 Date="{Binding selectedDate, Mode=TwoWay}" />
-            <Label Text="Time of the event"/>
-            <TimePicker x:Name="timePicker"
+            <Label Text="Start time"/>
+            <TimePicker x:Name="startTimePicker"
+                    Time="12:00"
+                    Format="T"
+                    PropertyChanged="OnTimePickerPropertyChanged" />
+            <Label Text="End date"/>
+            <DatePicker 
+                x:Name="endDate"
+                Format="dd/MM/yyyy"
+                Date="{Binding selectedDate, Mode=TwoWay}" />
+            <Label Text="End time"/>
+            <TimePicker x:Name="endTimePicker"
                     Time="12:00"
                     Format="T"
                     PropertyChanged="OnTimePickerPropertyChanged" />
