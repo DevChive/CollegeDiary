@@ -15,13 +15,14 @@ namespace CD.Helper
         private readonly string UserUID = App.UserUID;
         readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
 
-        public async Task AddEvent(string name, string description, DateTime date_time)
+        public async Task AddEvent(string name, string description, DateTime start_date_time, DateTime end_date_time)
         {
             await firebase.Child(UserUID).Child(Calendar_Name).PostAsync(new EventModel()
             {
                 Name = name,
                 Description = description,
-                EventDate = date_time
+                StartEventDate = start_date_time,
+                EndEventDate = end_date_time,
             });
         }
         public async Task<List<EventModel>> GetAllEvents()
@@ -30,7 +31,8 @@ namespace CD.Helper
             {
                 Name = item.Object.Name,
                 Description = item.Object.Description,
-                EventDate = item.Object.EventDate,
+                StartEventDate = item.Object.StartEventDate,
+                EndEventDate = item.Object.EndEventDate,
             }).ToList();
         }
 
@@ -44,7 +46,7 @@ namespace CD.Helper
             {
                 foreach (EventModel e in allEvents)
                 {
-                    if (DateTime.Parse(daySelected) == e.EventDate)
+                    if (DateTime.Parse(daySelected) == e.StartEventDate)
                     {
                         allEventsOfThisDay.Add(e);
                     }

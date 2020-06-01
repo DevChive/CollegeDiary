@@ -8,15 +8,19 @@ namespace CD.Views.Calendar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddCalendarEvent
     {
-        private DateTime date;
+        private DateTime start_Date;
+        private DateTime end_Date;
         readonly FireBaseHelperCalendarEvents fireBaseHelper = new FireBaseHelperCalendarEvents();
         public AddCalendarEvent(DateTime selectedDate)
         {
             InitializeComponent();
             string[] theDate = SimplePage.parseDate(selectedDate);
-            TheDaySelected.Date = selectedDate;
-            date = selectedDate;
-            //Console.WriteLine("Date Selected -----------> " + date123.ToString());
+
+            // date selected displayed in the pop-up form
+            startDate.Date = selectedDate;
+            endDate.Date = selectedDate;
+
+            start_Date = selectedDate;
         }
         protected override void OnAppearing()
         {
@@ -27,18 +31,22 @@ namespace CD.Views.Calendar
         {
             string name = event_name.Text;
             string desc = event_description.Text;
-            DateTime date = new DateTime(TheDaySelected.Date.Year, TheDaySelected.Date.Month, TheDaySelected.Date.Day, timePicker.Time.Hours, timePicker.Time.Minutes, timePicker.Time.Seconds);
-
+            DateTime start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
+            DateTime end_Date = new DateTime(endDate.Date.Year, endDate.Date.Month, endDate.Date.Day, endTimePicker.Time.Hours, endTimePicker.Time.Minutes, endTimePicker.Time.Seconds);
             if (!string.IsNullOrEmpty(name))
             {
-                await fireBaseHelper.AddEvent(name, desc, date);
-                await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on " 
-                    +  date.Date.Day.ToString() + "/" + date.Date.Month.ToString() + "/" + date.Date.Year.ToString() + 
-                    " at " + date.Hour.ToString() + ":" + date.Minute.ToString(), "OK");
+                await fireBaseHelper.AddEvent(name, desc, start_Date, end_Date);
+                //await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on " 
+                //    +  date.Date.Day.ToString() + "/" + date.Date.Month.ToString() + "/" + date.Date.Year.ToString() + 
+                //    " at " + date.Hour.ToString() + ":" + date.Minute.ToString(), "OK");
+                // TODO: change the message, is very bad
                 await PopupNavigation.RemovePageAsync(this);
             }
             else
                 await DisplayAlert("Failed", "Please add a name to the event", "OK");
+
+            // repopulating the calendar
+            SimplePage.Instance.addingAnAppointment();
         }
 
         private async void Cancel_Event(object sender, System.EventArgs e)
@@ -48,7 +56,8 @@ namespace CD.Views.Calendar
 
         private void OnTimePickerPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-
+            TimeSpan addingTime = new TimeSpan(0, 1, 0, 0);
+            endTimePicker.Time = startTimePicker.Time.Add(addingTime);
         }
     }
 }
