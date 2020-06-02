@@ -17,27 +17,38 @@ namespace CD.Views.Calendar
         private List<EventModel> listEvents;
         private DateTime date;
         public static SimplePage Instance;
+        public EventModel theEvent;
 
         public SimplePage()
         {
             Instance = this;
             InitializeComponent();
-            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            schedule.Appointments[0].ReminderTime = ReminderTimeType.FifteenMin;
+            // tpping an appointment
             schedule.MonthInlineAppointmentTapped += Schedule_MonthInlineAppointmentTapped;
-            void Schedule_MonthInlineAppointmentTapped(object sender, MonthInlineAppointmentTappedEventArgs args)
+            async void Schedule_MonthInlineAppointmentTapped(object sender, MonthInlineAppointmentTappedEventArgs args)
             {
                 if (args.Appointment != null)
                 {
                     var appointment = (args.Appointment as ScheduleAppointment);
-                    DisplayAlert(appointment.Subject, appointment.StartTime.ToString(), "ok");
-                    //TODO: add a pop up,, with a form filled in with appointment details and a delete button
-                }
-                else
-                {
-                    DisplayAlert("", "No Events", "ok");
+                    var result = await DisplayAlert(appointment.Subject, appointment.Location + "\n"+ 
+                        "\nDate: " + appointment.StartTime.Date.ToLongDateString() + 
+                        "\nTime: " + appointment.StartTime.TimeOfDay.ToString(@"hh\:mm")
+                        ,"Delete", "OK");
+                    if (result) // if it's equal to OK
+                    {
+                        await fireBaseHelperEvents.DeleteEvent(theEvent.EventID);
+                        await DisplayAlert("Event Deleted", "", "OK");
+                        Instance.addingAnAppointment();
+                    }
+                    else // if it's equal to DELETE
+                    {
+                        return; // just return to the page and do nothing.
+                    }
+
                 }
             }
-            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            // taping a day
             schedule.CellTapped += CellTappedEventHandler;
             void CellTappedEventHandler(object sender, CellTappedEventArgs e)
             {
@@ -58,18 +69,19 @@ namespace CD.Views.Calendar
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
             foreach (EventModel ev in listEvents)
             {
-                // TODO: here, match the times and bring the events to the app -  check firefox last TAB!!!
+                theEvent = ev;
                 DateTime startDate = Convert.ToDateTime(ev.StartEventDate.ToString());
                 DateTime endDate = Convert.ToDateTime(ev.EndEventDate.ToString());
 
                 //Console.WriteLine("---------------------- ev->" + ev.EventDate.ToString() + "  -------------------- start_Date->" + start_Date.ToString());
                 scheduleAppointmentCollection.Add(new ScheduleAppointment()
                 {
+                    BindingContext = this,
                     StartTime =  startDate,
                     EndTime = endDate,
                     Subject = ev.Name,
                     Location = ev.Description,
-                });
+            });
                 schedule.DataSource = scheduleAppointmentCollection;
             }
         }

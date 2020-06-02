@@ -6,6 +6,8 @@ using Firebase.Database.Query;
 using System.Linq;
 using System.Threading.Tasks;
 using CD.Models.Calendar;
+using System.Drawing;
+using ikvm.lang;
 
 namespace CD.Helper
 {
@@ -19,6 +21,7 @@ namespace CD.Helper
         {
             await firebase.Child(UserUID).Child(Calendar_Name).PostAsync(new EventModel()
             {
+                EventID = Guid.NewGuid(),
                 Name = name,
                 Description = description,
                 StartEventDate = start_date_time,
@@ -29,6 +32,7 @@ namespace CD.Helper
         {
             return (await firebase.Child(UserUID).Child(Calendar_Name).OnceAsync<EventModel>()).Select(item => new EventModel
             {
+                EventID = item.Object.EventID,
                 Name = item.Object.Name,
                 Description = item.Object.Description,
                 StartEventDate = item.Object.StartEventDate,
@@ -36,30 +40,11 @@ namespace CD.Helper
             }).ToList();
         }
 
-        public async Task<List<EventModel>> GetEventsForThisDay(DateTime thisDate)
+        public async Task DeleteEvent(Guid eventID)
         {
-            var allEvents = await GetAllEvents();
-            var allEventsOfThisDay = new List<EventModel>();
-            string daySelected = thisDate.Date.Day + "/" + thisDate.Date.Month + "/" + thisDate.Date.Year;
-
-            try
-            {
-                foreach (EventModel e in allEvents)
-                {
-                    if (DateTime.Parse(daySelected) == e.StartEventDate)
-                    {
-                        allEventsOfThisDay.Add(e);
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                await App.Current.MainPage.DisplayAlert("Error", "Something went wrong!", "OK");
-            }
-          
-            return allEventsOfThisDay;
+            var toDeleteEvent = (await firebase.Child(UserUID).Child(Calendar_Name).OnceAsync<EventModel>()).FirstOrDefault
+                (a => a.Object.EventID == eventID);
+            await firebase.Child(UserUID).Child(Calendar_Name).Child(toDeleteEvent.Key).DeleteAsync();
         }
-
-
     }
 }
