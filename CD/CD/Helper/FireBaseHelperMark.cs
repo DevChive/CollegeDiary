@@ -63,12 +63,18 @@ namespace CD.Helper
 
         public async Task DeleteMarks(Guid s_ID)
         {
-            var allMarks = await GetMarksForSubject(s_ID);
-            foreach (Mark m in allMarks)
+            try
             {
-                var toDeleteMark = (await firebase.Child(UserUID).Child(Marks_Name).OnceAsync<Mark>()).FirstOrDefault
-                    (a => a.Object.SubjectID == s_ID);
-                await firebase.Child(UserUID).Child(Marks_Name).Child(toDeleteMark.Key).DeleteAsync();
+                var allMarks = await GetMarksForSubject(s_ID);
+                foreach (Mark m in allMarks)
+                {
+                    var toDeleteMark = (await firebase.Child(UserUID).Child(Marks_Name).OnceAsync<Mark>()).FirstOrDefault
+                        (a => a.Object.SubjectID == s_ID);
+                    await firebase.Child(UserUID).Child(Marks_Name).Child(toDeleteMark.Key).DeleteAsync();
+                }
+            }
+            catch (Exception)
+            { 
             }
         }
     }

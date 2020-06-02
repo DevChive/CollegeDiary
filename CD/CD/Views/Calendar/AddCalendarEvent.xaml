@@ -19,7 +19,7 @@
             <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"/>
             <Label Text="Description"/>
             <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text"/>
-            <Label Text="Start datet"/>
+            <Label Text="Start date"/>
             <DatePicker 
                 x:Name="startDate"
                 Format="dd/MM/yyyy"

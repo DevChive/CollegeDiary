@@ -2,6 +2,7 @@
 using Rg.Plugins.Popup.Services;
 using System;
 using CD.Helper;
+using System.Drawing;
 
 namespace CD.Views.Calendar
 {
@@ -11,6 +12,8 @@ namespace CD.Views.Calendar
         private DateTime start_Date;
         private DateTime end_Date;
         readonly FireBaseHelperCalendarEvents fireBaseHelper = new FireBaseHelperCalendarEvents();
+        private Random rnd = new Random();
+
         public AddCalendarEvent(DateTime selectedDate)
         {
             InitializeComponent();
@@ -19,7 +22,6 @@ namespace CD.Views.Calendar
             // date selected displayed in the pop-up form
             startDate.Date = selectedDate;
             endDate.Date = selectedDate;
-
             start_Date = selectedDate;
         }
         protected override void OnAppearing()

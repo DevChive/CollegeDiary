@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Helper;
 using CD.ViewModel;
+using CD.Views;
 using Rg.Plugins.Popup.Services;
 using System.Collections.Generic;
 
@@ -67,6 +68,7 @@ namespace CD.Views
             await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
             await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
 
+            //ListViewSubjects.Instance.();
             await Navigation.PopAsync();
         }
 
