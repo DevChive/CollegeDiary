@@ -13,11 +13,9 @@ namespace CD.Views
     {
 
         readonly FireBaseHelperSubject fireBaseHelper = new FireBaseHelperSubject();
-        public static ListViewSubjects Instance;
 
         public ListViewSubjects()
         {
-            Instance = this;
             InitializeComponent();
         }
 
