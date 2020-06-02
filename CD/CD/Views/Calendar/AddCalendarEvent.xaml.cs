@@ -12,7 +12,6 @@ namespace CD.Views.Calendar
         private DateTime start_Date;
         private DateTime end_Date;
         readonly FireBaseHelperCalendarEvents fireBaseHelper = new FireBaseHelperCalendarEvents();
-        private Random rnd = new Random();
 
         public AddCalendarEvent(DateTime selectedDate)
         {
