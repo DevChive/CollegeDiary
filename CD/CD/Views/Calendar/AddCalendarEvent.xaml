@@ -33,7 +33,8 @@
             <DatePicker 
                 x:Name="endDate"
                 Format="dd/MM/yyyy"
-                Date="{Binding selectedDate, Mode=TwoWay}" />
+                Date="{Binding selectedDate, Mode=TwoWay}"
+                MinimumDate="{Binding selctedDate, Mode=TwoWay}"/>
             <Label Text="End time"/>
             <TimePicker x:Name="endTimePicker"
                     Time="12:00"

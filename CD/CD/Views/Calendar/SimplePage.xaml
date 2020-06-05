@@ -25,7 +25,8 @@
                 <xforms1:ScheduleAppointmentMapping 
                     SubjectMapping="Name" 
                     NotesMapping="Description"
-                    StartTimeMapping="EventDate"/>
+                    StartTimeMapping="EventDate"
+                    ReminderTimeMapping="ReminderTime"/>
             </xforms1:SfSchedule.AppointmentMapping>
         </xforms1:SfSchedule>
 
