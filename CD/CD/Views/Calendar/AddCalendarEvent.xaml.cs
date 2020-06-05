@@ -37,17 +37,13 @@ namespace CD.Views.Calendar
             if (!string.IsNullOrEmpty(name))
             {
                 await fireBaseHelper.AddEvent(name, desc, start_Date, end_Date);
-                //await DisplayAlert("Success", "Event " + "'" + name +"'" + " added on " 
-                //    +  date.Date.Day.ToString() + "/" + date.Date.Month.ToString() + "/" + date.Date.Year.ToString() + 
-                //    " at " + date.Hour.ToString() + ":" + date.Minute.ToString(), "OK");
-                // TODO: change the message, is very bad
                 await PopupNavigation.RemovePageAsync(this);
             }
             else
                 await DisplayAlert("Failed", "Please add a name to the event", "OK");
 
             // repopulating the calendar
-            SimplePage.Instance.addingAnAppointment();
+            SimplePage.Instance.refreshCalendar();
         }
 
         private async void Cancel_Event(object sender, System.EventArgs e)
@@ -57,8 +53,6 @@ namespace CD.Views.Calendar
 
         private void OnTimePickerPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            TimeSpan addingTime = new TimeSpan(0, 1, 0, 0);
-            endTimePicker.Time = startTimePicker.Time.Add(addingTime);
         }
     }
 }

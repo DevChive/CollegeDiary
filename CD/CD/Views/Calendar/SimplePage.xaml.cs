@@ -31,7 +31,7 @@ namespace CD.Views.Calendar
                 {
                     var appointment = (args.Appointment as ScheduleAppointment);
                     
-                    var result = await DisplayAlert(appointment.Subject, appointment.Location + "\n"+ 
+                    var result = await DisplayAlert(appointment.Subject, appointment.Notes + "\n"+ 
                         "\nDate: " + appointment.StartTime.Date.ToLongDateString() + 
                         "\nTime: " + appointment.StartTime.TimeOfDay.ToString(@"hh\:mm")
                         ,"Delete", "OK");
@@ -53,7 +53,7 @@ namespace CD.Views.Calendar
                 date = Convert.ToDateTime(e.Datetime.ToString());
                 schedule.ShowAppointmentsInline = true;
             }
-            addingAnAppointment();
+            refreshCalendar();
         }
         protected override async void OnAppearing()
         {
@@ -61,7 +61,7 @@ namespace CD.Views.Calendar
             var theListOfEvents = await fireBaseHelperEvents.GetAllEvents();
             listEvents = theListOfEvents;
         }
-        public async Task addingAnAppointment()
+        public async Task refreshCalendar()
         {
             listEvents = await fireBaseHelperEvents.GetAllEvents();
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
@@ -77,8 +77,9 @@ namespace CD.Views.Calendar
                     StartTime =  startDate,
                     EndTime = endDate,
                     Subject = ev.Name,
-                    Location = ev.Description,
-            });
+                    Notes = ev.Description,
+                    ReminderTime = ReminderTimeType.TenHours
+                });
                 schedule.DataSource = scheduleAppointmentCollection;
             }
         }
@@ -108,7 +109,7 @@ namespace CD.Views.Calendar
                 DateTime startDate = Convert.ToDateTime(ev.StartEventDate.ToString());
                 DateTime endDate = Convert.ToDateTime(ev.EndEventDate.ToString());
 
-                if (ev.Name == appointment.Subject && ev.Description == appointment.Location && startDate.Date.ToLongDateString() == appointment.StartTime.ToLongDateString())
+                if (ev.Name == appointment.Subject && ev.Description == appointment.Notes && startDate.Date.ToLongDateString() == appointment.StartTime.ToLongDateString())
                 {
                     theEvent = ev;
                 }
@@ -116,11 +117,13 @@ namespace CD.Views.Calendar
             try
             {
                 await fireBaseHelperEvents.DeleteEvent(theEvent.EventID);
+                await Instance.refreshCalendar();
                 await DisplayAlert("Event Deleted", "Event " + theEvent.Name, "OK");
             }
-            catch (Exception) {
+            catch (Exception) 
+            {
             }
-            await Instance.addingAnAppointment();
+            Instance.refreshCalendar();
         }
     }
 }
