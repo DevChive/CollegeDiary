@@ -7,6 +7,7 @@ using CD.Helper;
 using Syncfusion.SfSchedule.XForms;
 using CD.Models.Calendar;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CD.Views.Calendar
 {
@@ -60,7 +61,7 @@ namespace CD.Views.Calendar
             var theListOfEvents = await fireBaseHelperEvents.GetAllEvents();
             listEvents = theListOfEvents;
         }
-        public async void addingAnAppointment()
+        public async Task addingAnAppointment()
         {
             listEvents = await fireBaseHelperEvents.GetAllEvents();
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
@@ -107,7 +108,7 @@ namespace CD.Views.Calendar
                 DateTime startDate = Convert.ToDateTime(ev.StartEventDate.ToString());
                 DateTime endDate = Convert.ToDateTime(ev.EndEventDate.ToString());
 
-                if (ev.Name == appointment.Subject && ev.Description == appointment.Location)
+                if (ev.Name == appointment.Subject && ev.Description == appointment.Location && startDate.Date.ToLongDateString() == appointment.StartTime.ToLongDateString())
                 {
                     theEvent = ev;
                 }
@@ -115,10 +116,11 @@ namespace CD.Views.Calendar
             try
             {
                 await fireBaseHelperEvents.DeleteEvent(theEvent.EventID);
-                await DisplayAlert("Event Deleted", "", "OK");
-                Instance.addingAnAppointment();
+                await DisplayAlert("Event Deleted", "Event " + theEvent.Name, "OK");
             }
-            catch (Exception) { }
+            catch (Exception) {
+            }
+            await Instance.addingAnAppointment();
         }
     }
 }
