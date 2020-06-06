@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ResourceDictionary
-    x:Class="CD.Views.Login.Styles"
+    x:Class="CD.Views.Forms.Styles"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
@@ -20,13 +20,22 @@
     <Color x:Key="FacebookBlue">#4267B2</Color>
     <Color x:Key="LightGreen">#35c659</Color>
     <Color x:Key="FacebookLogin">#3b5998</Color>
-    
 
     <x:String x:Key="DropDownButtonIcon">&#xe70b;</x:String>
     <x:String x:Key="AvatarIcon">&#xe723;</x:String>
     <x:String x:Key="FaceBook">&#xe70f;</x:String>
     <x:String x:Key="Google">&#xe74d;</x:String>
     <x:String x:Key="Twitter">&#xe749;</x:String>
+
+    <!--  Common style for content pages  -->
+    <Style x:Key="ContentPageStyle" TargetType="ContentPage">
+        <Setter Property="BackgroundImageSource">
+            <OnPlatform
+                x:TypeArguments="ImageSource"
+                Android="LoginBackground.png"
+                WinPhone="LoginBackground.png" />
+        </Setter>
+    </Style>
 
     <!--  Common style for labels  -->
     <Style x:Key="LabelStyle" TargetType="Label">
@@ -72,7 +81,7 @@
     <Style x:Key="SfFlatButtonStyle" TargetType="buttons:SfButton">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
-
+        <Setter Property="FontFamily" Value="{StaticResource Montserrat-SemiBold}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>

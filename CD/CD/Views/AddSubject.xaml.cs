@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Helper;
 using CD.Models;
+using CD.Views;
 using System.Text.RegularExpressions;
 
 namespace CD.Views
@@ -18,9 +19,10 @@ namespace CD.Views
             InitializeComponent();// Loading this page
         }
 
-   
         private async void Save_Subject(object sender, EventArgs e)
         {
+
+            //TODO: display the list of subjects after submission
             bool validate = true;
             string pattern = null;
             bool validateSubjectName = true;
@@ -71,7 +73,7 @@ namespace CD.Views
                 if (CA + FinalExam == 100)
                 {
                     var subject = await fireBaseHelper.GetSubject(subjectName.Text);
-              
+
                     await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
                     await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
                     //TODO: clear all entires!!!
@@ -81,7 +83,7 @@ namespace CD.Views
                 {
                     await DisplayAlert("Subject not added", "The Final Exam and CA need to add up to 100", "OK");
                 }
-            }           
+            }
         }
 
         private async void Cancel_Subject(object sender, EventArgs e)

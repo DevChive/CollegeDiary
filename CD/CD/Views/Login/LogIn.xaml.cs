@@ -22,27 +22,5 @@ namespace CD.Views.Login
 		{
 
 		}
-		//private async void Cancel_Login(object sender, EventArgs e)
-		//{
-		//	await Navigation.PushAsync(new LogIn());
-		//}
-		//private async void Gmail(object sender, EventArgs e)
-		//{
-		//	await Navigation.PushAsync(new LogIn());
-
-		//}
-		//private async void ForgotPasswordCommand(object sender, EventArgs e)
-		//{
-		//	await Navigation.PushAsync(new ForgotPassword());
-		//}
-		//public async void ShowError()
-		//{
-		//	await DisplayAlert("Authentication Failed", "Email or password are incorrect. Try again!", "OK");
-		//}
-
-		//private void Facebook(object sender, EventArgs e)
-		//{
-
-		//}
 	}
 }
