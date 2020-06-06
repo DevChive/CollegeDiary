@@ -75,6 +75,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\font-awesome-5-free-regular.otf" />
     <BundleResource Include="Resources\font-awesome-5-free-solid.otf" />
+    <BundleResource Include="Resources\Montserrat-SemiBold.ttf" />
+    <BundleResource Include="Resources\UIFontIcons.ttf" />
+    <BundleResource Include="Resources\Montserrat-Bold.ttf" />
+    <BundleResource Include="Resources\Montserrat-Medium.ttf" />
+    <BundleResource Include="Resources\Montserrat-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

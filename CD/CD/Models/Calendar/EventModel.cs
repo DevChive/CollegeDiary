@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using Syncfusion.SfSchedule.XForms;
 
 namespace CD.Models.Calendar
 {
@@ -13,6 +14,5 @@ namespace CD.Models.Calendar
         public string Description { get; set; }
         public DateTime? StartEventDate { get; set; }
         public DateTime? EndEventDate { get; set; }
-        public Color Color { get; set; }
     }
 }

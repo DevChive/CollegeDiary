@@ -2,10 +2,7 @@
 using CD.ViewModel.Auth;
 using CD.Helper;
 using Autofac;
-using CD.Views;
-using com.sun.org.apache.xml.@internal.security.signature;
-using System;
-using CD.ViewModel;
+using CD.Views.Login;
 
 namespace CD
 {
@@ -19,19 +16,6 @@ namespace CD
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjY1MDQyQDMxMzgyZTMxMmUzMEhmRHZYL1VQM0pFQjQvOHRuRmtaYTRtYkFCa3NHYmR2Qk9uNWtqQ0lSUHM9");
             InitializeComponent();
-
-            //#if DEBUG
-            //            var @event = new Models.Calendar.EventModel()
-            //            {
-            //                Name = "Test",
-            //                Description = "Foo bar is a good thing!",
-            //                EventDate = DateTime.Now,
-            //                EventEndDate = DateTime.Now.AddHours(5)
-            //            };
-
-            //            ZZZ.Instance.Events.Add(@event);
-            //#endif
-
             Container = BuildContainer(module);
             if (string.IsNullOrEmpty(App.UserUID))
             {
