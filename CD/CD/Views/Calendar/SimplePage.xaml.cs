@@ -9,6 +9,7 @@ using CD.Models.Calendar;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+
 namespace CD.Views.Calendar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -23,6 +24,7 @@ namespace CD.Views.Calendar
         {
             Instance = this;
             InitializeComponent();
+
             // tpping an appointment
             schedule.MonthInlineAppointmentTapped += Schedule_MonthInlineAppointmentTapped;
             async void Schedule_MonthInlineAppointmentTapped(object sender, MonthInlineAppointmentTappedEventArgs args)
@@ -78,7 +80,6 @@ namespace CD.Views.Calendar
                     EndTime = endDate,
                     Subject = ev.Name,
                     Notes = ev.Description,
-                    ReminderTime = ReminderTimeType.TenHours
                 });
                 schedule.DataSource = scheduleAppointmentCollection;
             }

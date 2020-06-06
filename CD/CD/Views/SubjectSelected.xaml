@@ -5,7 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CD.Views.SubjectSelected" Title="{Binding subjectL.SubjectName}"
-             BackgroundColor="WhiteSmoke">
+             xmlns:controls="clr-namespace:CD.Controls"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:viewModel="clr-namespace:CD.ViewModel"
+             BackgroundColor="{DynamicResource Gray-White}">
+
+
+    <ContentPage.BindingContext>
+        <viewModel:BaseViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="List\Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Delete" Order="Primary" Clicked="DeleteItem"/>
     </ContentPage.ToolbarItems>
@@ -78,13 +96,75 @@
             </Label>
             <ProgressBar x:Name="statusFinalExam" Progress="0.0"/>
             <Label Text="Results" TextColor="LightSlateGray" FontSize="20" FontAttributes="Bold" />
-            <ListView x:Name="LstMarks" ItemSelected="LstMarks_Selected" ItemsSource="{Binding MarkListL}" HeightRequest="300">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding MarkName}" Detail="{Binding Result,StringFormat='Result: {0:N}%'}" TextColor="MediumVioletRed"></TextCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+
+
+
+            <StackLayout  Grid.Row="1" Spacing="0">
+                <!-- Seperator -->
+                <BoxView Style="{StaticResource BoxViewStyle}" />
+                <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding MarkListL}"
+                    AutoFitMode="Height"
+                    HeightRequest="300"
+                    AllowSwiping="True"
+                    IsScrollBarVisible="false"
+                    FocusBorderThickness="0"
+                    ItemSpacing="0"
+                    SearchText="{Binding SearchText}"
+                    SelectionBackgroundColor="Transparent"
+                    RowSpacing="0"
+                    TapCommand="{Binding ItemSelectedCommand}"
+                    VerticalOptions="FillAndExpand">
+                    <controls:SearchableSubjectList.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid ColumnSpacing="0" RowSpacing="0" >
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
+                                                     VerticalOptions="FillAndExpand" Spacing="0" >
+                                            <!--  Name of the Song  -->
+                                            <Label Margin="16,13,0,0"
+                                                HeightRequest="24"
+                                                FontFamily="{StaticResource Montserrat-Medium}"
+                                                FontSize="16"
+                                                LineHeight="{OnPlatform Android=1.5,
+                                                                       Default=-1}"
+                                                Text="{Binding MarkName}"
+                                                TextColor="{DynamicResource Gray-900}" />
+
+                                            <!--  Composer of the song  -->
+                                            <Label  Margin="16,0,0,12"
+                                                HeightRequest="21"
+                                                FontFamily="{StaticResource Montserrat-Medium}"
+                                                FontSize="14"
+                                                LineHeight="{OnPlatform Android=1.25,
+                                                             Default=-1}"
+                                                Text="{Binding Result,StringFormat='Result: {0:N}%'}"
+                                                TextColor="{DynamicResource Gray-700}" />
+                                        </StackLayout>
+
+                                        <!-- Menu button -->
+                                        <buttons:SfButton x:Name="MenuButton"
+                                                          Margin="16,0"
+                                                          Grid.Column="1"
+                                                          Style="{StaticResource MoreButton}"
+                                                          Text="{StaticResource More}" />
+
+                                    </Grid>
+                                    <!-- Seperator -->
+                                    <BoxView Style="{StaticResource BoxViewStyle}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </controls:SearchableSubjectList.ItemTemplate>
+                </controls:SearchableSubjectList>
+            </StackLayout>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -9,8 +9,9 @@
              x:Class="CD.Views.AddMarkToSubject"
              Title="Add Result">
     <ContentPage.Content>
-        <StackLayout Margin="20"
-                     Padding="30"
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke">
+        <StackLayout 
                      BackgroundColor="WhiteSmoke"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
@@ -28,5 +29,8 @@
                 <Button Text="Cancel" Clicked="Cancel_Mark"/>
             </StackLayout>
         </StackLayout>
+            </Frame>
+        </StackLayout>
     </ContentPage.Content>
+    
 </pages:PopupPage>

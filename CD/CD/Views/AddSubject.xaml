@@ -5,28 +5,159 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CD.Views.AddSubject"
-             Title="Add new subject">
-    <ScrollView>
-        <StackLayout Margin="40">
-            <Label Text="Subject Name"/>
-            <Entry Placeholder="Subject Name" x:Name="subjectName" ReturnType="Next" Keyboard="Text"/>
+            xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+            xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+            xmlns:controls="clr-namespace:CD.Controls"
+            xmlns:converter="clr-namespace:CD.Converters"
+            xmlns:viewModel="clr-namespace:CD.ViewModel.Forms"
+            Title="Add new subject"
+    BackgroundColor="{DynamicResource Gray-100}"
+    NavigationPage.HasNavigationBar="False">
+    
+    
+    <ContentPage.BindingContext>
+        <viewModel:BusinessRegistrationFormViewModel />
+    </ContentPage.BindingContext>
 
-            <Label Text="Lecturer Name"/>
-            <Entry Placeholder="Lecturer Name" x:Name="lecturerName" ReturnType="Next" Keyboard="Text"/>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Form\Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <Label Text="Lecturer Email"/>
-            <Entry Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email"/>
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
 
-            <Label Text="Continuous Assessment Weight"/>
-            <Entry Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric"/>
+                <!-- Title -->
+                <Label 
+                    Text="Add new subject"
+                    TextColor="{DynamicResource Gray-900}"
+                    FontFamily="{StaticResource Montserrat-Medium}"
+                    FontSize="16"
+                    Margin="0,20"
+                    HorizontalOptions="CenterAndExpand" />
 
-            <Label Text="Final Exam Weight"/>
-            <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric"/>
-            <Label></Label>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Save" Clicked="Save_Subject" />
-                <Button Text="Cancel" Clicked="Cancel_Subject"/>
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
+                <ContentPresenter />
+
             </StackLayout>
-        </StackLayout>
-    </ScrollView>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+
+    <ContentPage.Content >
+        <ScrollView>
+            <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
+
+                <!-- Subject Name -->
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        Margin="0,24,0,4"
+                        HeightRequest="18" 
+                        FontSize="12"
+                        Text="Subject Name"
+                        TextColor="{DynamicResource Gray-800}" />
+
+                <border:SfBorder BorderColor="{Binding Source={x:Reference subjectName}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                    <controls:BorderlessEntry
+                            x:Name="subjectName"
+                            Placeholder="Subject Name"
+                            Style="{StaticResource EntryTextBoxStyle}" />
+                </border:SfBorder>
+
+                <!-- Lecturer Name -->
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        Margin="0,24,0,4"
+                        HeightRequest="18" 
+                        FontSize="12"
+                        Text="Lecturer Name"
+                        TextColor="{DynamicResource Gray-800}" />
+
+                <border:SfBorder BorderColor="{Binding Source={x:Reference lecturerName}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                    <controls:BorderlessEntry
+                            x:Name="lecturerName"
+                            Placeholder="Lecturer Name"
+                            Style="{StaticResource EntryTextBoxStyle}" />
+                </border:SfBorder>
+
+                <!-- Email -->
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        Margin="0,24,0,4"
+                        HeightRequest="18"
+                        FontSize="12"
+                        Text="Lecturer Email"
+                        TextColor="{DynamicResource Gray-800}" />
+
+                <border:SfBorder BorderColor="{Binding Source={x:Reference lecturerEmail}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                    <controls:BorderlessEntry
+                            x:Name="lecturerEmail"
+                            Placeholder="Email" Keyboard="Email"
+                            Style="{StaticResource EntryTextBoxStyle}" />
+                </border:SfBorder>
+
+                <!-- CA  -->
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        Margin="0,24,0,4"
+                        HeightRequest="18"
+                        FontSize="12"
+                        Text="Continuous Assessment Weight"
+                        TextColor="{DynamicResource Gray-800}" />
+
+                <border:SfBorder BorderColor="{Binding Source={x:Reference CA}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                    <controls:BorderlessEntry Keyboard="Numeric" 
+                            x:Name="CA" 
+                            Placeholder="%"
+                            Style="{StaticResource EntryTextBoxStyle}" >
+                    </controls:BorderlessEntry>
+                </border:SfBorder>
+
+                <!-- Final Exam -->
+                <Label
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        Margin="0,24,0,4"
+                        HeightRequest="18"
+                        FontSize="12"
+                        Text="Final Exam Weight"
+                        TextColor="{DynamicResource Gray-800}" />
+
+                <border:SfBorder BorderColor="{Binding Source={x:Reference finalExam}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}">
+                    <controls:BorderlessEntry Keyboard="Numeric" 
+                            x:Name="finalExam" 
+                            Placeholder="%"
+                            Style="{StaticResource EntryTextBoxStyle}" >
+                    </controls:BorderlessEntry>
+                </border:SfBorder>
+
+                <Label></Label>
+                <Label></Label>
+                <StackLayout Orientation="Horizontal">
+                    <buttons:SfButton
+                        Clicked="Save_Subject"
+                        HorizontalOptions="Center"
+                        Margin="0,24,0,0"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Submit"
+                        WidthRequest="200" />
+                    <buttons:SfButton
+                        Clicked="Cancel_Subject"
+                        HorizontalOptions="Center"
+                        Margin="0,24,0,0"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Cancel"
+                        WidthRequest="200" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

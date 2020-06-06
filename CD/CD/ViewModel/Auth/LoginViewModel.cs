@@ -1,11 +1,10 @@
 ﻿using System;
 using CD.Helper;
-using CD.Views;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CD.Validations;
 using Xamarin.Forms;
-using Firebase.Database;
+using CD.Views.Login;
 
 namespace CD.ViewModel.Auth
 {

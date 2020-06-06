@@ -1,8 +1,9 @@
 ﻿using System;
+using CD.ViewModel;
 
 namespace CD.Models
 {
-    public class Subject
+    public class Subject 
     {
         public Guid SubjectID { get; set; }
         public String SubjectName { get; set; }
