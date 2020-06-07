@@ -68,6 +68,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
+                        <Image Source="{local:ImageResource CD.Images.logo.png}" HeightRequest="250"/>
 
                         <!--  Label to display the title of this page  -->
                         <Label
@@ -196,6 +197,7 @@
 
                 </StackLayout>
             </ScrollView>
+            <ActivityIndicator x:Name="Loading" IsRunning="false" Scale="0.2" />
         </Grid>
     </ContentPage.Content>
 

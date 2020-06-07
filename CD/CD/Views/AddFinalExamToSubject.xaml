@@ -9,20 +9,23 @@
              x:Class="CD.Views.AddFinalExamToSubject"
              Title="Add Exam">
     <ContentPage.Content>
-        <StackLayout Margin="20"
-                     Padding="30"
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke">
+                <StackLayout 
                      BackgroundColor="WhiteSmoke"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-            <Label Text="Final Exam" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
-            <Label></Label>
-            <Label Text="Result in % (from 100)"/>
-            <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric"/>
-            <Label></Label>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Save" Clicked="Save_Exam"/>
-                <Button Text="Cancel" Clicked="Cancel_Exam"/>
-            </StackLayout>
+                    <Label Text="Final Exam" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                    <Label></Label>
+                    <Label Text="Result in % (from 100)"/>
+                    <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric"/>
+                    <Label></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="Save" Clicked="Save_Exam"/>
+                        <Button Text="Cancel" Clicked="Cancel_Exam"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </pages:PopupPage>

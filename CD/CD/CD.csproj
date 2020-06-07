@@ -50,6 +50,8 @@
     <EmbeddedResource Include="Images\fb.png" />
     <EmbeddedResource Include="Images\gmail.png" />
 	<EmbeddedResource Include="Images\ic.png" />
+	<EmbeddedResource Include="Images\logo.png" />
+
   </ItemGroup>
 
   <ItemGroup>

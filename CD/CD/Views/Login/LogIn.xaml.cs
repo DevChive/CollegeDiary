@@ -20,7 +20,8 @@ namespace CD.Views.Login
 
 		private async void Login(object sender, EventArgs e)
 		{
-
+			Loading.IsRunning = true;
+			Loading.Color = Color.Red;
 		}
 	}
 }
