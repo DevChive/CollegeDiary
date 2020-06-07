@@ -9,7 +9,7 @@ The application will allow students to:
   - get nottifications for upcoming exams and projects
   - other features
   
-<a href="https://ibb.co/d292mN0"><img src="https://i.ibb.co/d292mN0/Annotation-2020-04-28-162747.png" alt="Annotation-2020-04-28-162747" border="0"></a>
+<a href="https://ibb.co/y5Ff7CH"><img src="https://i.ibb.co/VDYj5Gf/Whats-App-Image-2020-06-07-at-22-13-29.jpg" alt="Whats-App-Image-2020-06-07-at-22-13-29" border="0"></a>
   
   
   
