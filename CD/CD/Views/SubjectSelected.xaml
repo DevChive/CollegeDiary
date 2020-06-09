@@ -127,7 +127,7 @@
 
                                         <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
                                                      VerticalOptions="FillAndExpand" Spacing="0" >
-                                            <!--  Name of the Song  -->
+                                            <!--  Name of the item  -->
                                             <Label Margin="16,13,0,0"
                                                 HeightRequest="24"
                                                 FontFamily="{StaticResource Montserrat-Medium}"
@@ -137,7 +137,7 @@
                                                 Text="{Binding MarkName}"
                                                 TextColor="{DynamicResource Gray-900}" />
 
-                                            <!--  Composer of the song  -->
+                                            <!--  Composer of the item  -->
                                             <Label  Margin="16,0,0,12"
                                                 HeightRequest="21"
                                                 FontFamily="{StaticResource Montserrat-Medium}"
@@ -153,7 +153,8 @@
                                                           Margin="16,0"
                                                           Grid.Column="1"
                                                           Style="{StaticResource MoreButton}"
-                                                          Text="{StaticResource More}" />
+                                                          Text="{StaticResource More}" 
+                                                          Clicked="markMenu"/>
 
                                     </Grid>
                                     <!-- Seperator -->

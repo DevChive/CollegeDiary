@@ -10,11 +10,9 @@
             xmlns:controls="clr-namespace:CD.Controls"
             xmlns:converter="clr-namespace:CD.Converters"
             xmlns:viewModel="clr-namespace:CD.ViewModel.Forms"
-            Title="Add new subject"
-    BackgroundColor="{DynamicResource Gray-100}"
-    NavigationPage.HasNavigationBar="False">
-    
-    
+            BackgroundColor="{DynamicResource Gray-100}"
+            NavigationPage.HasNavigationBar="False">
+
     <ContentPage.BindingContext>
         <viewModel:BusinessRegistrationFormViewModel />
     </ContentPage.BindingContext>
@@ -30,27 +28,27 @@
 
     <ContentPage.ControlTemplate>
         <ControlTemplate>
-            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-100}">
 
                 <!-- Title -->
                 <Label 
                     Text="Add new subject"
-                    TextColor="{DynamicResource Gray-900}"
+                    TextColor="{DynamicResource Red}"
                     FontFamily="{StaticResource Montserrat-Medium}"
-                    FontSize="16"
+                    FontSize="20"
                     Margin="0,20"
                     HorizontalOptions="CenterAndExpand" />
 
-                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-100}"/>
                 <ContentPresenter />
 
             </StackLayout>
         </ControlTemplate>
     </ContentPage.ControlTemplate>
 
-    <ContentPage.Content >
+    <ContentPage.Content>
         <ScrollView>
-            <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
+            <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24" >
 
                 <!-- Subject Name -->
                 <Label

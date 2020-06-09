@@ -68,7 +68,6 @@ namespace CD.Views
             await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
             await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
 
-            //ListViewSubjects.Instance.();
             await Navigation.PopAsync();
         }
 
@@ -84,6 +83,10 @@ namespace CD.Views
         private void LstMarks_Selected(object sender, SelectedItemChangedEventArgs e)
         {
 
+        }
+        private void markMenu(object sender, EventArgs e)
+        {
+            
         }
     }
 }

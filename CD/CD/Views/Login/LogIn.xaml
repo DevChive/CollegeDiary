@@ -68,7 +68,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Image Source="{local:ImageResource CD.Images.logo.png}" HeightRequest="250"/>
+                        <Image Source="{local:ImageResource CD.Images.logo.png}" HeightRequest="250" Margin="30"/>
 
                         <!--  Label to display the title of this page  -->
                         <Label

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Foundation;
-
+using Syncfusion.XForms.PopupLayout;
 using Syncfusion.SfSchedule.XForms.iOS;
 using UIKit;
 
@@ -26,6 +25,7 @@ namespace CD.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             SfScheduleRenderer.Init();
+            Rg.Plugins.Popup.Popup.Init();
             LoadApplication(new App(new IOSModule()));
 
             return base.FinishedLaunching(app, options);

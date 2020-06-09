@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
+             mc:Ignorable="d"
+             x:Class="CD.Views.EditDeleteSubject"
+             Title="Edit subject">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True">
+                <StackLayout 
+                     BackgroundColor="WhiteSmoke"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Center">
+                    <ScrollView>
+                        <StackLayout Margin="10">
+                            <Label Text="Edit subject" FontSize="20" FontAttributes="Bold" TextColor="Red" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" />
+                            <Label></Label>
+                            <Label Text="Subject Name"/>
+                            <Entry Placeholder="Subject Name" x:Name="subjectName" ReturnType="Next" Keyboard="Text"/>
+
+                            <Label Text="Lecturer Name"/>
+                            <Entry Placeholder="Lecturer Name" x:Name="lecturerName" ReturnType="Next" Keyboard="Text"/>
+
+                            <Label Text="Lecturer Email"/>
+                            <Entry Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email"/>
+
+                            <Label Text="Continuous Assessment Weight"/>
+                            <Entry Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True"/>
+
+                            <Label Text="Final Exam Weight"/>
+                            <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True"/>
+                            <Label></Label>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Button Text="Save" Clicked="Save_Subject" />
+                                <Button Text="Delete" Clicked="Delete_Subject"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

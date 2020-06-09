@@ -146,7 +146,7 @@
 
     <Style x:Key="BusinessFormBorderStyle" TargetType="border:SfBorder">
         <Setter Property="BorderColor" Value="{DynamicResource Gray-300}"/>
-        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="CornerRadius" Value="20"/>
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="BackgroundColor" Value="{DynamicResource Gray-White}"/>
     </Style>

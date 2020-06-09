@@ -15,7 +15,7 @@
                      BackgroundColor="WhiteSmoke"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-            <Label Text="Continuous Assessment" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+            <Label Text="Continuous Assessment" FontSize="20" FontAttributes="Bold" TextColor="Red" HorizontalOptions="Center" />
             <Label></Label>
             <Label Text="Name of the assessment"/>
             <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text"/>

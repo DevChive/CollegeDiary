@@ -4,6 +4,9 @@ using CD.Helper;
 using CD.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CD.Views.List;
+using Rg.Plugins.Popup.Services;
+
 
 namespace CD.Views
 {
@@ -11,7 +14,6 @@ namespace CD.Views
 
     public partial class ListViewSubjects : ContentPage
     {
-
         readonly FireBaseHelperSubject fireBaseHelper = new FireBaseHelperSubject();
 
         public ListViewSubjects()
@@ -93,6 +95,11 @@ namespace CD.Views
         private void SearchExpandAnimationCompleted()
         {
             this.SearchEntry.Focus();
+        }
+
+        private void menuButtonSelected(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new EditDeleteSubject());
         }
     }
 }
