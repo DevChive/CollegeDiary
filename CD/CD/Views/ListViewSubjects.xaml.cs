@@ -96,10 +96,5 @@ namespace CD.Views
         {
             this.SearchEntry.Focus();
         }
-
-        private void menuButtonSelected(object sender, EventArgs e)
-        {
-            PopupNavigation.PushAsync(new EditDeleteSubject());
-        }
     }
 }

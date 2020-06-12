@@ -25,7 +25,9 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Delete" Order="Primary" Clicked="DeleteItem"/>
+        <ToolbarItem Order="Primary" />
+        <ToolbarItem Text="Edit" Order="Secondary" Clicked="edit_subject" />
+        <ToolbarItem Text="Delete" Order="Secondary" Clicked="delete_subject"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout Margin="30">
@@ -34,7 +36,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Subject: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
-                        <Span Text="{Binding subjectL.SubjectName}"/>
+                        <Span x:Name="subjectName" Text="{Binding subjectL.SubjectName}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -42,7 +44,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Lecturer: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
-                        <Span Text="{Binding subjectL.LecturerName}"/>
+                        <Span x:Name="lecturerName" Text="{Binding subjectL.LecturerName}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -50,7 +52,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Lecturer Email: " TextColor="MediumSeaGreen" FontAttributes="Bold"/>
-                        <Span Text="{Binding subjectL.LecturerEmail}"/>
+                        <Span x:Name="lecturerEmail" Text="{Binding subjectL.LecturerEmail}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -73,8 +75,8 @@
             <Label></Label>
         <StackLayout Orientation="Horizontal">
                 <Button Text="Add CA Result" Clicked="add_new_mark"/>
-            <Button Text="Add Final Exam" Clicked="add_final_exam"/>
-        </StackLayout>
+                <Button Text="Add Final Exam" Clicked="add_final_exam"/>
+            </StackLayout>
         <Label></Label>
             <Label>
                 <Label.FormattedText>

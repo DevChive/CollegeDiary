@@ -18,7 +18,7 @@
                     <Label Text="Final Exam" FontSize="20" FontAttributes="Bold" TextColor="Red" HorizontalOptions="Center" />
                     <Label></Label>
                     <Label Text="Result in % (from 100)"/>
-                    <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric"/>
+                    <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" />
                     <Label></Label>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <Button Text="Save" Clicked="Save_Exam"/>

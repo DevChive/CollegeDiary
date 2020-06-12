@@ -6,25 +6,70 @@ using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CD.Models;
+using CD.Views;
+using CD.Helper;
 
 namespace CD.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditDeleteSubject 
     {
-        public EditDeleteSubject()
+        Subject subjectSelected;
+        readonly FireBaseHelperSubject fireBaseHelperSubject = new FireBaseHelperSubject();
+        readonly FireBaseHelperMark fireBaseHelperMark = new FireBaseHelperMark();
+        public EditDeleteSubject(Subject subject)
         {
             InitializeComponent();
+            subjectSelected = subject;
+            subjectName.Text = subject.SubjectName;
+            lecturerName.Text = subject.LecturerName;
+            lecturerEmail.Text = subject.LecturerEmail;
+            CA.Text = subject.CA.ToString();
+            finalExam.Text = subject.FinalExam.ToString();
         }
 
-        private void Save_Subject(object sender, EventArgs e)
+        private async void Save_Subject(object sender, EventArgs e)
         {
-            //TODO: here!!!
+            bool validate = true;
+            bool validateSubjectName = true;
+            //checking if the subject name is not empty
+            if (string.IsNullOrEmpty(subjectName.Text.ToString()))
+            {
+                validate = false;
+                await DisplayAlert("Error", "Subject name cannot be empty", "Ok");
+            }
+
+            //checking if the subject alreasy exists in the database
+            var allSubjects = await fireBaseHelperSubject.GetAllSubjects();
+            foreach (Subject listS in allSubjects)
+            {
+                if (string.Equals(listS.SubjectName, this.subjectName.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    validateSubjectName = false;
+                }
+            }
+            if (!validateSubjectName)
+            {
+                await DisplayAlert("Error", "This subject name already exists", "OK");
+                validate = false;
+            }
+
+
+            if (validate)
+            {
+                var subjectToEdit = await fireBaseHelperSubject.GetSubject(subjectSelected.SubjectID);
+                await fireBaseHelperSubject.UpdateSubject(subjectToEdit.SubjectID, subjectName.Text, lecturerName.Text, lecturerEmail.Text);
+                Navigation.PushAsync(new SubjectSelected(subjectSelected), false);
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                await PopupNavigation.RemovePageAsync(this);
+
+            }
         }
 
-        private void Delete_Subject(object sender, EventArgs e)
+        private async void Cancel_Update(object sender, EventArgs e)
         {
-
+            await PopupNavigation.RemovePageAsync(this);
         }
     }
 }

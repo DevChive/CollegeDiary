@@ -154,14 +154,6 @@
                                                 TextColor="{DynamicResource Gray-700}" />
                                         </StackLayout>
 
-                                        <!-- Menu button -->
-                                        <buttons:SfButton x:Name="MenuButton"
-                                                          Margin="16,0"
-                                                          Grid.Column="1"
-                                                          Style="{StaticResource MoreButton}"
-                                                          Text="{StaticResource More}"
-                                                          Clicked="menuButtonSelected"/>
-
                                     </Grid>
                                     <!-- Seperator -->
                                     <BoxView Style="{StaticResource BoxViewStyle}" />

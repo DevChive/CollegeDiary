@@ -32,7 +32,7 @@ namespace CD.Views
                 if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrEmpty(this.lecturerName.Text) || string.IsNullOrEmpty(this.CA.Text) ||
                     string.IsNullOrEmpty(this.finalExam.Text) || string.IsNullOrEmpty(this.lecturerEmail.Text))
                 {
-                    await DisplayAlert("Subject not added", "All fields are required and the weight of the module needs to add up to 100", "OK");
+                    await DisplayAlert("Subject not added", "All fields are required", "OK");
                     validate = false;
                 }
                 else

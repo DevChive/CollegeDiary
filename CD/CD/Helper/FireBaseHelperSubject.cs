@@ -106,5 +106,15 @@ namespace CD.Helper
 
             return finalExam;
         }
+
+        public async Task UpdateSubject(Guid subjectID, String subjectName, String lecturerName, String lecturerEmail)
+        {
+            var toUpdateSubject = (await firebase.Child(UserUID).Child(Subject_Name)
+                .OnceAsync<Subject>())
+                .FirstOrDefault(a => a.Object.SubjectID == subjectID);
+            await firebase.Child(UserUID).Child(Subject_Name).Child(toUpdateSubject.Key)
+                .PutAsync(new Subject() { SubjectID=subjectID, SubjectName = subjectName, LecturerName = lecturerName, LecturerEmail = lecturerEmail,
+                    CA= toUpdateSubject.Object.CA, FinalExam = toUpdateSubject.Object.FinalExam, TotalCA = toUpdateSubject.Object.TotalCA, TotalFinalExam = toUpdateSubject.Object.TotalFinalExam  });
+        }
     }
 }
