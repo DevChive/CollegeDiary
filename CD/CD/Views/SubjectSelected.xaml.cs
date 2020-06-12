@@ -90,16 +90,43 @@ namespace CD.Views
             var result = await DisplayAlert("Are you sure you want to delete", _subject.SubjectName, "Yes", "No");
             if (result) // YES
             {
-                await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
-                await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
-                await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
-                await Navigation.PopAsync();
+                try
+                {
+                    await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
+                    await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
+                    await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
+                    await Navigation.PopAsync();
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Error", "Please try again", "Ok");
+                }
             }
         }
 
-        private void markMenu(object sender, EventArgs e)
+        private async void delete_mark(object sender, Syncfusion.ListView.XForms.ItemHoldingEventArgs e)
         {
+            var thisMark = e.ItemData as Mark;
+            var result = await DisplayAlert("Are you sure you want to delete this mark?", "Name "  + thisMark.MarkName + "\nResult " + thisMark.Result, "Yes", "No");
+            if (result)
+            {
+                try
+                {
+                    await fireBaseHelperMark.DeleteMark(thisMark.MarkID);
+                    await Navigation.PushAsync(new SubjectSelected(_subject), false);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
 
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Error", "Please try again", "Ok");
+                }
+            }
+        }
+
+        private void tips(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new Tips());
         }
     }
 }

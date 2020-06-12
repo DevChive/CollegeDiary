@@ -46,7 +46,14 @@ namespace CD.Views
             {
                 if (string.Equals(listS.SubjectName, this.subjectName.Text, StringComparison.OrdinalIgnoreCase))
                 {
-                    validateSubjectName = false;
+                    if (listS.SubjectID == subjectSelected.SubjectID)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        validateSubjectName = false;
+                    }
                 }
             }
             if (!validateSubjectName)
@@ -58,11 +65,18 @@ namespace CD.Views
 
             if (validate)
             {
-                var subjectToEdit = await fireBaseHelperSubject.GetSubject(subjectSelected.SubjectID);
-                await fireBaseHelperSubject.UpdateSubject(subjectToEdit.SubjectID, subjectName.Text, lecturerName.Text, lecturerEmail.Text);
-                Navigation.PushAsync(new SubjectSelected(subjectSelected), false);
-                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-                await PopupNavigation.RemovePageAsync(this);
+                try
+                {
+                    var subjectToEdit = await fireBaseHelperSubject.GetSubject(subjectSelected.SubjectID);
+                    await fireBaseHelperSubject.UpdateSubject(subjectToEdit.SubjectID, subjectName.Text, lecturerName.Text, lecturerEmail.Text);
+                    Navigation.PushAsync(new SubjectSelected(subjectSelected), false);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                    await PopupNavigation.RemovePageAsync(this);
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Error", "Please try again", "Ok");
+                }
 
             }
         }

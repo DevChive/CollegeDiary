@@ -28,6 +28,7 @@
         <ToolbarItem Order="Primary" />
         <ToolbarItem Text="Edit" Order="Secondary" Clicked="edit_subject" />
         <ToolbarItem Text="Delete" Order="Secondary" Clicked="delete_subject"/>
+        <ToolbarItem Text="Tips" Order="Secondary" Clicked="tips"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout Margin="30">
@@ -115,6 +116,7 @@
                     SelectionBackgroundColor="Transparent"
                     RowSpacing="0"
                     TapCommand="{Binding ItemSelectedCommand}"
+                    ItemHolding="delete_mark"
                     VerticalOptions="FillAndExpand">
                     <controls:SearchableSubjectList.ItemTemplate>
                         <DataTemplate>
@@ -149,15 +151,6 @@
                                                 Text="{Binding Result,StringFormat='Result: {0:N}%'}"
                                                 TextColor="{DynamicResource Gray-700}" />
                                         </StackLayout>
-
-                                        <!-- Menu button -->
-                                        <buttons:SfButton x:Name="MenuButton"
-                                                          Margin="16,0"
-                                                          Grid.Column="1"
-                                                          Style="{StaticResource MoreButton}"
-                                                          Text="{StaticResource More}" 
-                                                          Clicked="markMenu"/>
-
                                     </Grid>
                                     <!-- Seperator -->
                                     <BoxView Style="{StaticResource BoxViewStyle}" />
