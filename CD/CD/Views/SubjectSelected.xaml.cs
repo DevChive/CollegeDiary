@@ -33,8 +33,17 @@ namespace CD.Views
 
             this.BindingContext = subjectMark; //!!!
             status_bars();
+            details();
         }
-
+        private async void details()
+        {
+            var subject = await fireBaseHelperSubject.GetSubject(_subject.SubjectID);
+            subjectName.Text = subject.SubjectName;
+            lecturerName.Text = subject.LecturerName;
+            lecturerEmail.Text = subject.LecturerEmail;
+            // refrashing the selected subject
+            _subject = subject;
+        }
         private async void status_bars()
         {
             decimal CAProgress = await fireBaseHelperSubject.getTotalCA(_subject.SubjectID);
@@ -61,16 +70,6 @@ namespace CD.Views
             await statusFinalExam.ProgressTo(FE, 100, Easing.Linear);
 
         }
-
-        private async void DeleteItem(object sender, EventArgs e)
-        {
-            await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
-            await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
-            await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
-
-            await Navigation.PopAsync();
-        }
-
         [Obsolete]
         private void add_new_mark(object sender, EventArgs e)
         {
@@ -80,13 +79,27 @@ namespace CD.Views
         {
             PopupNavigation.PushAsync(new AddFinalExamToSubject(_subject));
         }
-        private void LstMarks_Selected(object sender, SelectedItemChangedEventArgs e)
-        {
 
+        private void edit_subject(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new EditDeleteSubject(_subject));
         }
+
+        private async void delete_subject(object sender, EventArgs e)
+        {
+            var result = await DisplayAlert("Are you sure you want to delete", _subject.SubjectName, "Yes", "No");
+            if (result) // YES
+            {
+                await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
+                await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
+                await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
+                await Navigation.PopAsync();
+            }
+        }
+
         private void markMenu(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

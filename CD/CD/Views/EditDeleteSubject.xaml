@@ -28,14 +28,14 @@
                             <Entry Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email"/>
 
                             <Label Text="Continuous Assessment Weight"/>
-                            <Entry Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True"/>
+                            <Entry Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="LightGray"/>
 
                             <Label Text="Final Exam Weight"/>
-                            <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True"/>
+                            <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="LightGray" Opacity="80" />
                             <Label></Label>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Button Text="Save" Clicked="Save_Subject" />
-                                <Button Text="Delete" Clicked="Delete_Subject"/>
+                                <Button Text="Cancel" Clicked="Cancel_Update"/>
                             </StackLayout>
                         </StackLayout>
                     </ScrollView>
