@@ -20,6 +20,7 @@ namespace CD.Helper
             await firebase.Child(UserUID).Child(Marks_Name).PostAsync(new Mark()
             {
                 SubjectID = subjectID,
+                MarkID = Guid.NewGuid(),
                 MarkName = mark_name,
                 Result = result,
                 Weight = weight,
@@ -31,7 +32,8 @@ namespace CD.Helper
         {
             return (await firebase.Child(UserUID).Child(Marks_Name).OnceAsync<Mark>()).Select(item => new Mark
             {
-                SubjectID = item.Object.SubjectID,
+                SubjectID = item.Object.SubjectID,  
+                MarkID = item.Object.MarkID,
                 MarkName = item.Object.MarkName,
                 Result = item.Object.Result,
                 Category = item.Object.Category,
@@ -76,6 +78,12 @@ namespace CD.Helper
             catch (Exception)
             { 
             }
+        }
+        public async Task DeleteMark(Guid markID)
+        {
+            var toDeleteMark = (await firebase.Child(UserUID).Child(Marks_Name).OnceAsync<Mark>()).FirstOrDefault
+                (a => a.Object.MarkID == markID);
+            await firebase.Child(UserUID).Child(Marks_Name).Child(toDeleteMark.Key).DeleteAsync();
         }
     }
 }
