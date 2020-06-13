@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="config.json" />
     <None Remove="Images\fb.png" />
     <None Remove="Images\gmail.png" />
   </ItemGroup>
@@ -52,6 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="config.json" />
     <EmbeddedResource Include="Images\fb.png" />
     <EmbeddedResource Include="Images\gmail.png" />
 	<EmbeddedResource Include="Images\ic.png" />

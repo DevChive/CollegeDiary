@@ -12,7 +12,7 @@ namespace CD.Helper
 	class FireBaseHelperStudent
 	{
 		private readonly string Student_Name = "Students";
-		readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
+		readonly FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
 
 		public async Task<List<Student>> GetAllStudents()
 		{

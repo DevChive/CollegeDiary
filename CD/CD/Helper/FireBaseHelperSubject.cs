@@ -13,7 +13,7 @@ namespace CD.Helper
     {
         private readonly string UserUID = App.UserUID;
         private readonly string Subject_Name = "Subjects";
-        readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
+        readonly FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
 
         readonly FireBaseHelperMark fireBaseHelperMark = new FireBaseHelperMark();
 

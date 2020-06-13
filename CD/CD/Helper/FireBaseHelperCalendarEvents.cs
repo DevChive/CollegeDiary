@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CD.Models.Calendar;
 using System.Drawing;
 using ikvm.lang;
+using com.sun.tools.@internal.jxc.gen.config;
 
 namespace CD.Helper
 {
@@ -15,7 +16,7 @@ namespace CD.Helper
     {
         private readonly string Calendar_Name = "Calendar";
         private readonly string UserUID = App.UserUID;
-        readonly FirebaseClient firebase = new FirebaseClient("https://collegediary-fd88a.firebaseio.com/");
+        readonly FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
 
         public async Task AddEvent(string name, string description, DateTime start_date_time, DateTime end_date_time)
         {
