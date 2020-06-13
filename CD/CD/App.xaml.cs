@@ -18,6 +18,7 @@ namespace CD
 
         public App(Module module)
         {
+            LoadJson();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(conf.syncfusion);
             InitializeComponent();
             Container = BuildContainer(module);
