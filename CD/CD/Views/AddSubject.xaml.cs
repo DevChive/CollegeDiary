@@ -96,5 +96,10 @@ namespace CD.Views
             await Navigation.PopAsync();
             //MainPage.Instance.toFirstTab();
         }
+
+        private async void BackButton(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }
