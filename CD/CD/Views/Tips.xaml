@@ -12,7 +12,7 @@
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <Frame CornerRadius="10" BackgroundColor="WhiteSmoke">
                 <StackLayout>
-                    <Label Text="- Tap long on an mark to delete it" />
+                    <Label Text="- Tap long on an mark to delete it" FontSize="17" />
                 </StackLayout>
             </Frame>
         </StackLayout>
