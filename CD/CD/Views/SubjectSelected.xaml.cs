@@ -23,6 +23,7 @@ namespace CD.Views
         {
             _subject = subject;
             InitializeComponent();
+
         }
         protected override async void OnAppearing()
         {
@@ -41,6 +42,7 @@ namespace CD.Views
             subjectName.Text = subject.SubjectName;
             lecturerName.Text = subject.LecturerName;
             lecturerEmail.Text = subject.LecturerEmail;
+            Title = subject.SubjectName;
             // refrashing the selected subject
             _subject = subject;
         }

@@ -144,21 +144,21 @@
 
                 <Label></Label>
                 <Label></Label>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <buttons:SfButton
                         Clicked="Save_Subject"
                         HorizontalOptions="Center"
                         Margin="0,24,0,0"
                         Style="{StaticResource SfButtonStyle}"
                         Text="Submit"
-                        WidthRequest="200" />
+                        WidthRequest="150" />
                     <buttons:SfButton
                         Clicked="Cancel_Subject"
                         HorizontalOptions="Center"
                         Margin="0,24,0,0"
                         Style="{StaticResource SfButtonStyle}"
                         Text="Cancel"
-                        WidthRequest="200" />
+                        WidthRequest="150" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
