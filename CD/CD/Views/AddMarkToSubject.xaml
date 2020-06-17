@@ -10,23 +10,23 @@
              Title="Add Result">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
-            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke">
-        <StackLayout 
+            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                <StackLayout 
                      BackgroundColor="WhiteSmoke"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-            <Label Text="Continuous Assessment" FontSize="20" FontAttributes="Bold" TextColor="Red" HorizontalOptions="Center" />
+                    <Label Text="Continuous Assessment" FontSize="20" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
             <Label></Label>
-            <Label Text="Name of the assessment"/>
-            <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text"/>
-            <Label Text="Exam weight"/>
-            <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric"/>
-            <Label Text="Result in % (from 100)"/>
-            <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric"/>
+            <Label Text="Name of the assessment" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+            <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+            <Label Text="Exam weight" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+            <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+            <Label Text="Result in % (from 100)" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+            <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-SemiBold}"/>
             <Label></Label>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Save" Clicked="Save_Mark"/>
-                <Button Text="Cancel" Clicked="Cancel_Mark"/>
+                        <Button Text="Save" Clicked="Save_Mark" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
+                        <Button Text="Cancel" Clicked="Cancel_Mark" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
             </StackLayout>
         </StackLayout>
             </Frame>
