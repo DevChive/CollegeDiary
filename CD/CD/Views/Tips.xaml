@@ -10,9 +10,11 @@
              Title="Tips">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
-            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke">
+            <Frame CornerRadius="10" BackgroundColor="#e1f5fe">
                 <StackLayout>
-                    <Label Text="- Tap long on an mark to delete it" FontSize="17" />
+                    <Label Text="- Tap long on an mark to delete it" FontSize="17" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Label Text="- Adding a CA result - The assignment percentage must be less than the 'Continuous Assessment' " FontSize="17" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Label Text="- The final exam can be added just once " FontSize="17" FontFamily="{StaticResource Montserrat-Medium}"/>
                 </StackLayout>
             </Frame>
         </StackLayout>

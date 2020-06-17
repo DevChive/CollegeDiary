@@ -9,15 +9,14 @@
              x:Class="CD.Views.Login.LogIn"
              
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    xmlns:control="clr-namespace:CD.Controls"
-    xmlns:converter="clr-namespace:CD.Converters"
-    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
-    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
-    xmlns:local1="clr-namespace:CD.Views.Login"
-    xmlns:viewModel="clr-namespace:CD.ViewModel.Log"
-
-    NavigationPage.HasNavigationBar="False">
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:control="clr-namespace:CD.Controls"
+             xmlns:converter="clr-namespace:CD.Converters"
+             xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:local1="clr-namespace:CD.Views.Login"
+             xmlns:viewModel="clr-namespace:CD.ViewModel.Log"
+             NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
         <ResourceDictionary>

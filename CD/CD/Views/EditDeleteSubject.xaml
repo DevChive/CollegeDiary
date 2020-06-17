@@ -9,33 +9,33 @@
              Title="Edit subject">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
-            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True">
+            <Frame CornerRadius="10" BackgroundColor="#e1f5fe" HasShadow="True" BorderColor="DodgerBlue">
                 <StackLayout 
-                     BackgroundColor="WhiteSmoke"
+                     BackgroundColor="#e1f5fe"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
                     <ScrollView>
                         <StackLayout Margin="10">
-                            <Label Text="Edit subject" FontSize="20" FontAttributes="Bold" TextColor="Red" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" />
+                            <Label Text="Edit subject" FontSize="23" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
                             <Label></Label>
-                            <Label Text="Subject Name"/>
-                            <Entry Placeholder="Subject Name" x:Name="subjectName" ReturnType="Next" Keyboard="Text"/>
+                            <Label Text="Subject Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                            <Entry Placeholder="Subject Name" x:Name="subjectName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
 
-                            <Label Text="Lecturer Name"/>
-                            <Entry Placeholder="Lecturer Name" x:Name="lecturerName" ReturnType="Next" Keyboard="Text"/>
+                            <Label Text="Lecturer Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                            <Entry Placeholder="Lecturer Name" x:Name="lecturerName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
 
-                            <Label Text="Lecturer Email"/>
-                            <Entry Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email"/>
+                            <Label Text="Lecturer Email" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                            <Entry Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email" FontFamily="{StaticResource Montserrat-Medium}"/>
 
-                            <Label Text="Continuous Assessment Weight"/>
-                            <Entry Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="LightGray"/>
+                            <Label Text="Continuous Assessment Weight" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                            <Entry Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="#bbeaff" FontFamily="{StaticResource Montserrat-Medium}"/>
 
-                            <Label Text="Final Exam Weight"/>
-                            <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="LightGray" Opacity="80" />
+                            <Label Text="Final Exam Weight" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                            <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="#bbeaff" FontFamily="{StaticResource Montserrat-Medium}" />
                             <Label></Label>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Button Text="Save" Clicked="Save_Subject" />
-                                <Button Text="Cancel" Clicked="Cancel_Update"/>
+                                <Button Text="Save" Clicked="Save_Subject" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DeepPink" TextColor="White" CornerRadius="20" WidthRequest="110" FontSize="16" HeightRequest="20"/>
+                                <Button Text="Cancel" Clicked="Cancel_Update" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DeepPink" TextColor="White" FontAttributes="Bold" CornerRadius="20" WidthRequest="110" FontSize="16"/>
                             </StackLayout>
                         </StackLayout>
                     </ScrollView>

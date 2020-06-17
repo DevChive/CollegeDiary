@@ -8,7 +8,7 @@
              xmlns:controls="clr-namespace:CD.Controls"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:viewModel="clr-namespace:CD.ViewModel"
+             xmlns:viewModel="clr-namespace:CD.ViewModel" xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              BackgroundColor="{DynamicResource Gray-White}">
 
 
@@ -33,10 +33,10 @@
 
         <ScrollView>
         <StackLayout Margin="10">
-            <Frame BorderColor="{DynamicResource Gray-300}" CornerRadius="15" HasShadow="True" BackgroundColor="WhiteSmoke">
+            <Frame BorderColor="DodgerBlue" CornerRadius="7" HasShadow="True" BackgroundColor="#e1f5fe">
                 <StackLayout>
                     <Label Text="Subject Details" 
-                       TextColor="{DynamicResource Red}" 
+                       TextColor="DodgerBlue" 
                        FontFamily="{StaticResource Montserrat-Medium}" 
                        FontSize="23"
                        Margin="0,0,0,30"
@@ -45,7 +45,7 @@
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Subject: " TextColor="MediumSeaGreen" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="17"/>
+                                <Span Text="Subject: " TextColor="DeepPink" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="17"/>
                                 <Span x:Name="subjectName"  FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.SubjectName}" TextColor="DarkSlateGray"/>
                             </FormattedString>
                         </Label.FormattedText>
@@ -53,7 +53,7 @@
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Lecturer: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="MediumSeaGreen" FontAttributes="Bold" FontSize="17"/>
+                                <Span Text="Lecturer: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
                                 <Span x:Name="lecturerName"  FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  TextColor="DarkSlateGray"/>
                             </FormattedString>
                         </Label.FormattedText>
@@ -61,7 +61,7 @@
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Lecturer Email: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="MediumSeaGreen" FontAttributes="Bold" FontSize="17"/>
+                                <Span Text="Lecturer Email: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
                                 <Span x:Name="lecturerEmail"  FontFamily="{StaticResource Montserrat-Medium}"  Text="{Binding subjectL.LecturerEmail}"  TextColor="DarkSlateGray"/>
                             </FormattedString>
                         </Label.FormattedText>
@@ -69,7 +69,7 @@
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Continuous Assessment: "  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="MediumVioletRed" FontAttributes="Bold" FontSize="17"/>
+                                <Span Text="Continuous Assessment: "  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
                                 <Span Text="{Binding subjectL.CA,StringFormat='{0:N} %'}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"  />
                             </FormattedString>
                         </Label.FormattedText>
@@ -77,7 +77,7 @@
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Final Exam: " TextColor="MediumVioletRed" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="17"/>
+                                <Span Text="Final Exam: " TextColor="DeepPink" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="17"/>
                                 <Span Text="{Binding subjectL.FinalExam,StringFormat='{0:N} %'}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray" />
                             </FormattedString>
                         </Label.FormattedText>
@@ -108,16 +108,12 @@
                         <buttons:SfButton HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Text="Add CA Result" Clicked="add_new_mark"/>
                         <buttons:SfButton Text="Add Final Exam" Clicked="add_final_exam" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" />
                     </StackLayout>
-                    
-                    
+                                       
                 </StackLayout>
             </Frame>
-            <Label Text="Results" FontSize="20" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="{DynamicResource Red}" Margin="10" />
-
-
-
-
-            <StackLayout  Grid.Row="1" Spacing="0">
+            
+            <StackLayout  Grid.Row="1" Spacing="0" BackgroundColor="WhiteSmoke">
+                <Label Text="Results" FontSize="20" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DodgerBlue" Margin="10" />
                 <!-- Seperator -->
                 <BoxView Style="{StaticResource BoxViewStyle}" />
                 <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding MarkListL}"
@@ -150,11 +146,12 @@
                                             <Label Margin="16,13,0,0"
                                                 HeightRequest="24"
                                                 FontFamily="{StaticResource Montserrat-Medium}"
-                                                FontSize="13"
+                                                FontSize="15"
                                                 LineHeight="{OnPlatform Android=1.5,
                                                                        Default=-1}"
                                                 Text="{Binding MarkName}"
-                                                TextColor="{DynamicResource Gray-900}" />
+                                                TextColor="{DynamicResource Gray-900}"
+                                                   FontAttributes="Bold"/>
 
                                             <!--  Composer of the item  -->
                                             <Label  Margin="16,0,0,12"
