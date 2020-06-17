@@ -28,23 +28,23 @@
 
     <ContentPage.ControlTemplate>
         <ControlTemplate>
-            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-100}">
+            <StackLayout Spacing="0" BackgroundColor="#e1f5fe">
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Back" 
-                            BackgroundColor="{DynamicResource Gray-100}"
+                            BackgroundColor="#e1f5fe"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             Clicked="BackButton"/>
                     <!-- Title -->
                     <Label 
                         Text="Add new subject"
-                        TextColor="{DynamicResource Red}"
+                        TextColor="DodgerBlue"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         FontSize="20"
                         Margin="0,20"
                         HorizontalOptions="CenterAndExpand" />
-                    <Button Text="     " BackgroundColor="{DynamicResource Gray-100}"/>
+                    <Button Text="     " BackgroundColor="#e1f5fe"/>
                 </StackLayout>
-                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-100}"/>
+                <BoxView HeightRequest="1" BackgroundColor="#e1f5fe"/>
                 <ContentPresenter />
 
             </StackLayout>
@@ -53,7 +53,7 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24" >
+            <StackLayout BackgroundColor="#e1f5fe" Spacing="0" Padding="16,24" >
 
                 <!-- Subject Name -->
                 <Label

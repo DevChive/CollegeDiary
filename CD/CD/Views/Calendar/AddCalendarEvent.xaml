@@ -8,43 +8,49 @@
              mc:Ignorable="d"
              x:Class="CD.Views.Calendar.AddCalendarEvent">
     <ContentPage.Content>
-        <StackLayout Margin="20"
-                     Padding="30"
-                     BackgroundColor="WhiteSmoke"
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <Frame CornerRadius="10" BackgroundColor="#e1f5fe" HasShadow="True" BorderColor="DodgerBlue">
+                <StackLayout 
+                     BackgroundColor="#e1f5fe"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-            <Label Text="New calendar event" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
-            <Label></Label>
-            <Label Text="Name of the event"/>
-            <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"/>
-            <Label Text="Description"/>
-            <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text"/>
-            <Label Text="Start date"/>
-            <DatePicker 
+
+                    <Label FontFamily="{StaticResource Montserrat-Medium}" Text="New calendar event" FontSize="20" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
+                    <Label></Label>
+                    <Label Text="Name of the event" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Label Text="Description" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Label Text="Start date" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <DatePicker 
                 x:Name="startDate"
                 Format="dd/MM/yyyy"
                 Date="{Binding selectedDate, Mode=TwoWay}" />
-            <Label Text="Start time"/>
-            <TimePicker x:Name="startTimePicker"
-                    Time="12:00"
-                    Format="T"
-                    PropertyChanged="OnTimePickerPropertyChanged" />
-            <Label Text="End date"/>
-            <DatePicker 
+                    <Label Text="Start time" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <TimePicker x:Name="startTimePicker"
+                        Time="12:00"
+                        Format="T"
+                        PropertyChanged="OnTimePickerPropertyChanged"
+                        FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Label Text="End date" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <DatePicker 
                 x:Name="endDate"
                 Format="dd/MM/yyyy"
                 Date="{Binding selectedDate, Mode=TwoWay}"
                 MinimumDate="{Binding selctedDate, Mode=TwoWay}"/>
-            <Label Text="End time"/>
-            <TimePicker x:Name="endTimePicker"
-                    Time="12:00"
-                    Format="T"
-                    PropertyChanged="OnTimePickerPropertyChanged" />
-            <Label></Label>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Save" Clicked="Save_Event"/>
-                <Button Text="Cancel" Clicked="Cancel_Event"/>
-            </StackLayout>
+                    <Label Text="End time" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <TimePicker x:Name="endTimePicker" 
+                        Time="12:00"
+                        Format="T"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        PropertyChanged="OnTimePickerPropertyChanged" />
+                    <Label></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="Save" Clicked="Save_Event" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DeepPink" TextColor="White" CornerRadius="20" FontSize="16" HeightRequest="20" WidthRequest="110" />
+                        <Button Text="Cancel" Clicked="Cancel_Event" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DeepPink" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </pages:PopupPage>
