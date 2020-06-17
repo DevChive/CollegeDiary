@@ -10,7 +10,6 @@
             <Label Text="Student Name" TextColor="Green" FontSize="30"/>
             <Button Text="Subjects List" Clicked="load_subject_list"/>
             <Button Text="Add Subject" Clicked="load_add_subject"/>
-            <Button Text="Create Student" Clicked="load_create_student"/>
             <Button Text="Log in" Clicked="load_login"/>
         </StackLayout>
     </ContentPage.Content>

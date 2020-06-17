@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CD.Helper;
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Firebase.Auth;
 using System.Threading.Tasks;
+using Android.Gms.Extensions;
 
 namespace CD.Droid
 {
@@ -40,6 +32,24 @@ namespace CD.Droid
             {
                 return false;
             }
+        }
+    }
+
+    public class FirebaseRegister : IFirebaseRegister
+    {
+        public bool NotRegistered()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Registered()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task RegisterWithEmailAndPassword(string email, string password)
+        {
+            var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPassword(email, password);
         }
     }
 }
