@@ -18,7 +18,7 @@
                     <Label Text="Final Exam" FontSize="20" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
                     <Label></Label>
                     <Label Text="Result in % (from 100)" FontFamily="{StaticResource Montserrat-SemiBold}" />
-                    <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-SemiBold}" />
+                    <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" />
                     <Label></Label>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <Button Text="Save" Clicked="Save_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>

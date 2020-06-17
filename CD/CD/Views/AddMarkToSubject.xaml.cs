@@ -45,31 +45,43 @@ namespace CD.Views
         private async void Save_Mark(object sender, EventArgs e)
         {
             bool validate = true;
+            bool less = true;
 
+            // check all the entries are filled in 
             if (string.IsNullOrEmpty(this.mark_name.Text) || string.IsNullOrEmpty(this.weight.Text)
                 || string.IsNullOrEmpty(this.result.Text))
             {
                 validate = false;
+                less = false;
             }
-
+            // check if the weight of the current CA is not exceeding the overall weight of the CA
             if (validate) { validate = await Check_CA_Weight(_subject, int.Parse(this.weight.Text)); }
-
-            if (validate)
+            // check the mark is not over 100
+            if (validate && Int64.Parse(this.result.Text) > 100) 
+            { 
+                await DisplayAlert("Error", "Your result cannot be higher then 100 ", "Ok");
+                validate = false;
+                less = false;
+            }
+            // if the mark is valid and less than 100
+            if (validate && less)
             {
-                decimal result = Decimal.Parse(this.result.Text);
-                int weight = Int32.Parse(this.weight.Text);
-                var mark = await fireBaseHelper.GetMark(mark_name.Text);
-                await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
-                await DisplayAlert("Success", "Your result had been recorded", "OK");
-
+                try
+                {
+                    decimal result = Decimal.Parse(this.result.Text);
+                    int weight = Int32.Parse(this.weight.Text);
+                    var mark = await fireBaseHelper.GetMark(mark_name.Text);
+                    await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
+                    await DisplayAlert("Success", "Your result had been recorded", "OK");
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Result not added", "", "OK");
+                }
                 // refresh the page to show the added mark to the subject
                 await Navigation.PushAsync(new SubjectSelected(_subject), false);
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
-            }
-            else
-            {
-                await DisplayAlert("Result not added", "", "OK");
             }
         }
 

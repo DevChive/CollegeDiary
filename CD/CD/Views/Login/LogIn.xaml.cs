@@ -4,7 +4,7 @@ using Xamarin.Forms.Xaml;
 using System;
 using Autofac;
 using CD.ViewModel.Auth;
-using CD.Helper;
+using CD.Views.SignUp;
 
 namespace CD.Views.Login
 {
@@ -22,6 +22,11 @@ namespace CD.Views.Login
 		{
 			Loading.IsRunning = true;
 			Loading.Color = Color.Red;
+		}
+
+		private void SignUpPage(object sender, EventArgs e)
+		{
+			Navigation.PushAsync(new SignUpPage());
 		}
 	}
 }

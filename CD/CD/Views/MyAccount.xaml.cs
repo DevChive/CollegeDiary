@@ -25,10 +25,6 @@ namespace CD.Views
         {
             Navigation.PushAsync(new AddSubject());
         }
-        private void load_create_student(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new AddStudent());
-        }
         private async void load_login(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LogIn());

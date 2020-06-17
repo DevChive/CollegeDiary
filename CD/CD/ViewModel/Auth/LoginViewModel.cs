@@ -41,6 +41,7 @@ namespace CD.ViewModel.Auth
                 propChangedCallBack();
 
                 App.UserUID = (Application.Current as App).AuthToken = await firebaseAuthenticator.LoginWithEmailPassword(Email.Value, Password.Value);
+
                 auth = firebaseAuthenticator;
                 if (auth.IsSignedIn())
                 {
