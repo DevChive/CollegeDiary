@@ -18,7 +18,7 @@ namespace CD.Views.Login
 			this.BindingContext = (Application.Current as App).Container.Resolve<LoginViewModel>();
 		}
 
-		private async void Login(object sender, EventArgs e)
+		private void Login(object sender, EventArgs e)
 		{
 			Loading.IsRunning = true;
 			Loading.Color = Color.Red;

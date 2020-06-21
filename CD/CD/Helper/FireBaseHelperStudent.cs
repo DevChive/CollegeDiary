@@ -12,43 +12,41 @@ namespace CD.Helper
 	class FireBaseHelperStudent
 	{
 		private readonly string Student_Name = "Students";
+		private readonly string UserUID = App.UserUID;
 		readonly FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
 
 		public async Task<List<Student>> GetAllStudents()
 		{
-			return (await firebase.Child(Student_Name).OnceAsync<Student>()).Select(item => new Student
+			return (await firebase.Child(UserUID).Child(Student_Name).OnceAsync<Student>()).Select(item => new Student
 			{
 				StudentName = item.Object.StudentName,
 				StudentID = item.Object.StudentID,
 				StudentEmail = item.Object.StudentEmail,
-				StudentAddress = item.Object.StudentAddress,
-				StudentPhone = item.Object.StudentPhone
 			}).ToList();
 		}
 
-		public async Task AddStudent(string studentName, string studentEmail, string studentAddress, int studentPhone)
+		public async Task AddStudent(string UID, string studentName, string UC, string studentEmail)
 		{
-			await firebase.Child(Student_Name).PostAsync(new Student()
+			await firebase.Child(UID).Child(Student_Name).PostAsync(new Student()
 			{
 				StudentID = Guid.NewGuid(),
 				StudentName = studentName,
 				StudentEmail = studentEmail,
-				StudentAddress = studentAddress,
-				StudentPhone = studentPhone
+				College_University = UC
 			}) ;
 		}
 
 		public async Task<Student> GetStudent(Guid studentID)
 		{
 			var allStudents = await GetAllStudents();
-			await firebase.Child(Student_Name).OnceAsync<Student>();
+			await firebase.Child(UserUID).Child(Student_Name).OnceAsync<Student>();
 			return allStudents.FirstOrDefault(a => a.StudentID == studentID);
 		}
 
 		public async Task<Student> GetStudent(string studentName)
 		{
 			var allStudents = await GetAllStudents();
-			await firebase.Child(Student_Name).OnceAsync<Student>();
+			await firebase.Child(UserUID).Child(Student_Name).OnceAsync<Student>();
 			return allStudents.FirstOrDefault(a => a.StudentName == studentName);
 		}
 
@@ -56,7 +54,7 @@ namespace CD.Helper
 		{
 			var toDeleteStudent = (await firebase.Child(Student_Name).OnceAsync<Subject>()).FirstOrDefault
 				(a => a.Object.SubjectID == StudentID);
-			await firebase.Child(Student_Name).Child(toDeleteStudent.Key).DeleteAsync();
+			await firebase.Child(UserUID).Child(Student_Name).Child(toDeleteStudent.Key).DeleteAsync();
 		}
 	}
 }

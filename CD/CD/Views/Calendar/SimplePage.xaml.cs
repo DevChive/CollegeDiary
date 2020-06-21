@@ -124,7 +124,7 @@ namespace CD.Views.Calendar
             catch (Exception) 
             {
             }
-            Instance.refreshCalendar();
+            await Instance.refreshCalendar();
         }
     }
 }

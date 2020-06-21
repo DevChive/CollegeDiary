@@ -10,6 +10,7 @@ namespace CD.Droid
 {
     public class FirebaseRegister : IFirebaseRegister
     {
+        public string UserID;
         public async Task<string> RegisterWithEmailAndPassword(string email, string password)
         {
             try
@@ -17,6 +18,7 @@ namespace CD.Droid
                 var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
                 var token = await user.User.GetIdTokenAsync(false);
                 user.User.SendEmailVerification();
+                App.UserUID = user.User.Uid;
                 return token.Token;
             }
             catch (FirebaseAuthInvalidUserException e)
@@ -29,5 +31,11 @@ namespace CD.Droid
                 return "";
             }
         }
+
+        public string UserUID()
+        {
+            return UserID;
+        }
     }
+
 }

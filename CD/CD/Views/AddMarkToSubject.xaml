@@ -17,12 +17,12 @@
                      VerticalOptions="Center">
                     <Label Text="Continuous Assessment" FontSize="20" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
             <Label></Label>
-            <Label Text="Name of the assessment" FontFamily="{StaticResource Montserrat-SemiBold}"/>
-            <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
-            <Label Text="Exam weight" FontFamily="{StaticResource Montserrat-SemiBold}"/>
-            <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}"/>
-            <Label Text="Result in % (from 100)" FontFamily="{StaticResource Montserrat-SemiBold}"/>
-            <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}"/>
+            <Label Text="Name of the assessment" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray"/>
+            <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}"/>
+            <Label Text="Exam weight" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray"/>
+            <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}"/>
+            <Label Text="Result in % (from 100)" TextColor="Gray" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+            <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}"/>
             <Label></Label>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <Button Text="Save" Clicked="Save_Mark" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
