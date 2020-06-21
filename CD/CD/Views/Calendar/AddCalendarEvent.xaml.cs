@@ -43,7 +43,7 @@ namespace CD.Views.Calendar
                 await DisplayAlert("Failed", "Please add a name to the event", "OK");
 
             // repopulating the calendar
-            SimplePage.Instance.refreshCalendar();
+            await SimplePage.Instance.refreshCalendar();
         }
 
         private async void Cancel_Event(object sender, System.EventArgs e)

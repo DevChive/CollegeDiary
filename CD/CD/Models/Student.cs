@@ -8,8 +8,7 @@ namespace CD.Models
 	{
 		public Guid StudentID { get; set; }
 		public String StudentName { get; set; }
-		public String StudentAddress { get; set; }
-		public int StudentPhone { get; set; }
 		public string StudentEmail { get; set; }
+		public string College_University { get; set; }
 	}
 }

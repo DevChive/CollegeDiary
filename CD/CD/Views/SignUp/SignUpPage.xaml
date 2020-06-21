@@ -75,7 +75,7 @@
                         Text="Create an account to start doing more"
                         TextColor="{DynamicResource Gray-800}" />
 
-                    <!--  Entry to get username from user  -->
+                    <!--  Entry to get user name from user  -->
                     <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
                         BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
@@ -83,9 +83,25 @@
                         <control:BorderlessEntry
                             x:Name="NameEntry"
                             Placeholder="Name"
+                            ReturnType="Next"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
                             Text="{Binding Name}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <!--  Entry to get college/univeristy from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference College_University}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="College_University"
+                            Placeholder="College/University"
+                            ReturnType="Next"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding College_University}"
                             TextColor="{DynamicResource Gray-900}" />
                     </border:SfBorder>
 
@@ -97,6 +113,7 @@
                         <control:BorderlessEntry
                             x:Name="SignUpEmailEntry"
                             Placeholder="Email"
+                            ReturnType="Next"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
                             Text="{Binding SignUpEmailEntry}"
@@ -111,6 +128,7 @@
                         <control:BorderlessEntry
                             x:Name="PasswordEntry"
                             IsPassword="true"
+                            ReturnType="Next"
                             Placeholder="Password"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
@@ -126,6 +144,7 @@
                         <control:BorderlessEntry
                             x:Name="ConfirmPasswordEntry"
                             IsPassword="true"
+                            ReturnType="Next"
                             Placeholder="Confirm Password"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
