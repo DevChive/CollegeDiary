@@ -4,8 +4,6 @@ namespace CD.Helper
 {
     public interface IFirebaseRegister
     {
-        Task RegisterWithEmailAndPassword(string email, string password);
-        bool Registered();
-        bool NotRegistered();
+        Task<string> RegisterWithEmailAndPassword(string email, string password);
     }
 }

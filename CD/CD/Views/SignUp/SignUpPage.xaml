@@ -9,7 +9,6 @@
     xmlns:converter="clr-namespace:CD.Converters"
     xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
     xmlns:local="clr-namespace:CD.Views.SignUp"
-    xmlns:viewModel="clr-namespace:CD.ViewModel.SignUp"
     xmlns:local1="clr-namespace:CD"
     Title="Sign Up"
     BackgroundColor="{DynamicResource Gray-200}"
@@ -23,12 +22,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <!--  Binding context for sign-up page  -->
-    <ContentPage.BindingContext>
-        <viewModel:SignUpPageViewModel />
-    </ContentPage.BindingContext>
-
+    
     <ContentPage.Content>
         <ScrollView HorizontalOptions="Center">
             <ScrollView.VerticalOptions>
@@ -96,7 +90,18 @@
                     </border:SfBorder>
 
                     <!--  Entry to get email ID from user  -->
-                    <local:SimpleEmailEntry />
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference SignUpEmailEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="SignUpEmailEntry"
+                            Placeholder="Email"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding SignUpEmailEntry}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
 
                     <!--  Entry to get password from user  -->
                     <border:SfBorder

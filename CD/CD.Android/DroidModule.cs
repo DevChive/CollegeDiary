@@ -8,6 +8,7 @@ namespace CD.Droid
 		protected override void Load(ContainerBuilder builder)
 		{
 			builder.RegisterType<FirebaseAuthenticator>().As<IFirebaseAuthenticator>().SingleInstance();
+			builder.RegisterType<FirebaseRegister>().As<IFirebaseRegister>().SingleInstance();
 		}
 	}
 }

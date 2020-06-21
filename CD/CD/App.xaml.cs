@@ -5,7 +5,6 @@ using Autofac;
 using CD.Views.Login;
 using CD.Models;
 using Newtonsoft.Json;
-using System.IO;
 
 namespace CD
 {
@@ -52,7 +51,6 @@ namespace CD
             builder.RegisterModule(module);
             return builder.Build();
         }
-        [System.Obsolete]
         void LoadJson()
         {
             string jsonFileName = "CD.config.json";
