@@ -2,8 +2,10 @@
 using CD.Helper;
 using Firebase.Auth;
 using System.Threading.Tasks;
-using Android.Gms.Extensions;
+using Xamarin.Forms;
+using CD.Droid;
 
+[assembly: Dependency(typeof(FirebaseAuthenticator))]
 namespace CD.Droid
 {
     public class FirebaseAuthenticator : IFirebaseAuthenticator
@@ -32,24 +34,6 @@ namespace CD.Droid
             {
                 return false;
             }
-        }
-    }
-
-    public class FirebaseRegister : IFirebaseRegister
-    {
-        public bool NotRegistered()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Registered()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task RegisterWithEmailAndPassword(string email, string password)
-        {
-            var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPassword(email, password);
         }
     }
 }

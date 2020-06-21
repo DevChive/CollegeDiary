@@ -35,22 +35,4 @@ namespace CD.iOS
             }
         }
     }
-
-    public class FirebaseRegister : IFirebaseRegister
-    {
-        public bool NotRegistered()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Registered()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task RegisterWithEmailAndPassword(string email, string password)
-        {
-            var user = await Auth.DefaultInstance.CreateUserAsync(email, password);
-        }
-    }
 }
