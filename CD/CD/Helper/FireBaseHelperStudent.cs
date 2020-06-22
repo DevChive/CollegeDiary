@@ -11,7 +11,7 @@ namespace CD.Helper
 {
 	class FireBaseHelperStudent
 	{
-		private readonly string Student_Name = "Students";
+		private readonly string Student_Name = "Student";
 		private readonly string UserUID = App.UserUID;
 		readonly FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
 
@@ -22,6 +22,7 @@ namespace CD.Helper
 				StudentName = item.Object.StudentName,
 				StudentID = item.Object.StudentID,
 				StudentEmail = item.Object.StudentEmail,
+				Institute = item.Object.Institute
 			}).ToList();
 		}
 
@@ -29,25 +30,18 @@ namespace CD.Helper
 		{
 			await firebase.Child(UID).Child(Student_Name).PostAsync(new Student()
 			{
-				StudentID = Guid.NewGuid(),
+				StudentID = UID,
 				StudentName = studentName,
 				StudentEmail = studentEmail,
-				College_University = UC
+				Institute = UC
 			}) ;
 		}
 
-		public async Task<Student> GetStudent(Guid studentID)
+		public async Task<Student> GetStudent(string studentID)
 		{
 			var allStudents = await GetAllStudents();
 			await firebase.Child(UserUID).Child(Student_Name).OnceAsync<Student>();
 			return allStudents.FirstOrDefault(a => a.StudentID == studentID);
-		}
-
-		public async Task<Student> GetStudent(string studentName)
-		{
-			var allStudents = await GetAllStudents();
-			await firebase.Child(UserUID).Child(Student_Name).OnceAsync<Student>();
-			return allStudents.FirstOrDefault(a => a.StudentName == studentName);
 		}
 
 		public async Task DeleteStudent(Guid StudentID)

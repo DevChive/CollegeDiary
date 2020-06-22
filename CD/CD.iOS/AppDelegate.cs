@@ -5,6 +5,8 @@ using Foundation;
 using Syncfusion.XForms.PopupLayout;
 using Syncfusion.SfSchedule.XForms.iOS;
 using UIKit;
+using Syncfusion.XForms.iOS.Core;
+using Syncfusion.XForms.iOS.ProgressBar;
 
 namespace CD.iOS
 {
@@ -25,6 +27,8 @@ namespace CD.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             SfScheduleRenderer.Init();
+            SfAvatarViewRenderer.Init();
+            SfCircularProgressBarRenderer.Init();
             Rg.Plugins.Popup.Popup.Init();
             LoadApplication(new App(new IOSModule()));
 
