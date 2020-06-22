@@ -5,12 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:CD.ViewModel"
-    xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar" 
     xmlns:local1="clr-namespace:CD" 
     xmlns:xforms1="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
     x:Name="simpleCalendarPage"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Title="Calendar">
     <ContentPage.ToolbarItems>
         <!-- HERE SOMETHING -->
     </ContentPage.ToolbarItems>

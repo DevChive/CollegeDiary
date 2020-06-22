@@ -4,13 +4,130 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CD.Views.MyAccount">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Student Name" TextColor="Green" FontSize="30"/>
-            <Button Text="Subjects List" Clicked="load_subject_list"/>
-            <Button Text="Add Subject" Clicked="load_add_subject"/>
-            <Button Text="Log in" Clicked="load_login"/>
+             x:Class="CD.Views.MyAccount"
+             BackgroundColor="{DynamicResource Gray-White}"
+             xmlns:local1="clr-namespace:CD" 
+             xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             Title="My Account">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Form\Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"/>
+        <ToolbarItem Text="Edit Details" Order="Secondary" Clicked="edit_subject" />
+        <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_subject"/>
+        <ToolbarItem Text="Tips" Order="Secondary" Clicked="tips"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Margin="10">
+            <Frame BorderColor="DodgerBlue" CornerRadius="7" HasShadow="True" BackgroundColor="#e1f5fe">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <!-- Avatar -->
+                        <sfavatar:SfAvatarView x:Name="avatar"
+                        ContentType="Initials" 
+                        InitialsType="DoubleCharacter"
+                        AvatarName="{Binding StudentName}"
+                        InitialsColor="DodgerBlue"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="55"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"   
+                        HeightRequest="110"
+                        CornerRadius="90"
+                        WidthRequest="110" 
+                        Margin="0, 0, 20, 20"
+                        BorderColor="Black"
+                        BorderWidth="1">
+                            <sfavatar:SfAvatarView.BackgroundGradient>
+                                <gradient:SfLinearGradientBrush>
+                                    <gradient:SfLinearGradientBrush.GradientStops>
+                                        <gradient:SfGradientStop Color="#2F9BDF" Offset="0"/>
+                                        <gradient:SfGradientStop Color="#51F1F2" Offset="1"/>
+                                    </gradient:SfLinearGradientBrush.GradientStops>
+                                </gradient:SfLinearGradientBrush>
+                            </sfavatar:SfAvatarView.BackgroundGradient>
+                        </sfavatar:SfAvatarView>
+                        <StackLayout Orientation="Vertical">
+                            <Label HorizontalOptions="Start"
+                                Text="Hello " 
+                                TextColor="DodgerBlue" 
+                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                FontSize="23"/>
+                            <Label HorizontalOptions="Start"
+                                Text="{Binding StudentName} " 
+                                TextColor="DodgerBlue" 
+                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                FontSize="23"/>
+                            <Grid HeightRequest="25" WidthRequest="150" HorizontalOptions="Start" Padding="0,5">
+                                <Button Text="Upload Picture" Padding="0" 
+                                        CornerRadius="10"  
+                                        FontFamily="{StaticResource Montserrat-Medium}"
+                                        Clicked="uploadPicture"/>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Padding="0,16">
+                        <Label Margin="0,5">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Name: " TextColor="DeepPink" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="17"/>
+                                    <Span x:Name="studentName" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Institute: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
+                                <Span x:Name="institute" Text="{Binding Institute}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Margin="0,5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email: " FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
+                                <Span x:Name="studentEmail" Text="{Binding StudentEmail}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,15">
+                        <StackLayout Orientation="Horizontal"> 
+                            <progressBar:SfCircularProgressBar  x:Name="CA" Progress="75" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="CA_Changed" />
+                            <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
+                                <Label  Text="Continuous"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
+                                <Label  Text="Assessment"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <progressBar:SfCircularProgressBar  x:Name="FE" Progress="44" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="FE_Changed"/>
+                            <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
+                                <Label  Text="Final"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
+                                <Label  Text="Exam"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <buttons:SfButton Text="Subjects List" Margin="0,1,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150"  Clicked="load_subject_list"/>
+                <buttons:SfButton Text="Add Subject" Margin="0,1,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_add_subject"/>
+                <buttons:SfButton Text="Log in" Margin="0,1,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_login"/>
+            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
+
 </ContentPage>
