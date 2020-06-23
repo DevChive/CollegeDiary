@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Models;
 using CD.Helper;
-
+using Rg.Plugins.Popup.Services;
 
 namespace CD.Views
 {
@@ -20,9 +20,14 @@ namespace CD.Views
         }
         protected override async void OnAppearing()
         {
+            await fireBaseHelperStudent.AddGPA(userID);
             Student user = await fireBaseHelperStudent.GetStudent(userID);
             this.BindingContext = user;
-            Console.WriteLine("--------------------------------" + user.Institute.ToString());
+            FE.Progress = Convert.ToDouble(user.FinalExam);
+            CA.Progress = Convert.ToDouble(user.CA);
+            studentEmail.Text = user.StudentEmail;
+            studentName.Text = user.StudentName;
+            institute.Text = user.Institute;
         }
         private void load_subject_list(object sender, EventArgs e)
         {
@@ -37,17 +42,6 @@ namespace CD.Views
         {
             await Navigation.PushAsync(new LogIn());
         }
-
-        private void edit_subject(object sender, EventArgs e)
-        {
-
-        }
-
-        private void delete_subject(object sender, EventArgs e)
-        {
-
-        }
-
         private void tips(object sender, EventArgs e)
         {
 
@@ -57,7 +51,6 @@ namespace CD.Views
         {
 
         }
-
         private void CA_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
         {
             if (e.Progress < 40)
@@ -73,7 +66,6 @@ namespace CD.Views
                 CA.ProgressColor = Color.Green;
             }
         }
-
         private void FE_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
         {
             if (e.Progress < 40)
@@ -88,6 +80,16 @@ namespace CD.Views
             {
                 FE.ProgressColor = Color.Green;
             }
+
+        }
+        private async void edit_account(object sender, EventArgs e)
+        {
+            Student student = await fireBaseHelperStudent.GetStudent(userID);
+            await PopupNavigation.PushAsync(new MyAccountUpdate(student));
+        }
+
+        private void delete_account(object sender, EventArgs e)
+        {
 
         }
     }

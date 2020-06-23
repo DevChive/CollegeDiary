@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
+             x:Class="CD.Views.MyAccountUpdate"
+             Title="Update Account">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                <StackLayout 
+                     BackgroundColor="WhiteSmoke"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Center">
+                    <ScrollView>
+                        <StackLayout Margin="10">
+                            <Label Text="Update Account" FontSize="23" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
+                            <Label></Label>
+                            <Label Text="Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                            <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
+
+                            <Label Text="Institute" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                            <Entry Placeholder="Institute Name" x:Name="userInstitute" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
+
+                            <Label></Label>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Button Text="Save" Clicked="Save_Account" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" WidthRequest="110" FontSize="16" HeightRequest="20"/>
+                                <Button Text="Cancel" Clicked="Cancel_Update" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" FontAttributes="Bold" CornerRadius="20" WidthRequest="110" FontSize="16"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

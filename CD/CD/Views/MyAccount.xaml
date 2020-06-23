@@ -23,8 +23,8 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary"/>
-        <ToolbarItem Text="Edit Details" Order="Secondary" Clicked="edit_subject" />
-        <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_subject"/>
+        <ToolbarItem Text="Edit Account Details" Order="Secondary" Clicked="edit_account" />
+        <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account"/>
         <ToolbarItem Text="Tips" Order="Secondary" Clicked="tips"/>
     </ContentPage.ToolbarItems>
 
@@ -103,19 +103,24 @@
                         </Label.FormattedText>
                     </Label>
                     </StackLayout>
+                    <Label HorizontalOptions="Start"
+                                Text="GPA from all subjects " 
+                                TextColor="DodgerBlue" 
+                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                FontSize="18"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,15">
-                        <StackLayout Orientation="Horizontal"> 
-                            <progressBar:SfCircularProgressBar  x:Name="CA" Progress="75" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="CA_Changed" />
+                        <StackLayout Orientation="Horizontal">
+                            <progressBar:SfCircularProgressBar  x:Name="CA" Progress="{Binding CA}" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="CA_Changed" />
                             <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
-                                <Label  Text="Continuous"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
-                                <Label  Text="Assessment"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
+                                <Label  Text="Continuous"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
+                                <Label  Text="Assessment"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <progressBar:SfCircularProgressBar  x:Name="FE" Progress="44" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="FE_Changed"/>
+                            <progressBar:SfCircularProgressBar  x:Name="FE" Progress="{Binding FinalExam}" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="FE_Changed"/>
                             <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
-                                <Label  Text="Final"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
-                                <Label  Text="Exam"  FontFamily="{StaticResource Montserrat-Medium}"  HorizontalOptions="Center"/>
+                                <Label  Text="Final"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
+                                <Label  Text="Exam"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

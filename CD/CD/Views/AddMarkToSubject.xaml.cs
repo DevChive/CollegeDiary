@@ -57,7 +57,7 @@ namespace CD.Views
             // check if the weight of the current CA is not exceeding the overall weight of the CA
             if (validate) { validate = await Check_CA_Weight(_subject, int.Parse(this.weight.Text)); }
             // check the mark is not over 100
-            if (validate && Int64.Parse(this.result.Text) > 100) 
+            if (validate && Decimal.Parse(this.result.Text) > 100) 
             { 
                 await DisplayAlert("Error", "Your result cannot be higher then 100 ", "Ok");
                 validate = false;
