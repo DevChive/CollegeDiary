@@ -49,6 +49,15 @@ namespace CD.Views.SignUp
                 await DisplayAlert("Subject not added", "Invalid email address entered", "OK");
                 validate = false;
             }
+            if (!string.IsNullOrEmpty(NameEntry.Text) && !string.IsNullOrEmpty(SignUpEmailEntry.Text) && !string.IsNullOrEmpty(College_University.Text) && validate)
+            {
+                validate = true;
+            }
+            else 
+            {
+                await DisplayAlert("Subject not added", "All fields are required", "OK");
+                validate = false;
+            }
             if (validate)
             {
                 //System.Console.WriteLine("=====================================" + SignUpEmailEntry.Text + " " + PasswordEntry.Text);

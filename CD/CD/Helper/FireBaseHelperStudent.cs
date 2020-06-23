@@ -14,6 +14,7 @@ namespace CD.Helper
 		private readonly string Student_Name = "Student";
 		private readonly string UserUID = App.UserUID;
 		readonly FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
+		readonly FireBaseHelperSubject fireBaseHelperSubject = new FireBaseHelperSubject();
 
 		public async Task<List<Student>> GetAllStudents()
 		{
@@ -22,7 +23,9 @@ namespace CD.Helper
 				StudentName = item.Object.StudentName,
 				StudentID = item.Object.StudentID,
 				StudentEmail = item.Object.StudentEmail,
-				Institute = item.Object.Institute
+				Institute = item.Object.Institute,
+				CA = item.Object.CA,
+				FinalExam = item.Object.FinalExam
 			}).ToList();
 		}
 
@@ -33,8 +36,10 @@ namespace CD.Helper
 				StudentID = UID,
 				StudentName = studentName,
 				StudentEmail = studentEmail,
-				Institute = UC
-			}) ;
+				Institute = UC,
+				CA = 0,
+				FinalExam = 0
+			}); ;
 		}
 
 		public async Task<Student> GetStudent(string studentID)
@@ -49,6 +54,46 @@ namespace CD.Helper
 			var toDeleteStudent = (await firebase.Child(Student_Name).OnceAsync<Subject>()).FirstOrDefault
 				(a => a.Object.SubjectID == StudentID);
 			await firebase.Child(UserUID).Child(Student_Name).Child(toDeleteStudent.Key).DeleteAsync();
+		}
+
+		public async Task AddGPA(string StudentID)
+		{
+			var subjects = await fireBaseHelperSubject.GetAllSubjects();
+			double CA_GPA = 0;
+			double FE_GPA = 0;
+			if(subjects.Count != 0)
+			{
+				foreach (Subject sub in subjects)
+				{
+					CA_GPA += sub.TotalCA;
+					FE_GPA += sub.TotalFinalExam;
+				}
+				CA_GPA = CA_GPA / subjects.Count;
+				FE_GPA = FE_GPA / subjects.Count;
+				var userToUpdate = (await firebase.Child(UserUID).Child(Student_Name)
+				.OnceAsync<Student>())
+				.FirstOrDefault
+				(a => a.Object.StudentID == StudentID);
+				await firebase.Child(UserUID).Child(Student_Name).Child(userToUpdate.Key).Child("CA").PutAsync(CA_GPA);
+				await firebase.Child(UserUID).Child(Student_Name).Child(userToUpdate.Key).Child("FinalExam").PutAsync(FE_GPA);
+			}		
+		}
+
+		public async Task UpdateAccount(string userID, String userName, String institute)
+		{
+			var toUpdateSubject = (await firebase.Child(UserUID).Child(Student_Name)
+				.OnceAsync<Student>())
+				.FirstOrDefault(a => a.Object.StudentID == userID);
+			await firebase.Child(UserUID).Child(Student_Name).Child(toUpdateSubject.Key)
+				.PutAsync(new Student()
+				{
+					StudentID = toUpdateSubject.Object.StudentID,
+					StudentName = userName,
+					StudentEmail = toUpdateSubject.Object.StudentEmail,
+					Institute = institute,
+					CA = toUpdateSubject.Object.CA,
+					FinalExam = toUpdateSubject.Object.FinalExam,
+				});
 		}
 	}
 }

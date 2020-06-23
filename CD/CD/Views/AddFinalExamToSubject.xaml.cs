@@ -40,7 +40,7 @@ namespace CD.Views
             if (string.IsNullOrEmpty(this.result.Text)) { validate = false; }
 
             // check if the result is not higher than 100
-            if(validate && Int64.Parse(this.result.Text) > 100) 
+            if(validate && Decimal.Parse(this.result.Text) > 100) 
             { 
                 await DisplayAlert("Error", "Your result cannot be higher then 100 ", "Ok");
                 less = false;

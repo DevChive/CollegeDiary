@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Models;
-using CD.Views;
 using CD.Helper;
 
 namespace CD.Views
