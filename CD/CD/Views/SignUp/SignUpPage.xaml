@@ -72,7 +72,7 @@
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
-                        Text="Create an account to start doing more"
+                        Text="and save time for what actually matters"
                         TextColor="{DynamicResource Gray-800}" />
 
                     <!--  Entry to get user name from user  -->

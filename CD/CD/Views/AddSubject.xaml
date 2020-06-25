@@ -10,8 +10,7 @@
             xmlns:controls="clr-namespace:CD.Controls"
             xmlns:converter="clr-namespace:CD.Converters"
             xmlns:viewModel="clr-namespace:CD.ViewModel.Forms"
-            BackgroundColor="{DynamicResource Gray-100}"
-            NavigationPage.HasNavigationBar="False">
+            BackgroundColor="{DynamicResource Gray-100}">
 
     <ContentPage.BindingContext>
         <viewModel:BusinessRegistrationFormViewModel />
@@ -25,15 +24,10 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>
-
     <ContentPage.ControlTemplate>
         <ControlTemplate>
             <StackLayout Spacing="0" BackgroundColor="WhiteSmoke">
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Back" 
-                            BackgroundColor="WhiteSmoke"
-                            FontFamily="{StaticResource Montserrat-Medium}"
-                            Clicked="BackButton"/>
                     <!-- Title -->
                     <Label 
                         Text="Add new subject"
@@ -42,7 +36,6 @@
                         FontSize="20"
                         Margin="0,20"
                         HorizontalOptions="CenterAndExpand" />
-                    <Button Text="     " BackgroundColor="WhiteSmoke"/>
                 </StackLayout>
                 <BoxView HeightRequest="1" BackgroundColor="WhiteSmoke"/>
                 <ContentPresenter />
