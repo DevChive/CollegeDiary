@@ -25,9 +25,8 @@ namespace CD.Views
             this.BindingContext = user;
             FE.Progress = Convert.ToDouble(user.FinalExam);
             CA.Progress = Convert.ToDouble(user.CA);
-            studentEmail.Text = user.StudentEmail;
-            studentName.Text = user.StudentName;
             institute.Text = user.Institute;
+            studentName.Text = user.StudentName;
         }
         private void load_subject_list(object sender, EventArgs e)
         {

@@ -43,6 +43,7 @@ namespace CD.Views
             lecturerName.Text = subject.LecturerName;
             lecturerEmail.Text = subject.LecturerEmail;
             Title = subject.SubjectName;
+            
             // refrashing the selected subject
             _subject = subject;
         }

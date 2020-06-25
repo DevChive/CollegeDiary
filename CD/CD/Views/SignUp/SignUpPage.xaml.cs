@@ -30,34 +30,49 @@ namespace CD.Views.SignUp
             bool validate = true;
             string pattern = null;
             pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-            if (!passwordMatch(PasswordEntry.Text, ConfirmPasswordEntry.Text))
+            if (string.IsNullOrEmpty(NameEntry.Text) && validate)
             {
-                await DisplayAlert("Error", "Passwords don't match", "Ok");
+                await DisplayAlert("Incorrect name", "Please enter a name to continue", "OK");
                 validate = false;
             }
-            if (validate && PasswordEntry.Text.Length < 6)
+            if (string.IsNullOrEmpty(College_University.Text) && validate)
             {
-                await DisplayAlert("Error", "The password needs to have at least 6 characters", "ok");
+                await DisplayAlert("Incorrect institute", "Please enter your institute to continue", "OK");
+                validate = false;
             }
             // cheking if  the email is valid
-            if (Regex.IsMatch(this.SignUpEmailEntry.Text, pattern) && !string.IsNullOrEmpty(this.SignUpEmailEntry.Text) && validate)
+            if (validate)
             {
-                validate = true;
+                if (string.IsNullOrEmpty(SignUpEmailEntry.Text))
+                {
+                    await DisplayAlert("Incorrect email", "Please enter your email", "OK");
+                    validate = false;
+                }
+                else if (!Regex.IsMatch(this.SignUpEmailEntry.Text, pattern) && validate)
+                {
+                    await DisplayAlert("Incorrect email", "Please enter a valid email", "OK");
+                    validate = false;
+                }
             }
-            else
+            if  (validate)
             {
-                await DisplayAlert("Subject not added", "Invalid email address entered", "OK");
-                validate = false;
+                if (string.IsNullOrEmpty(PasswordEntry.Text) && string.IsNullOrEmpty(ConfirmPasswordEntry.Text))
+                {
+                    await DisplayAlert("Incorrect passwords", "Please enter a password", "Ok");
+                    validate = false;
+                }
+                if (!passwordMatch(PasswordEntry.Text, ConfirmPasswordEntry.Text) && validate)
+                {
+                    await DisplayAlert("Incorrect passwords", "The passwords entered do not match", "Ok");
+                    validate = false;
+                }
+                if (validate && !string.IsNullOrEmpty(PasswordEntry.Text) && PasswordEntry.Text.Length < 6)
+                {
+                    await DisplayAlert("Incorrect password", "The password must have at least 6 characters", "ok");
+                    validate = false;
+                }
             }
-            if (!string.IsNullOrEmpty(NameEntry.Text) && !string.IsNullOrEmpty(SignUpEmailEntry.Text) && !string.IsNullOrEmpty(College_University.Text) && validate)
-            {
-                validate = true;
-            }
-            else 
-            {
-                await DisplayAlert("Subject not added", "All fields are required", "OK");
-                validate = false;
-            }
+            
             if (validate)
             {
                 //System.Console.WriteLine("=====================================" + SignUpEmailEntry.Text + " " + PasswordEntry.Text);

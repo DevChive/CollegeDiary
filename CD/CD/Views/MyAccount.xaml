@@ -30,109 +30,109 @@
 
     <ScrollView>
         <StackLayout Margin="10">
-            <Frame BorderColor="DodgerBlue" CornerRadius="7" HasShadow="True" BackgroundColor="#e1f5fe">
-                <StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <!-- Avatar -->
-                        <sfavatar:SfAvatarView x:Name="avatar"
-                        ContentType="Initials" 
-                        InitialsType="DoubleCharacter"
-                        AvatarName="{Binding StudentName}"
-                        InitialsColor="DodgerBlue"
-                        FontFamily="{StaticResource Montserrat-SemiBold}"
-                        FontSize="55"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Start"   
-                        HeightRequest="110"
-                        CornerRadius="90"
-                        WidthRequest="110" 
-                        Margin="0, 0, 20, 20"
-                        BorderColor="Black"
-                        BorderWidth="1">
-                            <sfavatar:SfAvatarView.BackgroundGradient>
-                                <gradient:SfLinearGradientBrush>
-                                    <gradient:SfLinearGradientBrush.GradientStops>
-                                        <gradient:SfGradientStop Color="#2F9BDF" Offset="0"/>
-                                        <gradient:SfGradientStop Color="#51F1F2" Offset="1"/>
-                                    </gradient:SfLinearGradientBrush.GradientStops>
-                                </gradient:SfLinearGradientBrush>
-                            </sfavatar:SfAvatarView.BackgroundGradient>
-                        </sfavatar:SfAvatarView>
-                        <StackLayout Orientation="Vertical">
-                            <Label HorizontalOptions="Start"
-                                Text="Hello " 
-                                TextColor="DodgerBlue" 
-                                FontFamily="{StaticResource Montserrat-Medium}" 
-                                FontSize="23"/>
-                            <Label HorizontalOptions="Start"
-                                Text="{Binding StudentName} " 
-                                TextColor="DodgerBlue" 
-                                FontFamily="{StaticResource Montserrat-Medium}" 
-                                FontSize="23"/>
-                            <Grid HeightRequest="25" WidthRequest="150" HorizontalOptions="Start" Padding="0,5">
-                                <Button Text="Upload Picture" Padding="0" 
-                                        CornerRadius="10"  
-                                        FontFamily="{StaticResource Montserrat-Medium}"
-                                        Clicked="uploadPicture"/>
-                            </Grid>
+            <Frame BorderColor="WhiteSmoke" CornerRadius="10">
+                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                    <!-- Avatar -->
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label HorizontalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Hello " TextColor="DodgerBlue" FontFamily="{StaticResource Montserrat-Medium}" FontAttributes="Bold" FontSize="23"/>
+                                    <Span FontSize="23" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
+                                    <Span FontSize="23" Text=" !"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <StackLayout>
+                <Frame CornerRadius="10" BorderColor="WhiteSmoke">
+                    <StackLayout>
+                        <Label HorizontalOptions="CenterAndExpand"
+                                    Text="GPA from all subjects " 
+                                    TextColor="DarkSlateGray" 
+                                    FontFamily="{StaticResource Montserrat-Medium}" 
+                                    FontSize="20"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,15">
+                            <StackLayout Orientation="Vertical">
+                                <progressBar:SfCircularProgressBar x:Name="CA" Margin="20" Scale="1.5" Progress="{Binding CA}" ProgressColor="#FF90a84e"  ValueChanged="CA_Changed">
+                                    <progressBar:SfCircularProgressBar.RangeColors>
+                                        <progressBar:RangeColorCollection>
+                                            <progressBar:RangeColor IsGradient="True" Color="#88A0D9EF" Start="0" End="25"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="#AA62C1E5" Start="25" End="50"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="#DD20A7DB" Start="50" End="75"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="#FF1C96C5" Start="75" End="100"/>
+                                        </progressBar:RangeColorCollection>
+                                    </progressBar:SfCircularProgressBar.RangeColors>
+                                </progressBar:SfCircularProgressBar>
+                                <Label  Text="Continuous" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
+                                <Label  Text="Assignment" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical">
+                                <progressBar:SfCircularProgressBar x:Name="FE" Margin="20" Scale="1.5" Progress="{Binding FinalExam}" ProgressColor="#FF90a84e"  ValueChanged="FE_Changed">
+                                    <progressBar:SfCircularProgressBar.RangeColors>
+                                        <progressBar:RangeColorCollection>
+                                            <progressBar:RangeColor IsGradient="True" Color="#88A0D9EF" Start="0" End="25"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="#AA62C1E5" Start="25" End="50"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="#DD20A7DB" Start="50" End="75"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="#FF1C96C5" Start="75" End="100"/>
+                                        </progressBar:RangeColorCollection>
+                                    </progressBar:SfCircularProgressBar.RangeColors>
+                                </progressBar:SfCircularProgressBar>
+                                <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
+                                    <Label  Text="Final" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
+                                    <Label  Text="Exam" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
+                                </StackLayout>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
-                    <StackLayout Padding="0,16">
+                </Frame>
+            </StackLayout>
+            <Frame CornerRadius="10" BorderColor="#e1f5fe">
+                <StackLayout>
+                    <Label HorizontalOptions="CenterAndExpand"
+                                Text="Account Details " 
+                                TextColor="DarkSlateGray" 
+                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                FontSize="20"/>
+                    <StackLayout Padding="0,16" HorizontalOptions="CenterAndExpand">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Name: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
+                                    <Span x:Name="studentName" FontSize="16" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                         <Label Margin="0,5">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Name: " TextColor="DeepPink" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="17"/>
-                                    <Span x:Name="studentName" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
+                                    <Span Text="Institute: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
+                                    <Span x:Name="institute" FontSize="16" Text="{Binding Institute}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                         <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Institute: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
-                                <Span x:Name="institute" Text="{Binding Institute}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label Margin="0,5">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Email: " FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
-                                <Span x:Name="studentEmail" Text="{Binding StudentEmail}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    </StackLayout>
-                    <Label HorizontalOptions="Start"
-                                Text="GPA from all subjects " 
-                                TextColor="DodgerBlue" 
-                                FontFamily="{StaticResource Montserrat-Medium}" 
-                                FontSize="18"/>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,15">
-                        <StackLayout Orientation="Horizontal">
-                            <progressBar:SfCircularProgressBar  x:Name="CA" Progress="{Binding CA}" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="CA_Changed" />
-                            <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
-                                <Label  Text="Continuous"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                                <Label  Text="Assessment"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                            </StackLayout>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <progressBar:SfCircularProgressBar  x:Name="FE" Progress="{Binding FinalExam}" StartAngle="90" EndAngle="270" Margin="0" ValueChanged="FE_Changed"/>
-                            <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
-                                <Label  Text="Final"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                                <Label  Text="Exam"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                            </StackLayout>
-                        </StackLayout>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Email: " FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
+                                    <Span x:Name="studentEmail" FontSize="16" Text="{Binding StudentEmail}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                     </StackLayout>
                 </StackLayout>
             </Frame>
 
-            <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="5">
                 <buttons:SfButton Text="Subjects List" Margin="0,1,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150"  Clicked="load_subject_list"/>
                 <buttons:SfButton Text="Add Subject" Margin="0,1,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_add_subject"/>
                 <buttons:SfButton Text="Log in" Margin="0,1,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_login"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>
-
 </ContentPage>
