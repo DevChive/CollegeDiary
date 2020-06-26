@@ -113,7 +113,7 @@
                             Text="FORGOT PASSWORD?"
                             TextColor="White">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" CommandParameter="{x:Reference ForgotPasswordLabel}" />
+                                <TapGestureRecognizer Tapped="ForgotPasswordPage" Command="{Binding ForgotPasswordCommand}" CommandParameter="{x:Reference ForgotPasswordLabel}"  />
                             </Label.GestureRecognizers>
                         </Label>
 

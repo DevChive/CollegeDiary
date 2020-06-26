@@ -106,6 +106,8 @@ namespace CD.Views
         {
             frameHide.IsVisible = true;
             showInfo1.IsVisible = true;
+            showInfo1a.IsVisible = true;
+            showInfo1b.IsVisible = true;
             showInfo2.IsVisible = true;
             showInfo3.IsVisible = true;
         }

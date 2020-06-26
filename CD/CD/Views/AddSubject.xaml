@@ -26,20 +26,20 @@
     </ContentPage.Resources>
     <ContentPage.ControlTemplate>
         <ControlTemplate>
-            <StackLayout Spacing="0" BackgroundColor="WhiteSmoke">
+            <StackLayout Spacing="0" BackgroundColor="White">
                 <StackLayout Orientation="Horizontal">
                     <!-- Title -->
-                    <Button Text="    " BackgroundColor="{DynamicResource Gray-100}" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                    <Button Text="    " BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
                     <Label 
-                        Text="Add new subject"
+                        Text="New subject"
                         TextColor="DodgerBlue"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         FontSize="20"
                         Margin="0,20"
                         HorizontalOptions="CenterAndExpand" />
-                    <Button Text="Help" Clicked="info" BackgroundColor="{DynamicResource Gray-100}" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                    <Button Text="Help" Clicked="info" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
                 </StackLayout>
-                <BoxView HeightRequest="1" BackgroundColor="WhiteSmoke"/>
+                <BoxView HeightRequest="1" BackgroundColor="White"/>
                 <ContentPresenter />
 
             </StackLayout>
@@ -48,19 +48,26 @@
 
     <ContentPage.Content>
         <ScrollView>
-           <StackLayout BackgroundColor="WhiteSmoke" Spacing="0" Padding="16,24" >
+           <StackLayout BackgroundColor="White" Spacing="0" Padding="16,24" >
                 <Frame BorderColor="WhiteSmoke" CornerRadius="10" x:Name="frameHide" IsVisible="False">
                     <StackLayout>
                         <Label 
                         x:Name="showInfo1" IsVisible="False"
+                        FontFamily="{StaticResource Montserrat-Bold}" 
+                        Text="* The Continuous Assessment and the Final Exam Weight need to add together to 100. "/>
+                        <Label 
+                        x:Name="showInfo1a" IsVisible="False"
                         FontFamily="{StaticResource Montserrat-Medium}" 
-                        Text="* The Continuous Assessment and the Final Exam Weight need to add together to 100. e.g 50 and 50, 60 and 40 ">
+                        Text="  - e.g 50 and 50 "/>
+                        <Label 
+                        x:Name="showInfo1b" IsVisible="False"
+                        FontFamily="{StaticResource Montserrat-Medium}" 
+                        Text="  - e.g 60 and 40 "/>
 
-                        </Label>
                         <Label Margin="0,5"  x:Name="showInfo2" IsVisible="False">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-SemiBold}" />
+                                    <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-Bold}" />
                                     <Span Text="The evaluation of a student progress throughout a course of study, distinct from the final exam" FontFamily="{StaticResource Montserrat-Medium}" />
                                 </FormattedString>
                             </Label.FormattedText>
@@ -68,7 +75,7 @@
                         <Label Margin="0,5"  x:Name="showInfo3" IsVisible="False">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-SemiBold}" />
+                                    <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-Bold}" />
                                     <Span Text="A test given to students at the end of a course of study " FontFamily="{StaticResource Montserrat-Medium}" />
                                 </FormattedString>
                             </Label.FormattedText>
