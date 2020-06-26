@@ -63,7 +63,7 @@ namespace CD.Views.SignUp
                 }
                 if (!passwordMatch(PasswordEntry.Text, ConfirmPasswordEntry.Text) && validate)
                 {
-                    await DisplayAlert("Incorrect passwords", "The passwords entered do not match", "Ok");
+                    await DisplayAlert("Incorrect passwords", "The passwords entered do not match. \nThe password requires at least 6 characters", "Ok");
                     validate = false;
                 }
                 if (validate && !string.IsNullOrEmpty(PasswordEntry.Text) && PasswordEntry.Text.Length < 6)
