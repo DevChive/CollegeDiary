@@ -81,7 +81,7 @@ namespace CD.Views
                     }
                     else
                     {
-                        await DisplayAlert("Subject not added", "The Final Exam and CA need to add up to 100", "OK");
+                        await DisplayAlert("Subject not added", "The Final Exam and Continuous Assessment need to add up to 100", "OK");
                     }
                 }
             }
@@ -100,6 +100,14 @@ namespace CD.Views
         private async void BackButton(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private void info(object sender, EventArgs e)
+        {
+            frameHide.IsVisible = true;
+            showInfo1.IsVisible = true;
+            showInfo2.IsVisible = true;
+            showInfo3.IsVisible = true;
         }
     }
 }
