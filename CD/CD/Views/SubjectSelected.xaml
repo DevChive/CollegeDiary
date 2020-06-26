@@ -28,7 +28,7 @@
             <ToolbarItem Order="Primary"/>
             <ToolbarItem Text="Edit" Order="Secondary" Clicked="edit_subject" />
             <ToolbarItem Text="Delete" Order="Secondary" Clicked="delete_subject"/>
-            <ToolbarItem Text="Tips" Order="Secondary" Clicked="tips"/>
+            <ToolbarItem Text="Help" Order="Secondary" Clicked="tips"/>
         </ContentPage.ToolbarItems>
 
         <ScrollView>
