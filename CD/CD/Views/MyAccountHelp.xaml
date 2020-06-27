@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CD.Views.MyAccountHelp"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                <StackLayout 
+                     BackgroundColor="WhiteSmoke"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Center">
+                    <ScrollView>
+                        <StackLayout Margin="10">
+                            <Label 
+                                FontFamily="{StaticResource Montserrat-Bold}" 
+                                Text="* This page displays the GPA between all your Continuous Assessments and all your Final Exams"/>
+                            <Label 
+                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                Text="  - This GPA is an approximation as the number of credits is not taken in consideration"/>
+                            <Label 
+                                FontFamily="{StaticResource Montserrat-Bold}" FontSize="17"
+                                Text="Definitions: "/>  
+                            <Label Margin="0,5">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                        <Span Text="The evaluation of a student progress throughout a course of study, distinct from the final exam" FontFamily="{StaticResource Montserrat-Medium}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Margin="0,5"  >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                        <Span Text="A test given to students at the end of a course of study " FontFamily="{StaticResource Montserrat-Medium}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

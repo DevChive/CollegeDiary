@@ -13,10 +13,12 @@ namespace CD.Views
     {
         string userID = "";
         readonly FireBaseHelperStudent fireBaseHelperStudent = new FireBaseHelperStudent();
+        IFirebaseDeleteAccount auth;
         public MyAccount()
         {
             InitializeComponent();
             userID = App.UserUID;
+            auth = DependencyService.Get<IFirebaseDeleteAccount>();
         }
         protected override async void OnAppearing()
         {
@@ -41,14 +43,9 @@ namespace CD.Views
         {
             await Navigation.PushAsync(new LogIn());
         }
-        private void tips(object sender, EventArgs e)
+        private async void tips(object sender, EventArgs e)
         {
-
-        }
-
-        private void uploadPicture(object sender, EventArgs e)
-        {
-
+            await PopupNavigation.PushAsync(new MyAccountHelp());
         }
         private void CA_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
         {
@@ -87,9 +84,25 @@ namespace CD.Views
             await PopupNavigation.PushAsync(new MyAccountUpdate(student));
         }
 
-        private void delete_account(object sender, EventArgs e)
+        private async void delete_account(object sender, EventArgs e)
         {
-
+            var result = await DisplayAlert("Are you sure you want to delete your account?",
+                "If you delete your account all your information will be permanently deleted.", "Yes", "No");
+            if (result) // if it's equal to Yes
+            {
+                try
+                {
+                    await fireBaseHelperStudent.DeleteStudent(App.UserUID);
+                    await auth.DeleteAccount();
+                    App.UserUID = "";
+                    App.Current.MainPage = new NavigationPage(new LogIn());
+                    await DisplayAlert("Account deleted", "To use the application again please sign up", "ok");
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Failed", "Please try again later", "ok");
+                }
+            }
         }
     }
 }

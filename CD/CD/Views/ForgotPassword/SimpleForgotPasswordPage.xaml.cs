@@ -53,6 +53,7 @@ namespace CD.Views.ForgotPassword
                     await auth.ForgotPassword(ForgotPasswordEmail.Text);
                     await DisplayAlert("Success", "Please verify your email to reset your password", "ok");
                     await Navigation.PushAsync(new LogIn());
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                 }
                 catch(Exception)
                 {

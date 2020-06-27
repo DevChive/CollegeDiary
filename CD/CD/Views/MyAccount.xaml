@@ -131,11 +131,6 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-
-            <StackLayout VerticalOptions="CenterAndExpand" Margin="5">
-
-                <buttons:SfButton Text="Log in" Margin="0,1,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_login"/>
-            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -104,12 +104,7 @@ namespace CD.Views
 
         private void info(object sender, EventArgs e)
         {
-            frameHide.IsVisible = true;
-            showInfo1.IsVisible = true;
-            showInfo1a.IsVisible = true;
-            showInfo1b.IsVisible = true;
-            showInfo2.IsVisible = true;
-            showInfo3.IsVisible = true;
+            hiden.IsVisible = true;
         }
     }
 }

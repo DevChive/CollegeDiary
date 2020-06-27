@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="DroidModule.cs" />
     <Compile Include="FirebaseAuthenticator.cs" />
+    <Compile Include="FirebaseDeleteAccount.cs" />
     <Compile Include="FirebaseForgotPassword.cs" />
     <Compile Include="FirebaseRegister.cs" />
     <Compile Include="MainActivity.cs" />
