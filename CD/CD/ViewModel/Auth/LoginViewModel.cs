@@ -29,8 +29,8 @@ namespace CD.ViewModel.Auth
 
             LoginCmd = new Command(async () => await Login(), () => Email.IsValid && Password.IsValid && !IsBusy);
 
-            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "dora.theodora89@yahoo.com" };
-            Password = new ValidatableObject<string>(propChangedCallBack, new PasswordValidator()) { Value = "testing123" };
+            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "" };
+            Password = new ValidatableObject<string>(propChangedCallBack, new PasswordValidator()) { Value = "" };
         }
 
         async Task Login()

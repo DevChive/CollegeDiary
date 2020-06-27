@@ -49,11 +49,12 @@ namespace CD.Helper
 			return allStudents.FirstOrDefault(a => a.StudentID == studentID);
 		}
 
-		public async Task DeleteStudent(Guid StudentID)
+		public async Task DeleteStudent(string studentID)
 		{
-			var toDeleteStudent = (await firebase.Child(Student_Name).OnceAsync<Subject>()).FirstOrDefault
-				(a => a.Object.SubjectID == StudentID);
+			var toDeleteStudent = (await firebase.Child(UserUID).Child(Student_Name).OnceAsync<Student>()).FirstOrDefault
+				(a => a.Object.StudentID == studentID);
 			await firebase.Child(UserUID).Child(Student_Name).Child(toDeleteStudent.Key).DeleteAsync();
+			await firebase.Child(UserUID).DeleteAsync();
 		}
 
 		public async Task AddGPA(string StudentID)

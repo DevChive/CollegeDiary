@@ -83,6 +83,7 @@ namespace CD.Views.SignUp
                     //App.UserUID = auth.UserUID();
                     AddUserDetails(NameEntry.Text, College_University.Text, SignUpEmailEntry.Text);
                     await Navigation.PushAsync(new LogIn());
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                 }
                 else
                 {

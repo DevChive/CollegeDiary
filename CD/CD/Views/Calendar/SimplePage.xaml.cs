@@ -37,11 +37,11 @@ namespace CD.Views.Calendar
                         "\nDate: " + appointment.StartTime.Date.ToLongDateString() + 
                         "\nTime: " + appointment.StartTime.TimeOfDay.ToString(@"hh\:mm")
                         ,"Delete", "OK");
-                    if (result) // if it's equal to OK
+                    if (result) // if it's equal to Delete
                     {
                         DeleteEvent(appointment);
                     }
-                    else // if it's equal to DELETE
+                    else // if it's equal to OK
                     {
                         return; // just return to the page and do nothing.
                     }

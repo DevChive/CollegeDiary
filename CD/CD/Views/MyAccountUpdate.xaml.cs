@@ -3,7 +3,6 @@ using Rg.Plugins.Popup.Services;
 using Xamarin.Forms.Xaml;
 using CD.Helper;
 using CD.Models;
-using com.sun.tools.javac.util;
 
 namespace CD.Views
 {

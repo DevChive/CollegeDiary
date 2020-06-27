@@ -48,40 +48,41 @@
 
     <ContentPage.Content>
         <ScrollView>
-           <StackLayout BackgroundColor="White" Spacing="0" Padding="16,24" >
-                <Frame BorderColor="WhiteSmoke" CornerRadius="10" x:Name="frameHide" IsVisible="False">
-                    <StackLayout>
-                        <Label 
-                        x:Name="showInfo1" IsVisible="False"
-                        FontFamily="{StaticResource Montserrat-Bold}" 
-                        Text="* The Continuous Assessment and the Final Exam Weight need to add together to 100. "/>
-                        <Label 
-                        x:Name="showInfo1a" IsVisible="False"
-                        FontFamily="{StaticResource Montserrat-Medium}" 
-                        Text="  - e.g 50 and 50 "/>
-                        <Label 
-                        x:Name="showInfo1b" IsVisible="False"
-                        FontFamily="{StaticResource Montserrat-Medium}" 
-                        Text="  - e.g 60 and 40 "/>
-
-                        <Label Margin="0,5"  x:Name="showInfo2" IsVisible="False">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-Bold}" />
-                                    <Span Text="The evaluation of a student progress throughout a course of study, distinct from the final exam" FontFamily="{StaticResource Montserrat-Medium}" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Label Margin="0,5"  x:Name="showInfo3" IsVisible="False">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-Bold}" />
-                                    <Span Text="A test given to students at the end of a course of study " FontFamily="{StaticResource Montserrat-Medium}" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </StackLayout>
-                </Frame>
+           <StackLayout BackgroundColor="White" Spacing="0" Padding="16,24">
+                <StackLayout IsVisible="False" x:Name="hiden">
+                    <Frame BorderColor="WhiteSmoke" CornerRadius="10">
+                        <StackLayout>
+                            <Label          
+                                FontFamily="{StaticResource Montserrat-Bold}" 
+                                Text="* The Continuous Assessment and the Final Exam Weight need to add together to 100. "/>
+                            <Label 
+                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                Text="  - e.g 50 and 50 "/>
+                            <Label 
+                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                Text="  - e.g 60 and 40 "/>
+                            <Label 
+                                FontFamily="{StaticResource Montserrat-Bold}" FontSize="17"
+                                Text="Definitions: "/>
+                            <Label Margin="0,5">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                        <Span Text="The evaluation of a student progress throughout a course of study, distinct from the final exam" FontFamily="{StaticResource Montserrat-Medium}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Margin="0,5">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                        <Span Text="A test given to students at the end of a course of study " FontFamily="{StaticResource Montserrat-Medium}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
                 <!-- Subject Name -->
                 <Label
                         FontFamily="{StaticResource Montserrat-Medium}"
