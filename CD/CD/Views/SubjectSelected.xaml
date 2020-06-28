@@ -27,9 +27,8 @@
         <ContentPage.ToolbarItems>
             <ToolbarItem Order="Primary"/>
             <ToolbarItem Text="Edit" Order="Secondary" Clicked="edit_subject" />
-            <ToolbarItem Text="Delete" Order="Secondary" Clicked="delete_subject"/>
-            <ToolbarItem Text="Help" Order="Secondary" Clicked="tips"/>
-        </ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Order="Secondary" Clicked="delete_subject"/>
+    </ContentPage.ToolbarItems>
 
         <ScrollView>
         <StackLayout Margin="1">
@@ -37,13 +36,40 @@
                 <StackLayout>
                     <Frame BorderColor="#e1f5fe" CornerRadius="10">
                         <StackLayout>
-                            <Label Text="Subject Details" 
-                       TextColor="DodgerBlue" 
-                       FontFamily="{StaticResource Montserrat-Medium}" 
-                       FontSize="23"
-                       Margin="0,0,0,20"
-                       FontAttributes="Bold"
-                       HorizontalOptions="CenterAndExpand" />
+                            <StackLayout Orientation="Horizontal">
+                                <Button Text="    " BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}" IsEnabled="False"></Button>
+                                    <Label Text="Subject Details" 
+                                       TextColor="DodgerBlue" 
+                                       FontFamily="{StaticResource Montserrat-Medium}" 
+                                       FontSize="20"
+                                       Margin="0,5"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="CenterAndExpand" />
+                                    <Button Text="Help" Clicked="tips" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                                </StackLayout>
+                            <StackLayout IsVisible="False" x:Name="hiden">
+                                <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                                    <StackLayout>
+                                        <Label          
+                                            FontFamily="{StaticResource Montserrat-Bold}" 
+                                            Text="* The final exam can be added just once "/>
+                                        <Label Margin="0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="* Tap long on an mark to delete it" FontFamily="{StaticResource Montserrat-Bold}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Margin="0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="* Adding a CA result - The assignment percentage must be less than the 'Continuous Assessment' " FontFamily="{StaticResource Montserrat-Bold}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>

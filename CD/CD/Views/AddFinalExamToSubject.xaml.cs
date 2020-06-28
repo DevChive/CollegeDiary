@@ -40,9 +40,9 @@ namespace CD.Views
             if (string.IsNullOrEmpty(this.result.Text)) { validate = false; }
 
             // check if the result is not higher than 100
-            if(validate && Decimal.Parse(this.result.Text) > 100) 
+            if(validate && Decimal.Parse(this.result.Text) >= 100 || Decimal.Parse(this.result.Text) <= 0 ) 
             { 
-                await DisplayAlert("Error", "Your result cannot be higher then 100 ", "Ok");
+                await DisplayAlert("Error", "Your result cannot be higher then 100 or less than 0 ", "Ok");
                 less = false;
                 validate = false;
             }
@@ -54,7 +54,7 @@ namespace CD.Views
             {
                 try
                 {
-                    decimal result = Decimal.Parse(this.result.Text);
+                    double result = Double.Parse(this.result.Text);
                     await DisplayAlert("Success", "Your final exam result had been recorded", "OK");
                     await fireBaseHelper.AddMark(_subject.SubjectID, "Final Exam", result, _subject.FinalExam, "Final Exam");
                     await Navigation.PushAsync(new SubjectSelected(_subject), false);

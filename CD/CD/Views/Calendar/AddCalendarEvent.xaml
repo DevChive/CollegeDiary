@@ -23,9 +23,10 @@
                     <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
                     <Label Text="Start date" FontFamily="{StaticResource Montserrat-Medium}"/>
                     <DatePicker 
-                x:Name="startDate"
-                Format="dd/MM/yyyy"
-                Date="{Binding selectedDate, Mode=TwoWay}" />
+                        x:Name="startDate"
+                        Format="dd/MM/yyyy"
+                        Date="{Binding selectedDate, Mode=TwoWay}"
+                        FontFamily="{StaticResource Montserrat-Medium}"/>   
                     <Label Text="Start time" FontFamily="{StaticResource Montserrat-Medium}"/>
                     <TimePicker x:Name="startTimePicker"
                         Time="12:00"
@@ -34,10 +35,11 @@
                         FontFamily="{StaticResource Montserrat-Medium}"/>
                     <Label Text="End date" FontFamily="{StaticResource Montserrat-Medium}"/>
                     <DatePicker 
-                x:Name="endDate"
-                Format="dd/MM/yyyy"
-                Date="{Binding selectedDate, Mode=TwoWay}"
-                MinimumDate="{Binding selctedDate, Mode=TwoWay}"/>
+                        x:Name="endDate"
+                        Format="dd/MM/yyyy"
+                        Date="{Binding selectedDate, Mode=TwoWay}"
+                        MinimumDate="{Binding selctedDate, Mode=TwoWay}"
+                        FontFamily="{StaticResource Montserrat-Medium}"/>
                     <Label Text="End time" FontFamily="{StaticResource Montserrat-Medium}"/>
                     <TimePicker x:Name="endTimePicker" 
                         Time="12:00"

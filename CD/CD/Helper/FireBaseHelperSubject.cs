@@ -66,21 +66,21 @@ namespace CD.Helper
             await firebase.Child(UserUID).Child(Subject_Name).Child(toDeleteSubject.Key).DeleteAsync();
         }
 
-        public async Task<Decimal> getTotalCA(Guid SubjectID)
+        public async Task<Double> getTotalCA(Guid SubjectID)
         {
             var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(SubjectID);
-            decimal total_CA_all_Marks = 0;
+            double total_CA_all_Marks = 0;
             foreach (Mark m in marks_belonging_to_subject)
             {
                 if (m.Category.Equals("Continuous Assessment"))
                 {
-                    decimal result = m.Result;
+                    double result = m.Result;
                     total_CA_all_Marks += ((result / 100) * m.Weight);
                 }
             }
 
             Subject this_subject = await GetSubject(SubjectID);
-            decimal totalCA = total_CA_all_Marks / this_subject.CA;
+            double totalCA = total_CA_all_Marks / this_subject.CA;
 
             var subjectToUpdate = (await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault(a => a.Object.SubjectID == SubjectID);
             await firebase.Child(UserUID).Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalCA").PutAsync(totalCA * 100);
@@ -88,15 +88,15 @@ namespace CD.Helper
             return totalCA;
         }
 
-        public async Task<decimal> Final_Exam_Progress(Guid SubjectID)
+        public async Task<Double> Final_Exam_Progress(Guid SubjectID)
         {
             var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(SubjectID);
-            decimal finalExam = 0;
+            double finalExam = 0;
             foreach (Mark m in marks_belonging_to_subject)
             {
                 if (m.Category.Equals("Final Exam"))
                 {
-                    decimal result = m.Result;
+                    double result = m.Result;
                     finalExam = result / 100;
                 }
             }

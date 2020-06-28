@@ -14,6 +14,7 @@ namespace CD.Views
         string userID = "";
         readonly FireBaseHelperStudent fireBaseHelperStudent = new FireBaseHelperStudent();
         IFirebaseDeleteAccount auth;
+        protected override bool OnBackButtonPressed() => false;
         public MyAccount()
         {
             InitializeComponent();
@@ -104,5 +105,13 @@ namespace CD.Views
                 }
             }
         }
+
+        private void sign_out(object sender, EventArgs e)
+        {
+            App.UserUID = "";
+            App.Current.MainPage = new NavigationPage(new LogIn());
+            // back button disabled
+            OnBackButtonPressed();
+        }        
     }
 }
