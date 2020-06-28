@@ -22,7 +22,7 @@ namespace CD.Views
         private async void Save_Account(object sender, EventArgs e)
         {
             bool validate = true;
-            if (!string.IsNullOrEmpty(userName.Text) && !string.IsNullOrEmpty(userInstitute.Text) && validate)
+            if (!string.IsNullOrEmpty(userName.Text) && !string.IsNullOrWhiteSpace(userName.Text) && !string.IsNullOrWhiteSpace(userInstitute.Text) && !string.IsNullOrEmpty(userInstitute.Text) && validate)
             {
                 validate = true;
             }

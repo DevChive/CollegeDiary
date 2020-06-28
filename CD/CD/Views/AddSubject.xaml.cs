@@ -30,7 +30,9 @@ namespace CD.Views
 
                 // Checking if all the fields are filled
                 if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrEmpty(this.lecturerName.Text) || string.IsNullOrEmpty(this.CA.Text) ||
-                    string.IsNullOrEmpty(this.finalExam.Text) || string.IsNullOrEmpty(this.lecturerEmail.Text))
+                    string.IsNullOrEmpty(this.finalExam.Text) || string.IsNullOrEmpty(this.lecturerEmail.Text) ||
+                    string.IsNullOrWhiteSpace(this.subjectName.Text) || string.IsNullOrWhiteSpace(this.lecturerName.Text) || string.IsNullOrWhiteSpace(this.CA.Text) ||
+                    string.IsNullOrWhiteSpace(this.finalExam.Text) || string.IsNullOrWhiteSpace(this.lecturerEmail.Text))
                 {
                     await DisplayAlert("Subject not added", "All fields are required", "OK");
                     validate = false;
@@ -38,7 +40,7 @@ namespace CD.Views
                 else
                 {
                     // cheking if  the email is valid
-                    if (Regex.IsMatch(this.lecturerEmail.Text, pattern) && !string.IsNullOrEmpty(this.lecturerEmail.Text) && validate)
+                    if (Regex.IsMatch(this.lecturerEmail.Text, pattern) && !string.IsNullOrEmpty(this.lecturerEmail.Text) && !string.IsNullOrWhiteSpace(this.lecturerEmail.Text) && validate)
                     {
                         validate = true;
                     }
@@ -70,7 +72,7 @@ namespace CD.Views
                     int FinalExam = Int32.Parse(this.finalExam.Text);
 
                     // checking id the weights of the exams add to 100
-                    if (CA + FinalExam == 100)
+                    if (CA + FinalExam == 100 && CA >= 0 && FinalExam >= 0)
                     {
                         var subject = await fireBaseHelper.GetSubject(subjectName.Text);
 
@@ -81,7 +83,7 @@ namespace CD.Views
                     }
                     else
                     {
-                        await DisplayAlert("Subject not added", "The Final Exam and Continuous Assessment need to add up to 100", "OK");
+                        await DisplayAlert("Subject not added", "The Final Exam and Continuous Assessment need to add up to 100, and the numbers must be positive", "OK");
                     }
                 }
             }

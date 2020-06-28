@@ -25,6 +25,7 @@
         <ToolbarItem Order="Primary"/>
         <ToolbarItem Text="Edit Account Details" Order="Secondary" Clicked="edit_account" />
         <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account"/>
+        <ToolbarItem Text="Sign out" Order="Secondary" Clicked="sign_out"/>
         <ToolbarItem Text="Help" Order="Secondary" Clicked="tips"/>
     </ContentPage.ToolbarItems>
 
@@ -69,7 +70,7 @@
                                     </progressBar:SfCircularProgressBar.RangeColors>
                                 </progressBar:SfCircularProgressBar>
                                 <Label  Text="Continuous" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                                <Label  Text="Assignment" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
+                                <Label  Text="Assessment" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
                             </StackLayout>
 
                             <StackLayout Orientation="Vertical">

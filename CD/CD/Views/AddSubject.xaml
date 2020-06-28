@@ -29,7 +29,7 @@
             <StackLayout Spacing="0" BackgroundColor="White">
                 <StackLayout Orientation="Horizontal">
                     <!-- Title -->
-                    <Button Text="    " BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                    <Button Text="    " BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}" IsEnabled="False"></Button>
                     <Label 
                         Text="New subject"
                         TextColor="DodgerBlue"

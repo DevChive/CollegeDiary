@@ -49,13 +49,13 @@ namespace CD.Views
         }
         private async void status_bars()
         {
-            decimal CAProgress = await fireBaseHelperSubject.getTotalCA(_subject.SubjectID);
-            decimal FinalExamProgress = await fireBaseHelperSubject.Final_Exam_Progress(_subject.SubjectID);
+            double CAProgress = await fireBaseHelperSubject.getTotalCA(_subject.SubjectID);
+            double FinalExamProgress = await fireBaseHelperSubject.Final_Exam_Progress(_subject.SubjectID);
 
-            double CA = Decimal.ToDouble(CAProgress);
-            double FE = Decimal.ToDouble(FinalExamProgress);
-            decimal pass = 0.4m;
-            decimal distinction = 0.7m;
+            double CA = CAProgress;
+            double FE = FinalExamProgress;
+            double pass = 0.4;
+            double distinction = 0.7;
             //Console.WriteLine(CAProgress < pass);
 
             if (CAProgress < pass) { statusCA.ProgressColor = Color.Red; }
@@ -129,7 +129,7 @@ namespace CD.Views
 
         private void tips(object sender, EventArgs e)
         {
-            PopupNavigation.PushAsync(new Tips());
+            hiden.IsVisible = true;
         }
     }
 }
