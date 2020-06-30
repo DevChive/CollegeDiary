@@ -173,6 +173,7 @@
                 <Label></Label>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <buttons:SfButton
+                        x:Name="save_subject_button"
                         Clicked="Save_Subject"
                         HorizontalOptions="Center"
                         Margin="0,24,0,0"

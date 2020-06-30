@@ -25,6 +25,7 @@ namespace CD.Views
 
         private async void Save_Subject(object sender, EventArgs e)
         {
+            save_subject_button.IsEnabled = false;
             bool validate = true;
             bool validateSubjectName = true;
             //checking if the subject name is not empty
@@ -63,7 +64,7 @@ namespace CD.Views
                 {
                     var subjectToEdit = await fireBaseHelperSubject.GetSubject(subjectSelected.SubjectID);
                     await fireBaseHelperSubject.UpdateSubject(subjectToEdit.SubjectID, subjectName.Text, lecturerName.Text, lecturerEmail.Text);
-                    Navigation.PushAsync(new SubjectSelected(subjectSelected), false);
+                    await Navigation.PushAsync(new SubjectSelected(subjectSelected), false);
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     await PopupNavigation.RemovePageAsync(this);
                 }
@@ -73,6 +74,7 @@ namespace CD.Views
                 }
 
             }
+            save_subject_button.IsEnabled = true; ;
         }
 
         private async void Cancel_Update(object sender, EventArgs e)

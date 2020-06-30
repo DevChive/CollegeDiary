@@ -12,10 +12,12 @@ namespace CD.Views.Login
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LogIn : ContentPage
 	{
+		protected override bool OnBackButtonPressed() => false;
 		public LogIn()
 		{
 			InitializeComponent();
 			this.BindingContext = (Application.Current as App).Container.Resolve<LoginViewModel>();
+			OnBackButtonPressed();
 		}
 
 		private void Login(object sender, EventArgs e)
@@ -24,14 +26,18 @@ namespace CD.Views.Login
 			Loading.Color = Color.Red;
 		}
 
-		private void SignUpPage(object sender, EventArgs e)
+		private async void SignUpPage(object sender, EventArgs e)
 		{
-			Navigation.PushAsync(new SignUpPage());
+			sign_up_button.IsEnabled = false;
+			await Navigation.PushAsync(new SignUpPage());
+			sign_up_button.IsEnabled = true;
 		}
 
-		private void ForgotPasswordPage(object sender, EventArgs e)
+		private async void ForgotPasswordPage(object sender, EventArgs e)
 		{
-			Navigation.PushAsync(new SimpleForgotPasswordPage());
+			ForgotPasswordLabel.IsEnabled = false;
+			await Navigation.PushAsync(new SimpleForgotPasswordPage());
+			ForgotPasswordLabel.IsEnabled = true;
 		}
 	}
 }

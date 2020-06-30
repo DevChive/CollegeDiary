@@ -134,8 +134,8 @@
                     <ProgressBar x:Name="statusFinalExam" Progress="0.0" ScaleY="2"/>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <buttons:SfButton HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Text="Add CA Result" Clicked="add_new_mark"/>
-                        <buttons:SfButton Text="Add Final Exam" Clicked="add_final_exam" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" />
+                        <buttons:SfButton x:Name="add_ca_button" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Text="Add CA Result" Clicked="add_new_mark"/>
+                        <buttons:SfButton x:Name="add_fe_button" Text="Add Final Exam" Clicked="add_final_exam" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" />
                     </StackLayout>
                                        
                 </StackLayout>

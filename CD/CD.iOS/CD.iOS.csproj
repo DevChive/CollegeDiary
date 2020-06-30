@@ -70,6 +70,7 @@
     <Compile Include="FirebaseDeleteAccount.cs" />
     <Compile Include="FirebaseForgotPassword.cs" />
     <Compile Include="FirebaseRegister.cs" />
+    <Compile Include="FirebaseSignOut.cs" />
     <Compile Include="IOSModule.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

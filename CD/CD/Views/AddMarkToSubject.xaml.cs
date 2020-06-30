@@ -44,6 +44,7 @@ namespace CD.Views
         [Obsolete]
         private async void Save_Mark(object sender, EventArgs e)
         {
+            save_ca_button.IsEnabled = false;
             bool validate = true;
             bool less = true;
 
@@ -93,6 +94,7 @@ namespace CD.Views
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
             }
+            save_ca_button.IsEnabled = true;
         }
 
         [Obsolete]

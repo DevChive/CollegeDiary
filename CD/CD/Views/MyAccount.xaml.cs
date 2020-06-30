@@ -13,13 +13,15 @@ namespace CD.Views
     {
         string userID = "";
         readonly FireBaseHelperStudent fireBaseHelperStudent = new FireBaseHelperStudent();
-        IFirebaseDeleteAccount auth;
+        IFirebaseDeleteAccount authDeleteAccount;
+        IFirebaseSignOut authSignOut;
         protected override bool OnBackButtonPressed() => false;
         public MyAccount()
         {
             InitializeComponent();
             userID = App.UserUID;
-            auth = DependencyService.Get<IFirebaseDeleteAccount>();
+            authDeleteAccount = DependencyService.Get<IFirebaseDeleteAccount>();
+            authSignOut = DependencyService.Get<IFirebaseSignOut>();
         }
         protected override async void OnAppearing()
         {
@@ -31,18 +33,18 @@ namespace CD.Views
             institute.Text = user.Institute;
             studentName.Text = user.StudentName;
         }
-        private void load_subject_list(object sender, EventArgs e)
+        private async void load_subject_list(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ListViewSubjects());
+            your_subjects.IsEnabled = false;
+            await Navigation.PushAsync(new ListViewSubjects());
+            your_subjects.IsEnabled = true;
         }
 
-        private void load_add_subject(object sender, EventArgs e)
+        private async void load_add_subject(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddSubject());
-        }
-        private async void load_login(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new LogIn());
+            add_subject.IsEnabled = false;
+            await Navigation.PushAsync(new AddSubject());
+            add_subject.IsEnabled = true;
         }
         private async void tips(object sender, EventArgs e)
         {
@@ -94,10 +96,11 @@ namespace CD.Views
                 try
                 {
                     await fireBaseHelperStudent.DeleteStudent(App.UserUID);
-                    await auth.DeleteAccount();
+                    await authDeleteAccount.DeleteAccount();
                     App.UserUID = "";
                     App.Current.MainPage = new NavigationPage(new LogIn());
                     await DisplayAlert("Account deleted", "To use the application again please sign up", "ok");
+                    OnBackButtonPressed();
                 }
                 catch (Exception)
                 {
@@ -106,9 +109,10 @@ namespace CD.Views
             }
         }
 
-        private void sign_out(object sender, EventArgs e)
+        private async void sign_out(object sender, EventArgs e)
         {
             App.UserUID = "";
+            await authSignOut.SignOut();
             App.Current.MainPage = new NavigationPage(new LogIn());
             // back button disabled
             OnBackButtonPressed();

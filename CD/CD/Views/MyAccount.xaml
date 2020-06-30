@@ -25,8 +25,8 @@
         <ToolbarItem Order="Primary"/>
         <ToolbarItem Text="Edit Account Details" Order="Secondary" Clicked="edit_account" />
         <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account"/>
-        <ToolbarItem Text="Sign out" Order="Secondary" Clicked="sign_out"/>
         <ToolbarItem Text="Help" Order="Secondary" Clicked="tips"/>
+        <ToolbarItem Text="Sign out" Order="Secondary" Clicked="sign_out"/>
     </ContentPage.ToolbarItems>
 
     <ScrollView>
@@ -91,8 +91,8 @@
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                            <buttons:SfButton Text="Your Subjects" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150"  Clicked="load_subject_list"/>
-                            <buttons:SfButton Text="Add Subject" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_add_subject"/>
+                            <buttons:SfButton x:Name="your_subjects" Text="Your Subjects" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150"  Clicked="load_subject_list"/>
+                            <buttons:SfButton x:Name="add_subject" Text="Add Subject" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_add_subject"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

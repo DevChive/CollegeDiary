@@ -74,18 +74,22 @@ namespace CD.Views
 
         }
         [Obsolete]
-        private void add_new_mark(object sender, EventArgs e)
+        private async void add_new_mark(object sender, EventArgs e)
         {
-            PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
+            add_ca_button.IsEnabled = false;
+            await PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
+            add_ca_button.IsEnabled = true;
         }
-        private void add_final_exam(object sender, EventArgs e)
+        private async void add_final_exam(object sender, EventArgs e)
         {
-            PopupNavigation.PushAsync(new AddFinalExamToSubject(_subject));
+            add_fe_button.IsEnabled = false;
+            await PopupNavigation.PushAsync(new AddFinalExamToSubject(_subject));
+            add_fe_button.IsEnabled = true;
         }
 
-        private void edit_subject(object sender, EventArgs e)
+        private async void edit_subject(object sender, EventArgs e)
         {
-            PopupNavigation.PushAsync(new EditDeleteSubject(_subject));
+            await PopupNavigation.PushAsync(new EditDeleteSubject(_subject));
         }
 
         private async void delete_subject(object sender, EventArgs e)

@@ -27,6 +27,7 @@ namespace CD.Views.SignUp
 
         private async void RegiterNewUser(object sender, EventArgs e)
         {
+            signup_button.IsEnabled = false;
             bool validate = true;
             string pattern = null;
             pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
@@ -77,19 +78,25 @@ namespace CD.Views.SignUp
             {
                 //System.Console.WriteLine("=====================================" + SignUpEmailEntry.Text + " " + PasswordEntry.Text);
                 string Token = await auth.RegisterWithEmailAndPassword(SignUpEmailEntry.Text, PasswordEntry.Text);
-                if (!string.IsNullOrEmpty(Token))
+                if (!string.IsNullOrEmpty(Token) && Token != "existing")
                 {
                     await DisplayAlert("Account created", "Please verify your email", "ok");
-                    //App.UserUID = auth.UserUID();
+                    //App.UserUID = authDeleteAccount.UserUID();
                     AddUserDetails(NameEntry.Text, College_University.Text, SignUpEmailEntry.Text);
                     await Navigation.PushAsync(new LogIn());
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                }
+                else if (Token == "existing")
+                {
+                    await DisplayAlert("Email already used", "This email is already used \nIf you don't remeber the password go to 'Forgot Password' page", "ok");
+                    await Navigation.PushAsync(new LogIn());
                 }
                 else
                 {
                     await DisplayAlert("Error", "Please try again", "ok");
                 }
             }
+            signup_button.IsEnabled = true;
         }
 
         private bool passwordMatch(string password1, string password2)

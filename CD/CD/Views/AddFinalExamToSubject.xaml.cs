@@ -33,18 +33,26 @@ namespace CD.Views
         }
         private async void Save_Exam(object sender, EventArgs e)
         {
+            save_exam_button.IsEnabled = false;
             bool validate = true;
             bool less = true;
             
             // chekc if the result entry is not empty
-            if (string.IsNullOrEmpty(this.result.Text)) { validate = false; }
+            if (string.IsNullOrEmpty(this.result.Text) || string.IsNullOrWhiteSpace(this.result.Text)) 
+            { 
+                validate = false;
+                await DisplayAlert("Incorrect information", "All fields are required", "ok");
+            }
 
             // check if the result is not higher than 100
-            if(validate && Decimal.Parse(this.result.Text) >= 100 || Decimal.Parse(this.result.Text) <= 0 ) 
+            if(validate)
             { 
-                await DisplayAlert("Error", "Your result cannot be higher then 100 or less than 0 ", "Ok");
-                less = false;
-                validate = false;
+                if(Decimal.Parse(this.result.Text) >= 100 || Decimal.Parse(this.result.Text) <= 0 )
+                { 
+                    await DisplayAlert("Error", "Your result cannot be higher then 100 or less than 0 ", "Ok");
+                    less = false;
+                    validate = false;
+                }
             }
             // check if there is already a final exam recorded
             if(validate) { validate = await Check_FinalExam_Weight(_subject); }
@@ -68,13 +76,16 @@ namespace CD.Views
 
             }
             // if the mark is less than 100 but not valid
-            else if (!validate && less)
+            if (!validate && less) // TODO: HERE!!!
             {
                 await DisplayAlert("Result not added", "A final exam result already recorded", "OK");
             }
 
+            save_exam_button.IsEnabled = true;
+
         }
 
+        [Obsolete]
         private void Cancel_Exam(object sender, EventArgs e)
         {
             PopupNavigation.RemovePageAsync(this);
