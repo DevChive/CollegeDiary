@@ -150,6 +150,7 @@
 
                         <!--  Sign-up button  -->
                         <buttons:SfButton
+                            x:Name="sign_up_button"
                             Command="{Binding SignUpCommand}"
                             CornerRadius="4"
                             Style="{StaticResource SfFlatButtonStyle}"

@@ -21,6 +21,7 @@ namespace CD.Views
 
         private async void Save_Account(object sender, EventArgs e)
         {
+            save_profile_button.IsEnabled = false;
             bool validate = true;
             if (!string.IsNullOrEmpty(userName.Text) && !string.IsNullOrWhiteSpace(userName.Text) && !string.IsNullOrWhiteSpace(userInstitute.Text) && !string.IsNullOrEmpty(userInstitute.Text) && validate)
             {
@@ -37,7 +38,7 @@ namespace CD.Views
                 {
                     var studentToEdit = await fireBaseHelperStudent.GetStudent(user.StudentID);
                     await fireBaseHelperStudent.UpdateAccount(user.StudentID, userName.Text, userInstitute.Text);
-                    Navigation.PushAsync(new MyAccount(), false);
+                    await Navigation.PushAsync(new MyAccount(), false);
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     await PopupNavigation.RemovePageAsync(this);
                 }
@@ -47,11 +48,13 @@ namespace CD.Views
                 }
 
             }
+            save_profile_button.IsEnabled = true;
         }
 
-        private void Cancel_Update(object sender, EventArgs e)
+        [Obsolete]
+        private async void Cancel_Update(object sender, EventArgs e)
         {
-            PopupNavigation.RemovePageAsync(this);
+            await PopupNavigation.RemovePageAsync(this);
         }
     }
 }

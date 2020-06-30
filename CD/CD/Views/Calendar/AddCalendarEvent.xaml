@@ -48,8 +48,8 @@
                         PropertyChanged="OnTimePickerPropertyChanged" />
                     <Label></Label>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Button Text="Save" Clicked="Save_Event" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" HeightRequest="20" WidthRequest="110" />
-                        <Button Text="Cancel" Clicked="Cancel_Event" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" />
+                        <Button x:Name="save_button" Text="Save" Clicked="Save_Event" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" HeightRequest="20" WidthRequest="110" />
+                        <Button x:Name="cancel_button" Text="Cancel" Clicked="Cancel_Event" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" />
                     </StackLayout>
                 </StackLayout>
             </Frame>

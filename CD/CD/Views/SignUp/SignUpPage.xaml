@@ -154,6 +154,7 @@
 
                     <!--  Sign-up button  -->
                     <buttons:SfButton
+                        x:Name="signup_button"
                         Command="{Binding SignUpCommand}"
                         CornerRadius="20"
                         FontFamily="{StaticResource Montserrat-SemiBold}"

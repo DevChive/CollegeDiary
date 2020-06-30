@@ -85,11 +85,12 @@ namespace CD.Views.Calendar
             }
         }
 
-        private void AddEvent(object sender, EventArgs e)
+        private async void AddEvent(object sender, EventArgs e)
         {
-
+            add_calendar_event_button.IsEnabled = false;
             DateTime dateSelected = Convert.ToDateTime(string.IsNullOrEmpty( schedule.SelectedDate.ToString()) ? DateTime.Now.ToString(): schedule.SelectedDate.ToString());
-            PopupNavigation.PushAsync(new AddCalendarEvent(dateSelected));
+            await PopupNavigation.PushAsync(new AddCalendarEvent(dateSelected));
+            add_calendar_event_button.IsEnabled = true;
         }
 
         public static string[] parseDate(DateTime date)

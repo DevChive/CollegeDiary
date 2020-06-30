@@ -25,7 +25,7 @@
             <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}"/>
             <Label></Label>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Button Text="Save" Clicked="Save_Mark" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
+                        <Button x:Name="save_ca_button" Text="Save" Clicked="Save_Mark" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
                         <Button Text="Cancel" Clicked="Cancel_Mark" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
             </StackLayout>
         </StackLayout>

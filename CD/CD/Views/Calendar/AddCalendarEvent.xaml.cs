@@ -30,6 +30,7 @@ namespace CD.Views.Calendar
 
         private async void Save_Event(object sender, System.EventArgs e)
         {
+            save_button.IsEnabled = false;
             string name = event_name.Text;
             string desc = event_description.Text;
             DateTime start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
@@ -41,6 +42,7 @@ namespace CD.Views.Calendar
             }
             else
                 await DisplayAlert("Failed", "Please add a name to the event", "OK");
+            save_button.IsEnabled = true;
 
             // repopulating the calendar
             await SimplePage.Instance.refreshCalendar();
@@ -48,7 +50,9 @@ namespace CD.Views.Calendar
 
         private async void Cancel_Event(object sender, System.EventArgs e)
         {
-           await PopupNavigation.RemovePageAsync(this);
+            cancel_button.IsEnabled = false;
+            await PopupNavigation.RemovePageAsync(this);
+            cancel_button.IsEnabled = true;
         }
 
         private void OnTimePickerPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

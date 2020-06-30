@@ -28,7 +28,7 @@
             </xforms1:SfSchedule.AppointmentMapping>
         </xforms1:SfSchedule>
 
-        <Button Image="{local1:ImageResource CD.Images.ic.png}" Grid.Row="0" 
+        <Button Image="{local1:ImageResource CD.Images.ic.png}" Grid.Row="0" x:Name="add_calendar_event_button"
                 ContentLayout="Right, 40" HorizontalOptions="End"  BackgroundColor="Transparent"
                 WidthRequest="50" HeightRequest="50" Margin="0,0,20,22" VerticalOptions="End" Clicked="AddEvent"/>
     </Grid>

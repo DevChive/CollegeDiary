@@ -34,7 +34,7 @@
                             <Entry Placeholder="%" x:Name="finalExam" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="#e1f5fe" FontFamily="{StaticResource Montserrat-Medium}" />
                             <Label></Label>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Button Text="Save" Clicked="Save_Subject" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" WidthRequest="110" FontSize="16" HeightRequest="20"/>
+                                <Button x:Name="save_subject_button" Text="Save" Clicked="Save_Subject" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" WidthRequest="110" FontSize="16" HeightRequest="20"/>
                                 <Button Text="Cancel" Clicked="Cancel_Update" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" FontAttributes="Bold" CornerRadius="20" WidthRequest="110" FontSize="16"/>
                             </StackLayout>
                         </StackLayout>

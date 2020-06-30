@@ -101,6 +101,7 @@
     <Compile Include="FirebaseDeleteAccount.cs" />
     <Compile Include="FirebaseForgotPassword.cs" />
     <Compile Include="FirebaseRegister.cs" />
+    <Compile Include="FirebaseSignOut.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

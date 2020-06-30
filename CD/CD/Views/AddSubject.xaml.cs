@@ -20,6 +20,7 @@ namespace CD.Views
 
         private async void Save_Subject(object sender, EventArgs e)
         {
+            save_subject_button.IsEnabled = false;
             try
             {
                 //TODO: display the list of subjects after submission
@@ -91,6 +92,7 @@ namespace CD.Views
                 {
                     await DisplayAlert("Subject not added", "Use whole numbers for Continuous Assessment and Final Exam", "Ok");
                 }
+            save_subject_button.IsEnabled = true;
         }
 
         private async void Cancel_Subject(object sender, EventArgs e)

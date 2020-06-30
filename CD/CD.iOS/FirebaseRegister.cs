@@ -19,9 +19,9 @@ namespace CD.iOS
                 var token = await user.GetIdTokenAsync(false);
                 await user.SendEmailVerificationAsync();
                 UserID = user.Uid.ToString();
-                return token; 
+                return token;
             }
-            catch (Exception)
+            catch (Exception) //TODO: check if the user has an account with that email or not
             {
                 return "";
             }

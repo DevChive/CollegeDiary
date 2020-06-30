@@ -38,8 +38,10 @@ namespace CD.Views
 
         private async void LstSubjects_ItemSelected(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
+            LstSubjects.IsEnabled = false;
             Subject subject = await fireBaseHelper.GetSubject( (e.ItemData as Subject).SubjectID);
             await Navigation.PushAsync(new SubjectSelected(subject));
+            LstSubjects.IsEnabled = true;
         }
 
         private void BackToTitle_Clicked(object sender, EventArgs e)

@@ -26,13 +26,16 @@ namespace CD.Views.ForgotPassword
             auth = DependencyService.Get<IFirebaseForgotPassword>();
         }
 
-        private void SignUp(object sender, EventArgs e)
+        private async void SignUp(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SignUpPage());
+            sign_up_button.IsEnabled = false;
+            await Navigation.PushAsync(new SignUpPage());
+            sign_up_button.IsEnabled = true;
         }
 
         private async void ForgotPassword(object sender, EventArgs e)
         {
+            send_forgotpassword_button.IsEnabled = false;
             bool validate = true;
             string pattern = null;
             pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
@@ -60,6 +63,7 @@ namespace CD.Views.ForgotPassword
                     await DisplayAlert("Error", "Please try again", "ok");
                 }
             }
+            send_forgotpassword_button.IsEnabled = true;
         }
     }
 }

@@ -21,12 +21,11 @@ namespace CD.Droid
                 App.UserUID = user.User.Uid;
                 return token.Token;
             }
-            catch (FirebaseAuthInvalidUserException e)
+            catch (FirebaseAuthUserCollisionException)
             {
-                e.PrintStackTrace();
-                return "";
+                return "existing";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "";
             }
