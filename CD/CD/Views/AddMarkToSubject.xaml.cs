@@ -47,6 +47,8 @@ namespace CD.Views
             save_ca_button.IsEnabled = false;
             bool validate = true;
             bool less = true;
+            double result = -1;
+            double weight = -1;
 
             // check all the entries are filled in 
             if (string.IsNullOrEmpty(this.mark_name.Text) || string.IsNullOrEmpty(this.weight.Text) || string.IsNullOrEmpty(this.result.Text)
@@ -54,23 +56,25 @@ namespace CD.Views
             {
                 validate = false;
                 less = false;
-                await DisplayAlert("Incorrect information", "All fields are required", "OK");
+                await DisplayAlert("Insufficient information", "All fields are required", "OK");
             }
             // check if the weight of the current CA is not exceeding the overall weight of the CA
             if (validate)
             {
-                validate = await Check_CA_Weight(_subject, Double.Parse(this.weight.Text));
+                result = Double.Parse(this.result.Text);
+                weight = Double.Parse(this.weight.Text);
+                validate = await Check_CA_Weight(_subject, weight);
             }
             // check if the exam weight is higher than 0
             if(validate)
             {
-                validate = Decimal.Parse(this.weight.Text) > 0;
-                if (!validate) { await DisplayAlert("Incorrect information", "The Continuous Assessment weight must be higher than 0", "ok"); }
+                validate = weight > 0;
+                if (!validate) { await DisplayAlert("Insufficient information", "The Continuous Assessment weight must be higher than 0", "ok"); }
             }
-            // check the mark is not over 100
-            if (validate && Decimal.Parse(this.result.Text) > 100 && Decimal.Parse(this.result.Text) >= 0) 
+            // check the mark is not over 100 or negative
+            if (validate && result > 100 || result < 0) 
             { 
-                await DisplayAlert("Error", "Your result cannot be higher then 100 or less than 0 ", "Ok");
+                await DisplayAlert("Incorrect information", "Your result cannot be higher then 100 or less than 0 ", "Ok");
                 validate = false;
                 less = false;
             }
@@ -79,8 +83,6 @@ namespace CD.Views
             {
                 try
                 {
-                    double result = Double.Parse(this.result.Text);
-                    double weight = Double.Parse(this.weight.Text);
                     var mark = await fireBaseHelper.GetMark(mark_name.Text);
                     await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
                     await DisplayAlert("Success", "Your result had been recorded", "OK");

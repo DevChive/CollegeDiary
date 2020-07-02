@@ -25,7 +25,6 @@
         <ToolbarItem Order="Primary"/>
         <ToolbarItem Text="Edit Account Details" Order="Secondary" Clicked="edit_account" />
         <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account"/>
-        <ToolbarItem Text="Help" Order="Secondary" Clicked="tips"/>
         <ToolbarItem Text="Sign out" Order="Secondary" Clicked="sign_out"/>
     </ContentPage.ToolbarItems>
 
@@ -56,6 +55,45 @@
                                     TextColor="DarkSlateGray" 
                                     FontFamily="{StaticResource Montserrat-Medium}" 
                                     FontSize="20"/>
+                        <Button Text="Help" Clicked="help" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                        <StackLayout VerticalOptions="Center" 
+                            IsVisible="False"
+                            x:Name="helpMyAccount">
+                            <Frame CornerRadius="10" 
+                                   HasShadow="True" 
+                                   BackgroundColor="WhiteSmoke"
+                                   BorderColor="Gray">
+                                <ScrollView>
+                                        <StackLayout>
+                                            <Label 
+                                                FontFamily="{StaticResource Montserrat-Bold}" 
+                                                Text="* This page displays the GPA between all your Continuous Assessments and all your Final Exams"/>
+                                            <Label 
+                                                FontFamily="{StaticResource Montserrat-Medium}" 
+                                                Text="  - This GPA is an approximation as the number of credits is not taken in consideration"/>
+                                            <Label 
+                                                FontFamily="{StaticResource Montserrat-Bold}" FontSize="17"
+                                                Text="Definitions: "/>
+                                            <Label Margin="0,5">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                                        <Span Text="The evaluation of a student progress throughout a course of study, distinct from the final exam" FontFamily="{StaticResource Montserrat-Medium}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label Margin="0,5"  >
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                                        <Span Text="A test given to students at the end of a course of study " FontFamily="{StaticResource Montserrat-Medium}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </ScrollView>
+                            </Frame>
+                        </StackLayout>
 
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,15">
                             <StackLayout Orientation="Vertical">

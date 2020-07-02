@@ -116,5 +116,50 @@ namespace CD.Helper
                 .PutAsync(new Subject() { SubjectID=subjectID, SubjectName = subjectName, LecturerName = lecturerName, LecturerEmail = lecturerEmail,
                     CA= toUpdateSubject.Object.CA, FinalExam = toUpdateSubject.Object.FinalExam, TotalCA = toUpdateSubject.Object.TotalCA, TotalFinalExam = toUpdateSubject.Object.TotalFinalExam  });
         }
+
+        public async Task<Double> remainigCA(Guid subjectID)
+        {
+            try
+            {
+                double result = 0;
+                Subject subject = await GetSubject(subjectID);
+                var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(subjectID);
+                foreach (Mark m in marks_belonging_to_subject)
+                {
+                    if (m.Category.Equals("Continuous Assessment"))
+                    {
+                        result += m.Weight;
+                    }
+                }
+                double remainingCA = subject.CA - result;
+                return remainingCA;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public async Task<Double> remainigFE(Guid subjectID)
+        {
+            try
+            {
+                double result = 0;
+                Subject subject = await GetSubject(subjectID);
+                var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(subjectID);
+                foreach (Mark m in marks_belonging_to_subject)
+                {
+                    if (m.Category.Equals("Final Exam"))
+                    {
+                        result += m.Weight;
+                    }
+                }
+                double remainingCA = subject.FinalExam - result;
+                return remainingCA;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

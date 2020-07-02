@@ -42,6 +42,10 @@ namespace CD.Views
             subjectName.Text = subject.SubjectName;
             lecturerName.Text = subject.LecturerName;
             lecturerEmail.Text = subject.LecturerEmail;
+            double remCA = await fireBaseHelperSubject.remainigCA(_subject.SubjectID);
+            remainingCA.Text = remCA.ToString("F2") + "%";
+            double remFE = await fireBaseHelperSubject.remainigFE(_subject.SubjectID);
+            remainingFE.Text = remFE.ToString("F2") + "%";
             Title = subject.SubjectName;
             
             // refrashing the selected subject
@@ -80,6 +84,8 @@ namespace CD.Views
             await PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
             add_ca_button.IsEnabled = true;
         }
+
+        [Obsolete]
         private async void add_final_exam(object sender, EventArgs e)
         {
             add_fe_button.IsEnabled = false;
@@ -87,6 +93,7 @@ namespace CD.Views
             add_fe_button.IsEnabled = true;
         }
 
+        [Obsolete]
         private async void edit_subject(object sender, EventArgs e)
         {
             await PopupNavigation.PushAsync(new EditDeleteSubject(_subject));
@@ -133,7 +140,34 @@ namespace CD.Views
 
         private void tips(object sender, EventArgs e)
         {
-            hiden.IsVisible = true;
+            if (hidenSubjectDetailsHelp.IsVisible)
+            {
+                hidenSubjectDetailsHelp.IsVisible = false;
+            }
+            else
+            {
+                hidenSubjectDetailsHelp.IsVisible = true;
+                if (hidenYourResultsHelp.IsVisible)
+                {
+                    hidenYourResultsHelp.IsVisible = false;
+                }
+            }
+        }
+
+        private void tipsYourResults(object sender, EventArgs e)
+        {
+            if (hidenYourResultsHelp.IsVisible)
+            {
+                hidenYourResultsHelp.IsVisible = false;
+            }
+            else
+            {
+                hidenYourResultsHelp.IsVisible = true;
+                if (hidenSubjectDetailsHelp.IsVisible)
+                {
+                    hidenSubjectDetailsHelp.IsVisible = false;
+                }
+            }
         }
     }
 }
