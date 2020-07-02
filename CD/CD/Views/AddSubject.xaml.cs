@@ -23,7 +23,6 @@ namespace CD.Views
             save_subject_button.IsEnabled = false;
             try
             {
-                //TODO: display the list of subjects after submission
                 bool validate = true;
                 string pattern = null;
                 bool validateSubjectName = true;
@@ -79,7 +78,8 @@ namespace CD.Views
 
                         await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
                         await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
-                        //TODO: clear all entires!!!
+                        await Navigation.PushAsync(new ListViewSubjects());
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                         await Navigation.PopAsync();
                     }
                     else
@@ -108,7 +108,14 @@ namespace CD.Views
 
         private void info(object sender, EventArgs e)
         {
-            hiden.IsVisible = true;
+            if (hiden.IsVisible)
+            {
+                hiden.IsVisible = false;
+            }
+            else
+            {
+                hiden.IsVisible = true;
+            }
         }
     }
 }

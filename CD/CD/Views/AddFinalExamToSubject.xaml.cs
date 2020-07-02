@@ -31,11 +31,14 @@ namespace CD.Views
             }
             return true;
         }
+
+        [Obsolete]
         private async void Save_Exam(object sender, EventArgs e)
         {
             save_exam_button.IsEnabled = false;
             bool validate = true;
             bool less = true;
+            bool existing = true;
             
             // chekc if the result entry is not empty
             if (string.IsNullOrEmpty(this.result.Text) || string.IsNullOrWhiteSpace(this.result.Text)) 
@@ -55,7 +58,10 @@ namespace CD.Views
                 }
             }
             // check if there is already a final exam recorded
-            if(validate) { validate = await Check_FinalExam_Weight(_subject); }
+            if(validate)
+            { 
+                existing = validate = await Check_FinalExam_Weight(_subject);
+            }
 
             // if the mark is less than 100 and valid
             if (validate && less)
@@ -76,7 +82,7 @@ namespace CD.Views
 
             }
             // if the mark is less than 100 but not valid
-            if (!validate && less) // TODO: HERE!!!
+            if (!existing) 
             {
                 await DisplayAlert("Result not added", "A final exam result already recorded", "OK");
             }

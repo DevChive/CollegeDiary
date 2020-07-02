@@ -88,7 +88,7 @@ namespace CD.Views.SignUp
                 }
                 else if (Token == "existing")
                 {
-                    await DisplayAlert("Email already used", "This email is already used \nIf you don't remeber the password go to 'Forgot Password' page", "ok");
+                    await DisplayAlert("Email already used", "This email is already used \nIf you don't remeber your password go to 'Forgot Password' page", "ok");
                     await Navigation.PushAsync(new LogIn());
                 }
                 else

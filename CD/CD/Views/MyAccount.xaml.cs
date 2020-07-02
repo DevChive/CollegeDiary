@@ -46,10 +46,6 @@ namespace CD.Views
             await Navigation.PushAsync(new AddSubject());
             add_subject.IsEnabled = true;
         }
-        private async void tips(object sender, EventArgs e)
-        {
-            await PopupNavigation.PushAsync(new MyAccountHelp());
-        }
         private void CA_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
         {
             if (e.Progress < 40)
@@ -116,6 +112,18 @@ namespace CD.Views
             App.Current.MainPage = new NavigationPage(new LogIn());
             // back button disabled
             OnBackButtonPressed();
-        }        
+        }
+
+        private void help(object sender, EventArgs e)
+        {
+            if (helpMyAccount.IsVisible)
+            {
+                helpMyAccount.IsVisible = false;
+            }
+            else 
+            {
+                helpMyAccount.IsVisible = true;
+            }
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace CD.Views
             else
             {
                 validate = false;
-                await DisplayAlert("Error", "All fields are required", "Ok");
+                await DisplayAlert("Insufficient Information", "All fields are required", "Ok");
             }
             if (validate)
             {
