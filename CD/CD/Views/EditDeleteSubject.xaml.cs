@@ -29,10 +29,12 @@ namespace CD.Views
             bool validate = true;
             bool validateSubjectName = true;
             //checking if the subject name is not empty
-            if (string.IsNullOrEmpty(subjectName.Text.ToString()))
+            if (string.IsNullOrEmpty(subjectName.Text.ToString()) || string.IsNullOrWhiteSpace(subjectName.Text.ToString()) 
+                || string.IsNullOrEmpty(lecturerEmail.Text.ToString()) || string.IsNullOrWhiteSpace(lecturerEmail.Text.ToString()) 
+                || string.IsNullOrEmpty(lecturerName.Text.ToString()) || string.IsNullOrWhiteSpace(lecturerName.Text.ToString()))
             {
                 validate = false;
-                await DisplayAlert("Error", "Subject name cannot be empty", "Ok");
+                await DisplayAlert("Insufficient Information", "All fields are required", "Ok");
             }
 
             //checking if the subject alreasy exists in the database
@@ -53,7 +55,7 @@ namespace CD.Views
             }
             if (!validateSubjectName)
             {
-                await DisplayAlert("Error", "This subject name already exists", "OK");
+                await DisplayAlert("Incorrect Information", "This subject name already exists", "OK");
                 validate = false;
             }
 

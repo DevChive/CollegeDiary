@@ -7,6 +7,7 @@ using CD.ViewModel;
 using CD.Views;
 using Rg.Plugins.Popup.Services;
 using System.Collections.Generic;
+using Syncfusion.XForms.ProgressBar;
 
 namespace CD.Views
 {
@@ -55,28 +56,86 @@ namespace CD.Views
         {
             double CAProgress = await fireBaseHelperSubject.getTotalCA(_subject.SubjectID);
             double FinalExamProgress = await fireBaseHelperSubject.Final_Exam_Progress(_subject.SubjectID);
+            double GPA = CAProgress + FinalExamProgress;
 
-            double CA = CAProgress;
-            double FE = FinalExamProgress;
-            double pass = 0.4;
-            double distinction = 0.7;
-            //Console.WriteLine(CAProgress < pass);
+            statusCA.Progress = CAProgress;
+            colorTheStatusBars(CAProgress, statusCA, "CA");
+            statusFinalExam.Progress = FinalExamProgress;
+            colorTheStatusBars(FinalExamProgress, statusFinalExam, "FE");
+            statusSubjectGPA.Progress = GPA;
+            colorTheStatusBars(GPA, statusSubjectGPA, "GPA");
 
-            if (CAProgress < pass) { statusCA.ProgressColor = Color.Red; }
-            else if (CAProgress >= pass && CAProgress < distinction) { statusCA.ProgressColor = Color.Orange; }
-            else if (CAProgress >= distinction){ statusCA.ProgressColor = Color.LightGreen; }
-
-            if (FinalExamProgress < pass) { statusFinalExam.ProgressColor = Color.Red; }
-            else if (FinalExamProgress >= pass && FinalExamProgress < distinction) { statusFinalExam.ProgressColor = Color.Orange; }
-            else if(FinalExamProgress >= distinction) { statusFinalExam.ProgressColor = Color.LightGreen; }
-
-            Ca_StatusBar.Text = (CA*100).ToString("F2") + "%";
-            await statusCA.ProgressTo(CA, 100, Easing.Linear);
-
-            Fe_StatusBar.Text = (FE*100).ToString("F2") + "%";
-            await statusFinalExam.ProgressTo(FE, 100, Easing.Linear);
+            Ca_StatusBar.Text = CAProgress.ToString("F2")+"/";
+            Fe_StatusBar.Text = FinalExamProgress.ToString("F2")+"/";
+            gpa_StatusBar.Text = GPA.ToString("F2");
 
         }
+
+        public void colorTheStatusBars(double process, SfLinearProgressBar bar, string type)
+        {
+            double segments = 0;
+            double grade = 0;
+            if (type == "CA") 
+            { 
+                segments = _subject.CA / 3;
+                grade = _subject.CA;
+            }
+            else if (type == "FE") 
+            { 
+                segments = _subject.FinalExam / 3;
+                grade = _subject.FinalExam;
+            }
+            else if (type == "GPA") 
+            { 
+                segments = 100 / 3;
+                grade = 100;
+            }
+            
+            RangeColorCollection rangeColors = new RangeColorCollection();
+            if (type == "CA" || type == "FE")
+            {
+                if (process <= grade / 3)
+                {
+                    rangeColors.Add(new RangeColor() { Color = Color.FromHex("#ffcccb"), IsGradient = true, Start = 0, End = segments * 2 });
+                    rangeColors.Add(new RangeColor() { Color = Color.Red, IsGradient = true, Start = segments * 2, End = segments * 3 });
+                    bar.RangeColors = rangeColors;
+                }
+                else if ((process > grade / 3) && (process < grade / 3 * 2))
+                {
+                    rangeColors.Add(new RangeColor() { Color = Color.FromHex("#FDE8D3"), IsGradient = true, Start = 0, End = segments * 2 });
+                    rangeColors.Add(new RangeColor() { Color = Color.Orange, IsGradient = true, Start = segments * 2, End = segments * 3 });
+                    bar.RangeColors = rangeColors;
+                }
+                else if (process >= grade / 3 * 2)
+                {
+                    rangeColors.Add(new RangeColor() { Color = Color.FromHex("#d2f8d2"), IsGradient = true, Start = 0, End = segments * 2 });
+                    rangeColors.Add(new RangeColor() { Color = Color.Green, IsGradient = true, Start = segments * 2, End = segments * 3 });
+                    bar.RangeColors = rangeColors;
+                }
+            }
+            else if (type == "GPA")
+            {
+                if (process < 40)
+                {
+                    rangeColors.Add(new RangeColor() { Color = Color.FromHex("#ffcccb"), IsGradient = true, Start = 0, End = segments * 2 });
+                    rangeColors.Add(new RangeColor() { Color = Color.Red, IsGradient = true, Start = segments * 2, End = segments * 3 });
+                    bar.RangeColors = rangeColors;
+                }
+                else if ((process >= 40) && (process < 70))
+                {
+                    rangeColors.Add(new RangeColor() { Color = Color.FromHex("#FDE8D3"), IsGradient = true, Start = 0, End = segments * 2 });
+                    rangeColors.Add(new RangeColor() { Color = Color.Orange, IsGradient = true, Start = segments * 2, End = segments * 3 });
+                    bar.RangeColors = rangeColors;
+                }
+                else if (process > 70)
+                {
+                    rangeColors.Add(new RangeColor() { Color = Color.FromHex("#d2f8d2"), IsGradient = true, Start = 0, End = segments * 2 });
+                    rangeColors.Add(new RangeColor() { Color = Color.Green, IsGradient = true, Start = segments * 2, End = segments * 3 });
+                    bar.RangeColors = rangeColors;
+                }
+            }
+        }
+
         [Obsolete]
         private async void add_new_mark(object sender, EventArgs e)
         {

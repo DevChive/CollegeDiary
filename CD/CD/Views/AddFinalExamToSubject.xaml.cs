@@ -44,13 +44,13 @@ namespace CD.Views
             if (string.IsNullOrEmpty(this.result.Text) || string.IsNullOrWhiteSpace(this.result.Text)) 
             { 
                 validate = false;
-                await DisplayAlert("Incorrect information", "All fields are required", "ok");
+                await DisplayAlert("Insufficient information", "All fields are required", "ok");
             }
 
             // check if the result is not higher than 100
             if(validate)
             { 
-                if(Decimal.Parse(this.result.Text) >= 100 || Decimal.Parse(this.result.Text) <= 0 )
+                if(Decimal.Parse(this.result.Text) > 100 || Decimal.Parse(this.result.Text) < 0 )
                 { 
                     await DisplayAlert("Error", "Your result cannot be higher then 100 or less than 0 ", "Ok");
                     less = false;

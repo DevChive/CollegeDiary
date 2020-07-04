@@ -55,7 +55,7 @@
                                     TextColor="DarkSlateGray" 
                                     FontFamily="{StaticResource Montserrat-Medium}" 
                                     FontSize="20"/>
-                        <Button Text="Help" Clicked="help" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                        <Button Margin="0,0,0,20" Text="Help" Clicked="help" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
                         <StackLayout VerticalOptions="Center" 
                             IsVisible="False"
                             x:Name="helpMyAccount">
@@ -64,68 +64,38 @@
                                    BackgroundColor="WhiteSmoke"
                                    BorderColor="Gray">
                                 <ScrollView>
-                                        <StackLayout>
-                                            <Label 
-                                                FontFamily="{StaticResource Montserrat-Bold}" 
-                                                Text="* This page displays the GPA between all your Continuous Assessments and all your Final Exams"/>
-                                            <Label 
+                                    <StackLayout Margin="0,0,0,20">
+                                        <Label 
+                                            FontFamily="{StaticResource Montserrat-Bold}" 
+                                            Text="* This page displays the GPA between all your Continuous Assessments and all your Final Exams"/>
+                                        <Label 
                                                 FontFamily="{StaticResource Montserrat-Medium}" 
                                                 Text="  - This GPA is an approximation as the number of credits is not taken in consideration"/>
-                                            <Label 
-                                                FontFamily="{StaticResource Montserrat-Bold}" FontSize="17"
-                                                Text="Definitions: "/>
-                                            <Label Margin="0,5">
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-Bold}" />
-                                                        <Span Text="The evaluation of a student progress throughout a course of study, distinct from the final exam" FontFamily="{StaticResource Montserrat-Medium}" />
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                            <Label Margin="0,5"  >
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-Bold}" />
-                                                        <Span Text="A test given to students at the end of a course of study " FontFamily="{StaticResource Montserrat-Medium}" />
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                        </StackLayout>
-                                    </ScrollView>
+                                        <Label Margin="0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="* The process bar on this page, shows an estimated GPA that takes in consideration each subject's " FontFamily="{StaticResource Montserrat-Medium}" />
+                                                    <Span Text=" Continuous Assessment" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" />
+                                                    <Span Text=" and " FontFamily="{StaticResource Montserrat-Medium}" />
+                                                    <Span Text=" Final Exam" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </ScrollView>
                             </Frame>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,15">
                             <StackLayout Orientation="Vertical">
-                                <progressBar:SfCircularProgressBar x:Name="CA" Margin="20" Scale="1.5" Progress="{Binding CA}" ProgressColor="#FF90a84e"  ValueChanged="CA_Changed">
+                                <progressBar:SfCircularProgressBar x:Name="totalGPA" Margin="20" Scale="2.5" Progress="{Binding CA}" ProgressColor="#FF90a84e"  ValueChanged="GPA_Changed">
                                     <progressBar:SfCircularProgressBar.RangeColors>
                                         <progressBar:RangeColorCollection>
-                                            <progressBar:RangeColor IsGradient="True" Color="#88A0D9EF" Start="0" End="25"/>
-                                            <progressBar:RangeColor IsGradient="True" Color="#AA62C1E5" Start="25" End="50"/>
-                                            <progressBar:RangeColor IsGradient="True" Color="#DD20A7DB" Start="50" End="75"/>
-                                            <progressBar:RangeColor IsGradient="True" Color="#FF1C96C5" Start="75" End="100"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="LightGreen" Start="0" End="50"/>
+                                            <progressBar:RangeColor IsGradient="True" Color="Green" Start="50" End="100"/>
                                         </progressBar:RangeColorCollection>
                                     </progressBar:SfCircularProgressBar.RangeColors>
                                 </progressBar:SfCircularProgressBar>
-                                <Label  Text="Continuous" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                                <Label  Text="Assessment" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                            </StackLayout>
-
-                            <StackLayout Orientation="Vertical">
-                                <progressBar:SfCircularProgressBar x:Name="FE" Margin="20" Scale="1.5" Progress="{Binding FinalExam}" ProgressColor="#FF90a84e"  ValueChanged="FE_Changed">
-                                    <progressBar:SfCircularProgressBar.RangeColors>
-                                        <progressBar:RangeColorCollection>
-                                            <progressBar:RangeColor IsGradient="True" Color="#88A0D9EF" Start="0" End="25"/>
-                                            <progressBar:RangeColor IsGradient="True" Color="#AA62C1E5" Start="25" End="50"/>
-                                            <progressBar:RangeColor IsGradient="True" Color="#DD20A7DB" Start="50" End="75"/>
-                                            <progressBar:RangeColor IsGradient="True" Color="#FF1C96C5" Start="75" End="100"/>
-                                        </progressBar:RangeColorCollection>
-                                    </progressBar:SfCircularProgressBar.RangeColors>
-                                </progressBar:SfCircularProgressBar>
-                                <StackLayout VerticalOptions="CenterAndExpand" Spacing="0">
-                                    <Label  Text="Final" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                                    <Label  Text="Exam" FontSize="17"  FontFamily="{StaticResource Montserrat-SemiBold}"  HorizontalOptions="Center"/>
-                                </StackLayout>
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
