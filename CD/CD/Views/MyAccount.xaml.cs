@@ -28,8 +28,7 @@ namespace CD.Views
             await fireBaseHelperStudent.AddGPA(userID);
             Student user = await fireBaseHelperStudent.GetStudent(userID);
             this.BindingContext = user;
-            FE.Progress = Convert.ToDouble(user.FinalExam);
-            CA.Progress = Convert.ToDouble(user.CA);
+            totalGPA.Progress = Convert.ToDouble(user.FinalGPA);
             institute.Text = user.Institute;
             studentName.Text = user.StudentName;
         }
@@ -46,36 +45,20 @@ namespace CD.Views
             await Navigation.PushAsync(new AddSubject());
             add_subject.IsEnabled = true;
         }
-        private void CA_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
+        private void GPA_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
         {
             if (e.Progress < 40)
             {
-                CA.ProgressColor = Color.Red;
+                totalGPA.ProgressColor = Color.Red;
             }
             else if (e.Progress >= 40 && e.Progress < 70)
             {
-                CA.ProgressColor = Color.Orange;
+                totalGPA.ProgressColor = Color.Orange;
             }
             else if (e.Progress > 70)
             {
-                CA.ProgressColor = Color.Green;
+                totalGPA.ProgressColor = Color.Green;
             }
-        }
-        private void FE_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
-        {
-            if (e.Progress < 40)
-            {
-                FE.ProgressColor = Color.Red;
-            }
-            else if (e.Progress >= 40 && e.Progress < 70)
-            {
-                FE.ProgressColor = Color.Orange;
-            }
-            else if (e.Progress > 70)
-            {
-                FE.ProgressColor = Color.Green;
-            }
-
         }
         private async void edit_account(object sender, EventArgs e)
         {

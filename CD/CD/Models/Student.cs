@@ -10,7 +10,6 @@ namespace CD.Models
 		public string StudentName { get; set; }
 		public string StudentEmail { get; set; }
 		public string Institute { get; set; }
-		public decimal CA { get; set;  }
-		public decimal FinalExam { get; set; }
+		public decimal FinalGPA { get; set;  }
 	}
 }

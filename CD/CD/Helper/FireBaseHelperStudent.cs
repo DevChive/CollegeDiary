@@ -24,8 +24,7 @@ namespace CD.Helper
 				StudentID = item.Object.StudentID,
 				StudentEmail = item.Object.StudentEmail,
 				Institute = item.Object.Institute,
-				CA = item.Object.CA,
-				FinalExam = item.Object.FinalExam
+				FinalGPA = item.Object.FinalGPA,
 			}).ToList();
 		}
 
@@ -37,9 +36,8 @@ namespace CD.Helper
 				StudentName = studentName,
 				StudentEmail = studentEmail,
 				Institute = UC,
-				CA = 0,
-				FinalExam = 0
-			}); ;
+				FinalGPA = 0,
+			}); 
 		}
 
 		public async Task<Student> GetStudent(string studentID)
@@ -60,24 +58,28 @@ namespace CD.Helper
 		public async Task AddGPA(string StudentID)
 		{
 			var subjects = await fireBaseHelperSubject.GetAllSubjects();
-			double CA_GPA = 0;
-			double FE_GPA = 0;
-			if(subjects.Count != 0)
+			double finalGPA = 0;
+			if (subjects.Count != 0)
 			{
 				foreach (Subject sub in subjects)
 				{
-					CA_GPA += sub.TotalCA;
-					FE_GPA += sub.TotalFinalExam;
+					finalGPA += sub.TotalCA + sub.TotalFinalExam;
 				}
-				CA_GPA = CA_GPA / subjects.Count;
-				FE_GPA = FE_GPA / subjects.Count;
+				finalGPA = finalGPA / subjects.Count;
 				var userToUpdate = (await firebase.Child(UserUID).Child(Student_Name)
 				.OnceAsync<Student>())
 				.FirstOrDefault
 				(a => a.Object.StudentID == StudentID);
-				await firebase.Child(UserUID).Child(Student_Name).Child(userToUpdate.Key).Child("CA").PutAsync(CA_GPA);
-				await firebase.Child(UserUID).Child(Student_Name).Child(userToUpdate.Key).Child("FinalExam").PutAsync(FE_GPA);
-			}		
+				await firebase.Child(UserUID).Child(Student_Name).Child(userToUpdate.Key).Child("FinalGPA").PutAsync(finalGPA);
+			}
+			else if (subjects.Count == 0)
+			{
+				var userToUpdate = (await firebase.Child(UserUID).Child(Student_Name)
+				.OnceAsync<Student>())
+				.FirstOrDefault
+				(a => a.Object.StudentID == StudentID);
+				await firebase.Child(UserUID).Child(Student_Name).Child(userToUpdate.Key).Child("FinalGPA").PutAsync(finalGPA);
+			}
 		}
 
 		public async Task UpdateAccount(string userID, String userName, String institute)
@@ -92,8 +94,7 @@ namespace CD.Helper
 					StudentName = userName,
 					StudentEmail = toUpdateSubject.Object.StudentEmail,
 					Institute = institute,
-					CA = toUpdateSubject.Object.CA,
-					FinalExam = toUpdateSubject.Object.FinalExam,
+					FinalGPA = toUpdateSubject.Object.FinalGPA,
 				});
 		}
 	}

@@ -75,17 +75,17 @@ namespace CD.Helper
                 if (m.Category.Equals("Continuous Assessment"))
                 {
                     double result = m.Result;
-                    total_CA_all_Marks += ((result / 100) * m.Weight);
+                    double weight = m.Weight / 100;
+                    total_CA_all_Marks += (weight * result);
                 }
             }
 
             Subject this_subject = await GetSubject(SubjectID);
-            double totalCA = total_CA_all_Marks / this_subject.CA;
 
             var subjectToUpdate = (await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault(a => a.Object.SubjectID == SubjectID);
-            await firebase.Child(UserUID).Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalCA").PutAsync(totalCA * 100);
+            await firebase.Child(UserUID).Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalCA").PutAsync(total_CA_all_Marks);
 
-            return totalCA;
+            return total_CA_all_Marks;
         }
 
         public async Task<Double> Final_Exam_Progress(Guid SubjectID)
@@ -97,12 +97,13 @@ namespace CD.Helper
                 if (m.Category.Equals("Final Exam"))
                 {
                     double result = m.Result;
-                    finalExam = result / 100;
+                    double weight = m.Weight/100;
+                    finalExam = result * weight;
                 }
             }
 
             var subjectToUpdate = (await firebase.Child(UserUID).Child(Subject_Name).OnceAsync<Subject>()).FirstOrDefault(a => a.Object.SubjectID == SubjectID);
-            await firebase.Child(UserUID).Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalFinalExam").PutAsync(finalExam * 100);
+            await firebase.Child(UserUID).Child(Subject_Name).Child(subjectToUpdate.Key).Child("TotalFinalExam").PutAsync(finalExam);
 
             return finalExam;
         }
