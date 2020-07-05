@@ -1,5 +1,4 @@
 ﻿using System;
-using CD.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
@@ -8,7 +7,10 @@ using Syncfusion.SfSchedule.XForms;
 using CD.Models.Calendar;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using System.Timers;
+using System.Threading;
+using java.util;
+using Timer = System.Threading.Timer;
 
 namespace CD.Views.Calendar
 {
@@ -19,6 +21,7 @@ namespace CD.Views.Calendar
         private List<EventModel> listEvents;
         private DateTime date;
         public static SimplePage Instance;
+
 
         public SimplePage()
         {
@@ -48,13 +51,6 @@ namespace CD.Views.Calendar
 
                 }
             }
-            // taping a day
-            schedule.CellTapped += CellTappedEventHandler;
-            void CellTappedEventHandler(object sender, CellTappedEventArgs e)
-            {
-                date = Convert.ToDateTime(e.Datetime.ToString());
-                schedule.ShowAppointmentsInline = true;
-            }
             refreshCalendar();
         }
         protected override async void OnAppearing()
@@ -67,21 +63,29 @@ namespace CD.Views.Calendar
         {
             listEvents = await fireBaseHelperEvents.GetAllEvents();
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
-            foreach (EventModel ev in listEvents)
+            if (listEvents.Count == 0)
             {
-                DateTime startDate = Convert.ToDateTime(ev.StartEventDate.ToString());
-                DateTime endDate = Convert.ToDateTime(ev.EndEventDate.ToString());
-
-                //Console.WriteLine("---------------------- ev->" + ev.EventDate.ToString() + "  -------------------- start_Date->" + start_Date.ToString());
-                scheduleAppointmentCollection.Add(new ScheduleAppointment()
-                {
-                    BindingContext = this,
-                    StartTime =  startDate,
-                    EndTime = endDate,
-                    Subject = ev.Name,
-                    Notes = ev.Description,
-                });
                 schedule.DataSource = scheduleAppointmentCollection;
+            }
+            else
+            {
+                foreach (EventModel ev in listEvents)
+                {
+                    DateTime startDate = Convert.ToDateTime(ev.StartEventDate.ToString());
+                    DateTime endDate = Convert.ToDateTime(ev.EndEventDate.ToString());
+
+                    //Console.WriteLine("---------------------- ev->" + ev.EventDate.ToString() + "  -------------------- start_Date->" + start_Date.ToString());
+                    scheduleAppointmentCollection.Add(new ScheduleAppointment()
+                    {
+                        BindingContext = this,
+                        StartTime = startDate,
+                        EndTime = endDate,
+                        Subject = ev.Name,
+                        Notes = ev.Description,
+                        Color = ev.Color,
+                    });
+                    schedule.DataSource = scheduleAppointmentCollection;
+                }
             }
         }
 
@@ -111,7 +115,9 @@ namespace CD.Views.Calendar
                 DateTime startDate = Convert.ToDateTime(ev.StartEventDate.ToString());
                 DateTime endDate = Convert.ToDateTime(ev.EndEventDate.ToString());
 
-                if (ev.Name == appointment.Subject && ev.Description == appointment.Notes && startDate.Date.ToLongDateString() == appointment.StartTime.ToLongDateString())
+                if (ev.Name == appointment.Subject && ev.Description == appointment.Notes 
+                    && startDate.Date.ToLongDateString() == appointment.StartTime.ToLongDateString()                   
+                    && endDate.Date.ToLongDateString() == appointment.EndTime.ToLongDateString())
                 {
                     theEvent = ev;
                 }
@@ -120,7 +126,6 @@ namespace CD.Views.Calendar
             {
                 await fireBaseHelperEvents.DeleteEvent(theEvent.EventID);
                 await Instance.refreshCalendar();
-                await DisplayAlert("Event Deleted", "Event " + theEvent.Name, "OK");
             }
             catch (Exception) 
             {

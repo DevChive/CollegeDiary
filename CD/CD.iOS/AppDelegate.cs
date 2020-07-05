@@ -7,6 +7,7 @@ using Syncfusion.SfSchedule.XForms.iOS;
 using UIKit;
 using Syncfusion.XForms.iOS.Core;
 using Syncfusion.XForms.iOS.ProgressBar;
+using Syncfusion.XForms.iOS.Buttons;
 
 namespace CD.iOS
 {
@@ -30,6 +31,7 @@ namespace CD.iOS
             SfAvatarViewRenderer.Init();
             SfCircularProgressBarRenderer.Init();
             Rg.Plugins.Popup.Popup.Init();
+            SfSegmentedControlRenderer.Init();
             LoadApplication(new App(new IOSModule()));
 
             return base.FinishedLaunching(app, options);

@@ -18,7 +18,7 @@ namespace CD.Helper
         private readonly string UserUID = App.UserUID;
         readonly FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
 
-        public async Task AddEvent(string name, string description, DateTime start_date_time, DateTime end_date_time)
+        public async Task AddEvent(string name, string description, DateTime start_date_time, DateTime end_date_time, Color eventColor)
         {
             await firebase.Child(UserUID).Child(Calendar_Name).PostAsync(new EventModel()
             {
@@ -27,6 +27,7 @@ namespace CD.Helper
                 Description = description,
                 StartEventDate = start_date_time,
                 EndEventDate = end_date_time,
+                Color = eventColor,
             });
         }
         public async Task<List<EventModel>> GetAllEvents()
@@ -38,6 +39,7 @@ namespace CD.Helper
                 Description = item.Object.Description,
                 StartEventDate = item.Object.StartEventDate,
                 EndEventDate = item.Object.EndEventDate,
+                Color = item.Object.Color,
             }).ToList();
         }
 
