@@ -50,7 +50,7 @@
         <ScrollView>
            <StackLayout BackgroundColor="White" Spacing="0" Padding="16,24">
                 <StackLayout IsVisible="False" x:Name="hiden">
-                    <Frame BorderColor="WhiteSmoke" CornerRadius="10">
+                    <Frame BorderColor="Gray" CornerRadius="10" BackgroundColor="WhiteSmoke">
                         <StackLayout>
                             <Label          
                                 FontFamily="{StaticResource Montserrat-Bold}" 

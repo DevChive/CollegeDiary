@@ -32,8 +32,6 @@
         <StackLayout Margin="10">
             <Frame BorderColor="WhiteSmoke" CornerRadius="10">
                 <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
-                    <!-- Avatar -->
-
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Label HorizontalOptions="CenterAndExpand">
                             <Label.FormattedText>
@@ -64,10 +62,10 @@
                                    BackgroundColor="WhiteSmoke"
                                    BorderColor="Gray">
                                 <ScrollView>
-                                    <StackLayout Margin="0,0,0,20">
+                                    <StackLayout Margin="0,0,0,0">
                                         <Label 
                                             FontFamily="{StaticResource Montserrat-Bold}" 
-                                            Text="* This page displays the GPA between all your Continuous Assessments and all your Final Exams"/>
+                                            Text="* This page displays the GPA between all your subjects"/>
                                         <Label 
                                                 FontFamily="{StaticResource Montserrat-Medium}" 
                                                 Text="  - This GPA is an approximation as the number of credits is not taken in consideration"/>

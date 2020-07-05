@@ -20,6 +20,9 @@
 
 
         <xforms1:SfSchedule x:Name="schedule" ScheduleView="MonthView">
+            <xforms1:SfSchedule.MonthViewSettings>
+                <xforms1:MonthViewSettings ShowAgendaView="True" AgendaViewHeight="300"/>
+            </xforms1:SfSchedule.MonthViewSettings>
             <xforms1:SfSchedule.AppointmentMapping>
                 <xforms1:ScheduleAppointmentMapping 
                     SubjectMapping="Name" 
