@@ -20,50 +20,63 @@
                     <Label FontFamily="{StaticResource Montserrat-SemiBold}" Text="New calendar event" FontSize="20" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
                     <Label></Label>
                     <Label Text="Name of the event" FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
+                    <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" Placeholder="e.g. Mathematics Test"/>
                     <Label Text="Description" FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <Label Text="Start date" FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <DatePicker 
-                        x:Name="startDate"
-                        Format="dd/MM/yyyy"
-                        Date="{Binding selectedDate, Mode=TwoWay}"
-                        FontFamily="{StaticResource Montserrat-Medium}"/>   
-                    <Label Text="Start time" FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <TimePicker x:Name="startTimePicker"
-                        Time="12:00"
-                        Format="T"
-                        PropertyChanged="OnTimePickerPropertyChanged"
-                        FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <Label Text="End date" FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <DatePicker 
-                        x:Name="endDate"
-                        Format="dd/MM/yyyy"
-                        Date="{Binding selectedDate, Mode=TwoWay}"
-                        MinimumDate="{Binding selctedDate, Mode=TwoWay}"
-                        FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <Label Text="End time" FontFamily="{StaticResource Montserrat-Medium}"/>
-                    <TimePicker x:Name="endTimePicker" 
-                        Time="12:00"
-                        Format="T"
-                        FontFamily="{StaticResource Montserrat-Medium}"
-                        PropertyChanged="OnTimePickerPropertyChanged" />
-                    <buttons:SfSegmentedControl SelectionChanged="Handle_SelectionChanged"  x:Name = "segmentedControl"
+                    <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" Placeholder="e.g. Logic Chapter 1, 2"/>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout>
+                            <Label Text="Start date" FontFamily="{StaticResource Montserrat-Medium}"/>
+                            <DatePicker 
+                                x:Name="startDate"
+                                Format="dd/MM/yyyy"
+                                Date="{Binding selectedDate, Mode=TwoWay}"
+                                FontFamily="{StaticResource Montserrat-Medium}"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Start time" FontFamily="{StaticResource Montserrat-Medium}"/>
+                            <TimePicker x:Name="startTimePicker"
+                                Time="12:00"
+                                Format="T"
+                                PropertyChanged="OnTimePickerPropertyChanged"
+                                FontFamily="{StaticResource Montserrat-Medium}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout>
+                            <Label Text="End date" FontFamily="{StaticResource Montserrat-Medium}"/>
+                            <DatePicker 
+                                x:Name="endDate"
+                                Format="dd/MM/yyyy"
+                                Date="{Binding selectedDate, Mode=TwoWay}"
+                                MinimumDate="{Binding selctedDate, Mode=TwoWay}"
+                                FontFamily="{StaticResource Montserrat-Medium}"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="End time" FontFamily="{StaticResource Montserrat-Medium}"/>
+                            <TimePicker x:Name="endTimePicker" 
+                                Time="12:00"
+                                Format="T"
+                                FontFamily="{StaticResource Montserrat-Medium}"
+                                PropertyChanged="OnTimePickerPropertyChanged" />
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Colors"  FontFamily="{StaticResource Montserrat-Medium}" Margin="0,10"/>
+                    <buttons:SfSegmentedControl SelectionChanged="Handle_SelectionChanged"  x:Name="segmentedControl" 
                         VisibleSegmentsCount="6"
-                        SelectedIndex="1"
-                        BorderColor="Gray"
+                        BorderColor="Transparent"
                         FontColor="Black"
                         FontFamily="{StaticResource Montserrat-Bold}"
                         Color="Transparent"
                         SelectionTextColor="White">
                         <buttons:SfSegmentedControl.SelectionIndicatorSettings>
                             <buttons:SelectionIndicatorSettings 
-                                Position="Fill">
+                                Position="Fill"
+                                Color="Orange">
                             </buttons:SelectionIndicatorSettings>
                         </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                         <sys:List x:TypeArguments="x:String">
                             <x:String>Red</x:String>
-                            <x:String>Ornage</x:String>
+                            <x:String>Orange</x:String>
                             <x:String>Pink</x:String>
                             <x:String>Blue</x:String>
                             <x:String>Green</x:String>
