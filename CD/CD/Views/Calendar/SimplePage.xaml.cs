@@ -7,10 +7,6 @@ using Syncfusion.SfSchedule.XForms;
 using CD.Models.Calendar;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Timers;
-using System.Threading;
-using java.util;
-using Timer = System.Threading.Timer;
 
 namespace CD.Views.Calendar
 {
@@ -35,20 +31,7 @@ namespace CD.Views.Calendar
                 if (args.Appointment != null)
                 {
                     var appointment = (args.Appointment as ScheduleAppointment);
-                    
-                    var result = await DisplayAlert(appointment.Subject, appointment.Notes + "\n"+ 
-                        "\nDate: " + appointment.StartTime.Date.ToLongDateString() + 
-                        "\nTime: " + appointment.StartTime.TimeOfDay.ToString(@"hh\:mm")
-                        ,"Delete", "OK");
-                    if (result) // if it's equal to Delete
-                    {
-                        DeleteEvent(appointment);
-                    }
-                    else // if it's equal to OK
-                    {
-                        return; // just return to the page and do nothing.
-                    }
-
+                    await PopupNavigation.PushAsync(new EventSelected(appointment));
                 }
             }
             refreshCalendar();
@@ -104,33 +87,6 @@ namespace CD.Views.Calendar
             var year = date.Year.ToString();
             string[] parsedDate = { day, month, year };
             return parsedDate;
-        }
-
-        private async void DeleteEvent(ScheduleAppointment appointment)
-        {
-            listEvents = await fireBaseHelperEvents.GetAllEvents();
-            EventModel theEvent = new EventModel();
-            foreach (EventModel ev in listEvents)
-            {
-                DateTime startDate = Convert.ToDateTime(ev.StartEventDate.ToString());
-                DateTime endDate = Convert.ToDateTime(ev.EndEventDate.ToString());
-
-                if (ev.Name == appointment.Subject && ev.Description == appointment.Notes 
-                    && startDate.Date.ToLongDateString() == appointment.StartTime.ToLongDateString()                   
-                    && endDate.Date.ToLongDateString() == appointment.EndTime.ToLongDateString())
-                {
-                    theEvent = ev;
-                }
-            }
-            try
-            {
-                await fireBaseHelperEvents.DeleteEvent(theEvent.EventID);
-                await Instance.refreshCalendar();
-            }
-            catch (Exception) 
-            {
-            }
-            await Instance.refreshCalendar();
         }
     }
 }

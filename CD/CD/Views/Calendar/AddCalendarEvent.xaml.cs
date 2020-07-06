@@ -43,7 +43,9 @@ namespace CD.Views.Calendar
                 await PopupNavigation.RemovePageAsync(this);
             }
             else
+            {
                 await DisplayAlert("Failed", "Please add a name to the event", "OK");
+            }
             save_button.IsEnabled = true;
 
             // repopulating the calendar
@@ -67,6 +69,30 @@ namespace CD.Views.Calendar
             // tap a color on the selection line 
             segmentedControl.SelectionChanged += Handle_SelectionChanged;
             color = segmentedControl.SelectedIndex;
+            if (color == 0)
+            {
+                segmentedControl.SelectionIndicatorSettings.Color = Color.Red;
+            }
+            if (color == 1)
+            {
+                segmentedControl.SelectionIndicatorSettings.Color = Color.Orange;
+            }
+            if (color == 2)
+            {
+                segmentedControl.SelectionIndicatorSettings.Color = Color.DeepPink;
+            }
+            if (color == 3)
+            {
+                segmentedControl.SelectionIndicatorSettings.Color = Color.Blue;
+            }
+            if (color == 4)
+            {
+                segmentedControl.SelectionIndicatorSettings.Color = Color.MediumSeaGreen;
+            }
+            if (color == 5)
+            {
+                segmentedControl.SelectionIndicatorSettings.Color = Color.BlueViolet;
+            }
         }
 
         private Color colorSelected(int theColor)

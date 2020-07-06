@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
+             mc:Ignorable="d"
+             x:Class="CD.Views.Calendar.EventSelected">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Margin="10" Padding="10">
+            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                <StackLayout 
+                     BackgroundColor="WhiteSmoke"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Center">
+                    <StackLayout Margin="0">
+                        <Frame x:Name="SubjectFrame" CornerRadius="10" Margin="0">
+                            <Label x:Name="AppointmentSubject" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="White" FontSize="20"/>
+                        </Frame>
+                        <StackLayout Margin="10">
+                            <Label Text="Description:" FontFamily="{StaticResource Montserrat-Bold}"/>
+                            <Label x:Name="AppointmentDescription"  FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                            <Label/>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label Text="StartingDate:" FontFamily="{StaticResource Montserrat-Bold}" />
+                                    <Label x:Name="StartingDate"  FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                                </StackLayout>
+                                <StackLayout >
+                                    <Label Text="StartingTime:" FontFamily="{StaticResource Montserrat-Bold}"/>
+                                    <Label x:Name="StartingTime"  FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <Label/>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label Text="EndDate:" FontFamily="{StaticResource Montserrat-Bold}"/>
+                                    <Label x:Name="EndDate"  FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                                </StackLayout>
+                                <StackLayout >
+                                    <Label Text="EndTime:" FontFamily="{StaticResource Montserrat-Bold}"/>
+                                    <Label x:Name="EndTime"  FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <Label/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Button x:Name="edit_event_button" Text="Edit" Clicked="edit_event" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
+                                <Button x:Name="delete_event_button" Text="Delete" Clicked="delete_event" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

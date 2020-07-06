@@ -155,7 +155,8 @@
                             CornerRadius="4"
                             Style="{StaticResource SfFlatButtonStyle}"
                             Text="Sign Up" 
-                            Clicked="SignUpPage"/>
+                            Clicked="SignUpPage"
+                            TextColor="Purple"/>
 
                     </StackLayout>
 
