@@ -4,6 +4,7 @@ using System;
 using CD.Helper;
 using System.Drawing;
 using Syncfusion.XForms.Buttons;
+using java.sql;
 
 namespace CD.Views.Calendar
 {
@@ -34,8 +35,9 @@ namespace CD.Views.Calendar
             save_button.IsEnabled = false;
             string name = event_name.Text;
             string desc = event_description.Text;
-            DateTime start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
-            DateTime end_Date = new DateTime(endDate.Date.Year, endDate.Date.Month, endDate.Date.Day, endTimePicker.Time.Hours, endTimePicker.Time.Minutes, endTimePicker.Time.Seconds);
+            start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
+            end_Date = new DateTime(endDate.Date.Year, endDate.Date.Month, endDate.Date.Day, endTimePicker.Time.Hours, endTimePicker.Time.Minutes, endTimePicker.Time.Seconds);
+            checkDates(start_Date, end_Date);
             Color colorEvent = colorSelected(color);
             if (!string.IsNullOrEmpty(name))
             {
@@ -44,7 +46,7 @@ namespace CD.Views.Calendar
             }
             else
             {
-                await DisplayAlert("Failed", "Please add a name to the event", "OK");
+                await DisplayAlert("Insufficient Information", "Please add a name to the event", "OK");
             }
             save_button.IsEnabled = true;
 
@@ -111,6 +113,16 @@ namespace CD.Views.Calendar
                 return Color.BlueViolet;
             else
                 return Color.Blue;
+        }
+        private void checkDates(DateTime startDate, DateTime endDate)
+        {
+            int res = DateTime.Compare(startDate, endDate);
+            DateTime end;
+            Console.WriteLine("================================" + res);
+            if (res == 1 || res == 0)
+            {
+                 this.end_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, (startTimePicker.Time.Minutes+30), startTimePicker.Time.Seconds);
+            }
         }
     }
 }

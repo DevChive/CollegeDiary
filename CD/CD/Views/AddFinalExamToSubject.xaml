@@ -10,19 +10,19 @@
              Title="Add Exam">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
-            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+            <Frame CornerRadius="10" BackgroundColor="white" HasShadow="True" BorderColor="WhiteSmoke">
                 <StackLayout 
-                     BackgroundColor="WhiteSmoke"
+                     BackgroundColor="White"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-                    <Label Text="Final Exam" FontSize="20" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                    <Label Text="Final Exam" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
                     <Label></Label>
-                    <Label Text="Result in % (from 100)" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray"/>
-                    <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                    <Label Text="Result in % (from 100)" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
+                    <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
                     <Label></Label>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Button x:Name="save_exam_button" Text="Save" Clicked="Save_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
-                        <Button Text="Cancel" Clicked="Cancel_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="16" WidthRequest="110" Scale="0.9"/>
+                        <Button x:Name="save_exam_button" Text="Save" Clicked="Save_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="14" WidthRequest="110" Scale="0.9"/>
+                        <Button Text="Cancel" Clicked="Cancel_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="14" WidthRequest="110" Scale="0.9"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>

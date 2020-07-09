@@ -65,8 +65,8 @@ namespace CD.Views
             statusSubjectGPA.Progress = GPA;
             colorTheStatusBars(GPA, statusSubjectGPA, "GPA");
 
-            Ca_StatusBar.Text = CAProgress.ToString("F2")+"/";
-            Fe_StatusBar.Text = FinalExamProgress.ToString("F2")+"/";
+            Ca_StatusBar.Text = CAProgress.ToString("F2");
+            Fe_StatusBar.Text = FinalExamProgress.ToString("F2");
             gpa_StatusBar.Text = GPA.ToString("F2");
 
         }
@@ -160,7 +160,7 @@ namespace CD.Views
 
         private async void delete_subject(object sender, EventArgs e)
         {
-            var result = await DisplayAlert("Are you sure you want to delete", _subject.SubjectName, "Yes", "No");
+            var result = await DisplayAlert("Are you sure you want to delete this subject?", "Subject name: " +  _subject.SubjectName, "Yes", "No");
             if (result) // YES
             {
                 try
@@ -180,7 +180,7 @@ namespace CD.Views
         private async void delete_mark(object sender, Syncfusion.ListView.XForms.ItemHoldingEventArgs e)
         {
             var thisMark = e.ItemData as Mark;
-            var result = await DisplayAlert("Are you sure you want to delete this mark?", "Name "  + thisMark.MarkName + "\nResult " + thisMark.Result, "Yes", "No");
+            var result = await DisplayAlert("Are you sure you want to delete this result?", "Name: "  + thisMark.MarkName + "\nResult: " + thisMark.Result + "%", "Yes", "No");
             if (result)
             {
                 try
