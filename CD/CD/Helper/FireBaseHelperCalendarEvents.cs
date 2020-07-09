@@ -28,7 +28,11 @@ namespace CD.Helper
                 StartEventDate = start_date_time,
                 EndEventDate = end_date_time,
                 Color = eventColor,
-            });
+                StartDateString = start_date_time.Date.ToLongDateString(),
+                StartTimeString = start_date_time.ToShortTimeString(),
+                EndDateString = end_date_time.Date.ToLongDateString(),
+                EndTimeString = end_date_time.ToShortTimeString(),
+            }) ;
         }
         public async Task<List<EventModel>> GetAllEvents()
         {
@@ -40,6 +44,10 @@ namespace CD.Helper
                 StartEventDate = item.Object.StartEventDate,
                 EndEventDate = item.Object.EndEventDate,
                 Color = item.Object.Color,
+                StartDateString = item.Object.StartDateString,
+                StartTimeString = item.Object.StartTimeString,
+                EndDateString = item.Object.EndDateString,
+                EndTimeString = item.Object.EndTimeString,
             }).ToList();
         }
 

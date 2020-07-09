@@ -41,8 +41,14 @@ namespace CD.Views.Calendar
             Color colorEvent = colorSelected(color);
             if (!string.IsNullOrEmpty(name))
             {
-                await fireBaseHelper.AddEvent(name, desc, start_Date, end_Date, colorEvent);
-                await PopupNavigation.RemovePageAsync(this);
+                try
+                {
+                    await fireBaseHelper.AddEvent(name, desc, start_Date, end_Date, colorEvent);
+                    await PopupNavigation.RemovePageAsync(this);
+                }
+                catch (Exception)
+                { 
+                }
             }
             else
             {
@@ -117,11 +123,10 @@ namespace CD.Views.Calendar
         private void checkDates(DateTime startDate, DateTime endDate)
         {
             int res = DateTime.Compare(startDate, endDate);
-            DateTime end;
-            Console.WriteLine("================================" + res);
             if (res == 1 || res == 0)
             {
-                 this.end_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, (startTimePicker.Time.Minutes+30), startTimePicker.Time.Seconds);
+                this.end_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
+                this.end_Date = end_Date.AddMinutes(30);
             }
         }
     }

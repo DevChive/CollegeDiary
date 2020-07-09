@@ -6,6 +6,11 @@ using CD.Models;
 using CD.Helper;
 using Rg.Plugins.Popup.Services;
 using System.Threading.Tasks;
+using CD.Models.Calendar;
+using System.Collections.Generic;
+using CD.ViewModel;
+using sun.util.resources.cldr.ewo;
+using System.Linq;
 
 namespace CD.Views
 {
@@ -14,6 +19,9 @@ namespace CD.Views
     {
         string userID = "";
         readonly FireBaseHelperStudent fireBaseHelperStudent = new FireBaseHelperStudent();
+        readonly FireBaseHelperCalendarEvents fireBaseHelperCalendar = new FireBaseHelperCalendarEvents();
+        StudentCalendar studentCalendar;
+
         IFirebaseDeleteAccount authDeleteAccount;
         IFirebaseSignOut authSignOut;
         protected override bool OnBackButtonPressed() => false;
@@ -26,10 +34,18 @@ namespace CD.Views
             RunHourlyTasks();
         }
         protected override async void OnAppearing()
-        {
+        {       
             await fireBaseHelperStudent.AddGPA(userID);
+
             Student user = await fireBaseHelperStudent.GetStudent(userID);
-            this.BindingContext = user;
+            List<EventModel> allEvents = await fireBaseHelperCalendar.GetAllEvents();
+            List<EventModel> listEvents = next7DaysEvents(allEvents);
+
+            // creating a new model from 2 classes - student and calendar
+            studentCalendar = new StudentCalendar(user, listEvents);
+            this.BindingContext = studentCalendar;
+
+            // progress bar
             totalGPA.Progress = Convert.ToDouble(user.FinalGPA);
         }
         private async void load_subject_list(object sender, EventArgs e)
@@ -132,6 +148,39 @@ namespace CD.Views
                 int delay = (int)(duration.TotalMilliseconds / 2);
                 await Task.Delay(30000);  // 30 seconds
             }
+        }
+
+        private void view_event(object sender, Syncfusion.ListView.XForms.ItemHoldingEventArgs e)
+        {
+
+        }
+
+        private List<EventModel> next7DaysEvents(List<EventModel> listEvents)
+        {
+            List<EventModel> next7Days = new List<EventModel>();
+            DateTime today = DateTime.Today;
+            DateTime timeWeek = today.AddDays(7);
+            if (listEvents.Count == 0)
+            {
+                Calendar_View_Text.IsVisible = true;
+            }
+            else 
+            {
+                Calendar_View_Text.IsVisible = false;
+                foreach (EventModel e in listEvents)
+                {
+                    DateTime startDate = Convert.ToDateTime(e.StartEventDate.ToString());
+                    int laterThanToday = DateTime.Compare(startDate, today);
+                    int inThisWeek = DateTime.Compare(startDate, timeWeek);
+                    if ((laterThanToday >= 0) && inThisWeek <= 0)
+                    {
+                        next7Days.Add(e);
+                    }
+                }
+            }
+            // order the list by dates
+            next7Days = next7Days.OrderBy(x => x.StartEventDate).ToList();
+            return next7Days;
         }
     }
 }

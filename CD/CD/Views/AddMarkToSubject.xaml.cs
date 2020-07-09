@@ -85,7 +85,6 @@ namespace CD.Views
                 {
                     var mark = await fireBaseHelper.GetMark(mark_name.Text);
                     await fireBaseHelper.AddMark(_subject.SubjectID, mark_name.Text, result, weight, "Continuous Assessment");
-                    await DisplayAlert("Success", "Your result had been recorded", "OK");
                 }
                 catch (Exception)
                 {

@@ -6,12 +6,9 @@
              mc:Ignorable="d"
              x:Class="CD.Views.MyAccount"
              BackgroundColor="{DynamicResource Gray-White}"
-             xmlns:local1="clr-namespace:CD" 
-             xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
-             xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms" 
-             xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             xmlns:controls="clr-namespace:CD.Controls"
              Title="My Account">
     
     <ContentPage.Resources>
@@ -38,23 +35,14 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Hello " TextColor="DodgerBlue" FontFamily="{StaticResource Montserrat-Medium}" FontAttributes="Bold" FontSize="17"/>
-                                    <Span FontSize="17" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
+                                    <Span FontSize="17" Text="{Binding studentSelected.StudentName}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
                                     <Span FontSize="17" Text=" !"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                     </StackLayout>
-                </StackLayout>
-            </Frame>
-            <StackLayout>
-                <Frame CornerRadius="10" BorderColor="WhiteSmoke">
                     <StackLayout>
-                        <Label HorizontalOptions="CenterAndExpand"
-                                    Text="GPA from all subjects " 
-                                    TextColor="DarkSlateGray" 
-                                    FontFamily="{StaticResource Montserrat-Medium}" 
-                                    FontSize="17"/>
-                        <Button Margin="0,0,0,20" Text="Help" Clicked="help" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}" FontSize="12"></Button>
+                        <Button Text="Help" Clicked="help" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}" FontSize="12"></Button>
                         <StackLayout VerticalOptions="Center" 
                             IsVisible="False"
                             x:Name="helpMyAccount">
@@ -84,10 +72,20 @@
                                 </ScrollView>
                             </Frame>
                         </StackLayout>
-
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <StackLayout>
+                <Frame CornerRadius="10" BorderColor="WhiteSmoke">
+                    <StackLayout>
+                        <Label HorizontalOptions="CenterAndExpand"
+                                    Text="GPA from all subjects " 
+                                    TextColor="DarkSlateGray" 
+                                    FontFamily="{StaticResource Montserrat-Medium}" 
+                                    FontSize="17"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,15">
                             <StackLayout Orientation="Vertical">
-                                <progressBar:SfCircularProgressBar x:Name="totalGPA" Margin="20" Scale="2" Progress="{Binding CA}" ProgressColor="#FF90a84e"  ValueChanged="GPA_Changed">
+                                <progressBar:SfCircularProgressBar x:Name="totalGPA" Margin="10" Scale="2" Progress="{Binding studentSelected.CA}" ProgressColor="#FF90a84e"  ValueChanged="GPA_Changed">
                                     <progressBar:SfCircularProgressBar.RangeColors>
                                         <progressBar:RangeColorCollection>
                                             <progressBar:RangeColor IsGradient="True" Color="LightGreen" Start="0" End="50"/>
@@ -105,17 +103,79 @@
                 </Frame>
             </StackLayout>
             <StackLayout>
-                <Label HorizontalOptions="CenterAndExpand"
+                <Frame BorderColor="WhiteSmoke" CornerRadius="10" Padding="1">
+                    <StackLayout>
+                        <Label HorizontalOptions="CenterAndExpand"
                                 Text="Next 7 days calendar events: " 
                                 TextColor="DarkSlateGray" 
                                 FontFamily="{StaticResource Montserrat-Medium}" 
                                 FontSize="17"
-                                Margin="5"/>
-                <StackLayout>
-                    <Label x:Name="Calendar_View_Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Margin="5"/>
-                    <ListView x:Name="Calendar_View" ItemsSource="{Binding listEvents}" >
-                    </ListView>
-                </StackLayout>
+                                Margin="10"/>
+                        <ScrollView>
+                            <StackLayout>
+                                <StackLayout HorizontalOptions="Center" x:Name="Calendar_View_Text" IsVisible="False" Margin="5">
+                                    <Label Text="There are no events in the next week"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
+                                    <Label Text="in your calendar" IsVisible="True" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout  Grid.Row="1" Spacing="0" BackgroundColor="White">
+                                    <!-- Seperator -->
+                                    <BoxView Style="{StaticResource BoxViewStyle}" />
+                                    <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding studentEvents}"
+                            AutoFitMode="Height"
+                            HeightRequest="300"
+                            AllowSwiping="True"
+                            IsScrollBarVisible="false"
+                            FocusBorderThickness="0"
+                            ItemSpacing="0"
+                            SearchText="{Binding SearchText}"
+                            SelectionBackgroundColor="Transparent"
+                            RowSpacing="0"
+                            TapCommand="{Binding ItemSelectedCommand}"
+                            ItemHolding="view_event"
+                            VerticalOptions="FillAndExpand">
+                                        <controls:SearchableSubjectList.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <StackLayout Margin="0" Padding="0">
+                                                        <Frame CornerRadius="10" BackgroundColor="{Binding Color}" Margin="0" Padding="0">
+                                                            <StackLayout Margin="0">
+                                                                <StackLayout 
+                                                             HorizontalOptions="FillAndExpand" 
+                                                             VerticalOptions="FillAndExpand" 
+                                                             Spacing="0"
+                                                             BackgroundColor="{Binding Color}">
+                                                                    <!--  Name of the item  -->
+                                                                    <Label Margin="16,13,0,0">
+                                                                        <Label.FormattedText>
+                                                                            <FormattedString>
+                                                                                <Span Text="{Binding Name}" TextColor="White" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
+                                                                            </FormattedString>
+                                                                        </Label.FormattedText>
+                                                                    </Label>
+                                                                    <Label HorizontalOptions="Start" Margin="16,0,0,12" LineHeight="{OnPlatform Android=1.25, Default=-1}">
+                                                                        <Label.FormattedText>
+                                                                            <FormattedString>
+                                                                                <Span Text="{Binding StartDateString}" FontFamily="{StaticResource Montserrat-Medium}" TextColor="White" FontSize="13"/>
+                                                                                <Span Text=" - " FontFamily="{StaticResource Montserrat-Medium}" TextColor="White" FontSize="13"/>
+                                                                                <Span Text="{Binding StartTimeString}" FontFamily="{StaticResource Montserrat-Medium}" TextColor="White" FontSize="13"/>
+                                                                            </FormattedString>
+                                                                        </Label.FormattedText>
+                                                                    </Label>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                        <!-- Seperator -->
+                                                        <BoxView Style="{StaticResource BoxViewStyle}" />
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </controls:SearchableSubjectList.ItemTemplate>
+                                    </controls:SearchableSubjectList>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </StackLayout>
     </ScrollView>

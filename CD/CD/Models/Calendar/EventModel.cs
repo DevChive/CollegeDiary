@@ -15,5 +15,9 @@ namespace CD.Models.Calendar
         public DateTime? StartEventDate { get; set; }
         public DateTime? EndEventDate { get; set; }
         public Color Color { get; set; }
+        public string StartDateString { get; set; }
+        public string StartTimeString { get; set; }
+        public string EndDateString { get; set; }
+        public string EndTimeString { get; set; }
     }
 }
