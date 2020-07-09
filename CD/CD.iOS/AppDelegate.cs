@@ -8,6 +8,7 @@ using UIKit;
 using Syncfusion.XForms.iOS.Core;
 using Syncfusion.XForms.iOS.ProgressBar;
 using Syncfusion.XForms.iOS.Buttons;
+using Xamarin;
 
 namespace CD.iOS
 {
@@ -32,6 +33,7 @@ namespace CD.iOS
             SfCircularProgressBarRenderer.Init();
             Rg.Plugins.Popup.Popup.Init();
             SfSegmentedControlRenderer.Init();
+            IQKeyboardManager.SharedManager.Enable = true;
             LoadApplication(new App(new IOSModule()));
 
             return base.FinishedLaunching(app, options);

@@ -5,10 +5,11 @@ using Autofac;
 using CD.Views.Login;
 using CD.Models;
 using Newtonsoft.Json;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace CD
 {
-    public partial class App : Application
+    public partial class App : Xamarin.Forms.Application
     {
         public IContainer Container { get; }
         public string AuthToken { get; set; }
@@ -19,6 +20,7 @@ namespace CD
         {
             LoadJson();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(conf.syncfusion);
+            Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
             InitializeComponent();
             Container = BuildContainer(module);
             if (string.IsNullOrEmpty(App.UserUID))
