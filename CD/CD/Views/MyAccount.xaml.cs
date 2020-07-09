@@ -31,8 +31,6 @@ namespace CD.Views
             Student user = await fireBaseHelperStudent.GetStudent(userID);
             this.BindingContext = user;
             totalGPA.Progress = Convert.ToDouble(user.FinalGPA);
-            institute.Text = user.Institute;
-            studentName.Text = user.StudentName;
         }
         private async void load_subject_list(object sender, EventArgs e)
         {

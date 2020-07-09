@@ -28,10 +28,10 @@ namespace CD.Views.Calendar
             AppointmentDescription.Text = args.Notes;
             StartingDate.Text = args.StartTime.Date.ToLongDateString();
             StartingDate.TextColor = args.Color;
-            StartingTime.Text = args.StartTime.TimeOfDay.ToString(@"hh\:mm");
+            StartingTime.Text = args.StartTime.ToShortTimeString();
             EndDate.Text = args.EndTime.Date.ToLongDateString();
             EndDate.TextColor = args.Color;
-            EndTime.Text = args.EndTime.TimeOfDay.ToString(@"hh\:mm");
+            EndTime.Text = args.EndTime.ToShortTimeString();
 
             appointment = args;
         }

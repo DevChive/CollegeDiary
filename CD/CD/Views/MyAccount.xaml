@@ -10,7 +10,8 @@
              xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms" 
+             xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
              Title="My Account">
     
     <ContentPage.Resources>
@@ -36,9 +37,9 @@
                         <Label HorizontalOptions="CenterAndExpand">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Hello " TextColor="DodgerBlue" FontFamily="{StaticResource Montserrat-Medium}" FontAttributes="Bold" FontSize="23"/>
-                                    <Span FontSize="23" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
-                                    <Span FontSize="23" Text=" !"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
+                                    <Span Text="Hello " TextColor="DodgerBlue" FontFamily="{StaticResource Montserrat-Medium}" FontAttributes="Bold" FontSize="17"/>
+                                    <Span FontSize="17" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
+                                    <Span FontSize="17" Text=" !"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DodgerBlue"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -52,8 +53,8 @@
                                     Text="GPA from all subjects " 
                                     TextColor="DarkSlateGray" 
                                     FontFamily="{StaticResource Montserrat-Medium}" 
-                                    FontSize="20"/>
-                        <Button Margin="0,0,0,20" Text="Help" Clicked="help" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                                    FontSize="17"/>
+                        <Button Margin="0,0,0,20" Text="Help" Clicked="help" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}" FontSize="12"></Button>
                         <StackLayout VerticalOptions="Center" 
                             IsVisible="False"
                             x:Name="helpMyAccount">
@@ -103,41 +104,19 @@
                     </StackLayout>
                 </Frame>
             </StackLayout>
-            <Frame CornerRadius="10" BorderColor="#e1f5fe">
-                <StackLayout>
-                    <Label HorizontalOptions="CenterAndExpand"
-                                Text="Account Details " 
+            <StackLayout>
+                <Label HorizontalOptions="CenterAndExpand"
+                                Text="Next 7 days calendar events: " 
                                 TextColor="DarkSlateGray" 
                                 FontFamily="{StaticResource Montserrat-Medium}" 
-                                FontSize="20"/>
-                    <StackLayout Padding="0,16" HorizontalOptions="CenterAndExpand">
-                        <Label>
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Name: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
-                                    <Span x:Name="studentName" FontSize="16" Text="{Binding StudentName}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Label Margin="0,5">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Institute: "  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
-                                    <Span x:Name="institute" FontSize="16" Text="{Binding Institute}"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="DarkSlateGray"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Label>
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Email: " FontFamily="{StaticResource Montserrat-Medium}" TextColor="DeepPink" FontAttributes="Bold" FontSize="17"/>
-                                    <Span x:Name="studentEmail" FontSize="16" Text="{Binding StudentEmail}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </StackLayout>
+                                FontSize="17"
+                                Margin="5"/>
+                <StackLayout>
+                    <Label x:Name="Calendar_View_Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Margin="5"/>
+                    <ListView x:Name="Calendar_View" ItemsSource="{Binding listEvents}" >
+                    </ListView>
                 </StackLayout>
-            </Frame>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>
