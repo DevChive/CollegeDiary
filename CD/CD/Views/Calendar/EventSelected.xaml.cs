@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
-using Xamarin.Forms;
 using CD.Models.Calendar;
 using CD.Helper;
 using Xamarin.Forms.Xaml;
 using Syncfusion.SfSchedule.XForms;
-using CD.Models;
 
 namespace CD.Views.Calendar
 {
@@ -33,11 +28,6 @@ namespace CD.Views.Calendar
             EndTime.Text = args.EndTime.ToShortTimeString();
 
             appointment = args;
-        }
-
-        private void edit_event(object sender, EventArgs e)
-        {
-
         }
 
         [Obsolete]
@@ -67,6 +57,20 @@ namespace CD.Views.Calendar
             {
             }
             await SimplePage.Instance.refreshCalendar();
+        }
+
+        [Obsolete]
+        private async void cancel_event(object sender, EventArgs e)
+        {
+            await PopupNavigation.RemovePageAsync(this);
+        }
+
+        [Obsolete]
+        private async void EditEvent(object sender, EventArgs e)
+        {
+            await PopupNavigation.RemovePageAsync(this);
+            await PopupNavigation.PushAsync(new EditCalendarEvent(appointment));
+
         }
     }
 }

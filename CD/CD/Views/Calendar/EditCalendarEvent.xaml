@@ -2,13 +2,12 @@
 <pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
-             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
              xmlns:sys="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             x:Class="CD.Views.Calendar.AddCalendarEvent">
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
+             x:Class="CD.Views.Calendar.EditCalendarEvent">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
@@ -18,7 +17,7 @@
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
 
-                        <Label FontFamily="{StaticResource Montserrat-SemiBold}" Text="Edit calendar event" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
+                        <Label FontFamily="{StaticResource Montserrat-SemiBold}" Text="New calendar event" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
                         <Label></Label>
                         <Label Text="Name of the event" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
                         <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" Placeholder="e.g. Mathematics Test" FontSize="13"/>
