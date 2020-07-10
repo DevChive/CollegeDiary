@@ -18,7 +18,6 @@ namespace CD.Views.Calendar
     {
         readonly FireBaseHelperCalendarEvents fireBaseHelperEvents = new FireBaseHelperCalendarEvents();
         private List<EventModel> listEvents;
-        private DateTime date;
         private ScheduleAppointment appointment;
         public EventSelected(ScheduleAppointment args)
         {
@@ -41,6 +40,7 @@ namespace CD.Views.Calendar
 
         }
 
+        [Obsolete]
         private async void delete_event(object sender, EventArgs e)
         {
             listEvents = await fireBaseHelperEvents.GetAllEvents();

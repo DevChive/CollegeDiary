@@ -30,6 +30,8 @@ namespace CD.Views.Calendar
         {
             base.OnAppearing();
         }
+
+        [Obsolete]
         private async void Save_Event(object sender, System.EventArgs e)
         {
             save_button.IsEnabled = false;
@@ -79,7 +81,7 @@ namespace CD.Views.Calendar
             color = segmentedControl.SelectedIndex;
             if (color == 0)
             {
-                segmentedControl.SelectionIndicatorSettings.Color = Color.Red;
+                segmentedControl.SelectionIndicatorSettings.Color = Color.OrangeRed;
             }
             if (color == 1)
             {
@@ -91,7 +93,7 @@ namespace CD.Views.Calendar
             }
             if (color == 3)
             {
-                segmentedControl.SelectionIndicatorSettings.Color = Color.Blue;
+                segmentedControl.SelectionIndicatorSettings.Color = Color.DodgerBlue;
             }
             if (color == 4)
             {
@@ -106,13 +108,13 @@ namespace CD.Views.Calendar
         private Color colorSelected(int theColor)
         {
             if (theColor == 0)
-                return Color.Red;
+                return Color.OrangeRed;
             else if (theColor == 1)
                 return Color.Orange;
             else if (theColor == 2)
                 return Color.DeepPink;
             else if (theColor == 3)
-                return Color.Blue;
+                return Color.DodgerBlue;
             else if (theColor == 4)
                 return Color.MediumSeaGreen;
             else if (theColor == 5)

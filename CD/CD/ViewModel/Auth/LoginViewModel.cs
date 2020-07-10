@@ -29,7 +29,7 @@ namespace CD.ViewModel.Auth
 
             LoginCmd = new Command(async () => await Login(), () => Email.IsValid && Password.IsValid && !IsBusy);
 
-            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "tataru.theodora@yahoo.com" };
+            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "dora.theodora89@yahoo.com" };
             Password = new ValidatableObject<string>(propChangedCallBack, new PasswordValidator()) { Value = "testing123" };
         }
 
@@ -59,7 +59,7 @@ namespace CD.ViewModel.Auth
             catch (Exception)
             {
                 App.UserUID = "";
-                App.Current.MainPage.DisplayAlert("Error", "Invalid e-mail or password","OK");
+                await App.Current.MainPage.DisplayAlert("Error", "Invalid e-mail or password","OK");
                 App.Current.MainPage = new NavigationPage(new LogIn());
             } 
         }

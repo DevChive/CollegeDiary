@@ -14,7 +14,7 @@ namespace CD.Droid
         {
             try
             {
-                FirebaseAuth.Instance.SignOut();
+                 FirebaseAuth.Instance.SignOut();
             }
             catch (Exception)
             { 
