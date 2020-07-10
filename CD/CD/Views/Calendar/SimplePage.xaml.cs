@@ -15,10 +15,9 @@ namespace CD.Views.Calendar
     {
         readonly FireBaseHelperCalendarEvents fireBaseHelperEvents = new FireBaseHelperCalendarEvents();
         private List<EventModel> listEvents;
-        private DateTime date;
         public static SimplePage Instance;
 
-
+        [Obsolete]
         public SimplePage()
         {
             Instance = this;
@@ -72,6 +71,7 @@ namespace CD.Views.Calendar
             }
         }
 
+        [Obsolete]
         private async void AddEvent(object sender, EventArgs e)
         {
             add_calendar_event_button.IsEnabled = false;
