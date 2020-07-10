@@ -29,7 +29,7 @@ namespace CD.ViewModel.Auth
 
             LoginCmd = new Command(async () => await Login(), () => Email.IsValid && Password.IsValid && !IsBusy);
 
-            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "dora.theodora89@yahoo.com" };
+            Email = new ValidatableObject<string>(propChangedCallBack, new EmailValidator()) { Value = "tataru.theodora@yahoo.com" };
             Password = new ValidatableObject<string>(propChangedCallBack, new PasswordValidator()) { Value = "testing123" };
         }
 
