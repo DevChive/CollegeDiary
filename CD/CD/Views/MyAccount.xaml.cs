@@ -23,10 +23,7 @@ namespace CD.Views
         string userID = "";
         readonly FireBaseHelperStudent fireBaseHelperStudent = new FireBaseHelperStudent();
         readonly FireBaseHelperCalendarEvents fireBaseHelperCalendar = new FireBaseHelperCalendarEvents();
-        StudentCalendar studentCalendar;
-        List<EventModel> listEvents;
-        Student user;
-
+        
         IFirebaseDeleteAccount authDeleteAccount;
         IFirebaseSignOut authSignOut;
         protected override bool OnBackButtonPressed() => false;
@@ -42,12 +39,12 @@ namespace CD.Views
         {       
             await fireBaseHelperStudent.AddGPA(userID);
 
-            user = await fireBaseHelperStudent.GetStudent(userID);
+            Student user = await fireBaseHelperStudent.GetStudent(userID);
             List<EventModel> allEvents = await fireBaseHelperCalendar.GetAllEvents();
-            listEvents = next7DaysEvents(allEvents);
+            List<EventModel> listEvents = next7DaysEvents(allEvents);
 
             // creating a new model from 2 classes - student and calendar
-            studentCalendar = new StudentCalendar(user, listEvents);
+            StudentCalendar studentCalendar = new StudentCalendar(user, listEvents);
             this.BindingContext = studentCalendar;
 
             // progress bar

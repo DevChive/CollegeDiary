@@ -49,10 +49,19 @@ namespace CD.Views
 
             // check if the result is not higher than 100
             if(validate)
-            { 
-                if(Decimal.Parse(this.result.Text) > 100 || Decimal.Parse(this.result.Text) < 0 )
-                { 
-                    await DisplayAlert("Error", "Your result cannot be higher then 100 or less than 0 ", "Ok");
+            {
+                try
+                {
+                    if (Decimal.Parse(this.result.Text) > 100 || Decimal.Parse(this.result.Text) < 0)
+                    {
+                        await DisplayAlert("Incorrect Information", "Your result cannot be higher then 100 or less than 0 ", "Ok");
+                        less = false;
+                        validate = false;
+                    }
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Incorrect Information", "Your result must be a decimal or a whole number ", "Ok");
                     less = false;
                     validate = false;
                 }

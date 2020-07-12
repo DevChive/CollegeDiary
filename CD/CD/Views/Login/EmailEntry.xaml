@@ -42,7 +42,6 @@
                         HorizontalOptions="EndAndExpand"
                         HorizontalTextAlignment="End"
                         IsVisible="{Binding Path=IsVisible, Source={x:Reference ValidationLabel}}"
-                        Text="&#xe707;"
                         TextColor="{DynamicResource Red}"
                         VerticalOptions="Center" />
 

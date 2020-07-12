@@ -40,6 +40,7 @@ namespace CD.Views
         private async void details()
         {
             var subject = await fireBaseHelperSubject.GetSubject(_subject.SubjectID);
+            Title = subject.SubjectName;
             subjectName.Text = subject.SubjectName;
             lecturerName.Text = subject.LecturerName;
             lecturerEmail.Text = subject.LecturerEmail;
@@ -47,8 +48,9 @@ namespace CD.Views
             remainingCA.Text = remCA.ToString("F2") + "%";
             double remFE = await fireBaseHelperSubject.remainigFE(_subject.SubjectID);
             remainingFE.Text = remFE.ToString("F2") + "%";
-            Title = subject.SubjectName;
-            
+            SubjectNameGpa.Text = subject.SubjectName;
+
+
             // refrashing the selected subject
             _subject = subject;
         }
