@@ -19,10 +19,6 @@ namespace CD
         {
             base.OnAppearing();
         }
-        private async void OnSettingsClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Views.Settings());
-        }
         public void toFirstTab()
         {
             this.CurrentPage = this.Children[0];

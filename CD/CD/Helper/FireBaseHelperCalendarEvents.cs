@@ -57,5 +57,36 @@ namespace CD.Helper
                 (a => a.Object.EventID == eventID);
             await firebase.Child(UserUID).Child(Calendar_Name).Child(toDeleteEvent.Key).DeleteAsync();
         }
+        public async Task<EventModel> GetEvent(string subject, string description, string startDate, string startTime, string endDate, string endTime, Color eventColor)
+        {
+            var allEvents = await GetAllEvents();
+            await firebase.Child(UserUID).Child(Calendar_Name).OnceAsync<EventModel>();
+            if (string.IsNullOrEmpty(description) || string.IsNullOrWhiteSpace(description))
+            {
+                return allEvents.FirstOrDefault(a =>
+                        a.Name == subject
+                    && a.StartDateString == startDate
+                    && a.StartTimeString == startTime
+                    && a.EndDateString == endDate
+                    && a.EndTimeString == endTime
+                    && a.Color.ToArgb().ToString() == eventColor.ToArgb().ToString());
+            }
+            else
+            {
+                return allEvents.FirstOrDefault(a =>
+                        a.Name == subject
+                    && a.Description == description
+                    && a.StartDateString == startDate
+                    && a.StartTimeString == startTime
+                    && a.EndDateString == endDate
+                    && a.EndTimeString == endTime
+                    && a.Color.ToArgb().ToString() == eventColor.ToArgb().ToString());
+            }
+        }
+
+        public async Task UpdateEvent(string name, string description, DateTime start_date_time, DateTime end_date_time, Color eventColor)
+        { 
+
+        }
     }
 }

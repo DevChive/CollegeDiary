@@ -83,6 +83,7 @@ namespace CD.Views.SignUp
                     await DisplayAlert("Account created", "Please verify your email", "ok");
                     //App.UserUID = authDeleteAccount.UserUID();
                     AddUserDetails(NameEntry.Text, College_University.Text, SignUpEmailEntry.Text);
+                    App.UserUID = "";
                     await Navigation.PushAsync(new LogIn());
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                 }

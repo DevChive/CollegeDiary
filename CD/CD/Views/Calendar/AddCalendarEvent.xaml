@@ -8,16 +8,17 @@
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
              xmlns:sys="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             x:Class="CD.Views.Calendar.AddCalendarEvent">
+             x:Class="CD.Views.Calendar.AddCalendarEvent"
+             CloseWhenBackgroundIsClicked="True">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <ScrollView>
                 <Frame CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="WhiteSmoke">
                     <StackLayout 
                      BackgroundColor="White"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-
                         <Label FontFamily="{StaticResource Montserrat-SemiBold}" Text="Edit calendar event" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
                         <Label></Label>
                         <Label Text="Name of the event" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
@@ -94,7 +95,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </pages:PopupPage>
