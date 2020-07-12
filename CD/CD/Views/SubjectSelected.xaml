@@ -215,7 +215,7 @@
                             <FormattedString>
                                 <Span Text="Continuous Assessment:  "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontSize="13" />
                                 <Span x:Name="Ca_StatusBar" FontFamily="{StaticResource Montserrat-SemiBold}" Text="{Binding subjectL.TotalCA, StringFormat='{0:N}'}" TextColor="DodgerBlue"  FontSize="13"/>
-                                <Span Text="/"  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
+                                <Span Text="/"  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
                                 <Span FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.CA, StringFormat='{0:N}%'}" TextColor="DarkSlateGray"  FontSize="13"/>
                             </FormattedString>
                         </Label.FormattedText>
@@ -227,7 +227,7 @@
                             <FormattedString>
                                 <Span Text="Final Exam:  "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
                                 <Span x:Name="Fe_StatusBar" FontFamily="{StaticResource Montserrat-SemiBold}" Text="{Binding subjectL.TotalFinalExam, StringFormat='{0:N}'}" TextColor="DodgerBlue"  FontSize="13"/>
-                                <Span Text="/"  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
+                                <Span Text="/"  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
                                 <Span FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.FinalExam, StringFormat='{0:N}%'}" TextColor="DarkSlateGray"  FontSize="13"/>
                             </FormattedString>
                         </Label.FormattedText>
@@ -238,7 +238,7 @@
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{Binding subjectL.SubjectName} "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13"/>
+                                <Span x:Name="SubjectNameGpa" Text="{Binding subjectL.SubjectName} "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13"/>
                                 <Span Text=" GPA: "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
                                 <Span x:Name="gpa_StatusBar" FontFamily="{StaticResource Montserrat-SemiBold}" Text="" TextColor="DodgerBlue"  FontSize="13"/>
                                 <Span FontFamily="{StaticResource Montserrat-Medium}" Text="/100%" TextColor="DarkSlateGray"  FontSize="13"/>

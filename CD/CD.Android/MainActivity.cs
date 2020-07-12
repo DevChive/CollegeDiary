@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Firebase;
+using Rg.Plugins.Popup.Services;
 
 namespace CD.Droid
 {
@@ -23,6 +24,15 @@ namespace CD.Droid
             FirebaseApp.InitializeApp(Application.Context);
             LoadApplication(new App(new DroidModule()));
         }
+        public async override void OnBackPressed()
+        {
+            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
+            {
+                // Do something if there are some pages in the `PopupStack`
+                await PopupNavigation.Instance.PopAsync();
+            }
+        }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

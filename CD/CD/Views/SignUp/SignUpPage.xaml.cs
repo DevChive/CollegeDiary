@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System;
 using System.Text.RegularExpressions;
 using com.sun.tools.javac.util;
+using System.Linq;
 
 namespace CD.Views.SignUp
 {
@@ -14,17 +15,18 @@ namespace CD.Views.SignUp
     {
         IFirebaseRegister auth;
         readonly FireBaseHelperStudent firebaseStudent = new FireBaseHelperStudent();
+
         public SignUpPage()
         {
             InitializeComponent();
             auth = DependencyService.Get<IFirebaseRegister>();
         }
-
-        private void LoginPage(object sender, System.EventArgs e)
+        private async void LoginPage(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new LogIn());
+            // not allowing the user to use the back button from the phone
+            Application.Current.MainPage = new LogIn();
+            await Navigation.PopToRootAsync(true);
         }
-
         private async void RegiterNewUser(object sender, EventArgs e)
         {
             signup_button.IsEnabled = false;
@@ -84,8 +86,8 @@ namespace CD.Views.SignUp
                     //App.UserUID = authDeleteAccount.UserUID();
                     AddUserDetails(NameEntry.Text, College_University.Text, SignUpEmailEntry.Text);
                     App.UserUID = "";
-                    await Navigation.PushAsync(new LogIn());
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Application.Current.MainPage = new LogIn();
+                    await Navigation.PopToRootAsync(true);
                 }
                 else if (Token == "existing")
                 {

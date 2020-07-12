@@ -6,6 +6,7 @@ using Autofac;
 using CD.ViewModel.Auth;
 using CD.Views.SignUp;
 using CD.Views.ForgotPassword;
+using System.Linq;
 
 namespace CD.Views.Login
 {
@@ -17,12 +18,11 @@ namespace CD.Views.Login
 		{
 			InitializeComponent();
 			this.BindingContext = (Application.Current as App).Container.Resolve<LoginViewModel>();
-			Loading.IsRunning = false;
-			OnBackButtonPressed();
 		}
 
 		private void Login(object sender, EventArgs e)
 		{
+			// TODO: change the login functionality
 			Loading.IsRunning = true;
 			Loading.Color = Color.Red;
 		}

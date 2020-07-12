@@ -47,8 +47,8 @@ namespace CD.Views
             save_ca_button.IsEnabled = false;
             bool validate = true;
             bool less = true;
-            double result = -1;
-            double weight = -1;
+            double result = 0;
+            double weight = 0;
 
             // check all the entries are filled in 
             if (string.IsNullOrEmpty(this.mark_name.Text) || string.IsNullOrEmpty(this.weight.Text) || string.IsNullOrEmpty(this.result.Text)
@@ -61,9 +61,17 @@ namespace CD.Views
             // check if the weight of the current CA is not exceeding the overall weight of the CA
             if (validate)
             {
-                result = Double.Parse(this.result.Text);
-                weight = Double.Parse(this.weight.Text);
-                validate = await Check_CA_Weight(_subject, weight);
+                try
+                {
+                    result = Double.Parse(this.result.Text);
+                    weight = Double.Parse(this.weight.Text);
+                    validate = await Check_CA_Weight(_subject, weight);
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Incorrect Information", "Your result must be a decimal or a whole number ", "Ok");
+                    validate = false;
+                }
             }
             // check if the exam weight is higher than 0
             if(validate)
@@ -74,7 +82,7 @@ namespace CD.Views
             // check the mark is not over 100 or negative
             if (validate && result > 100 || result < 0) 
             { 
-                await DisplayAlert("Incorrect information", "Your result cannot be higher then 100 or less than 0 ", "Ok");
+                await DisplayAlert("Incorrect information", "Your result cannot be higher than 100 or less than 0 ", "Ok");
                 validate = false;
                 less = false;
             }

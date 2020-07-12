@@ -5,6 +5,7 @@ using System.Windows.Input;
 using CD.Validations;
 using Xamarin.Forms;
 using CD.Views.Login;
+using CD.ViewModel;
 
 namespace CD.ViewModel.Auth
 {
@@ -49,7 +50,7 @@ namespace CD.ViewModel.Auth
                 }
                 else 
                 {
-                    App.UserUID = "";
+                    App.UserUID = "";                    
 
                 }
                 IsBusy = false;
