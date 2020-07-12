@@ -43,7 +43,7 @@ namespace CD.Views.Calendar
             end_Date = new DateTime(endDate.Date.Year, endDate.Date.Month, endDate.Date.Day, endTimePicker.Time.Hours, endTimePicker.Time.Minutes, endTimePicker.Time.Seconds);
             checkDates(start_Date, end_Date);
             Color colorEvent = colorSelected(color);
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrWhiteSpace(name))
             {
                 try
                 {

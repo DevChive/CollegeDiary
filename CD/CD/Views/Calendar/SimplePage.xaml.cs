@@ -23,14 +23,14 @@ namespace CD.Views.Calendar
             Instance = this;
             InitializeComponent();
 
-            // tpping an appointment
+            // tapping an appointment
             schedule.MonthInlineAppointmentTapped += Schedule_MonthInlineAppointmentTapped;
             async void Schedule_MonthInlineAppointmentTapped(object sender, MonthInlineAppointmentTappedEventArgs args)
             {
                 if (args.Appointment != null)
                 {
                     var appointment = (args.Appointment as ScheduleAppointment);
-                    await PopupNavigation.PushAsync(new EventSelected(appointment));
+                    await PopupNavigation.PushAsync(new EventSelected(appointment, "SimplePage"));
                 }
             }
             refreshCalendar();
@@ -75,7 +75,7 @@ namespace CD.Views.Calendar
         private async void AddEvent(object sender, EventArgs e)
         {
             add_calendar_event_button.IsEnabled = false;
-            DateTime dateSelected = Convert.ToDateTime(string.IsNullOrEmpty( schedule.SelectedDate.ToString()) ? DateTime.Now.ToString(): schedule.SelectedDate.ToString());
+            DateTime dateSelected = Convert.ToDateTime(string.IsNullOrEmpty(schedule.SelectedDate.ToString()) ? DateTime.Now.ToString(): schedule.SelectedDate.ToString());
             await PopupNavigation.PushAsync(new AddCalendarEvent(dateSelected));
             add_calendar_event_button.IsEnabled = true;
         }

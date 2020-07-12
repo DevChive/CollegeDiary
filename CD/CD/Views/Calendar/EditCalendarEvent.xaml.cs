@@ -18,7 +18,10 @@ namespace CD.Views.Calendar
         readonly FireBaseHelperCalendarEvents fireBaseHelper = new FireBaseHelperCalendarEvents();
         private int color = 0;
         private ScheduleAppointment thisAppointment;
-        public EditCalendarEvent(ScheduleAppointment args)
+        private DateTime start_Date;
+        private DateTime end_Date;
+        string sourcePage = "";
+        public EditCalendarEvent(ScheduleAppointment args, string motiv)
         {
             InitializeComponent();
             event_name.Text = args.Subject;
@@ -30,6 +33,7 @@ namespace CD.Views.Calendar
             segmentedControl.SelectionIndicatorSettings.Color = args.Color;
             color = segmentedControl.SelectedIndex = colorSelected(args.Color);
             thisAppointment = args;
+            sourcePage = motiv;
         }
         protected override void OnAppearing()
         {
@@ -43,14 +47,46 @@ namespace CD.Views.Calendar
 
         }
 
+        [Obsolete]
         private async void Save_Event(object sender, EventArgs e)
         {
+            save_button.IsEnabled = false;
             EventModel thisEvent = await fireBaseHelper.GetEvent
                 (thisAppointment.Subject, thisAppointment.Notes, thisAppointment.StartTime.Date.ToLongDateString(), 
                 thisAppointment.StartTime.ToShortTimeString(), thisAppointment.EndTime.Date.ToLongDateString(), 
                 thisAppointment.EndTime.ToShortTimeString(), thisAppointment.Color);
 
-            Console.WriteLine("=-------------------------------------------------------=" + thisEvent.Name.ToString() +  " " + thisEvent.EventID.ToString());
+            start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
+            end_Date = new DateTime(endDate.Date.Year, endDate.Date.Month, endDate.Date.Day, endTimePicker.Time.Hours, endTimePicker.Time.Minutes, endTimePicker.Time.Seconds);
+            checkDates(start_Date, end_Date);
+            Color colorEvent = changeColor(color);
+
+            if (!string.IsNullOrEmpty(event_name.Text) && !string.IsNullOrWhiteSpace(event_name.Text))
+            {
+                try
+                {
+                    await fireBaseHelper.UpdateEvent(thisEvent.EventID, event_name.Text, event_description.Text, start_Date, end_Date, colorEvent);
+                }
+                catch (Exception)
+                { 
+                }
+            }
+            else
+            {
+                await DisplayAlert("Insufficient Information", "Please add a name to the event", "OK");
+            }
+            save_button.IsEnabled = true;
+            if (sourcePage == "SimplePage")
+            {
+                await PopupNavigation.RemovePageAsync(this);                
+            }
+            else if (sourcePage == "MyAccount")
+            {
+                await Navigation.PushAsync(new MyAccount(), false);
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                await PopupNavigation.RemovePageAsync(this);
+            }
+            await SimplePage.Instance.refreshCalendar();
         }
 
         [Obsolete]
@@ -122,6 +158,15 @@ namespace CD.Views.Calendar
                 return Color.BlueViolet;
             else
                 return Color.Blue;
+        }
+        private void checkDates(DateTime startDate, DateTime endDate)
+        {
+            int res = DateTime.Compare(startDate, endDate);
+            if (res == 1 || res == 0)
+            {
+                this.end_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
+                this.end_Date = end_Date.AddMinutes(30);
+            }
         }
     }
 }

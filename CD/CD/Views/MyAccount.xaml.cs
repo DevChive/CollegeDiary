@@ -11,6 +11,9 @@ using System.Collections.Generic;
 using CD.ViewModel;
 using sun.util.resources.cldr.ewo;
 using System.Linq;
+using Syncfusion.SfSchedule.XForms;
+using CD.Views.Calendar;
+using com.sun.jdi.@event;
 
 namespace CD.Views
 {
@@ -21,6 +24,8 @@ namespace CD.Views
         readonly FireBaseHelperStudent fireBaseHelperStudent = new FireBaseHelperStudent();
         readonly FireBaseHelperCalendarEvents fireBaseHelperCalendar = new FireBaseHelperCalendarEvents();
         StudentCalendar studentCalendar;
+        List<EventModel> listEvents;
+        Student user;
 
         IFirebaseDeleteAccount authDeleteAccount;
         IFirebaseSignOut authSignOut;
@@ -37,9 +42,9 @@ namespace CD.Views
         {       
             await fireBaseHelperStudent.AddGPA(userID);
 
-            Student user = await fireBaseHelperStudent.GetStudent(userID);
+            user = await fireBaseHelperStudent.GetStudent(userID);
             List<EventModel> allEvents = await fireBaseHelperCalendar.GetAllEvents();
-            List<EventModel> listEvents = next7DaysEvents(allEvents);
+            listEvents = next7DaysEvents(allEvents);
 
             // creating a new model from 2 classes - student and calendar
             studentCalendar = new StudentCalendar(user, listEvents);
@@ -76,6 +81,8 @@ namespace CD.Views
                 totalGPA.ProgressColor = Color.Green;
             }
         }
+
+        [Obsolete]
         private async void edit_account(object sender, EventArgs e)
         {
             Student student = await fireBaseHelperStudent.GetStudent(userID);
@@ -149,22 +156,12 @@ namespace CD.Views
                 await Task.Delay(30000);  // 30 seconds
             }
         }
-
-        private void view_event(object sender, Syncfusion.ListView.XForms.ItemHoldingEventArgs e)
-        {
-
-        }
-
         private List<EventModel> next7DaysEvents(List<EventModel> listEvents)
         {
             List<EventModel> next7Days = new List<EventModel>();
             DateTime today = DateTime.Today;
             DateTime timeWeek = today.AddDays(7);
-            if (listEvents.Count == 0)
-            {
-                Calendar_View_Text.IsVisible = true;
-            }
-            else 
+            if (listEvents.Count > 0)
             {
                 Calendar_View_Text.IsVisible = false;
                 foreach (EventModel e in listEvents)
@@ -180,7 +177,33 @@ namespace CD.Views
             }
             // order the list by dates
             next7Days = next7Days.OrderBy(x => x.StartEventDate).ToList();
+            if (next7Days.Count == 0)
+            {
+                Calendar_View_Text.IsVisible = true;
+            }
+            else 
+            {
+                Calendar_View_Text.IsVisible = false;
+            }
             return next7Days;
+        }
+
+        [Obsolete]
+        private async void view_event(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        {
+            LstEvents.IsEnabled = false;
+            if (e != null)
+            {
+                ScheduleAppointment appointment = new ScheduleAppointment();
+                appointment.Subject = (e.ItemData as EventModel).Name;
+                appointment.Notes = (e.ItemData as EventModel).Description;
+                appointment.StartTime = Convert.ToDateTime((e.ItemData as EventModel).StartEventDate);
+                appointment.EndTime = Convert.ToDateTime((e.ItemData as EventModel).EndEventDate);
+                appointment.Color = (e.ItemData as EventModel).Color;
+
+                await PopupNavigation.PushAsync(new EventSelected(appointment, "MyAccount"));
+            }
+            LstEvents.IsEnabled = true;          
         }
     }
 }
