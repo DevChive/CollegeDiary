@@ -7,10 +7,11 @@
              xmlns:sys="clr-namespace:System.Collections.Generic;assembly=netstandard"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
-             x:Class="CD.Views.Calendar.EditCalendarEvent">
+             x:Class="CD.Views.Calendar.EditCalendarEvent"
+             CloseWhenBackgroundIsClicked="True">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <ScrollView>
                 <Frame CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="WhiteSmoke">
                     <StackLayout 
                      BackgroundColor="White"
@@ -93,7 +94,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </pages:PopupPage>

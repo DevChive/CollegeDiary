@@ -17,6 +17,7 @@ namespace CD.Views.Login
 		{
 			InitializeComponent();
 			this.BindingContext = (Application.Current as App).Container.Resolve<LoginViewModel>();
+			Loading.IsRunning = false;
 			OnBackButtonPressed();
 		}
 

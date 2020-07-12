@@ -6,10 +6,11 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
              mc:Ignorable="d"
              x:Class="CD.Views.EditDeleteSubject"
-             Title="Edit subject">
+             Title="Edit subject"
+             CloseWhenBackgroundIsClicked="True">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <ScrollView>
                 <Frame CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="WhiteSmoke">
                     <StackLayout 
                      BackgroundColor="White"
@@ -42,7 +43,7 @@
                         </ScrollView>
                     </StackLayout>
                 </Frame>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </pages:PopupPage>

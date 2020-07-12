@@ -7,10 +7,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CD.Views.AddMarkToSubject"
-             Title="Add Result">
+             Title="Add Result"
+             CloseWhenBackgroundIsClicked="True">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <ScrollView>
                 <Frame CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="WhiteSmoke">
                     <StackLayout 
                      BackgroundColor="White"
@@ -31,8 +32,8 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
     
 </pages:PopupPage>

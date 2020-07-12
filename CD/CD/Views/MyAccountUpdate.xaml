@@ -6,10 +6,11 @@
              mc:Ignorable="d"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
              x:Class="CD.Views.MyAccountUpdate"
-             Title="Update Account">
+             Title="Update Account"
+             CloseWhenBackgroundIsClicked="True">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+        <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
+            <ScrollView>
                 <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
                     <StackLayout 
                      BackgroundColor="WhiteSmoke"
@@ -17,24 +18,24 @@
                      VerticalOptions="Center">
                         <ScrollView>
                             <StackLayout Margin="10">
-                                <Label Text="Update Account" FontSize="23" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                <Label Text="Update Account" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
                                 <Label></Label>
-                                <Label Text="Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
-                                <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                <Label Text="Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
+                                <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
 
-                                <Label Text="Institute" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
-                                <Entry Placeholder="Institute Name" x:Name="userInstitute" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                <Label Text="Institute" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
+                                <Entry Placeholder="Institute Name" x:Name="userInstitute" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
 
                                 <Label></Label>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                    <Button x:Name="save_profile_button" Text="Save" Clicked="Save_Account" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" WidthRequest="110" FontSize="16" HeightRequest="20"/>
-                                    <Button Text="Cancel" Clicked="Cancel_Update" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" FontAttributes="Bold" CornerRadius="20" WidthRequest="110" FontSize="16"/>
+                                    <Button x:Name="save_profile_button" Text="Save" Clicked="Save_Account" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" WidthRequest="110" FontSize="14" HeightRequest="20"/>
+                                    <Button Text="Cancel" Clicked="Cancel_Update" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" FontAttributes="Bold" CornerRadius="20" WidthRequest="110" FontSize="14"/>
                                 </StackLayout>
                             </StackLayout>
                         </ScrollView>
                     </StackLayout>
                 </Frame>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </pages:PopupPage>

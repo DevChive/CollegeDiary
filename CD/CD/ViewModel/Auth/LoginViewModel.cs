@@ -50,7 +50,7 @@ namespace CD.ViewModel.Auth
                 else 
                 {
                     App.UserUID = "";
-                    App.Current.MainPage = new NavigationPage(new LogIn());
+
                 }
                 IsBusy = false;
                 propChangedCallBack();
@@ -60,7 +60,6 @@ namespace CD.ViewModel.Auth
             {
                 App.UserUID = "";
                 await App.Current.MainPage.DisplayAlert("Error", "Invalid e-mail or password","OK");
-                App.Current.MainPage = new NavigationPage(new LogIn());
             } 
         }
     }

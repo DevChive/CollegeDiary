@@ -29,6 +29,8 @@ namespace CD.Views.Calendar
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            // tap a color on the selection line 
+            segmentedControl.SelectionChanged += Handle_SelectionChanged;
         }
 
         [Obsolete]
@@ -76,8 +78,7 @@ namespace CD.Views.Calendar
 
         private void Handle_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // tap a color on the selection line 
-            segmentedControl.SelectionChanged += Handle_SelectionChanged;
+            
             color = segmentedControl.SelectedIndex;
             if (color == 0)
             {

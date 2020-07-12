@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CD.Helper;
+using CD.Models.Calendar;
 using Rg.Plugins.Popup.Services;
 using Syncfusion.SfSchedule.XForms;
 using Xamarin.Forms;
@@ -16,6 +17,7 @@ namespace CD.Views.Calendar
     {
         readonly FireBaseHelperCalendarEvents fireBaseHelper = new FireBaseHelperCalendarEvents();
         private int color = 0;
+        private ScheduleAppointment thisAppointment;
         public EditCalendarEvent(ScheduleAppointment args)
         {
             InitializeComponent();
@@ -27,6 +29,13 @@ namespace CD.Views.Calendar
             endTimePicker.Time = args.EndTime.TimeOfDay;
             segmentedControl.SelectionIndicatorSettings.Color = args.Color;
             color = segmentedControl.SelectedIndex = colorSelected(args.Color);
+            thisAppointment = args;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            // tap a color on the selection line 
+            segmentedControl.SelectionChanged += Handle_SelectionChanged;
         }
 
         private void OnTimePickerPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -34,9 +43,14 @@ namespace CD.Views.Calendar
 
         }
 
-        private void Save_Event(object sender, EventArgs e)
+        private async void Save_Event(object sender, EventArgs e)
         {
+            EventModel thisEvent = await fireBaseHelper.GetEvent
+                (thisAppointment.Subject, thisAppointment.Notes, thisAppointment.StartTime.Date.ToLongDateString(), 
+                thisAppointment.StartTime.ToShortTimeString(), thisAppointment.EndTime.Date.ToLongDateString(), 
+                thisAppointment.EndTime.ToShortTimeString(), thisAppointment.Color);
 
+            Console.WriteLine("=-------------------------------------------------------=" + thisEvent.Name.ToString() +  " " + thisEvent.EventID.ToString());
         }
 
         [Obsolete]
@@ -47,8 +61,6 @@ namespace CD.Views.Calendar
 
         private void Handle_SelectionChanged(object sender, Syncfusion.XForms.Buttons.SelectionChangedEventArgs e)
         {
-            // tap a color on the selection line 
-            segmentedControl.SelectionChanged += Handle_SelectionChanged;
             color = segmentedControl.SelectedIndex;
             if (color == 0)
             {
