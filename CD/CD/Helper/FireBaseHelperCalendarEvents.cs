@@ -84,9 +84,25 @@ namespace CD.Helper
             }
         }
 
-        public async Task UpdateEvent(string name, string description, DateTime start_date_time, DateTime end_date_time, Color eventColor)
-        { 
-
+        public async Task UpdateEvent(Guid id, string name, string description, DateTime start_date_time, DateTime end_date_time, Color eventColor)
+        {
+            var toUpdateEvent = (await firebase.Child(UserUID).Child(Calendar_Name)
+                .OnceAsync<EventModel>())
+                .FirstOrDefault(a => a.Object.EventID == id);
+            await firebase.Child(UserUID).Child(Calendar_Name).Child(toUpdateEvent.Key)
+                .PutAsync(new EventModel()
+                {
+                    EventID = id,
+                    Name = name,
+                    Description = description,
+                    StartEventDate = start_date_time,
+                    EndEventDate = end_date_time,
+                    Color = eventColor,
+                    StartDateString = start_date_time.Date.ToLongDateString(),
+                    StartTimeString = start_date_time.ToShortTimeString(),
+                    EndDateString = end_date_time.Date.ToLongDateString(),
+                    EndTimeString = end_date_time.ToShortTimeString(),
+                });
         }
     }
 }

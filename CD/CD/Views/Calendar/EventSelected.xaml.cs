@@ -14,7 +14,8 @@ namespace CD.Views.Calendar
         readonly FireBaseHelperCalendarEvents fireBaseHelperEvents = new FireBaseHelperCalendarEvents();
         private List<EventModel> listEvents;
         private ScheduleAppointment appointment;
-        public EventSelected(ScheduleAppointment args)
+        string sourcePage = "";
+        public EventSelected(ScheduleAppointment args, string motiv)
         {
             InitializeComponent();
             AppointmentSubject.Text = args.Subject;
@@ -28,11 +29,13 @@ namespace CD.Views.Calendar
             EndTime.Text = args.EndTime.ToShortTimeString();
 
             appointment = args;
+            sourcePage = motiv;
         }
 
         [Obsolete]
         private async void delete_event(object sender, EventArgs e)
         {
+            delete_event_button.IsEnabled = false;
             listEvents = await fireBaseHelperEvents.GetAllEvents();
             EventModel theEvent = new EventModel();
             foreach (EventModel ev in listEvents)
@@ -50,27 +53,40 @@ namespace CD.Views.Calendar
             try
             {
                 await fireBaseHelperEvents.DeleteEvent(theEvent.EventID);
-                await PopupNavigation.RemovePageAsync(this);
-                await SimplePage.Instance.refreshCalendar();
+                if (sourcePage == "SimplePage")
+                {
+                    await PopupNavigation.RemovePageAsync(this);
+                    await SimplePage.Instance.refreshCalendar();
+                }
+                else if (sourcePage == "MyAccount")
+                {
+                    await Navigation.PushAsync(new MyAccount(), false);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                    await PopupNavigation.RemovePageAsync(this);
+                }
             }
             catch (Exception)
             {
             }
             await SimplePage.Instance.refreshCalendar();
+            delete_event_button.IsEnabled = true;
         }
 
         [Obsolete]
         private async void cancel_event(object sender, EventArgs e)
         {
+            cancel_event_button.IsEnabled = false;
             await PopupNavigation.RemovePageAsync(this);
+            cancel_event_button.IsEnabled = false;
         }
 
         [Obsolete]
         private async void EditEvent(object sender, EventArgs e)
         {
+            edit_event_button.IsEnabled = false;
             await PopupNavigation.RemovePageAsync(this);
-            await PopupNavigation.PushAsync(new EditCalendarEvent(appointment));
-
+            await PopupNavigation.PushAsync(new EditCalendarEvent(appointment, sourcePage));
+            edit_event_button.IsEnabled = true;
         }
     }
 }

@@ -120,7 +120,7 @@
                                 <StackLayout  Grid.Row="1" Spacing="0" BackgroundColor="White">
                                     <!-- Seperator -->
                                     <BoxView Style="{StaticResource BoxViewStyle}" />
-                                    <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding studentEvents}"
+                                    <controls:SearchableSubjectList x:Name="LstEvents" ItemsSource="{Binding studentEvents}"
                             AutoFitMode="Height"
                             HeightRequest="300"
                             AllowSwiping="True"
@@ -131,7 +131,7 @@
                             SelectionBackgroundColor="Transparent"
                             RowSpacing="0"
                             TapCommand="{Binding ItemSelectedCommand}"
-                            ItemHolding="view_event"
+                            ItemTapped="view_event"
                             VerticalOptions="FillAndExpand">
                                         <controls:SearchableSubjectList.ItemTemplate>
                                             <DataTemplate>
@@ -148,7 +148,7 @@
                                                                     <Label Margin="16,13,0,0">
                                                                         <Label.FormattedText>
                                                                             <FormattedString>
-                                                                                <Span Text="{Binding Name}" TextColor="White" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
+                                                                                <Span x:Name="EventName" Text="{Binding Name}" TextColor="White" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
                                                                             </FormattedString>
                                                                         </Label.FormattedText>
                                                                     </Label>
