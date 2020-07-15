@@ -14,8 +14,7 @@
              xmlns:converter="clr-namespace:CD.Converters"
              xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
-             xmlns:local1="clr-namespace:CD.Views.Login"
-             xmlns:viewModel="clr-namespace:CD.ViewModel.Log"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
@@ -26,11 +25,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <!--  Binding context for login page  -->
-    <ContentPage.BindingContext>
-        <viewModel:LoginPageViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <Grid>
@@ -87,11 +81,21 @@
                             Text="" />
 
                         <!--  Entry to get email ID from user  -->
-                        <local1:EmailEntry Grid.Row="2" Padding="0,24" />
-
+                        <border:SfBorder
+                            Grid.Row="2"
+                            BorderColor="Transparent"
+                            Style="{StaticResource SfBorderStyle}">
+                            <control:BorderlessEntry
+                                x:Name="EmailEntry"
+                                Placeholder="Email"                            
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding Email}"  />
+                        </border:SfBorder>
+                        <Label Grid.Row ="3"  TextColor="Red" Text="Please enter a valid email" IsVisible="False"  x:Name="EmailError"/>
+                        <Label Grid.Row="4" Padding="0.24"/>
                         <!--  Entry to get password from user  -->
                         <border:SfBorder
-                            Grid.Row="3"
+                            Grid.Row="5"
                             BorderColor="{Binding Source={x:Reference PasswordEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=0}"
                             Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
@@ -99,13 +103,15 @@
                                 IsPassword="True"
                                 Placeholder="Password"
                                 Style="{StaticResource EntryStyle}"
-                                Text="{Binding Password.Value}"  />
+                                Text="{Binding Password}"  />
                         </border:SfBorder>
+                        <Label Grid.Row ="6" TextColor="Red" Text="Please enter your password" IsVisible="False"  x:Name="PasswordError"/>
+                       
 
                         <!--  Forgot password link  -->
                         <Label
                             x:Name="ForgotPasswordLabel"
-                            Grid.Row="4"
+                            Grid.Row="7"
                             Margin="0,16"
                             FontFamily="{StaticResource Montserrat-SemiBold}"
                             FontSize="12"
@@ -119,12 +125,13 @@
 
                         <!--  Login button  -->
                         <buttons:SfButton
-                            Grid.Row="5"
+                            Grid.Row="8"
                             Margin="0,16"
                             Clicked="Login"
                             Command="{Binding LoginCmd}"
                             Style="{StaticResource SfButtonStyle}"
-                            Text="LOG IN" />
+                            Text="LOG IN" 
+                            x:Name="Login_Button"/>
                     </Grid>
 
                     <StackLayout
@@ -157,12 +164,17 @@
                             Text="Sign Up" 
                             Clicked="SignUpPage"
                             TextColor="Purple"/>
-
                     </StackLayout>
 
                 </StackLayout>
             </ScrollView>
-            <ActivityIndicator x:Name="Loading" IsRunning="false" Scale="0.2"  />
+            <busyindicator:SfBusyIndicator x:Name="busyindicator"
+                                           x:FieldModifier="Public"
+                                           AnimationType="Ball"
+                                           IsVisible="false"
+                                           ViewBoxWidth = "150" 
+                                           ViewBoxHeight="150"
+                                           TextColor="Red" />
         </Grid>
     </ContentPage.Content>
 
