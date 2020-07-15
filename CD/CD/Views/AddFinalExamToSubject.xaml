@@ -19,8 +19,10 @@
                      VerticalOptions="Center">
                         <Label Text="Final Exam" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
                         <Label></Label>
-                        <Label Text="Result in % (from 100)" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
-                        <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
+                        <Label Text="Result in % (from 100) *" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
+                        <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13" Placeholder="e.g. 84"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Your result must be respresented by a number between 0 and 100" IsVisible="False"  x:Name="Error1"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Your result must be a positive decimal or a whole number " IsVisible="False"  x:Name="Error2"/>
                         <Label></Label>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                             <Button x:Name="save_exam_button" Text="Save" Clicked="Save_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="14" WidthRequest="110" Scale="0.9"/>

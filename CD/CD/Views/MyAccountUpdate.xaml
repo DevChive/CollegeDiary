@@ -20,11 +20,13 @@
                             <StackLayout Margin="10">
                                 <Label Text="Update Account" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
                                 <Label></Label>
-                                <Label Text="Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
+                                <Label Text="Name *" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
                                 <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter your name " IsVisible="False"  x:Name="ErrorName"/>
 
-                                <Label Text="Institute" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
+                                <Label Text="Institute *" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
                                 <Entry Placeholder="Institute Name" x:Name="userInstitute" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter the name of your Institute " IsVisible="False"  x:Name="ErrorInstite"/>
 
                                 <Label></Label>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

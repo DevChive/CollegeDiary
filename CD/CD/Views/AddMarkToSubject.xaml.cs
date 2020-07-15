@@ -4,6 +4,7 @@ using CD.Models;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace CD.Views
 {
@@ -21,7 +22,7 @@ namespace CD.Views
 
         // check if the weight of the current CA is not exceeding the overall weight of the CA
         public async Task<bool> Check_CA_Weight(Subject subject, double weight)
-        {
+        {          
             var marks_belonging_to_subject = await fireBaseHelper.GetMarksForSubject(subject.SubjectID);
             double total_CA_all_Marks = 0;
 
@@ -34,7 +35,7 @@ namespace CD.Views
             }
             if (total_CA_all_Marks + weight > subject.CA)
             {
-                await DisplayAlert("Mark not added", "The assignment percentage is exceeding the total CA percentage", "OK");
+                ErrorWeightCA.IsVisible = true; 
                 return false;
             }
 
@@ -44,6 +45,13 @@ namespace CD.Views
         [Obsolete]
         private async void Save_Mark(object sender, EventArgs e)
         {
+            ErrorWeightCA.IsVisible = false;
+            ErrorResultCA.IsVisible = false;
+            ErrorNameCA.IsVisible = false;
+            EmptyWeightCA.IsVisible = false;
+            EmptyResultCA.IsVisible = false;
+            HigherThanZeroWeight.IsVisible = false;
+
             save_ca_button.IsEnabled = false;
             bool validate = true;
             bool less = true;
@@ -51,12 +59,30 @@ namespace CD.Views
             double weight = 0;
 
             // check all the entries are filled in 
-            if (string.IsNullOrEmpty(this.mark_name.Text) || string.IsNullOrEmpty(this.weight.Text) || string.IsNullOrEmpty(this.result.Text)
-                || string.IsNullOrWhiteSpace(this.mark_name.Text) || string.IsNullOrWhiteSpace(this.weight.Text) || string.IsNullOrWhiteSpace(this.result.Text))
+            if (string.IsNullOrEmpty(this.mark_name.Text) || string.IsNullOrWhiteSpace(this.mark_name.Text))
             {
                 validate = false;
                 less = false;
-                await DisplayAlert("Insufficient information", "All fields are required", "OK");
+                ErrorNameCA.IsVisible = true;
+
+            }
+            if (validate)
+            {
+                if (string.IsNullOrEmpty(this.weight.Text) || string.IsNullOrWhiteSpace(this.weight.Text))
+                {
+                    validate = false;
+                    less = false;
+                    EmptyWeightCA.IsVisible = true;
+                }
+            }
+            if (validate)
+            {
+                if (string.IsNullOrEmpty(this.result.Text) || string.IsNullOrWhiteSpace(this.result.Text))
+                {
+                    validate = false;
+                    less = false;
+                    EmptyResultCA.IsVisible = true;
+                }
             }
             // check if the weight of the current CA is not exceeding the overall weight of the CA
             if (validate)
@@ -69,7 +95,7 @@ namespace CD.Views
                 }
                 catch (Exception)
                 {
-                    await DisplayAlert("Incorrect Information", "Your result must be a decimal or a whole number ", "Ok");
+                    ErrorResultCA.IsVisible = true;
                     validate = false;
                 }
             }
@@ -77,12 +103,12 @@ namespace CD.Views
             if(validate)
             {
                 validate = weight > 0;
-                if (!validate) { await DisplayAlert("Insufficient information", "The Continuous Assessment weight must be higher than 0", "ok"); }
+                if (!validate) { HigherThanZeroWeight.IsVisible = true; }
             }
             // check the mark is not over 100 or negative
             if (validate && result > 100 || result < 0) 
-            { 
-                await DisplayAlert("Incorrect information", "Your result cannot be higher than 100 or less than 0 ", "Ok");
+            {
+                ErrorResultCA.IsVisible = true;
                 validate = false;
                 less = false;
             }

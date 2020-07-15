@@ -23,30 +23,35 @@ namespace CD.Views
             save_subject_button.IsEnabled = false;
             try
             {
-                bool validate = true;
-                string pattern = null;
+                bool validate = true;              
                 bool validateSubjectName = true;
-                pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+                NameEntryError.IsVisible = false;
+                CAError.IsVisible = false;
+                FEError.IsVisible = false;
+                CA_FE_Error.IsVisible = false;
+                CA_FE_Decimal.IsVisible = false;
 
                 // Checking if all the fields are filled
-                if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrEmpty(this.lecturerName.Text) || string.IsNullOrEmpty(this.CA.Text) ||
-                    string.IsNullOrEmpty(this.finalExam.Text) || string.IsNullOrEmpty(this.lecturerEmail.Text) ||
-                    string.IsNullOrWhiteSpace(this.subjectName.Text) || string.IsNullOrWhiteSpace(this.lecturerName.Text) || string.IsNullOrWhiteSpace(this.CA.Text) ||
-                    string.IsNullOrWhiteSpace(this.finalExam.Text) || string.IsNullOrWhiteSpace(this.lecturerEmail.Text))
+                if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrWhiteSpace(this.subjectName.Text))
                 {
-                    await DisplayAlert("Subject not added", "All fields are required", "OK");
+                    NameEntryError.IsVisible = true;
                     validate = false;
+
                 }
-                else
+                if (validate)
                 {
-                    // cheking if  the email is valid
-                    if (Regex.IsMatch(this.lecturerEmail.Text, pattern) && !string.IsNullOrEmpty(this.lecturerEmail.Text) && !string.IsNullOrWhiteSpace(this.lecturerEmail.Text) && validate)
+                    if (string.IsNullOrEmpty(this.CA.Text) || string.IsNullOrWhiteSpace(this.CA.Text) && validate)
                     {
-                        validate = true;
+                        validate = false;
+                        CAError.IsVisible = true;
                     }
-                    else
+                }
+                if (validate)
+                {
+                    if (string.IsNullOrEmpty(this.finalExam.Text) || string.IsNullOrWhiteSpace(this.finalExam.Text) && validate)
                     {
-                        await DisplayAlert("Subject not added", "Invalid email address entered", "OK");
+                        FEError.IsVisible = true;
                         validate = false;
                     }
                 }
@@ -84,13 +89,13 @@ namespace CD.Views
                     }
                     else
                     {
-                        await DisplayAlert("Subject not added", "The Final Exam and Continuous Assessment need to add up to 100, and the numbers must be positive", "OK");
+                        CA_FE_Error.IsVisible = true; ;
                     }
                 }
             }
             catch(Exception)
                 {
-                    await DisplayAlert("Subject not added", "Use whole numbers for Continuous Assessment and Final Exam", "Ok");
+                    CA_FE_Decimal.IsVisible = true;
                 }
             save_subject_button.IsEnabled = true;
         }

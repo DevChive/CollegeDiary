@@ -19,12 +19,21 @@
                      VerticalOptions="Center">
                         <Label Text="Continuous Assessment" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
                         <Label></Label>
-                        <Label Text="Name of the assessment" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
-                        <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
-                        <Label Text="Exam weight" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
-                        <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
-                        <Label Text="Result in % (from 100)" TextColor="Gray" FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="13"/>
-                        <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                        <Label Text="Name of the assessment *" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
+                        <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Placeholder="e.g. Test Linear Algebra"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter a valid name " IsVisible="False"  x:Name="ErrorNameCA"/>
+                        
+                        <Label Text="Exam weight *" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
+                        <Entry x:Name="weight" ReturnType="Next" Keyboard="Numeric" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Placeholder="e.g. 10"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="The assignment percentage is exceeding the total CA percentage " IsVisible="False"  x:Name="ErrorWeightCA"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please insert the weight of this Continuous Assessment " IsVisible="False"  x:Name="EmptyWeightCA"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="The Continuous Assessment weight must be higher than 0 " IsVisible="False"  x:Name="HigherThanZeroWeight"/>
+                        
+                        <Label Text="Result in % (from 100) *" TextColor="Gray" FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="13"/>
+                        <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" TextColor="Black" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Placeholder="e.g. 79"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Your result must be between 0 and 100 " IsVisible="False"  x:Name="ErrorResultCA"/>
+                        <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please insert your result " IsVisible="False"  x:Name="EmptyResultCA"/>
+                        
                         <Label></Label>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                             <Button x:Name="save_ca_button" Text="Save" Clicked="Save_Mark" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="14" WidthRequest="110" Scale="0.9"/>

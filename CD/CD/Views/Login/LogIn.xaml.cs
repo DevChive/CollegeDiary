@@ -75,7 +75,7 @@ namespace CD.Views.Login
 				catch (Exception)
 				{
 					App.UserUID = "";
-					await DisplayAlert("Error", "Invalid e-mail or password", "OK");
+					await DisplayAlert("Login Failed", "Invalid e-mail or password", "OK");
 
 				}
 			}

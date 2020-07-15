@@ -76,56 +76,65 @@
                         TextColor="{DynamicResource Gray-800}" />
 
                     <!--  Entry to get user name from user  -->
-                    <border:SfBorder
+                    <StackLayout>
+                        <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
                         BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
-                        <control:BorderlessEntry
+                            <control:BorderlessEntry
                             x:Name="NameEntry"
-                            Placeholder="Name"
+                            Placeholder="Name *"
                             ReturnType="Next"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
                             Text="{Binding Name}"
                             TextColor="{DynamicResource Gray-900}" />
-                    </border:SfBorder>
-
-                    <!--  Entry to get college/univeristy from user  -->
-                    <border:SfBorder
+                        </border:SfBorder>
+                        <Label Padding="0" TextColor="Red" Text="Please enter your name" IsVisible="False"  x:Name="NameError"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <!--  Entry to get college/univeristy from user  -->
+                        <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
                         BorderColor="{Binding Source={x:Reference College_University}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
-                        <control:BorderlessEntry
+                            <control:BorderlessEntry
                             x:Name="College_University"
-                            Placeholder="College/University"
+                            Placeholder="College/University *"
                             ReturnType="Next"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
                             Text="{Binding College_University}"
                             TextColor="{DynamicResource Gray-900}" />
-                    </border:SfBorder>
-
+                        </border:SfBorder>
+                        <Label Padding="0" TextColor="Red" Text="Please enter your instiute" IsVisible="False"  x:Name="InstituteError"/>
+                    </StackLayout>
+                    
                     <!--  Entry to get email ID from user  -->
-                    <border:SfBorder
+                    <StackLayout>
+                        <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
                         BorderColor="{Binding Source={x:Reference SignUpEmailEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
-                        <control:BorderlessEntry
+                            <control:BorderlessEntry
                             x:Name="SignUpEmailEntry"
-                            Placeholder="Email"
+                            Placeholder="Email *"
                             ReturnType="Next"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
                             Text="{Binding SignUpEmailEntry}"
                             TextColor="{DynamicResource Gray-900}" />
-                    </border:SfBorder>
+                        </border:SfBorder>
+                        <Label Padding="0" TextColor="Red" Text="Please enter a valid email" IsVisible="False"  x:Name="EmailError"/>
+                    </StackLayout>
 
                     <!--  Entry to get password from user  -->
-                    <border:SfBorder
+                    <StackLayout>
+                        <border:SfBorder
                         BackgroundColor="{DynamicResource Gray-White}"
                         BorderColor="{Binding Source={x:Reference PasswordEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
-                        <control:BorderlessEntry
+                            <control:BorderlessEntry
                             x:Name="PasswordEntry"
                             IsPassword="true"
                             ReturnType="Next"
@@ -134,7 +143,11 @@
                             Style="{StaticResource EntryStyle}"
                             Text="{Binding Password}"
                             TextColor="{DynamicResource Gray-900}" />
-                    </border:SfBorder>
+                        </border:SfBorder>
+                        <Label Padding="0" TextColor="Red" Text="The passwords you entered do not match" IsVisible="False"  x:Name="PasswordErrorNotMatching"/>
+                        <Label Padding="0" TextColor="Red" Text="Your password needs to be at least 6 characters long" IsVisible="False"  x:Name="PasswordErrorTooShort"/>
+                        <Label Padding="0" TextColor="Red" Text="Please enter a password" IsVisible="False"  x:Name="PasswordEmpty"/>
+                    </StackLayout>
 
                     <!--  Entry to get the confirm password from user  -->
                     <border:SfBorder
@@ -144,7 +157,7 @@
                         <control:BorderlessEntry
                             x:Name="ConfirmPasswordEntry"
                             IsPassword="true"
-                            ReturnType="Next"
+                            ReturnType="Done"
                             Placeholder="Confirm Password"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"

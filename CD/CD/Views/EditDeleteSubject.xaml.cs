@@ -28,13 +28,15 @@ namespace CD.Views
             save_subject_button.IsEnabled = false;
             bool validate = true;
             bool validateSubjectName = true;
+
+            ErrorName.IsVisible = false;
+            ErrorNameExists.IsVisible = false;
+
             //checking if the subject name is not empty
-            if (string.IsNullOrEmpty(subjectName.Text.ToString()) || string.IsNullOrWhiteSpace(subjectName.Text.ToString()) 
-                || string.IsNullOrEmpty(lecturerEmail.Text.ToString()) || string.IsNullOrWhiteSpace(lecturerEmail.Text.ToString()) 
-                || string.IsNullOrEmpty(lecturerName.Text.ToString()) || string.IsNullOrWhiteSpace(lecturerName.Text.ToString()))
+            if (string.IsNullOrEmpty(subjectName.Text.ToString()) || string.IsNullOrWhiteSpace(subjectName.Text.ToString()))
             {
                 validate = false;
-                await DisplayAlert("Insufficient Information", "All fields are required", "Ok");
+                ErrorName.IsVisible = true;
             }
 
             //checking if the subject alreasy exists in the database
@@ -55,7 +57,7 @@ namespace CD.Views
             }
             if (!validateSubjectName)
             {
-                await DisplayAlert("Incorrect Information", "This subject name already exists", "OK");
+                ErrorNameExists.IsVisible = true;
                 validate = false;
             }
 
@@ -79,6 +81,7 @@ namespace CD.Views
             save_subject_button.IsEnabled = true; ;
         }
 
+        [Obsolete]
         private async void Cancel_Update(object sender, EventArgs e)
         {
             await PopupNavigation.RemovePageAsync(this);
