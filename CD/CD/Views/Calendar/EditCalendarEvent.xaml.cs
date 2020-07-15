@@ -51,9 +51,12 @@ namespace CD.Views.Calendar
         private async void Save_Event(object sender, EventArgs e)
         {
             save_button.IsEnabled = false;
+            ErrorName.IsVisible = false;
+            bool validate = true;
+
             EventModel thisEvent = await fireBaseHelper.GetEvent
-                (thisAppointment.Subject, thisAppointment.Notes, thisAppointment.StartTime.Date.ToLongDateString(), 
-                thisAppointment.StartTime.ToShortTimeString(), thisAppointment.EndTime.Date.ToLongDateString(), 
+                (thisAppointment.Subject, thisAppointment.Notes, thisAppointment.StartTime.Date.ToLongDateString(),
+                thisAppointment.StartTime.ToShortTimeString(), thisAppointment.EndTime.Date.ToLongDateString(),
                 thisAppointment.EndTime.ToShortTimeString(), thisAppointment.Color);
 
             start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
@@ -61,30 +64,34 @@ namespace CD.Views.Calendar
             checkDates(start_Date, end_Date);
             Color colorEvent = changeColor(color);
 
-            if (!string.IsNullOrEmpty(event_name.Text) && !string.IsNullOrWhiteSpace(event_name.Text))
+            if (string.IsNullOrEmpty(event_name.Text) && string.IsNullOrWhiteSpace(event_name.Text))
+            {
+                validate = false;
+                ErrorName.IsVisible = true;
+            }
+            if (validate)
             {
                 try
                 {
                     await fireBaseHelper.UpdateEvent(thisEvent.EventID, event_name.Text, event_description.Text, start_Date, end_Date, colorEvent);
                 }
                 catch (Exception)
-                { 
+                {
                 }
             }
-            else
-            {
-                await DisplayAlert("Insufficient Information", "Please add a name to the event", "OK");
-            }
             save_button.IsEnabled = true;
-            if (sourcePage == "SimplePage")
+            if (validate)
             {
-                await PopupNavigation.RemovePageAsync(this);                
-            }
-            else if (sourcePage == "MyAccount")
-            {
-                await Navigation.PushAsync(new MyAccount(), false);
-                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-                await PopupNavigation.RemovePageAsync(this);
+                if (sourcePage == "SimplePage")
+                {
+                    await PopupNavigation.RemovePageAsync(this);
+                }
+                else if (sourcePage == "MyAccount")
+                {
+                    await Navigation.PushAsync(new MyAccount(), false);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                    await PopupNavigation.RemovePageAsync(this);
+                }
             }
             await SimplePage.Instance.refreshCalendar();
         }

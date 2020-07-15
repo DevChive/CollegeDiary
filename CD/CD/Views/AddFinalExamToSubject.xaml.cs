@@ -39,12 +39,15 @@ namespace CD.Views
             bool validate = true;
             bool less = true;
             bool existing = true;
+
+            Error1.IsVisible = false;
+            Error2.IsVisible = false;
             
             // chekc if the result entry is not empty
             if (string.IsNullOrEmpty(this.result.Text) || string.IsNullOrWhiteSpace(this.result.Text)) 
             { 
                 validate = false;
-                await DisplayAlert("Insufficient information", "All fields are required", "ok");
+                Error1.IsVisible = true;
             }
 
             // check if the result is not higher than 100
@@ -54,14 +57,14 @@ namespace CD.Views
                 {
                     if (Decimal.Parse(this.result.Text) > 100 || Decimal.Parse(this.result.Text) < 0)
                     {
-                        await DisplayAlert("Incorrect Information", "Your result cannot be higher then 100 or less than 0 ", "Ok");
+                        Error1.IsVisible = true;
                         less = false;
                         validate = false;
                     }
                 }
                 catch (Exception)
                 {
-                    await DisplayAlert("Incorrect Information", "Your result must be a decimal or a whole number ", "Ok");
+                    Error2.IsVisible = true;
                     less = false;
                     validate = false;
                 }

@@ -33,14 +33,22 @@ namespace CD.Views.SignUp
             bool validate = true;
             string pattern = null;
             pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+            
+            NameError.IsVisible = false;
+            InstituteError.IsVisible = false;
+            EmailError.IsVisible = false;
+            PasswordErrorNotMatching.IsVisible = false;
+            PasswordErrorTooShort.IsVisible = false;
+            PasswordEmpty.IsVisible = false;
+
             if (string.IsNullOrEmpty(NameEntry.Text) && validate)
             {
-                await DisplayAlert("Incorrect name", "Please enter a name to continue", "OK");
+                NameError.IsVisible = true;
                 validate = false;
             }
             if (string.IsNullOrEmpty(College_University.Text) && validate)
             {
-                await DisplayAlert("Incorrect institute", "Please enter your institute to continue", "OK");
+                InstituteError.IsVisible = true;
                 validate = false;
             }
             // cheking if  the email is valid
@@ -48,12 +56,12 @@ namespace CD.Views.SignUp
             {
                 if (string.IsNullOrEmpty(SignUpEmailEntry.Text))
                 {
-                    await DisplayAlert("Incorrect email", "Please enter your email", "OK");
+                    EmailError.IsVisible = true;
                     validate = false;
                 }
                 else if (!Regex.IsMatch(this.SignUpEmailEntry.Text, pattern) && validate)
                 {
-                    await DisplayAlert("Incorrect email", "Please enter a valid email", "OK");
+                    EmailError.IsVisible = true;
                     validate = false;
                 }
             }
@@ -61,17 +69,17 @@ namespace CD.Views.SignUp
             {
                 if (string.IsNullOrEmpty(PasswordEntry.Text) && string.IsNullOrEmpty(ConfirmPasswordEntry.Text))
                 {
-                    await DisplayAlert("Incorrect passwords", "Please enter a password", "Ok");
+                    PasswordEmpty.IsVisible = true;
                     validate = false;
                 }
                 if (!passwordMatch(PasswordEntry.Text, ConfirmPasswordEntry.Text) && validate)
                 {
-                    await DisplayAlert("Incorrect passwords", "The passwords entered do not match. \nThe password requires at least 6 characters", "Ok");
+                    PasswordErrorNotMatching.IsVisible = true;
                     validate = false;
                 }
                 if (validate && !string.IsNullOrEmpty(PasswordEntry.Text) && PasswordEntry.Text.Length < 6)
                 {
-                    await DisplayAlert("Incorrect password", "The password must have at least 6 characters", "ok");
+                    PasswordErrorTooShort.IsVisible = true;
                     validate = false;
                 }
             }

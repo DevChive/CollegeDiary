@@ -230,5 +230,19 @@ namespace CD.Views
                 }
             }
         }
+
+        private void moreDetailsExpans(object sender, EventArgs e)
+        {
+            if (moreSubjectDetails.IsVisible == false)
+            {
+                moreSubjectDetails.IsVisible = true;
+                moreDetails.Text = "↑";
+            }
+            else if (moreSubjectDetails.IsVisible == true)
+            {
+                moreSubjectDetails.IsVisible = false;
+                moreDetails.Text = "↓";
+            }
+        }
     }
 }

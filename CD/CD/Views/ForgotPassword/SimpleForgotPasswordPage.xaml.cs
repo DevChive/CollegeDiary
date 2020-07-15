@@ -36,17 +36,18 @@ namespace CD.Views.ForgotPassword
         private async void ForgotPassword(object sender, EventArgs e)
         {
             send_forgotpassword_button.IsEnabled = false;
+            EmailEntry.IsVisible = false;
             bool validate = true;
             string pattern = null;
             pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-            if (string.IsNullOrEmpty(ForgotPasswordEmail.Text))
+            if (string.IsNullOrEmpty(ForgotPasswordEmail.Text) || string.IsNullOrWhiteSpace(ForgotPasswordEmail.Text))
             {
-                await DisplayAlert("Incorrect email", "Please enter your email", "OK");
+                EmailEntry.IsVisible = true;
                 validate = false;
             }
             else if (!Regex.IsMatch(this.ForgotPasswordEmail.Text, pattern) && validate)
             {
-                await DisplayAlert("Incorrect email", "Please enter a valid email", "OK");
+                EmailEntry.IsVisible = true;
                 validate = false;
             }
             if (validate)

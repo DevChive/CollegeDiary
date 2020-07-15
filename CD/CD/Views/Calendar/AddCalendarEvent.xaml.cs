@@ -37,6 +37,8 @@ namespace CD.Views.Calendar
         private async void Save_Event(object sender, System.EventArgs e)
         {
             save_button.IsEnabled = false;
+            ErrorName.IsVisible = false;
+
             string name = event_name.Text;
             string desc = event_description.Text;
             start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
@@ -56,7 +58,7 @@ namespace CD.Views.Calendar
             }
             else
             {
-                await DisplayAlert("Insufficient Information", "Please add a name to the event", "OK");
+                ErrorName.IsVisible = true;
             }
             save_button.IsEnabled = true;
 

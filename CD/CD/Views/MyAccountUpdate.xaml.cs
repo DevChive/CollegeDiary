@@ -19,18 +19,27 @@ namespace CD.Views
             userInstitute.Text = user.Institute;
         }
 
+        [Obsolete]
         private async void Save_Account(object sender, EventArgs e)
         {
             save_profile_button.IsEnabled = false;
             bool validate = true;
-            if (!string.IsNullOrEmpty(userName.Text) && !string.IsNullOrWhiteSpace(userName.Text) && !string.IsNullOrWhiteSpace(userInstitute.Text) && !string.IsNullOrEmpty(userInstitute.Text) && validate)
-            {
-                validate = true;
-            }
-            else
+
+            ErrorName.IsVisible = false;
+            ErrorInstite.IsVisible = false;
+
+            if (string.IsNullOrEmpty(userName.Text) || string.IsNullOrWhiteSpace(userName.Text))
             {
                 validate = false;
-                await DisplayAlert("Insufficient Information", "All fields are required", "Ok");
+                ErrorName.IsVisible = true;
+            }
+            if (validate)
+            {
+                if(string.IsNullOrWhiteSpace(userInstitute.Text) || string.IsNullOrEmpty(userInstitute.Text))
+                {
+                    validate = false;
+                    ErrorInstite.IsVisible = true;
+                }
             }
             if (validate)
             {

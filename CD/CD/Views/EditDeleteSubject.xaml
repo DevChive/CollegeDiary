@@ -22,7 +22,9 @@
                                 <Label></Label>
                                 <Label FontSize="13" Text="Subject Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
                                 <Entry FontSize="13" Placeholder="Subject Name" x:Name="subjectName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
-
+                                <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter a subject name  " IsVisible="False"  x:Name="ErrorName"/>
+                                <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="This subject name already exists  " IsVisible="False"  x:Name="ErrorNameExists"/>
+                                
                                 <Label FontSize="13" Text="Lecturer Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
                                 <Entry FontSize="13" Placeholder="Lecturer Name" x:Name="lecturerName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
 
