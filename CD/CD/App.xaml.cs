@@ -1,5 +1,4 @@
 ﻿using Xamarin.Forms;
-using CD.ViewModel.Auth;
 using CD.Helper;
 using Autofac;
 using CD.Views.Login;
@@ -47,8 +46,6 @@ namespace CD
         IContainer BuildContainer(Module module)
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<LoginViewModel>().AsSelf();
-            builder.RegisterType<HomeViewModel>().AsSelf();
             builder.RegisterType<NavigationService>().AsSelf().SingleInstance();
             builder.RegisterModule(module);
             return builder.Build();

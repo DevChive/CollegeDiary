@@ -9,6 +9,7 @@ using Syncfusion.XForms.iOS.Core;
 using Syncfusion.XForms.iOS.ProgressBar;
 using Syncfusion.XForms.iOS.Buttons;
 using Xamarin;
+using Syncfusion.SfBusyIndicator.XForms.iOS;
 
 namespace CD.iOS
 {
@@ -34,6 +35,7 @@ namespace CD.iOS
             Rg.Plugins.Popup.Popup.Init();
             SfSegmentedControlRenderer.Init();
             IQKeyboardManager.SharedManager.Enable = true;
+            new SfBusyIndicatorRenderer();
             LoadApplication(new App(new IOSModule()));
 
             return base.FinishedLaunching(app, options);

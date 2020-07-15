@@ -21,6 +21,7 @@
     <PackageReference Include="IKVM" Version="8.1.5717" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.54" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.54" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="18.1.0.42" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.54" />
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="17.4.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="18.1.0.54" />
@@ -55,9 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\List\Styles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\LogIn\EmailEntry.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LogIn\LoginPage.xaml">
@@ -127,9 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListViewSubjects.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Login\EmailEntry.xaml">
-      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Login\LogIn.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
