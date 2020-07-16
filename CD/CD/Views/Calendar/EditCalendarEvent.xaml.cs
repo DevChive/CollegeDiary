@@ -55,9 +55,13 @@ namespace CD.Views.Calendar
             bool validate = true;
 
             EventModel thisEvent = await fireBaseHelper.GetEvent
-                (thisAppointment.Subject, thisAppointment.Notes, thisAppointment.StartTime.Date.ToLongDateString(),
-                thisAppointment.StartTime.ToShortTimeString(), thisAppointment.EndTime.Date.ToLongDateString(),
-                thisAppointment.EndTime.ToShortTimeString(), thisAppointment.Color);
+                (thisAppointment.Subject, 
+                thisAppointment.Notes, 
+                thisAppointment.StartTime.Date.ToLongDateString(),
+                thisAppointment.StartTime.ToShortTimeString(),
+                thisAppointment.EndTime.Date.ToLongDateString(),
+                thisAppointment.EndTime.ToShortTimeString(),
+                thisAppointment.Color);
 
             start_Date = new DateTime(startDate.Date.Year, startDate.Date.Month, startDate.Date.Day, startTimePicker.Time.Hours, startTimePicker.Time.Minutes, startTimePicker.Time.Seconds);
             end_Date = new DateTime(endDate.Date.Year, endDate.Date.Month, endDate.Date.Day, endTimePicker.Time.Hours, endTimePicker.Time.Minutes, endTimePicker.Time.Seconds);

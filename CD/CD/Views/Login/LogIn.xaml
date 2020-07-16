@@ -87,6 +87,7 @@
                             Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
                                 x:Name="EmailEntry"
+                                Keyboard="Email"
                                 Placeholder="Email"                            
                                 Style="{StaticResource EntryStyle}"
                                 Text="{Binding Email}"  />

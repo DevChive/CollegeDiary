@@ -82,13 +82,14 @@
                         BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
-                            x:Name="NameEntry"
-                            Placeholder="Name *"
-                            ReturnType="Next"
-                            PlaceholderColor="{DynamicResource Gray-700}"
-                            Style="{StaticResource EntryStyle}"
-                            Text="{Binding Name}"
-                            TextColor="{DynamicResource Gray-900}" />
+                                x:Name="NameEntry"
+                                Keyboard="Text"
+                                Placeholder="Name *"
+                                ReturnType="Next"
+                                PlaceholderColor="{DynamicResource Gray-700}"
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding Name}"
+                                TextColor="{DynamicResource Gray-900}" />
                         </border:SfBorder>
                         <Label Padding="0" TextColor="Red" Text="Please enter your name" IsVisible="False"  x:Name="NameError"/>
                     </StackLayout>
@@ -99,13 +100,14 @@
                         BorderColor="{Binding Source={x:Reference College_University}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
-                            x:Name="College_University"
-                            Placeholder="College/University *"
-                            ReturnType="Next"
-                            PlaceholderColor="{DynamicResource Gray-700}"
-                            Style="{StaticResource EntryStyle}"
-                            Text="{Binding College_University}"
-                            TextColor="{DynamicResource Gray-900}" />
+                                x:Name="College_University"
+                                Placeholder="College/University *"
+                                ReturnType="Next"
+                                Keyboard="Text"
+                                PlaceholderColor="{DynamicResource Gray-700}"
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding College_University}"
+                                TextColor="{DynamicResource Gray-900}" />
                         </border:SfBorder>
                         <Label Padding="0" TextColor="Red" Text="Please enter your instiute" IsVisible="False"  x:Name="InstituteError"/>
                     </StackLayout>
@@ -117,13 +119,14 @@
                         BorderColor="{Binding Source={x:Reference SignUpEmailEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                         Style="{StaticResource SfBorderStyle}">
                             <control:BorderlessEntry
-                            x:Name="SignUpEmailEntry"
-                            Placeholder="Email *"
-                            ReturnType="Next"
-                            PlaceholderColor="{DynamicResource Gray-700}"
-                            Style="{StaticResource EntryStyle}"
-                            Text="{Binding SignUpEmailEntry}"
-                            TextColor="{DynamicResource Gray-900}" />
+                                x:Name="SignUpEmailEntry"
+                                Placeholder="Email *"
+                                Keyboard="Text"
+                                ReturnType="Next"
+                                PlaceholderColor="{DynamicResource Gray-700}"
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding SignUpEmailEntry}"
+                                TextColor="{DynamicResource Gray-900}" />
                         </border:SfBorder>
                         <Label Padding="0" TextColor="Red" Text="Please enter a valid email" IsVisible="False"  x:Name="EmailError"/>
                     </StackLayout>
@@ -145,7 +148,7 @@
                             TextColor="{DynamicResource Gray-900}" />
                         </border:SfBorder>
                         <Label Padding="0" TextColor="Red" Text="The passwords you entered do not match" IsVisible="False"  x:Name="PasswordErrorNotMatching"/>
-                        <Label Padding="0" TextColor="Red" Text="Your password needs to be at least 6 characters long" IsVisible="False"  x:Name="PasswordErrorTooShort"/>
+                        <Label Padding="0" TextColor="Red" Text="Your password needs to be at least 6 characters" IsVisible="False"  x:Name="PasswordErrorTooShort"/>
                         <Label Padding="0" TextColor="Red" Text="Please enter a password" IsVisible="False"  x:Name="PasswordEmpty"/>
                     </StackLayout>
 

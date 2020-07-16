@@ -138,21 +138,21 @@
                                                 <ViewCell>
                                                     <StackLayout Margin="0" Padding="0">
                                                         <Frame CornerRadius="10" BackgroundColor="{Binding Color}" Margin="0" Padding="0">
-                                                            <StackLayout Margin="0">
+                                                            <StackLayout Margin="0" Padding="0">
                                                                 <StackLayout 
                                                              HorizontalOptions="FillAndExpand" 
                                                              VerticalOptions="FillAndExpand" 
                                                              Spacing="0"
                                                              BackgroundColor="{Binding Color}">
                                                                     <!--  Name of the item  -->
-                                                                    <Label Margin="16,13,0,0">
+                                                                    <Label Margin="16,5,0,0">
                                                                         <Label.FormattedText>
                                                                             <FormattedString>
                                                                                 <Span x:Name="EventName" Text="{Binding Name}" TextColor="White" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
                                                                             </FormattedString>
                                                                         </Label.FormattedText>
                                                                     </Label>
-                                                                    <Label HorizontalOptions="Start" Margin="16,0,0,12" LineHeight="{OnPlatform Android=1.25, Default=-1}">
+                                                                    <Label HorizontalOptions="Start" Margin="16,0,0,5" LineHeight="{OnPlatform Android=1.25, Default=-1}">
                                                                         <Label.FormattedText>
                                                                             <FormattedString>
                                                                                 <Span Text="{Binding StartDateString}" FontFamily="{StaticResource Montserrat-Medium}" TextColor="White" FontSize="13"/>

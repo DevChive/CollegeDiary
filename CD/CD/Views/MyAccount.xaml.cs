@@ -111,6 +111,7 @@ namespace CD.Views
         private async void sign_out(object sender, EventArgs e)
         {
             App.UserUID = "";
+            App.Current.Properties.Clear();
             await authSignOut.SignOut();
             App.Current.MainPage = new NavigationPage(new LogIn());
             // back button disabled
@@ -157,7 +158,7 @@ namespace CD.Views
         {
             List<EventModel> next7Days = new List<EventModel>();
             DateTime today = DateTime.Today;
-            DateTime timeWeek = today.AddDays(7);
+            DateTime timeWeek = today.AddDays(8);
             if (listEvents.Count > 0)
             {
                 Calendar_View_Text.IsVisible = false;

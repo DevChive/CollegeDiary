@@ -130,6 +130,8 @@
                                  Style="{StaticResource BusinessFormBorderStyle}">
                         <controls:BorderlessEntry
                             x:Name="subjectName"
+                            Keyboard="Text"
+                            ReturnType="Next"
                             Placeholder="e.g. Mathematics"
                             Style="{StaticResource EntryTextBoxStyle}" 
                             FontSize="13"/>
@@ -151,6 +153,8 @@
                                  Style="{StaticResource BusinessFormBorderStyle}">
                         <controls:BorderlessEntry
                             x:Name="lecturerName"
+                            Keyboard="Text"
+                            ReturnType="Next"
                             Placeholder="e.g. Mary Clark"
                             Style="{StaticResource EntryTextBoxStyle}"
                             FontSize="13"/>
@@ -170,7 +174,9 @@
                                  Style="{StaticResource BusinessFormBorderStyle}">
                     <controls:BorderlessEntry
                             x:Name="lecturerEmail"
-                            Placeholder="e.g. mary@it.com" Keyboard="Email"
+                            Keyboard="Email"
+                            ReturnType="Next"
+                            Placeholder="e.g. mary@it.com"
                             Style="{StaticResource EntryTextBoxStyle}"
                             FontSize="13"/>
                 </border:SfBorder>
@@ -189,6 +195,7 @@
                                  Style="{StaticResource BusinessFormBorderStyle}">
                         <controls:BorderlessEntry Keyboard="Numeric" 
                             x:Name="CA" 
+                            ReturnType="Next"
                             Placeholder="e.g 50"
                             Style="{StaticResource EntryTextBoxStyle}"
                             FontSize="13">
@@ -211,6 +218,7 @@
                                  Style="{StaticResource BusinessFormBorderStyle}">
                         <controls:BorderlessEntry Keyboard="Numeric" 
                             x:Name="finalExam" 
+                            ReturnType="Next"
                             Placeholder="e.g. 50"
                             Style="{StaticResource EntryTextBoxStyle}" 
                             FontSize="13">

@@ -8,6 +8,7 @@ using System.Linq;
 using CD.Helper;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
+using Plugin.Connectivity;
 
 namespace CD.Views.Login
 {
@@ -21,7 +22,6 @@ namespace CD.Views.Login
 		{
 			InitializeComponent();
 			auth = DependencyService.Get<IFirebaseAuthenticator>();
-			//this.BindingContext = (Application.Current as App).Container.Resolve<LoginViewModel>();
 		}
 
 		public async void Login(object sender, EventArgs e)
@@ -61,9 +61,11 @@ namespace CD.Views.Login
 				{
 					App.UserUID = (Application.Current as App).AuthToken = await auth.LoginWithEmailPassword(EmailEntry.Text, PasswordEntry.Text);
 
-					if (auth.IsSignedIn())
+					if (auth.IsSignedIn() && !string.IsNullOrWhiteSpace(App.UserUID) && !string.IsNullOrEmpty(App.UserUID))
 					{
 						App.Current.MainPage = new NavigationPage(new MainPage());
+						Application.Current.Properties.Add("App.UserUID", App.UserUID);
+						await App.Current.SavePropertiesAsync();
 					}
 					else
 					{
@@ -81,6 +83,7 @@ namespace CD.Views.Login
 			}
 			Login_Button.IsEnabled = true;
 			busyindicator.IsVisible = false;
+
 		}
 
 		private async void SignUpPage(object sender, EventArgs e)

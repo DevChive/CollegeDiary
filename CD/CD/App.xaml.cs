@@ -5,6 +5,8 @@ using CD.Views.Login;
 using CD.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using Xamarin.Essentials;
+using Plugin.Connectivity;
 
 namespace CD
 {
@@ -22,26 +24,23 @@ namespace CD
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
             InitializeComponent();
             Container = BuildContainer(module);
-            if (string.IsNullOrEmpty(App.UserUID))
-            {
-                MainPage = new NavigationPage(new LogIn());
-            }
-            else
-            {
-                MainPage = new NavigationPage(new MainPage());
-            }
+
+            checkUserLogIn();
         }
 
         protected override void OnStart()
         {
+            checkUserLogIn();
         }
 
         protected override void OnSleep()
         {
+            checkUserLogIn();
         }
 
         protected override void OnResume()
         {
+            checkUserLogIn();
         }
         IContainer BuildContainer(Module module)
         {
@@ -63,5 +62,21 @@ namespace CD
                 conf = JsonConvert.DeserializeObject<CD_Configuration>(jsonString);
             }
         }
+        void checkUserLogIn()
+        {
+            if (App.Current.Properties.ContainsKey("App.UserUID"))
+            {
+                App.UserUID = App.Current.Properties["App.UserUID"] as string;
+            }
+
+            if (string.IsNullOrEmpty(App.UserUID) || string.IsNullOrWhiteSpace(App.UserUID))
+            {
+                MainPage = new NavigationPage(new LogIn());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
+        }     
     }
 }
