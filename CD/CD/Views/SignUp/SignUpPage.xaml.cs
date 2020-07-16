@@ -5,8 +5,7 @@ using CD.Helper;
 using Xamarin.Forms;
 using System;
 using System.Text.RegularExpressions;
-using com.sun.tools.javac.util;
-using System.Linq;
+
 
 namespace CD.Views.SignUp
 {
@@ -24,8 +23,8 @@ namespace CD.Views.SignUp
         private async void LoginPage(object sender, System.EventArgs e)
         {
             // not allowing the user to use the back button from the phone
-            Application.Current.MainPage = new LogIn();
-            await Navigation.PopToRootAsync(true);
+            App.Current.MainPage = new NavigationPage(new LogIn());
+            //await Navigation.PopToRootAsync(true);
         }
         private async void RegiterNewUser(object sender, EventArgs e)
         {
@@ -52,14 +51,20 @@ namespace CD.Views.SignUp
                 validate = false;
             }
             // cheking if  the email is valid
+            string userEmail = "";
+            if (!string.IsNullOrEmpty(SignUpEmailEntry.Text) && !string.IsNullOrWhiteSpace(SignUpEmailEntry.Text))
+            {
+                userEmail = SignUpEmailEntry.Text.Trim();
+            }
+            else 
+            {
+                validate = false;
+                EmailError.IsVisible = true;
+
+            }
             if (validate)
             {
-                if (string.IsNullOrEmpty(SignUpEmailEntry.Text))
-                {
-                    EmailError.IsVisible = true;
-                    validate = false;
-                }
-                else if (!Regex.IsMatch(this.SignUpEmailEntry.Text, pattern) && validate)
+                if (!Regex.IsMatch(userEmail, pattern) && validate)
                 {
                     EmailError.IsVisible = true;
                     validate = false;
@@ -87,20 +92,19 @@ namespace CD.Views.SignUp
             if (validate)
             {
                 //System.Console.WriteLine("=====================================" + SignUpEmailEntry.Text + " " + PasswordEntry.Text);
-                string Token = await auth.RegisterWithEmailAndPassword(SignUpEmailEntry.Text, PasswordEntry.Text);
+                string Token = await auth.RegisterWithEmailAndPassword(userEmail, PasswordEntry.Text);
                 if (!string.IsNullOrEmpty(Token) && Token != "existing")
                 {
                     await DisplayAlert("Account created", "Please verify your email", "ok");
                     //App.UserUID = authDeleteAccount.UserUID();
                     AddUserDetails(NameEntry.Text, College_University.Text, SignUpEmailEntry.Text);
                     App.UserUID = "";
-                    Application.Current.MainPage = new LogIn();
-                    await Navigation.PopToRootAsync(true);
+                    App.Current.MainPage = new NavigationPage(new LogIn());
                 }
                 else if (Token == "existing")
                 {
                     await DisplayAlert("Email already used", "This email is already used \nIf you don't remeber your password go to 'Forgot Password' page", "ok");
-                    await Navigation.PushAsync(new LogIn());
+                    App.Current.MainPage = new NavigationPage(new LogIn());
                 }
                 else
                 {

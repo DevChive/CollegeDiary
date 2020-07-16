@@ -32,10 +32,11 @@ namespace CD.Views.Login
 			busyindicator.IsVisible = true;
 			bool validate = true;
 			string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-
+			string userEmail = "";
 			if (!string.IsNullOrEmpty(EmailEntry.Text) && !string.IsNullOrWhiteSpace(EmailEntry.Text) && validate)
 			{
-				if (!Regex.IsMatch(EmailEntry.Text, pattern))
+				userEmail = EmailEntry.Text.Trim();
+				if (!Regex.IsMatch(userEmail, pattern))
 				{
 					EmailError.IsVisible = true;
 					validate = false;
@@ -59,7 +60,7 @@ namespace CD.Views.Login
 			{
 				try
 				{
-					App.UserUID = (Application.Current as App).AuthToken = await auth.LoginWithEmailPassword(EmailEntry.Text, PasswordEntry.Text);
+					App.UserUID = (Application.Current as App).AuthToken = await auth.LoginWithEmailPassword(userEmail, PasswordEntry.Text);
 
 					if (auth.IsSignedIn() && !string.IsNullOrWhiteSpace(App.UserUID) && !string.IsNullOrEmpty(App.UserUID))
 					{
