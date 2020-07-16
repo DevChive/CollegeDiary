@@ -29,7 +29,7 @@ namespace CD.Views.ForgotPassword
         private async void SignUp(object sender, EventArgs e)
         {
             sign_up_button.IsEnabled = false;
-            await Navigation.PushAsync(new SignUpPage());
+            App.Current.MainPage = new NavigationPage(new LogIn());
             sign_up_button.IsEnabled = true;
         }
 
@@ -40,12 +40,18 @@ namespace CD.Views.ForgotPassword
             bool validate = true;
             string pattern = null;
             pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-            if (string.IsNullOrEmpty(ForgotPasswordEmail.Text) || string.IsNullOrWhiteSpace(ForgotPasswordEmail.Text))
+            string userEmail = "";
+
+            if (!string.IsNullOrEmpty(ForgotPasswordEmail.Text) && !string.IsNullOrWhiteSpace(ForgotPasswordEmail.Text))
+            {
+                userEmail = ForgotPasswordEmail.Text.Trim();
+            }
+            else
             {
                 EmailEntry.IsVisible = true;
                 validate = false;
             }
-            else if (!Regex.IsMatch(this.ForgotPasswordEmail.Text, pattern) && validate)
+            if (!Regex.IsMatch(userEmail, pattern) && validate)
             {
                 EmailEntry.IsVisible = true;
                 validate = false;
@@ -56,8 +62,9 @@ namespace CD.Views.ForgotPassword
                 {
                     await auth.ForgotPassword(ForgotPasswordEmail.Text);
                     await DisplayAlert("Success", "Please verify your email to reset your password", "ok");
+                    //await Navigation.PushAsync(new LogIn());
                     await Navigation.PushAsync(new LogIn());
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    await Navigation.PopToRootAsync(true);
                 }
                 catch(Exception)
                 {
