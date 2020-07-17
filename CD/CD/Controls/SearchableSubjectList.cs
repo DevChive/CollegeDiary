@@ -22,13 +22,12 @@ namespace CD.Controls
             {
                 var taskInfo = obj as Models.Subject;
 
-                if (taskInfo == null || string.IsNullOrEmpty(taskInfo.SubjectName) || string.IsNullOrEmpty(taskInfo.LecturerName))
+                if (taskInfo == null || string.IsNullOrEmpty(taskInfo.SubjectName))
                 {
                     return false;
                 }
 
-                return taskInfo.SubjectName.ToUpperInvariant().Contains(this.SearchText.ToUpperInvariant())
-                       || taskInfo.LecturerName.ToUpperInvariant().Contains(this.SearchText.ToUpperInvariant());
+                return taskInfo.SubjectName.ToUpperInvariant().Contains(this.SearchText.ToUpperInvariant());
             }
             return false;
         }
