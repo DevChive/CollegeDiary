@@ -64,7 +64,7 @@
                                                     <Span Text="* The process bar on this page, shows an estimated GPA that takes in consideration each subject's " FontFamily="{StaticResource Montserrat-Medium}" />
                                                     <Span Text=" Continuous Assessment" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" />
                                                     <Span Text=" and " FontFamily="{StaticResource Montserrat-Medium}" />
-                                                    <Span Text=" Final Exam" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" />
+                                                    <Span Text="Final Exam" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" />
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
@@ -94,10 +94,6 @@
                                     </progressBar:SfCircularProgressBar.RangeColors>
                                 </progressBar:SfCircularProgressBar>
                             </StackLayout>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                            <buttons:SfButton x:Name="your_subjects" Text="Your Subjects" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150"  Clicked="load_subject_list"/>
-                            <buttons:SfButton x:Name="add_subject" Text="Add Subject" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Clicked="load_add_subject"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

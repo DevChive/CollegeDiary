@@ -19,9 +19,9 @@ namespace CD
         {
             base.OnAppearing();
         }
-        public void toFirstTab()
+        public void toListSubjects()
         {
-            this.CurrentPage = this.Children[0];
+            this.CurrentPage = this.Children[1];
         }
     }
 }

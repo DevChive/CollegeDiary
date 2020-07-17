@@ -83,9 +83,8 @@ namespace CD.Views
 
                         await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
                         await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
-                        await Navigation.PushAsync(new ListViewSubjects());
-                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                        await Navigation.PopAsync();
+                        MainPage.Instance.toListSubjects();                     
+                        await Navigation.PopToRootAsync();
                     }
                     else
                     {

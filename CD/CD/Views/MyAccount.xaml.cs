@@ -50,19 +50,6 @@ namespace CD.Views
             // progress bar
             totalGPA.Progress = Convert.ToDouble(user.FinalGPA);
         }
-        private async void load_subject_list(object sender, EventArgs e)
-        {
-            your_subjects.IsEnabled = false;
-            await Navigation.PushAsync(new ListViewSubjects());
-            your_subjects.IsEnabled = true;
-        }
-
-        private async void load_add_subject(object sender, EventArgs e)
-        {
-            add_subject.IsEnabled = false;
-            await Navigation.PushAsync(new AddSubject());
-            add_subject.IsEnabled = true;
-        }
         private void GPA_Changed(object sender, Syncfusion.XForms.ProgressBar.ProgressValueEventArgs e)
         {
             if (e.Progress < 40)

@@ -98,5 +98,12 @@ namespace CD.Views
         {
             this.SearchEntry.Focus();
         }
+
+        private async void load_add_subject(object sender, EventArgs e)
+        {
+            add_subject.IsEnabled = false;
+            await Navigation.PushAsync(new AddSubject());
+            add_subject.IsEnabled = true;
+        }
     }
 }
