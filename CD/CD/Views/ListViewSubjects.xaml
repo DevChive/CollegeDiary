@@ -24,14 +24,18 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView>
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ScrollView>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                <StackLayout x:Name="TitleView"
+                    <StackLayout x:Name="TitleView"
                 Padding="16,8"
                 Grid.Row="0"
                 HeightRequest="64"
@@ -40,15 +44,15 @@
                 Orientation="Horizontal"
                 Spacing="0">
 
-                    <StackLayout  x:Name="Title"
+                        <StackLayout  x:Name="Title"
                     HorizontalOptions="FillAndExpand"
                     IsVisible="True"
                     Orientation="Horizontal"
                     Spacing="0"
                     VerticalOptions="FillAndExpand">
 
-                        <!--  Back button command  -->
-                        <buttons:SfButton x:Name="backButton"
+                            <!--  Back button command  -->
+                            <buttons:SfButton x:Name="backButton"
                         Command="{Binding BackButtonCommand}"
                         CommandParameter="{x:Reference backButton}"
                         CornerRadius="4"
@@ -56,8 +60,8 @@
                         Text="{StaticResource Back}" 
                         Clicked="BackButton"/>
 
-                        <!--  Songs page Title  -->
-                        <Label Margin="16,0"
+                            <!--  Songs page Title  -->
+                            <Label Margin="16,0"
                         HeightRequest="24"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         FontSize="16"
@@ -68,47 +72,47 @@
                         VerticalOptions="Center"
                         VerticalTextAlignment="Center" />
 
-                    </StackLayout>
+                        </StackLayout>
 
-                    <StackLayout x:Name="Search"
+                        <StackLayout x:Name="Search"
                     HorizontalOptions="EndAndExpand"
                     IsVisible="False"
                     Orientation="Horizontal"
                     Spacing="0">
 
-                        <!--  Back to title layout  -->
-                        <buttons:SfButton x:Name="BackToTitle"
+                            <!--  Back to title layout  -->
+                            <buttons:SfButton x:Name="BackToTitle"
                         Clicked="BackToTitle_Clicked"
                         Style="{StaticResource NavigationBarButtonStyle}"
                         Text="{StaticResource Back}" />
 
-                        <!--  Rounded Search Entry  -->
-                        <border:SfBorder Style="{DynamicResource SfBorderStyle}">
+                            <!--  Rounded Search Entry  -->
+                            <border:SfBorder Style="{DynamicResource SfBorderStyle}">
 
-                            <controls:BorderlessEntry x:Name="SearchEntry"
+                                <controls:BorderlessEntry x:Name="SearchEntry"
                             BindingContext="{x:Reference LstSubjects}"
                             HorizontalOptions="FillAndExpand"
                             Placeholder="Search here"
                             Text="{Binding SearchText, Mode=TwoWay}"
                             Style="{StaticResource SearchEntryStyle}"/>
-                        </border:SfBorder>
+                            </border:SfBorder>
 
-                    </StackLayout>
+                        </StackLayout>
 
-                    <!--  Search Button  -->
-                    <buttons:SfButton x:Name="SearchButton"
+                        <!--  Search Button  -->
+                        <buttons:SfButton x:Name="SearchButton"
                     IsVisible="True"
                     Clicked="SearchButton_Clicked"
                     Style="{StaticResource NavigationBarButtonStyle }"
                     Text="{StaticResource Search}" />
 
-                </StackLayout>
+                    </StackLayout>
 
-                <StackLayout  Grid.Row="1" Spacing="0">
-                    <!-- Seperator -->
-                    <BoxView Style="{StaticResource BoxViewStyle}" />
+                    <StackLayout  Grid.Row="1" Spacing="0">
+                        <!-- Seperator -->
+                        <BoxView Style="{StaticResource BoxViewStyle}" />
 
-                    <controls:SearchableSubjectList x:Name="LstSubjects"
+                        <controls:SearchableSubjectList x:Name="LstSubjects"
                     AutoFitMode="Height"
                     AllowSwiping="True"
                     IsScrollBarVisible="false"
@@ -121,20 +125,20 @@
                     VerticalOptions="FillAndExpand"
                     ItemTapped="LstSubjects_ItemSelected">
 
-                        <controls:SearchableSubjectList.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout>
-                                        <Grid ColumnSpacing="0" RowSpacing="0" >
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
+                            <controls:SearchableSubjectList.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Grid ColumnSpacing="0" RowSpacing="0" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
 
-                                            <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
+                                                <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
                                                      VerticalOptions="FillAndExpand" Spacing="0" >
-                                                <!--  Name of the item  -->
-                                                <Label Margin="16,13,0,0"
+                                                    <!--  Name of the item  -->
+                                                    <Label Margin="16,13,0,0"
                                                 HeightRequest="24"
                                                 FontFamily="{StaticResource Montserrat-Medium}"
                                                 FontSize="16"
@@ -143,8 +147,8 @@
                                                 Text="{Binding SubjectName}"
                                                 TextColor="{DynamicResource Gray-900}" />
 
-                                                <!--  Composer of the item  -->
-                                                <Label  Margin="16,0,0,12"
+                                                    <!--  Composer of the item  -->
+                                                    <Label  Margin="16,0,0,12"
                                                 HeightRequest="21"
                                                 FontFamily="{StaticResource Montserrat-Medium}"
                                                 FontSize="14"
@@ -152,18 +156,32 @@
                                                              Default=-1}"
                                                 Text="{Binding LecturerName}"
                                                 TextColor="{DynamicResource Gray-700}" />
-                                            </StackLayout>
+                                                </StackLayout>
 
-                                        </Grid>
-                                        <!-- Seperator -->
-                                        <BoxView Style="{StaticResource BoxViewStyle}" />
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </controls:SearchableSubjectList.ItemTemplate>
-                    </controls:SearchableSubjectList>
-                </StackLayout>
-            </Grid>
-        </ScrollView>
+                                            </Grid>
+                                            <!-- Seperator -->
+                                            <BoxView Style="{StaticResource BoxViewStyle}" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </controls:SearchableSubjectList.ItemTemplate>
+                        </controls:SearchableSubjectList>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+
+            <buttons:SfButton Text="Add Subject" 
+                              Grid.Row="0" 
+                              x:Name="add_subject" 
+                              Margin="0,24,22,22" 
+                              Style="{StaticResource SfButtonStyle}"
+                              FontFamily="{StaticResource Montserrat-Bold}"
+                              HorizontalOptions="End" 
+                              FontSize="13"               
+                              WidthRequest="150" 
+                              HeightRequest="40"  
+                              VerticalOptions="End" 
+                              Clicked="load_add_subject"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
