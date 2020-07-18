@@ -7,9 +7,9 @@ CD\CD.iOS\obj
 CD\CD\config.json
 CD\CD.Android\config.json
 CD\CD.iOS\config.json
+CD\CD.iOS\GoogleService-Info.plist
 
 CD\CD.Android\google-services.json
-
 CD/CD/bin
 CD/CD/obj
 CD/CD.Android/bin
@@ -19,7 +19,7 @@ CD/CD.iOS/obj
 CD/CD/config.json
 CD/CD.Android/config.json
 CD/CD.iOS/config.json
-
 CD/CD.Android/google-services.json
+CD/CD.iOS/GoogleService-Info.plist
 
 
