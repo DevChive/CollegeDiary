@@ -125,8 +125,6 @@ namespace CD.Views
                     await DisplayAlert("Result not added", "", "OK");
                 }
                 // refresh the page to show the added mark to the subject
-                await Navigation.PushAsync(new SubjectSelected(_subject), false);
-                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
             }
             save_ca_button.IsEnabled = true;

@@ -75,6 +75,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\font-awesome-5-free-regular.otf" />
@@ -153,11 +154,25 @@
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>3.2.0</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Build.Download">
+      <Version>0.10.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Analytics">
+      <Version>6.4.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Firebase.iOS.Auth">
       <Version>4.4.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core">
+      <Version>4.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.InstanceID">
+      <Version>4.3.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
+    <PackageReference Include="Xamarin.Forms.Maps">
+      <Version>4.4.0.991265</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.IQKeyboardManager">
       <Version>1.4.1</Version>
     </PackageReference>

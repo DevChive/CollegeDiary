@@ -3,7 +3,10 @@ using CD.Helper;
 using Firebase.Auth;
 using System;
 using Foundation;
+using Xamarin.Forms;
+using CD.iOS;
 
+[assembly: Dependency(typeof(FirebaseAuthenticator))]
 namespace CD.iOS
 {
     public class FirebaseAuthenticator : IFirebaseAuthenticator
