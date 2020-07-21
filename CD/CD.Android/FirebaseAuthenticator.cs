@@ -19,7 +19,7 @@ namespace CD.Droid
 
         public bool IsSignedIn()
         {
-            string UID = Firebase.Auth.FirebaseAuth.Instance.Uid;
+            string UID = FirebaseAuth.Instance.Uid;
             //var user = Firebase.Auth.FirebaseAuth.Instance.CurrentUser;
             return UID != "";
         }

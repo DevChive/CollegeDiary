@@ -82,15 +82,12 @@ namespace CD.Views
                 {
                     double result = Double.Parse(this.result.Text);
                     await fireBaseHelper.AddMark(_subject.SubjectID, "Final Exam", result, _subject.FinalExam, "Final Exam");
-                    await Navigation.PushAsync(new SubjectSelected(_subject), false);
                 }
                 catch (Exception)
                 {
                     await DisplayAlert("Result not added", "", "OK");
-                }
-                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                }       
                 await PopupNavigation.RemovePageAsync(this);
-
             }
             // if the mark is less than 100 but not valid
             if (!existing) 

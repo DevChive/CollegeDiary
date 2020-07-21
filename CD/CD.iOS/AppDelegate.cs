@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Foundation;
-using Syncfusion.XForms.PopupLayout;
+﻿using Foundation;
 using Syncfusion.SfSchedule.XForms.iOS;
 using UIKit;
 using Syncfusion.XForms.iOS.Core;
@@ -10,6 +6,7 @@ using Syncfusion.XForms.iOS.ProgressBar;
 using Syncfusion.XForms.iOS.Buttons;
 using Xamarin;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
+using Rg.Plugins.Popup;
 
 namespace CD.iOS
 {
@@ -32,12 +29,13 @@ namespace CD.iOS
             SfScheduleRenderer.Init();
             SfAvatarViewRenderer.Init();
             SfCircularProgressBarRenderer.Init();
-            Rg.Plugins.Popup.Popup.Init();
+            Popup.Init();
             SfSegmentedControlRenderer.Init();
             IQKeyboardManager.SharedManager.Enable = true;
             new SfBusyIndicatorRenderer();
             LoadApplication(new App(new IOSModule()));
 
+            Firebase.Core.App.Configure();
             return base.FinishedLaunching(app, options);
         }
     }

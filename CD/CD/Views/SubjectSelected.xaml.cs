@@ -8,6 +8,7 @@ using CD.Views;
 using Rg.Plugins.Popup.Services;
 using System.Collections.Generic;
 using Syncfusion.XForms.ProgressBar;
+using System.Threading.Tasks;
 
 namespace CD.Views
 {
@@ -20,24 +21,35 @@ namespace CD.Views
         readonly FireBaseHelperSubject fireBaseHelperSubject = new FireBaseHelperSubject();
         readonly FireBaseHelperMark fireBaseHelperMark = new FireBaseHelperMark();
 
+        public static SubjectSelected Instance;
+
         public SubjectSelected(Subject subject)
         {
             _subject = subject;
             InitializeComponent();
 
         }
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            status_bars(_subject);
+            details(_subject);
+            load_list(_subject);
+        }
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+            status_bars(_subject);
+            details(_subject);
+            load_list(_subject);
+        }
+        public async void load_list(Subject _subject)
+        {
             List<Mark> listMarks = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
             subjectMark = new SubjectMark(_subject, listMarks);
-
             this.BindingContext = subjectMark; //!!!
-            status_bars();
-            details();
         }
-        private async void details()
+        public async void details(Subject _subject)
         {
             var subject = await fireBaseHelperSubject.GetSubject(_subject.SubjectID);
             Title = subject.SubjectName;
@@ -54,7 +66,7 @@ namespace CD.Views
             // refrashing the selected subject
             _subject = subject;
         }
-        private async void status_bars()
+        public async void status_bars(Subject _subject)
         {
             double CAProgress = await fireBaseHelperSubject.getTotalCA(_subject.SubjectID);
             double FinalExamProgress = await fireBaseHelperSubject.Final_Exam_Progress(_subject.SubjectID);
@@ -70,7 +82,6 @@ namespace CD.Views
             Ca_StatusBar.Text = CAProgress.ToString("F2");
             Fe_StatusBar.Text = FinalExamProgress.ToString("F2");
             gpa_StatusBar.Text = GPA.ToString("F2");
-
         }
 
         public void colorTheStatusBars(double process, SfLinearProgressBar bar, string type)
@@ -187,10 +198,10 @@ namespace CD.Views
             {
                 try
                 {
-                    await fireBaseHelperMark.DeleteMark(thisMark.MarkID);
-                    await Navigation.PushAsync(new SubjectSelected(_subject), false);
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-
+                    fireBaseHelperMark.DeleteMark(thisMark.MarkID);
+                    details(_subject);
+                    status_bars(_subject);
+                    load_list(_subject);
                 }
                 catch (Exception)
                 {
