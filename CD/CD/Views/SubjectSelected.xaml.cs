@@ -21,7 +21,7 @@ namespace CD.Views
         readonly FireBaseHelperSubject fireBaseHelperSubject = new FireBaseHelperSubject();
         readonly FireBaseHelperMark fireBaseHelperMark = new FireBaseHelperMark();
 
-        public static SubjectSelected Instance;
+        //public static SubjectSelected Instance;
 
         public SubjectSelected(Subject subject)
         {
