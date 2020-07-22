@@ -21,35 +21,42 @@ namespace CD.Views
         readonly FireBaseHelperSubject fireBaseHelperSubject = new FireBaseHelperSubject();
         readonly FireBaseHelperMark fireBaseHelperMark = new FireBaseHelperMark();
 
+        bool SubjectMarkedForDeletion = false;
+
         //public static SubjectSelected Instance;
 
         public SubjectSelected(Subject subject)
         {
             _subject = subject;
             InitializeComponent();
-
         }
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            status_bars(_subject);
-            details(_subject);
-            load_list(_subject);
+            if (!SubjectMarkedForDeletion)
+            {
+                base.OnAppearing();
+                status_bars();
+                details();
+                load_list();
+            }
         }
         protected override void OnBindingContextChanged()
         {
-            base.OnBindingContextChanged();
-            status_bars(_subject);
-            details(_subject);
-            load_list(_subject);
+            if (!SubjectMarkedForDeletion)
+            {
+                base.OnBindingContextChanged();
+                status_bars();
+                details();
+                load_list();
+            }
         }
-        public async void load_list(Subject _subject)
+        public async void load_list()
         {
             List<Mark> listMarks = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
             subjectMark = new SubjectMark(_subject, listMarks);
             this.BindingContext = subjectMark; //!!!
         }
-        public async void details(Subject _subject)
+        public async void details()
         {
             var subject = await fireBaseHelperSubject.GetSubject(_subject.SubjectID);
             Title = subject.SubjectName;
@@ -61,12 +68,10 @@ namespace CD.Views
             double remFE = await fireBaseHelperSubject.remainigFE(_subject.SubjectID);
             remainingFE.Text = remFE.ToString("F2") + "%";
             SubjectNameGpa.Text = subject.SubjectName;
-
-
             // refrashing the selected subject
             _subject = subject;
         }
-        public async void status_bars(Subject _subject)
+        public async void status_bars()
         {
             double CAProgress = await fireBaseHelperSubject.getTotalCA(_subject.SubjectID);
             double FinalExamProgress = await fireBaseHelperSubject.Final_Exam_Progress(_subject.SubjectID);
@@ -88,22 +93,22 @@ namespace CD.Views
         {
             double segments = 0;
             double grade = 0;
-            if (type == "CA") 
-            { 
+            if (type == "CA")
+            {
                 segments = _subject.CA / 3;
                 grade = _subject.CA;
             }
-            else if (type == "FE") 
-            { 
+            else if (type == "FE")
+            {
                 segments = _subject.FinalExam / 3;
                 grade = _subject.FinalExam;
             }
-            else if (type == "GPA") 
-            { 
+            else if (type == "GPA")
+            {
                 segments = 100 / 3;
                 grade = 100;
             }
-            
+
             RangeColorCollection rangeColors = new RangeColorCollection();
             if (type == "CA" || type == "FE")
             {
@@ -173,15 +178,17 @@ namespace CD.Views
 
         private async void delete_subject(object sender, EventArgs e)
         {
+            SubjectMarkedForDeletion = true;
             var result = await DisplayAlert("Are you sure you want to delete this subject?", "Subject name: " +  _subject.SubjectName, "Yes", "No");
             if (result) // YES
             {
                 try
-                {
-                    await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
+                {                   
                     await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
-                    await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
-                    await Navigation.PopAsync();
+                    await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
+                    
+                    DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
+                    Navigation.PopAsync();
                 }
                 catch (Exception)
                 {
@@ -198,10 +205,7 @@ namespace CD.Views
             {
                 try
                 {
-                    fireBaseHelperMark.DeleteMark(thisMark.MarkID);
-                    details(_subject);
-                    status_bars(_subject);
-                    load_list(_subject);
+                    await fireBaseHelperMark.DeleteMark(thisMark.MarkID);
                 }
                 catch (Exception)
                 {

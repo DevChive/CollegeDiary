@@ -65,12 +65,14 @@ namespace CD.Views.Login
 					if (auth.IsSignedIn() && !string.IsNullOrWhiteSpace(App.UserUID) && !string.IsNullOrEmpty(App.UserUID))
 					{
 						App.Current.MainPage = new NavigationPage(new MainPage());
-						Application.Current.Properties.Add("App.UserUID", App.UserUID);
+						Application.Current.Properties["App.UserUID"] =  App.UserUID;
 						await App.Current.SavePropertiesAsync();
 					}
 					else
 					{
 						App.UserUID = "";
+						App.Current.Properties["App.UserUID"] = "";
+						await App.Current.SavePropertiesAsync();
 
 					}
 				}
@@ -79,6 +81,7 @@ namespace CD.Views.Login
 				{
 					App.UserUID = "";
 					await DisplayAlert("Login Failed", "Invalid e-mail or password", "OK");
+					App.Current.Properties["App.UserUID"] = "";
 
 				}
 			}

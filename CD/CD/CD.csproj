@@ -73,7 +73,9 @@
     <EmbeddedResource Include="Images\gmail.png" />
 	<EmbeddedResource Include="Images\ic.png" />
     <EmbeddedResource Include="Images\logo.png" />
-	  <EmbeddedResource Include="Images\avatar.png" />
+	<EmbeddedResource Include="Images\avatar.png" />
+	<EmbeddedResource Include="Images\addSubject.png" />
+    <EmbeddedResource Include="Images\account.png" />
   </ItemGroup>
 
   <ItemGroup>

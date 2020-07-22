@@ -8,6 +8,7 @@
              xmlns:controls="clr-namespace:CD.Controls"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:local="clr-namespace:CD"
              xmlns:viewModel="clr-namespace:CD.ViewModel"
              BackgroundColor="{DynamicResource Gray-White}"
              NavigationPage.HasNavigationBar="False">
@@ -36,55 +37,54 @@
                     </Grid.RowDefinitions>
 
                     <StackLayout x:Name="TitleView"
-                Padding="16,8"
-                Grid.Row="0"
-                HeightRequest="64"
-                BackgroundColor="{DynamicResource Gray-White}"
-                HorizontalOptions="FillAndExpand"
-                Orientation="Horizontal"
-                Spacing="0">
+                        Padding="16,8"
+                        Grid.Row="0"
+                        HeightRequest="64"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="0">
 
                         <StackLayout  x:Name="Title"
-                    HorizontalOptions="FillAndExpand"
-                    IsVisible="True"
-                    Orientation="Horizontal"
-                    Spacing="0"
-                    VerticalOptions="FillAndExpand">
+                            HorizontalOptions="FillAndExpand"
+                            IsVisible="True"
+                            Orientation="Horizontal"
+                            Spacing="0"
+                            VerticalOptions="FillAndExpand">
 
                             <!--  Back button command  -->
                             <buttons:SfButton x:Name="backButton"
-                        Command="{Binding BackButtonCommand}"
-                        CommandParameter="{x:Reference backButton}"
-                        CornerRadius="4"
-                        Style="{StaticResource IconButtonStyle}"
-                        Text="{StaticResource Back}" 
-                        Clicked="BackButton"/>
+                                Command="{Binding BackButtonCommand}"
+                                CommandParameter="{x:Reference backButton}"
+                                CornerRadius="4"
+                                Style="{StaticResource IconButtonStyle}"
+                                Text="{StaticResource Back}" 
+                                Clicked="BackButton"/>
 
                             <!--  Songs page Title  -->
                             <Label Margin="16,0"
-                        HeightRequest="24"
-                        FontFamily="{StaticResource Montserrat-Medium}"
-                        FontSize="16"
-                        HorizontalOptions="CenterAndExpand"
-                        LineHeight="1.25"
-                        Text="Your Subjects"
-                        TextColor="{DynamicResource Gray-900}"
-                        VerticalOptions="Center"
-                        VerticalTextAlignment="Center" />
-
+                                HeightRequest="24"
+                                FontFamily="{StaticResource Montserrat-Medium}"
+                                FontSize="16"
+                                HorizontalOptions="CenterAndExpand"
+                                LineHeight="1.25"
+                                Text="Your Subjects"
+                                TextColor="{DynamicResource Gray-900}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
                         </StackLayout>
 
                         <StackLayout x:Name="Search"
-                    HorizontalOptions="EndAndExpand"
-                    IsVisible="False"
-                    Orientation="Horizontal"
-                    Spacing="0">
+                            HorizontalOptions="EndAndExpand"
+                            IsVisible="False"
+                            Orientation="Horizontal"
+                            Spacing="0">
 
                             <!--  Back to title layout  -->
                             <buttons:SfButton x:Name="BackToTitle"
-                        Clicked="BackToTitle_Clicked"
-                        Style="{StaticResource NavigationBarButtonStyle}"
-                        Text="{StaticResource Back}" />
+                                Clicked="BackToTitle_Clicked"
+                                Style="{StaticResource NavigationBarButtonStyle}"
+                                Text="{StaticResource Back}" />
 
                             <!--  Rounded Search Entry  -->
                             <border:SfBorder Style="{DynamicResource SfBorderStyle}">
@@ -101,29 +101,30 @@
 
                         <!--  Search Button  -->
                         <buttons:SfButton x:Name="SearchButton"
-                    IsVisible="True"
-                    Clicked="SearchButton_Clicked"
-                    Style="{StaticResource NavigationBarButtonStyle }"
-                    Text="{StaticResource Search}" />
+                            IsVisible="True"
+                            Clicked="SearchButton_Clicked"
+                            Style="{StaticResource NavigationBarButtonStyle }"
+                            Text="{StaticResource Search}" />
 
                     </StackLayout>
-
                     <StackLayout  Grid.Row="1" Spacing="0">
                         <!-- Seperator -->
                         <BoxView Style="{StaticResource BoxViewStyle}" />
-
+                        <StackLayout HorizontalOptions="Center" x:Name="Subject_text" IsVisible="False" Margin="5">
+                            <Label Text="There are no subjects in your list"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
+                        </StackLayout>
                         <controls:SearchableSubjectList x:Name="LstSubjects"
-                    AutoFitMode="Height"
-                    AllowSwiping="True"
-                    IsScrollBarVisible="false"
-                    FocusBorderThickness="0"
-                    ItemSpacing="0"
-                    SearchText="{Binding SearchText}"
-                    SelectionBackgroundColor="Transparent"
-                    RowSpacing="0"
-                    TapCommand="{Binding ItemSelectedCommand}"
-                    VerticalOptions="FillAndExpand"
-                    ItemTapped="LstSubjects_ItemSelected">
+                            AutoFitMode="Height"
+                            AllowSwiping="True"
+                            IsScrollBarVisible="false"
+                            FocusBorderThickness="0"
+                            ItemSpacing="0"
+                            SearchText="{Binding SearchText}"
+                            SelectionBackgroundColor="Transparent"
+                            RowSpacing="0"
+                            TapCommand="{Binding ItemSelectedCommand}"
+                            VerticalOptions="FillAndExpand"
+                            ItemTapped="LstSubjects_ItemSelected">
 
                             <controls:SearchableSubjectList.ItemTemplate>
                                 <DataTemplate>
@@ -139,23 +140,23 @@
                                                      VerticalOptions="FillAndExpand" Spacing="0" >
                                                     <!--  Name of the item  -->
                                                     <Label Margin="16,13,0,0"
-                                                HeightRequest="24"
-                                                FontFamily="{StaticResource Montserrat-Medium}"
-                                                FontSize="16"
-                                                LineHeight="{OnPlatform Android=1.5,
-                                                                       Default=-1}"
-                                                Text="{Binding SubjectName}"
-                                                TextColor="{DynamicResource Gray-900}" />
+                                                        HeightRequest="24"
+                                                        FontFamily="{StaticResource Montserrat-Medium}"
+                                                        FontSize="16"
+                                                        LineHeight="{OnPlatform Android=1.5,
+                                                                               Default=-1}"
+                                                        Text="{Binding SubjectName}"
+                                                        TextColor="{DynamicResource Gray-900}" />
 
                                                     <!--  Composer of the item  -->
                                                     <Label  Margin="16,0,0,12"
-                                                HeightRequest="21"
-                                                FontFamily="{StaticResource Montserrat-Medium}"
-                                                FontSize="14"
-                                                LineHeight="{OnPlatform Android=1.25,
-                                                             Default=-1}"
-                                                Text="{Binding LecturerName}"
-                                                TextColor="{DynamicResource Gray-700}" />
+                                                        HeightRequest="21"
+                                                        FontFamily="{StaticResource Montserrat-Medium}"
+                                                        FontSize="14"
+                                                        LineHeight="{OnPlatform Android=1.25,
+                                                                     Default=-1}"
+                                                        Text="{Binding LecturerName}"
+                                                        TextColor="{DynamicResource Gray-700}" />
                                                 </StackLayout>
 
                                             </Grid>
@@ -169,19 +170,31 @@
                     </StackLayout>
                 </Grid>
             </ScrollView>
+            <Button Margin="0,110,0,90" Rotation="40" ImageSource ="{local:ImageResource CD.Images.addSubject.png}" 
+                            IsEnabled="False" BackgroundColor="Transparent" 
+                            IsVisible="False" x:Name="add_Subject_Arrow"
+                            RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+            <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
 
-            <buttons:SfButton Text="Add Subject" 
-                              Grid.Row="0" 
-                              x:Name="add_subject" 
-                              Margin="0,24,22,22" 
-                              Style="{StaticResource SfButtonStyle}"
-                              FontFamily="{StaticResource Montserrat-Bold}"
-                              HorizontalOptions="End" 
-                              FontSize="13"               
-                              WidthRequest="150" 
-                              HeightRequest="40"  
-                              VerticalOptions="End" 
-                              Clicked="load_add_subject"/>
+                <buttons:SfButton Text="Add Subject" 
+                Grid.Row="0" 
+                x:Name="add_subject" 
+                Margin="0,24,22,22" 
+                Style="{StaticResource SfButtonStyle}"
+                FontFamily="{StaticResource Montserrat-Bold}"
+                HorizontalOptions="End" 
+                FontSize="13"               
+                WidthRequest="150" 
+                HeightRequest="40"  
+                VerticalOptions="End" 
+                Clicked="load_add_subject"/>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -86,6 +86,8 @@ namespace CD.Views
                     App.UserUID = "";
                     App.Current.MainPage = new NavigationPage(new LogIn());
                     await DisplayAlert("Account deleted", "To use the application again please sign up", "ok");
+                    App.Current.Properties.Remove("App.UserUID");
+                    await App.Current.SavePropertiesAsync();
                     OnBackButtonPressed();
                 }
                 catch (Exception)
@@ -97,10 +99,12 @@ namespace CD.Views
 
         private async void sign_out(object sender, EventArgs e)
         {
-            App.UserUID = "";
-            App.Current.Properties.Clear();
+            App.UserUID = "";          
             await authSignOut.SignOut();
             App.Current.MainPage = new NavigationPage(new LogIn());
+            App.Current.Properties.Remove("App.UserUID");
+            await App.Current.SavePropertiesAsync();
+            Console.WriteLine("---------------------------------" + App.Current.Properties.Count());
             // back button disabled
             OnBackButtonPressed();
         }
