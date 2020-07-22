@@ -14,7 +14,7 @@ namespace CD
     {
         public IContainer Container { get; }
         public string AuthToken { get; set; }
-        static public string UserUID { get; set; } = "";
+        static public string UserUID { get; set; }
         static public CD_Configuration conf;
 
         public App(Module module)
@@ -24,7 +24,6 @@ namespace CD
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
             InitializeComponent();
             Container = BuildContainer(module);
-
             checkUserLogIn();
         }
 
@@ -64,14 +63,14 @@ namespace CD
         }
         void checkUserLogIn()
         {
-            if (App.Current.Properties.ContainsKey("App.UserUID"))
-            {
-                App.UserUID = App.Current.Properties["App.UserUID"] as string;
-            }
+            App.UserUID = App.Current.Properties.ContainsKey("App.UserUID") ? App.Current.Properties["App.UserUID"] as string : "";
 
             if (string.IsNullOrEmpty(App.UserUID) || string.IsNullOrWhiteSpace(App.UserUID))
             {
                 MainPage = new NavigationPage(new LogIn());
+                App.Current.Properties.Remove("App.UserUID");
+                App.Current.SavePropertiesAsync();
+                App.UserUID = "";
             }
             else
             {

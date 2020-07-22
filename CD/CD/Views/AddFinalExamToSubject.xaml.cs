@@ -94,7 +94,6 @@ namespace CD.Views
             {
                 await DisplayAlert("Result not added", "A final exam result already recorded", "OK");
             }
-
             save_exam_button.IsEnabled = true;
 
         }

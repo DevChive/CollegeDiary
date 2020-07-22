@@ -26,7 +26,7 @@ namespace CD.Views.ForgotPassword
             auth = DependencyService.Get<IFirebaseForgotPassword>();
         }
 
-        private async void SignUp(object sender, EventArgs e)
+        private void SignUp(object sender, EventArgs e)
         {
             sign_up_button.IsEnabled = false;
             App.Current.MainPage = new NavigationPage(new LogIn());

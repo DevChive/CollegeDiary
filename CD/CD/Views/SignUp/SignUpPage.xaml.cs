@@ -20,7 +20,7 @@ namespace CD.Views.SignUp
             InitializeComponent();
             auth = DependencyService.Get<IFirebaseRegister>();
         }
-        private async void LoginPage(object sender, System.EventArgs e)
+        private void LoginPage(object sender, System.EventArgs e)
         {
             // not allowing the user to use the back button from the phone
             App.Current.MainPage = new NavigationPage(new LogIn());
@@ -99,6 +99,8 @@ namespace CD.Views.SignUp
                     //App.UserUID = authDeleteAccount.UserUID();
                     AddUserDetails(NameEntry.Text, College_University.Text, SignUpEmailEntry.Text);
                     App.UserUID = "";
+                    App.Current.Properties["App.UserUID"] = "";
+                    await App.Current.SavePropertiesAsync();
                     App.Current.MainPage = new NavigationPage(new LogIn());
                 }
                 else if (Token == "existing")

@@ -19,6 +19,7 @@ namespace CD.Views
         public ListViewSubjects()
         {
             InitializeComponent();
+            //TODO: scale the images
         }
         protected override async void OnAppearing()
         {
@@ -29,6 +30,16 @@ namespace CD.Views
         {
             var allSubjects = await fireBaseHelper.GetAllSubjects();
             LstSubjects.ItemsSource = allSubjects;
+            if (allSubjects.Count == 0)
+            {
+                Subject_text.IsVisible = true;
+                add_Subject_Arrow.IsVisible = true;
+            }
+            else 
+            {
+                Subject_text.IsVisible = false;
+                add_Subject_Arrow.IsVisible = false;
+            }
         }
 
         private void BackButton(object sender, EventArgs e)
