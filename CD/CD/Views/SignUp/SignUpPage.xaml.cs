@@ -95,7 +95,7 @@ namespace CD.Views.SignUp
                 string Token = await auth.RegisterWithEmailAndPassword(userEmail, PasswordEntry.Text);
                 if (!string.IsNullOrEmpty(Token) && Token != "existing")
                 {
-                    await DisplayAlert("Account created", "Please verify your email", "ok");
+                    DependencyService.Get<IToastMessage>().Show("Account created");
                     //App.UserUID = authDeleteAccount.UserUID();
                     AddUserDetails(NameEntry.Text, College_University.Text, SignUpEmailEntry.Text);
                     App.UserUID = "";
@@ -105,7 +105,7 @@ namespace CD.Views.SignUp
                 }
                 else if (Token == "existing")
                 {
-                    await DisplayAlert("Email already used", "This email is already used \nIf you don't remeber your password go to 'Forgot Password' page", "ok");
+                    DependencyService.Get<IToastMessage>().Show("An account using this email already exists");
                     App.Current.MainPage = new NavigationPage(new LogIn());
                 }
                 else

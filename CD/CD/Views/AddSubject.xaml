@@ -162,7 +162,8 @@
                 </StackLayout>
 
                 <!-- Email -->
-                <Label
+                <StackLayout>
+                    <Label
                         FontFamily="{StaticResource Montserrat-Medium}"
                         Margin="0,24,0,4"
                         HeightRequest="18"
@@ -170,17 +171,18 @@
                         Text="Lecturer Email"
                         TextColor="{DynamicResource Gray-800}" />
 
-                <border:SfBorder BorderColor="{Binding Source={x:Reference lecturerEmail}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                    <border:SfBorder BorderColor="{Binding Source={x:Reference lecturerEmail}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
                                  Style="{StaticResource BusinessFormBorderStyle}">
-                    <controls:BorderlessEntry
+                        <controls:BorderlessEntry
                             x:Name="lecturerEmail"
                             Keyboard="Email"
                             ReturnType="Next"
                             Placeholder="e.g. mary@it.com"
                             Style="{StaticResource EntryTextBoxStyle}"
                             FontSize="13"/>
-                </border:SfBorder>
-
+                    </border:SfBorder>
+                    <Label Padding="0" TextColor="Red" Text="Please enter a valid email" IsVisible="False"  x:Name="EmailError"/>
+                </StackLayout>
                 <!-- CA  -->
                 <StackLayout>
                     <Label
