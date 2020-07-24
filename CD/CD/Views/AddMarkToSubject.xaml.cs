@@ -22,20 +22,20 @@ namespace CD.Views
 
         // check if the weight of the current CA is not exceeding the overall weight of the CA
         public async Task<bool> Check_CA_Weight(Subject subject, double weight)
-        {          
+        {
             var marks_belonging_to_subject = await fireBaseHelper.GetMarksForSubject(subject.SubjectID);
             double total_CA_all_Marks = 0;
 
             foreach (Mark m in marks_belonging_to_subject)
             {
-                if (m.Category.Equals("Continuous Assessment")) 
+                if (m.Category.Equals("Continuous Assessment"))
                 {
-                    total_CA_all_Marks += m.Weight; 
+                    total_CA_all_Marks += m.Weight;
                 }
             }
             if (total_CA_all_Marks + weight > subject.CA)
             {
-                ErrorWeightCA.IsVisible = true; 
+                ErrorWeightCA.IsVisible = true;
                 return false;
             }
 
@@ -100,13 +100,13 @@ namespace CD.Views
                 }
             }
             // check if the exam weight is higher than 0
-            if(validate)
+            if (validate)
             {
                 validate = weight > 0;
                 if (!validate) { HigherThanZeroWeight.IsVisible = true; }
             }
             // check the mark is not over 100 or negative
-            if (validate && result > 100 || result < 0) 
+            if (validate && result > 100 || result < 0)
             {
                 ErrorResultCA.IsVisible = true;
                 validate = false;
@@ -125,6 +125,8 @@ namespace CD.Views
                     await DisplayAlert("Result not added", "", "OK");
                 }
                 // refresh the page to show the added mark to the subject
+                await Navigation.PushAsync(new SubjectSelected(_subject), false);
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
             }
             save_ca_button.IsEnabled = true;

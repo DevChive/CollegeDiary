@@ -42,16 +42,16 @@ namespace CD.Views
 
             Error1.IsVisible = false;
             Error2.IsVisible = false;
-            
+
             // chekc if the result entry is not empty
-            if (string.IsNullOrEmpty(this.result.Text) || string.IsNullOrWhiteSpace(this.result.Text)) 
-            { 
+            if (string.IsNullOrEmpty(this.result.Text) || string.IsNullOrWhiteSpace(this.result.Text))
+            {
                 validate = false;
                 Error1.IsVisible = true;
             }
 
             // check if the result is not higher than 100
-            if(validate)
+            if (validate)
             {
                 try
                 {
@@ -70,8 +70,8 @@ namespace CD.Views
                 }
             }
             // check if there is already a final exam recorded
-            if(validate)
-            { 
+            if (validate)
+            {
                 existing = validate = await Check_FinalExam_Weight(_subject);
             }
 
@@ -82,18 +82,22 @@ namespace CD.Views
                 {
                     double result = Double.Parse(this.result.Text);
                     await fireBaseHelper.AddMark(_subject.SubjectID, "Final Exam", result, _subject.FinalExam, "Final Exam");
+                    await Navigation.PushAsync(new SubjectSelected(_subject), false);
                 }
                 catch (Exception)
                 {
                     await DisplayAlert("Result not added", "", "OK");
-                }       
+                }
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
+
             }
             // if the mark is less than 100 but not valid
-            if (!existing) 
+            if (!existing)
             {
                 await DisplayAlert("Result not added", "A final exam result already recorded", "OK");
             }
+
             save_exam_button.IsEnabled = true;
 
         }
