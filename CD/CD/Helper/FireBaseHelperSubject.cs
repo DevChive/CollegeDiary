@@ -140,27 +140,5 @@ namespace CD.Helper
                 return 0;
             }
         }
-        public async Task<Double> remainigFE(Guid subjectID)
-        {
-            try
-            {
-                double result = 0;
-                Subject subject = await GetSubject(subjectID);
-                var marks_belonging_to_subject = await fireBaseHelperMark.GetMarksForSubject(subjectID);
-                foreach (Mark m in marks_belonging_to_subject)
-                {
-                    if (m.Category.Equals("Final Exam"))
-                    {
-                        result += m.Weight;
-                    }
-                }
-                double remainingCA = subject.FinalExam - result;
-                return remainingCA;
-            }
-            catch
-            {
-                return 0;
-            }
-        }
     }
 }

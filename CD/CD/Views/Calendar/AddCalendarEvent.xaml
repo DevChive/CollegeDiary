@@ -19,7 +19,7 @@
                      BackgroundColor="White"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-                        <Label FontFamily="{StaticResource Montserrat-SemiBold}" Text="Edit calendar event" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
+                        <Label FontFamily="{StaticResource Montserrat-SemiBold}" Text="Add calendar event" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
                         <Label></Label>
                         <StackLayout>
                             <Label Text="Name of the event *" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>

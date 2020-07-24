@@ -159,19 +159,11 @@
 
                         <Frame BorderColor="WhiteSmoke" Margin="0" Padding="0">
                             <StackLayout Margin="0">
-                                <Label Margin="0,15,0,0">
+                                <Label Margin="0,15,0,15">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="Final Exam: " TextColor="DodgerBlue" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="15"/>
                                             <Span Text="{Binding subjectL.FinalExam,StringFormat='{0:N}%'}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"  FontSize="15" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                                <Label Margin="0,0,0,15">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Remaining: "  FontFamily="{StaticResource Montserrat-SemiBold}"  TextColor="DodgerBlue" FontAttributes="Bold" FontSize="13"/>
-                                            <Span x:Name="remainingFE"  Text=""  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"  FontSize="13"  />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>

@@ -33,12 +33,12 @@ namespace CD.Views
             if (allSubjects.Count == 0)
             {
                 Subject_text.IsVisible = true;
-                add_Subject_Arrow.IsVisible = true;
+                //add_Subject_Arrow.IsVisible = true;
             }
             else 
             {
                 Subject_text.IsVisible = false;
-                add_Subject_Arrow.IsVisible = false;
+                //add_Subject_Arrow.IsVisible = false;
             }
         }
 
