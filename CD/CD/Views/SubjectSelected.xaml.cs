@@ -32,6 +32,14 @@ namespace CD.Views
 
             List<Mark> listMarks = await fireBaseHelperMark.GetMarksForSubject(_subject.SubjectID);
             subjectMark = new SubjectMark(_subject, listMarks);
+            if (listMarks.Count == 0)
+            {
+                results_text.IsVisible = true;
+            }
+            else 
+            {
+                results_text.IsVisible = false;
+            }
 
             this.BindingContext = subjectMark; //!!!
             status_bars();
@@ -167,7 +175,7 @@ namespace CD.Views
                 {
                     await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
                     await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
-                    await DisplayAlert("Success", "Subject Deleted", "OK"); //TODO: add a toast message
+                    DependencyService.Get<IToastMessage>().Show(_subject.SubjectName + " was deleted"); 
                     await Navigation.PopAsync();
                 }
                 catch (Exception)
@@ -187,6 +195,7 @@ namespace CD.Views
                 {
                     await fireBaseHelperMark.DeleteMark(thisMark.MarkID);
                     await Navigation.PushAsync(new SubjectSelected(_subject), false);
+                    DependencyService.Get<IToastMessage>().Show(thisMark.Category + " was deleted");
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
 
                 }

@@ -113,6 +113,7 @@
                         <BoxView Style="{StaticResource BoxViewStyle}" />
                         <StackLayout HorizontalOptions="Center" x:Name="Subject_text" IsVisible="False" Margin="5">
                             <Label Text="There are no subjects in your list"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
+                            <Label Text="Clike the 'Add Subject' button to add a new subject"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="12" HorizontalOptions="Center"/>
                         </StackLayout>
                         <controls:SearchableSubjectList x:Name="LstSubjects"
                             AutoFitMode="Height"
