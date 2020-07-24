@@ -74,6 +74,7 @@
     <Compile Include="IOSModule.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="ToastMessage.cs" />
     <None Include="Entitlements.plist" />
     <BundleResource Include="GoogleService-Info.plist" />
     <None Include="Info.plist" />

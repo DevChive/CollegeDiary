@@ -264,6 +264,9 @@
                 <Label Text="Results" FontSize="17" FontFamily="{StaticResource Montserrat-Medium}" TextColor="DodgerBlue" Margin="10" />
                 <!-- Seperator -->
                 <BoxView Style="{StaticResource BoxViewStyle}" />
+                <StackLayout HorizontalOptions="Center" x:Name="results_text" IsVisible="False" Margin="5">
+                    <Label Text="There are no results in your list"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
+                </StackLayout>
                 <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding MarkListL}"
                     AutoFitMode="Height"
                     HeightRequest="300"
