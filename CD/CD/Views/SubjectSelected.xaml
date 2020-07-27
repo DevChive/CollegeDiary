@@ -24,13 +24,13 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-        <ContentPage.ToolbarItems>
-            <ToolbarItem Order="Primary"/>
-            <ToolbarItem Text="Edit" Order="Secondary" Clicked="edit_subject" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"/>
+        <ToolbarItem Text="Edit" Order="Secondary" Clicked="edit_subject" />
         <ToolbarItem Text="Delete" Order="Secondary" Clicked="delete_subject"/>
     </ContentPage.ToolbarItems>
 
-        <ScrollView>
+    <ScrollView>
         <StackLayout Margin="1">
             <Frame CornerRadius="5" HasShadow="True">
                 <StackLayout>
@@ -42,6 +42,7 @@
                                        FontFamily="{StaticResource Montserrat-Medium}" 
                                        FontSize="17"
                                        Margin="0,5"
+                                       Padding="4"
                                        FontAttributes="Bold"
                                        HorizontalOptions="CenterAndExpand" />
                             <Button FontSize="12" Text="Help" Clicked="tips" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
@@ -129,7 +130,7 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="Lecturer Email: "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
-                                        <Span x:Name="lecturerEmail" FontFamily="{StaticResource Montserrat-Medium}"  Text="{Binding subjectL.LecturerEmail}"  TextColor="DarkSlateGray" FontSize="13"/>
+                                        <Span x:Name="lecturerEmail"  FontFamily="{StaticResource Montserrat-Medium}"  Text="{Binding subjectL.LecturerEmail}"  TextColor="DarkSlateGray" FontSize="13"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -177,6 +178,7 @@
                                        TextColor="DodgerBlue" 
                                        FontFamily="{StaticResource Montserrat-Medium}" 
                                        FontSize="17"
+                               Padding="4"
                                        Margin="0,5"
                                        FontAttributes="Bold"
                                        HorizontalOptions="CenterAndExpand" />

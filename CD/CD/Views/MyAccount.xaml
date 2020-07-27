@@ -79,7 +79,7 @@
                 <Frame CornerRadius="10" BorderColor="WhiteSmoke">
                     <StackLayout>
                         <Label HorizontalOptions="CenterAndExpand"
-                                    Text="GPA from all subjects " 
+                                    Text="Your GPA from all subjects " 
                                     TextColor="DarkSlateGray" 
                                     FontFamily="{StaticResource Montserrat-Medium}" 
                                     FontSize="17"/>

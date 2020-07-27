@@ -28,8 +28,11 @@
                                 <Label FontSize="13" Text="Lecturer Name" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
                                 <Entry FontSize="13" Placeholder="Lecturer Name" x:Name="lecturerName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}"/>
 
-                                <Label FontSize="13" Text="Lecturer Email" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
-                                <Entry FontSize="13" Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                <StackLayout>
+                                    <Label FontSize="13" Text="Lecturer Email" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
+                                    <Entry FontSize="13" Placeholder="Lecturer Email" x:Name="lecturerEmail" ReturnType="Next" Keyboard="Email" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                    <Label Padding="0" TextColor="Red" Text="Please enter a valid email" IsVisible="False"  x:Name="EmailError"/>
+                                </StackLayout>
 
                                 <Label FontSize="13" Text="Continuous Assessment Weight" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black"/>
                                 <Entry FontSize="13" Placeholder="%" x:Name="CA" ReturnType="Next" Keyboard="Numeric" IsReadOnly="True" BackgroundColor="LightGray" FontFamily="{StaticResource Montserrat-Medium}"/>

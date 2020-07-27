@@ -51,6 +51,7 @@ namespace CD.Views
             EmptyWeightCA.IsVisible = false;
             EmptyResultCA.IsVisible = false;
             HigherThanZeroWeight.IsVisible = false;
+            WholeDecimalWight.IsVisible = false;
 
             save_ca_button.IsEnabled = false;
             bool validate = true;
@@ -73,6 +74,18 @@ namespace CD.Views
                     validate = false;
                     less = false;
                     EmptyWeightCA.IsVisible = true;
+                }
+            }
+            if (validate)
+            {
+                try
+                {
+                    weight = double.Parse(this.weight.Text);
+                }
+                catch (Exception)
+                {
+                    WholeDecimalWight.IsVisible = true;
+                    validate = false;
                 }
             }
             if (validate)

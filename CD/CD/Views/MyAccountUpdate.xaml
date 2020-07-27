@@ -28,6 +28,9 @@
                                 <Entry Placeholder="Institute Name" x:Name="userInstitute" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
                                 <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter the name of your Institute " IsVisible="False"  x:Name="ErrorInstite"/>
 
+                                <Label Text="Your email *" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
+                                <Entry Placeholder="Email" x:Name="userEmail" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" IsReadOnly="True" BackgroundColor="LightGray"/>
+
                                 <Label></Label>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Button x:Name="save_profile_button" Text="Save" Clicked="Save_Account" Scale="0.9" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" WidthRequest="110" FontSize="14" HeightRequest="20"/>
