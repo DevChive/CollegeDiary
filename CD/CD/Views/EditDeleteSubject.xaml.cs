@@ -3,6 +3,7 @@ using Rg.Plugins.Popup.Services;
 using Xamarin.Forms.Xaml;
 using CD.Models;
 using CD.Helper;
+using System.Text.RegularExpressions;
 
 namespace CD.Views
 {
@@ -37,6 +38,16 @@ namespace CD.Views
             {
                 validate = false;
                 ErrorName.IsVisible = true;
+            }
+            if (validate && !string.IsNullOrEmpty(lecturerEmail.Text))
+            {
+                string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+                string lecEmail = lecturerEmail.Text.Trim();
+                if (!Regex.IsMatch(lecEmail, pattern) && validate)
+                {
+                    EmailError.IsVisible = true;
+                    validate = false;
+                }
             }
 
             //checking if the subject alreasy exists in the database

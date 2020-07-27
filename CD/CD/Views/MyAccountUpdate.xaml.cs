@@ -17,6 +17,7 @@ namespace CD.Views
             user = User;
             userName.Text = user.StudentName;
             userInstitute.Text = user.Institute;
+            userEmail.Text = user.StudentEmail;
         }
 
         [Obsolete]

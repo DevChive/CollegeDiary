@@ -34,12 +34,12 @@ namespace CD
 
         protected override void OnSleep()
         {
-            checkUserLogIn();
+            //checkUserLogIn();
         }
 
         protected override void OnResume()
         {
-            checkUserLogIn();
+            //checkUserLogIn();
         }
         IContainer BuildContainer(Module module)
         {

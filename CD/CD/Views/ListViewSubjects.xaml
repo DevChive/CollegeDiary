@@ -53,12 +53,9 @@
 
                         <!--  Back button command  -->
                         <buttons:SfButton x:Name="backButton"
-                                Command="{Binding BackButtonCommand}"
-                                CommandParameter="{x:Reference backButton}"
                                 CornerRadius="4"
                                 Style="{StaticResource IconButtonStyle}"
-                                Text="{StaticResource Back}" 
-                                Clicked="BackButton"/>
+                                IsEnabled="False"/>
 
                         <!--  Songs page Title  -->
                         <Label Margin="16,0"
@@ -87,7 +84,6 @@
 
                         <!--  Rounded Search Entry  -->
                         <border:SfBorder Style="{DynamicResource SfBorderStyle}">
-
                             <controls:BorderlessEntry x:Name="SearchEntry"
                             BindingContext="{x:Reference LstSubjects}"
                             HorizontalOptions="FillAndExpand"
@@ -95,7 +91,6 @@
                             Text="{Binding SearchText, Mode=TwoWay}"
                             Style="{StaticResource SearchEntryStyle}"/>
                         </border:SfBorder>
-
                     </StackLayout>
 
                     <!--  Search Button  -->
