@@ -95,7 +95,7 @@ namespace CD.Views
             // if the mark is less than 100 but not valid
             if (!existing)
             {
-                await DisplayAlert("Result not added", "A final exam result already recorded", "OK");
+                await DisplayAlert("Result not added", "The final exam can be added just once \nIf you need to make changes tap long on the result you want to change and delete it. \nThen you can add a new Final Exam result", "OK");
             }
 
             save_exam_button.IsEnabled = true;

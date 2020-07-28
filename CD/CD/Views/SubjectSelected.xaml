@@ -102,7 +102,7 @@
                             <Label HorizontalOptions="Start" Padding="0,7">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Subject: " TextColor="DeepPink" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="15"/>
+                                        <Span Text="Subject:   " TextColor="DeepPink" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="15"/>
                                         <Span x:Name="subjectName"  FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.SubjectName}" TextColor="DarkSlateGray" FontSize="13"/>
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -121,19 +121,30 @@
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Lecturer: "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
-                                        <Span x:Name="lecturerName"  FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  TextColor="DarkSlateGray" FontSize="13"/>
+                                        <Span Text="Lecturer:   "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
+                                        <Span x:Name="lecturerName" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  TextColor="DarkSlateGray" FontSize="13"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
-                            <Label Margin="0,0,0,10">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="Lecturer Email: "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
-                                        <Span x:Name="lecturerEmail"  FontFamily="{StaticResource Montserrat-Medium}"  Text="{Binding subjectL.LecturerEmail}"  TextColor="DarkSlateGray" FontSize="13"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Margin="0,10,0,10">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Lecturer Email:"  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <buttons:SfButton
+                                    x:Name="lecturerEmail"
+                                    Command="{Binding SendEmail}"
+                                    CornerRadius="4"
+                                    Style="{StaticResource SfFlatButtonStyle}"
+                                    Text="{Binding subjectL.LecturerEmail}"
+                                    FontSize="13"
+                                    Clicked="SendEmail"
+                                    TextColor="DarkSlateGray"
+                                    FontFamily="{StaticResource Montserrat-Medium}"/>
+                            </StackLayout>
                         </StackLayout>
 
 
