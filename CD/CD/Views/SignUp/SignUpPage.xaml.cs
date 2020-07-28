@@ -52,19 +52,22 @@ namespace CD.Views.SignUp
             }
             // cheking if  the email is valid
             string userEmail = "";
-            if (!string.IsNullOrEmpty(SignUpEmailEntry.Text) && !string.IsNullOrWhiteSpace(SignUpEmailEntry.Text))
-            {
-                userEmail = SignUpEmailEntry.Text.Trim();
-            }
-            else 
-            {
-                validate = false;
-                EmailError.IsVisible = true;
-
-            }
             if (validate)
             {
-                if (!Regex.IsMatch(userEmail, pattern) && validate)
+                if (!string.IsNullOrEmpty(SignUpEmailEntry.Text) && !string.IsNullOrWhiteSpace(SignUpEmailEntry.Text))
+                {
+                    userEmail = SignUpEmailEntry.Text.Trim();
+                }
+                else
+                {
+                    validate = false;
+                    EmailError.IsVisible = true;
+                }
+            }
+
+            if (validate)
+            {
+                if (!Regex.IsMatch(userEmail, pattern))
                 {
                     EmailError.IsVisible = true;
                     validate = false;

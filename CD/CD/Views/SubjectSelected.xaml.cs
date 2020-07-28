@@ -147,16 +147,20 @@ namespace CD.Views
         private async void add_new_mark(object sender, EventArgs e)
         {
             add_ca_button.IsEnabled = false;
+            add_fe_button.IsEnabled = false;
             await PopupNavigation.PushAsync(new AddMarkToSubject(_subject));
             add_ca_button.IsEnabled = true;
+            add_fe_button.IsEnabled = true;
         }
 
         [Obsolete]
         private async void add_final_exam(object sender, EventArgs e)
         {
             add_fe_button.IsEnabled = false;
+            add_ca_button.IsEnabled = false;
             await PopupNavigation.PushAsync(new AddFinalExamToSubject(_subject));
             add_fe_button.IsEnabled = true;
+            add_ca_button.IsEnabled = true;
         }
 
         [Obsolete]
@@ -249,6 +253,12 @@ namespace CD.Views
                 moreSubjectDetails.IsVisible = false;
                 moreDetails.Text = "↓";
             }
+        }
+
+        [Obsolete]
+        private void SendEmail(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("mailto:" + lecturerEmail.Text));
         }
     }
 }

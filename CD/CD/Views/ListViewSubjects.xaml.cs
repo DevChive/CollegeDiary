@@ -50,9 +50,11 @@ namespace CD.Views
         private async void LstSubjects_ItemSelected(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
             LstSubjects.IsEnabled = false;
+            add_subject.IsEnabled = false;
             Subject subject = await fireBaseHelper.GetSubject( (e.ItemData as Subject).SubjectID);
             await Navigation.PushAsync(new SubjectSelected(subject));
             LstSubjects.IsEnabled = true;
+            add_subject.IsEnabled = true;
         }
 
         private void BackToTitle_Clicked(object sender, EventArgs e)
@@ -113,8 +115,10 @@ namespace CD.Views
         private async void load_add_subject(object sender, EventArgs e)
         {
             add_subject.IsEnabled = false;
+            LstSubjects.IsEnabled = false;
             await Navigation.PushAsync(new AddSubject());
             add_subject.IsEnabled = true;
+            LstSubjects.IsEnabled = true;
         }
     }
 }

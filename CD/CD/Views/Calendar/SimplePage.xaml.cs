@@ -26,14 +26,16 @@ namespace CD.Views.Calendar
             // tapping an appointment
             schedule.MonthInlineAppointmentTapped += Schedule_MonthInlineAppointmentTapped;
             async void Schedule_MonthInlineAppointmentTapped(object sender, MonthInlineAppointmentTappedEventArgs args)
-            {
+            {           
                 if (args.Appointment != null)
                 {
+                    add_calendar_event_button.IsEnabled = false;
                     var appointment = (args.Appointment as ScheduleAppointment);
                     await PopupNavigation.PushAsync(new EventSelected(appointment, "SimplePage"));
+                    add_calendar_event_button.IsEnabled = true;
                 }
             }
-            refreshCalendar();
+            refreshCalendar();           ;
         }
         protected override async void OnAppearing()
         {
