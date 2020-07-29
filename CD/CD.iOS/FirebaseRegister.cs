@@ -16,9 +16,9 @@ namespace CD.iOS
             try
             {
                 var user = await Auth.DefaultInstance.CreateUserAsync(email, password);
-                var token = await user.GetIdTokenAsync(false);
-                await user.SendEmailVerificationAsync();
-                UserID = user.Uid.ToString();
+                var token = await user.User.GetIdTokenAsync(false);
+                await user.User.SendEmailVerificationAsync();
+                UserID = user.User.Uid.ToString();
                 return token;
             }
             catch (Exception) //TODO: check if the user has an account with that email or not

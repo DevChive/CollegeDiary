@@ -13,9 +13,9 @@ namespace CD.iOS
     {
         public async Task<string> LoginWithEmailPassword(string email, string password)
         {
-            var user = await Auth.DefaultInstance.SignInAsync(email, password);
-            var token =  await user.GetIdTokenAsync();
-            return user.Uid;
+            var user = await Auth.DefaultInstance.SignInWithPasswordAsync(email, password);
+            var token =  await user.User.GetIdTokenAsync();
+            return user.User.Uid;
         }
         public bool IsSignedIn()
         {

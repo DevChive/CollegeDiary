@@ -29,7 +29,7 @@ namespace CD.Views.ForgotPassword
         private void SignUp(object sender, EventArgs e)
         {
             sign_up_button.IsEnabled = false;
-            App.Current.MainPage = new NavigationPage(new LogIn());
+            Navigation.PushAsync(new SignUpPage());
             sign_up_button.IsEnabled = true;
         }
 
