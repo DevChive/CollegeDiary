@@ -4,7 +4,6 @@ using System;
 using CD.Helper;
 using System.Drawing;
 using Syncfusion.XForms.Buttons;
-using java.sql;
 
 namespace CD.Views.Calendar
 {
