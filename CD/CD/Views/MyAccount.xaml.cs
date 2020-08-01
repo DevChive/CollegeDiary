@@ -9,11 +9,9 @@ using System.Threading.Tasks;
 using CD.Models.Calendar;
 using System.Collections.Generic;
 using CD.ViewModel;
-using sun.util.resources.cldr.ewo;
 using System.Linq;
 using Syncfusion.SfSchedule.XForms;
 using CD.Views.Calendar;
-using com.sun.jdi.@event;
 
 namespace CD.Views
 {

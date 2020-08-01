@@ -7,8 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using CD.Models.Calendar;
 using System.Drawing;
-using ikvm.lang;
-using com.sun.tools.@internal.jxc.gen.config;
 
 namespace CD.Helper
 {
