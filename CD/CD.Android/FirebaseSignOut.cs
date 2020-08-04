@@ -16,7 +16,7 @@ namespace CD.Droid
             {
                  FirebaseAuth.Instance.SignOut();
                  App.Current.Properties.Remove("App.UserUID");
-                 App.Current.SavePropertiesAsync();
+                 await App.Current.SavePropertiesAsync();
             }
             catch (Exception)
             { 

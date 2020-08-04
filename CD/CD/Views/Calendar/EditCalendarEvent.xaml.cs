@@ -38,6 +38,7 @@ namespace CD.Views.Calendar
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            BackgroundColor = System.Drawing.Color.FromArgb(200, 0, 0, 0);
             // tap a color on the selection line 
             segmentedControl.SelectionChanged += Handle_SelectionChanged;
         }

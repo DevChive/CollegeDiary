@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using CD.Models;
 using CD.Helper;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 
-namespace CD.Views
+namespace CD.Views.SelectedSubjectView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddFinalExamToSubject
@@ -17,6 +16,11 @@ namespace CD.Views
         {
             _subject = subject;
             InitializeComponent();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BackgroundColor = System.Drawing.Color.FromArgb(200, 0, 0, 0);
         }
         public async Task<bool> Check_FinalExam_Weight(Subject subject)
         {

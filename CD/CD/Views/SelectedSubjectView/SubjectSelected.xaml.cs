@@ -8,7 +8,7 @@ using Rg.Plugins.Popup.Services;
 using System.Collections.Generic;
 using Syncfusion.XForms.ProgressBar;
 
-namespace CD.Views
+namespace CD.Views.SelectedSubjectView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
@@ -23,7 +23,6 @@ namespace CD.Views
         {
             _subject = subject;
             InitializeComponent();
-
         }
         protected override async void OnAppearing()
         {
@@ -191,22 +190,7 @@ namespace CD.Views
         private async void delete_mark(object sender, Syncfusion.ListView.XForms.ItemHoldingEventArgs e)
         {
             var thisMark = e.ItemData as Mark;
-            var result = await DisplayAlert("Are you sure you want to delete this result?", "Name: " + thisMark.MarkName + "\nResult: " + thisMark.Result + "%", "Yes", "No");
-            if (result)
-            {
-                try
-                {
-                    await fireBaseHelperMark.DeleteMark(thisMark.MarkID);
-                    await Navigation.PushAsync(new SubjectSelected(_subject), false);
-                    DependencyService.Get<IToastMessage>().Show(thisMark.Category + " was deleted");
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-
-                }
-                catch (Exception)
-                {
-                    await DisplayAlert("Error", "Please try again", "Ok");
-                }
-            }
+            await PopupNavigation.PushAsync(new DeleteMark(thisMark, _subject));
         }
 
         private void tips(object sender, EventArgs e)

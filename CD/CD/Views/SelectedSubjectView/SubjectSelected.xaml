@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CD.Views.SubjectSelected" Title="{Binding subjectL.SubjectName}" 
+             x:Class="CD.Views.SelectedSubjectView.SubjectSelected" Title="{Binding subjectL.SubjectName}" 
              xmlns:controls="clr-namespace:CD.Controls"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:viewModel="clr-namespace:CD.ViewModel" 
@@ -19,7 +19,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Form\Styles.xaml" />
+                <ResourceDictionary Source="..\Form\Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>

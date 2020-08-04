@@ -6,7 +6,7 @@ using Rg.Plugins.Popup.Services;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CD.Views
+namespace CD.Views.SelectedSubjectView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddMarkToSubject
@@ -18,6 +18,11 @@ namespace CD.Views
         {
             _subject = subject;
             InitializeComponent();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BackgroundColor = System.Drawing.Color.FromArgb(200, 0, 0, 0);
         }
 
         // check if the weight of the current CA is not exceeding the overall weight of the CA
