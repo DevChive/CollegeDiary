@@ -9,7 +9,8 @@
             x:Class="CD.MainPage"
             Title="College Diary"
             UnselectedTabColor="LightGray"
-            SelectedTabColor="White">
+            SelectedTabColor="White"
+            BarBackgroundColor="#192E4A">
     <TabbedPage.Children>
         <pages:MyAccount Title="Home"/>
         <pages:ListViewSubjects Title="Subjects"/>

@@ -7,6 +7,27 @@
              mc:Ignorable="d"
              x:Class="CD.App">
     <Application.Resources>
+        <!-- Background Image -->
+        <x:String x:Key="MountainImage">mountain_light</x:String>
+
+        <!--  Colors  -->
+        <Color x:Key="HeaderColor">#213654</Color>
+        <Color x:Key="ArrowColor">#768ea0</Color>
+        <Color x:Key="BorderColor">#d2d7dd</Color>
+        <Color x:Key="TagColor">#ffa318</Color>
+        <Color x:Key="TabSubTextColor">#96a7dd</Color>
+        <Color x:Key="SubTextColor">#95a8b6</Color>
+        <Color x:Key="TempLabelColor">#ffffff</Color>
+
+        <!--BackgroundGradients-->
+        <Color x:Key="BackgroundGradientStartColor">#E8D6CB</Color>
+        <Color x:Key="BackgroundGradientMidColor">#6683A9</Color>
+        <Color x:Key="BackgroundGradientEndColor">#192E4A</Color>
+
+        <!--Guage Gradients-->
+        <Color x:Key="GaugeGradientStartColor">#7A89B1</Color>
+        <Color x:Key="GaugeGradientEndColor">#FB7D80</Color>
+
         <ResourceDictionary>
             <!--  Fonts  -->
             <OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
@@ -25,6 +46,10 @@
                 <Setter Property="LineBreakMode" Value="WordWrap" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="Margin" Value="5,2" />
+            </Style>
+            
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#192E4A"/>
             </Style>
             <ResourceDictionary.MergedDictionaries>
                 <themes:LightTheme />
