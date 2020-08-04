@@ -198,7 +198,7 @@
     <!--  Common style for BoxView  -->
     <Style x:Key="BoxViewStyle" TargetType="BoxView">
         <Setter Property="HeightRequest" Value="1" />
-        <Setter Property="Color" Value="{DynamicResource Gray-200}" />
+        <Setter Property="Color" Value="Transparent" />
         <Setter Property="VerticalOptions" Value="Center" />
     </Style>
 
