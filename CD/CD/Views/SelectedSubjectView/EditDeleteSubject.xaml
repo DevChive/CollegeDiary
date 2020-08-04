@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
              mc:Ignorable="d"
-             x:Class="CD.Views.EditDeleteSubject"
+             x:Class="CD.Views.SelectedSubjectView.EditDeleteSubject"
              Title="Edit subject"
              CloseWhenBackgroundIsClicked="True">
     <ContentPage.Content>

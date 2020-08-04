@@ -5,7 +5,7 @@ using CD.Models;
 using CD.Helper;
 using System.Text.RegularExpressions;
 
-namespace CD.Views
+namespace CD.Views.SelectedSubjectView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditDeleteSubject 
@@ -23,7 +23,11 @@ namespace CD.Views
             CA.Text = subject.CA.ToString();
             finalExam.Text = subject.FinalExam.ToString();
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BackgroundColor = System.Drawing.Color.FromArgb(200, 0, 0, 0);
+        }
         private async void Save_Subject(object sender, EventArgs e)
         {
             save_subject_button.IsEnabled = false;

@@ -6,7 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CD.Views.List;
 using Rg.Plugins.Popup.Services;
-
+using CD.Views.SelectedSubjectView;
 
 namespace CD.Views
 {

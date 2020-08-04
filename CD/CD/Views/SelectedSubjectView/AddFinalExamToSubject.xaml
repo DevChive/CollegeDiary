@@ -6,7 +6,7 @@
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CD.Views.AddFinalExamToSubject"
+             x:Class="CD.Views.SelectedSubjectView.AddFinalExamToSubject"
              Title="Add Exam"
              CloseWhenBackgroundIsClicked="True">
     <ContentPage.Content>
@@ -17,7 +17,8 @@
                      BackgroundColor="White"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-                        <Label Text="Final Exam" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                        <Label></Label>
+                        <Label Text="Final Exam" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
                         <Label></Label>
                         <Label Text="Result in % (from 100) *" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
                         <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13" Placeholder="e.g. 84%"/>
@@ -28,6 +29,7 @@
                             <Button x:Name="save_exam_button" Text="Save" Clicked="Save_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="14" WidthRequest="110" Scale="0.9"/>
                             <Button Text="Cancel" Clicked="Cancel_Exam" FontFamily="{StaticResource Montserrat-SemiBold}" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="20" FontSize="14" WidthRequest="110" Scale="0.9"/>
                         </StackLayout>
+                        <Label></Label>
                     </StackLayout>
                 </Frame>
             </ScrollView>

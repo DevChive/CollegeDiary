@@ -6,7 +6,7 @@ using CD.Models;
 using CD.Views;
 using System.Text.RegularExpressions;
 
-namespace CD.Views
+namespace CD.Views.SelectedSubjectView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddSubject : ContentPage

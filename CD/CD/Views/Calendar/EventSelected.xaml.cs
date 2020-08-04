@@ -31,6 +31,11 @@ namespace CD.Views.Calendar
             appointment = args;
             sourcePage = motiv;
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BackgroundColor = System.Drawing.Color.FromArgb(200, 0, 0, 0);
+        }
 
         [Obsolete]
         private async void delete_event(object sender, EventArgs e)

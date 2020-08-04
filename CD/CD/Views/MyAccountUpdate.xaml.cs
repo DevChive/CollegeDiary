@@ -19,7 +19,11 @@ namespace CD.Views
             userInstitute.Text = user.Institute;
             userEmail.Text = user.StudentEmail;
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BackgroundColor = System.Drawing.Color.FromArgb(200, 0, 0, 0);
+        }
         [Obsolete]
         private async void Save_Account(object sender, EventArgs e)
         {
