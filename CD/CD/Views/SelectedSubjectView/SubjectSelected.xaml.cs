@@ -187,6 +187,7 @@ namespace CD.Views.SelectedSubjectView
             }
         }
 
+        [Obsolete]
         private async void delete_mark(object sender, Syncfusion.ListView.XForms.ItemHoldingEventArgs e)
         {
             var thisMark = e.ItemData as Mark;
@@ -243,6 +244,11 @@ namespace CD.Views.SelectedSubjectView
         private void SendEmail(object sender, EventArgs e)
         {
             Device.OpenUri(new Uri("mailto:" + lecturerEmail.Text));
+        }
+
+        private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+        {
+
         }
     }
 }

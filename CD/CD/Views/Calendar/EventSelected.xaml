@@ -8,7 +8,8 @@
              xmlns:converter="clr-namespace:CD.Converters"
              mc:Ignorable="d"
              x:Class="CD.Views.Calendar.EventSelected"
-             CloseWhenBackgroundIsClicked="True">
+             CloseWhenBackgroundIsClicked="True"
+             BackgroundColor="#192E4A">
     
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -19,11 +20,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" Margin="10" Padding="10">
+        <StackLayout VerticalOptions="Center" Margin="10" Padding="10" >
             <ScrollView>
-                <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                <Frame CornerRadius="10" HasShadow="True" BorderColor="#192E4A" BackgroundColor="#192E4A">
                     <StackLayout 
-                         BackgroundColor="WhiteSmoke"
                          HorizontalOptions="Fill"
                          VerticalOptions="Center">
                         <StackLayout Margin="0">

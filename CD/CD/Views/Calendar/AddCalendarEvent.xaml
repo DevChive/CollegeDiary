@@ -7,75 +7,79 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             xmlns:sys="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             x:Class="CD.Views.Calendar.AddCalendarEvent"
-             CloseWhenBackgroundIsClicked="True">
+             xmlns:sys="clr-namespace:System.Collections.Generic;assembly=netstandard" 
+            xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+            x:Class="CD.Views.Calendar.AddCalendarEvent"
+             CloseWhenBackgroundIsClicked="True" >
     <ContentPage.Content>
 
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <ScrollView>
-                <Frame CornerRadius="10" BackgroundColor="White" HasShadow="True" BorderColor="WhiteSmoke">
+                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="#192E4A">
                     <StackLayout 
-                     BackgroundColor="White"
-                     HorizontalOptions="Fill"
-                     VerticalOptions="Center">
-                        <Label FontFamily="{StaticResource Montserrat-SemiBold}" Text="Add calendar event" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Center">
+                        <Label Text="Add calendar event" FontSize="17" FontFamily="{StaticResource Montserrat-Bold}" FontAttributes="Bold" TextColor="#e1f5fe" HorizontalOptions="Center" />
                         <Label></Label>
                         <StackLayout>
-                            <Label Text="Name of the event *" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
-                            <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" Placeholder="e.g. Mathematics Test" FontSize="13" />
-                            <Label FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter a name " IsVisible="False"  x:Name="ErrorName"/>
+                            <Label Text="Name of the event *" FontSize="13"/>
+                            <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"  Placeholder="e.g. Mathematics Test" FontSize="13" />
+                            <Label FontSize="13" TextColor="Red" Text="Please enter a name " IsVisible="False"  x:Name="ErrorName"/>
                         </StackLayout>
 
-                        <Label Text="Description" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" />
-                        <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" Placeholder="e.g. Logic Chapter 1, 2" FontSize="13"/>
+                        <Label Text="Description" FontSize="13" />
+                        <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" Placeholder="e.g. Logic Chapter 1, 2" FontSize="13"/>
                         <StackLayout Orientation="Horizontal">
                             <StackLayout>
-                                <Label Text="Start date" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                <Label Text="Start date" FontSize="13"/>
                                 <DatePicker 
-                                x:Name="startDate"
-                                Format="dd/MM/yyyy"
-                                Date="{Binding selectedDate, Mode=TwoWay}"
-                                FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                    x:Name="startDate"
+                                    Format="dd/MM/yyyy"
+                                    Date="{Binding selectedDate, Mode=TwoWay}"
+                                    TextColor="WhiteSmoke"
+                                    FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
                             </StackLayout>
                             <StackLayout>
-                                <Label Text="Start time" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                <Label Text="Start time" FontSize="13"/>
                                 <TimePicker x:Name="startTimePicker"
-                                Time="12:00"
-                                Format="T"
-                                PropertyChanged="OnTimePickerPropertyChanged"
-                                FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                    Time="12:00"
+                                    Format="T"
+                                    TextColor="WhiteSmoke"
+                                    PropertyChanged="OnTimePickerPropertyChanged"
+                                    FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <StackLayout>
-                                <Label Text="End date" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                <Label Text="End date" FontSize="13"/>
                                 <DatePicker 
-                                x:Name="endDate"
-                                Format="dd/MM/yyyy"
-                                Date="{Binding selectedDate, Mode=TwoWay}"
-                                MinimumDate="{Binding selctedDate, Mode=TwoWay}"
-                                FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                    x:Name="endDate"
+                                    TextColor="WhiteSmoke"
+                                    Format="dd/MM/yyyy"
+                                    Date="{Binding selectedDate, Mode=TwoWay}"
+                                    MinimumDate="{Binding selctedDate, Mode=TwoWay}"
+                                    FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
                             </StackLayout>
                             <StackLayout>
-                                <Label Text="End time" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
+                                <Label Text="End time" FontSize="13"/>
                                 <TimePicker x:Name="endTimePicker" 
-                                Time="12:00"
-                                Format="T"
-                                FontFamily="{StaticResource Montserrat-Medium}"
-                                PropertyChanged="OnTimePickerPropertyChanged"  FontSize="13"/>
+                                    Time="12:00"
+                                    TextColor="WhiteSmoke"
+                                    Format="T"
+                                    FontFamily="{StaticResource Montserrat-Medium}"
+                                    PropertyChanged="OnTimePickerPropertyChanged"  FontSize="13"/>
                             </StackLayout>
                         </StackLayout>
-                        <Label Text="Colors" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" Margin="0,10"/>
+                        <Label Text="Colors" FontSize="13" Margin="0,10"/>
                         <buttons:SfSegmentedControl SelectionChanged="Handle_SelectionChanged" 
-                        x:Name="segmentedControl" 
-                        VisibleSegmentsCount="6"
-                        BorderColor="DarkSlateGray"
-                        FontColor="Black"
-                        FontFamily="{StaticResource Montserrat-SemiBold}"
-                        Color="Transparent"
-                        FontSize="12"
-                        SelectionTextColor="White">
+                            x:Name="segmentedControl" 
+                            VisibleSegmentsCount="6"
+                            BorderColor="DarkSlateGray"
+                            FontColor="WhiteSmoke"
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            Color="Transparent"
+                            FontSize="12"
+                            SelectionTextColor="White">
                             <buttons:SfSegmentedControl.SelectionIndicatorSettings>
                                 <buttons:SelectionIndicatorSettings 
                                 Position="Fill"

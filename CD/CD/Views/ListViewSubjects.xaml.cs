@@ -120,5 +120,10 @@ namespace CD.Views
             add_subject.IsEnabled = true;
             LstSubjects.IsEnabled = true;
         }
+
+        private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+        {
+            MyAccount.setGradientWallpaper(e);
+        }
     }
 }

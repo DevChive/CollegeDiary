@@ -134,5 +134,10 @@ namespace CD.Views.Calendar
                 this.end_Date = end_Date.AddMinutes(30);
             }
         }
+
+        private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+        {
+            MyAccount.setGradientWallpaper(e);
+        }
     }
 }

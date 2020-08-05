@@ -7,7 +7,8 @@
     x:Class="CD.Views.MyAccount"
     xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
     xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms" 
-    xmlns:controls="clr-namespace:CD.Controls" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:controls="clr-namespace:CD.Controls" 
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     Title="My Account">
 
     <ContentPage.Resources>
@@ -24,6 +25,7 @@
         <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account"/>
         <ToolbarItem Text="Sign out" Order="Secondary" Clicked="sign_out"/>
     </ContentPage.ToolbarItems>
+    
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
@@ -72,7 +74,7 @@
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span FontFamily="{StaticResource Montserrat-Medium}" FontSize="14" TextColor="WhiteSmoke" Text="Welcome home, " />
+                                    <Span FontFamily="{StaticResource Montserrat-Medium}" FontSize="14" TextColor="WhiteSmoke" Text="Welcome, " />
                                     <Span FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="14" TextColor="WhiteSmoke" Text="{Binding studentSelected.StudentName}" />
                                 </FormattedString>
                             </Label.FormattedText>
@@ -84,7 +86,7 @@
                             x:Name="helpMyAccount">
                     <Frame CornerRadius="10" 
                                 HasShadow="True" 
-                                BorderColor="Gray"
+                                BorderColor="LightGray"
                                 BackgroundColor="Transparent">
                         <ScrollView>
                             <StackLayout Margin="0,0,0,0">
@@ -93,7 +95,7 @@
                                             Text="* This page displays the GPA between all your subjects" TextColor="WhiteSmoke"/>
                                 <Label 
                                             FontFamily="{StaticResource Montserrat-Medium}" 
-                                            Text="  - This GPA is an approximation as the number of credits is not taken in consideration" TextColor="WhiteSmoke"/>
+                                            Text="  - The GPA is an approximation as the number of credits is not taken in consideration" TextColor="WhiteSmoke"/>
                                 <Label Margin="0,5">
                                     <Label.FormattedText>
                                         <FormattedString>
@@ -166,7 +168,7 @@
                                                     <DataTemplate>
                                                         <ViewCell>
                                                             <StackLayout Margin="0" Padding="0">
-                                                                <Frame CornerRadius="10" BackgroundColor="{Binding Color}" Margin="10,0" Padding="0">
+                                                                <Frame CornerRadius="10" BackgroundColor="{Binding Color}" Margin="10,0" Padding="0" HasShadow="True">
                                                                     <StackLayout Margin="0" Padding="0">
                                                                     <StackLayout 
                                                                          HorizontalOptions="FillAndExpand" 
