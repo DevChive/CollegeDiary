@@ -12,10 +12,9 @@ using CD.ViewModel;
 using System.Linq;
 using Syncfusion.SfSchedule.XForms;
 using CD.Views.Calendar;
-using CD.Themes;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
-using System.ComponentModel;
+
 
 
 namespace CD.Views
@@ -199,13 +198,19 @@ namespace CD.Views
             }
             LstEvents.IsEnabled = true;          
         }
+
         // background brush
-        SKPaint backgroundBrush = new SKPaint()
+        static SKPaint backgroundBrush = new SKPaint()
         {
             Style = SKPaintStyle.Fill,
             Color = Color.Red.ToSKColor()
         };
         private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+        {
+            setGradientWallpaper(e);
+        }
+
+        public static void setGradientWallpaper(SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
         {
             SKImageInfo info = e.Info;
             SKSurface surface = e.Surface;

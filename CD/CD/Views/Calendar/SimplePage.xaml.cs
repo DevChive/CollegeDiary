@@ -90,5 +90,10 @@ namespace CD.Views.Calendar
             string[] parsedDate = { day, month, year };
             return parsedDate;
         }
+
+        private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+        {
+            MyAccount.setGradientWallpaper(e);
+        }
     }
 }

@@ -11,25 +11,25 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <ScrollView>
-                <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                <Frame CornerRadius="10" BackgroundColor="#0066cc" HasShadow="True" BorderColor="Gray">
                     <StackLayout 
-                     BackgroundColor="WhiteSmoke"
+                     BackgroundColor="#0066cc"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
                         <ScrollView>
                             <StackLayout Margin="10">
-                                <Label Text="Update Account" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                <Label Text="Update Account" FontSize="17" TextColor="#e1f5fe" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
                                 <Label></Label>
-                                <Label Text="Name *" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
-                                <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
-                                <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter your name " IsVisible="False"  x:Name="ErrorName"/>
+                                <Label Text="Name *"  FontSize="13"/>
+                                <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontSize="13"/>
+                                <Label Padding="0" FontSize="13" TextColor="Red" Text="Please enter your name " IsVisible="False"  x:Name="ErrorName"/>
 
-                                <Label Text="Institute *" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
-                                <Entry Placeholder="Institute Name" x:Name="userInstitute" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
-                                <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Please enter the name of your Institute " IsVisible="False"  x:Name="ErrorInstite"/>
+                                <Label Text="Institute *" FontSize="13"/>
+                                <Entry Placeholder="Institute Name" x:Name="userInstitute" ReturnType="Next" Keyboard="Text" FontSize="13"/>
+                                <Label Padding="0" FontSize="13" TextColor="Red" Text="Please enter the name of your Institute " IsVisible="False"  x:Name="ErrorInstite"/>
 
-                                <Label Text="Your email *" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13"/>
-                                <Entry Placeholder="Email" x:Name="userEmail" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" IsReadOnly="True" BackgroundColor="LightGray"/>
+                                <Label Text="Your email *" FontSize="13"/>
+                                <Entry Placeholder="Email" x:Name="userEmail" ReturnType="Next" Keyboard="Text" FontSize="13" IsReadOnly="True" BackgroundColor="#003366"/>
 
                                 <Label></Label>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

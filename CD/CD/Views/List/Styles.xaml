@@ -127,7 +127,7 @@
     <!-- Common style for search entries -->
     <Style x:Key="SearchEntryStyle" TargetType="control:BorderlessEntry">
         <Setter Property="PlaceholderColor" Value="{DynamicResource Gray-700}" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BackgroundColor" Value="#192E4A" />
         <Setter Property="TextColor" Value="{DynamicResource Gray-900}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="VerticalOptions" Value="Center" />
@@ -163,6 +163,13 @@
         <Setter Property="BackgroundColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="CornerRadius" Value="25" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+    </Style>
+
+    <Style x:Key="SfBorderStyleSearch" TargetType="border:SfBorder">
+        <Setter Property="BackgroundColor" Value="#192E4A" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="15" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
     </Style>
 

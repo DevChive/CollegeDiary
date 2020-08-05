@@ -20,8 +20,8 @@
         <Color x:Key="TempLabelColor">#ffffff</Color>
 
         <!--BackgroundGradients-->
-        <Color x:Key="BackgroundGradientStartColor">#E8D6CB</Color>
-        <Color x:Key="BackgroundGradientMidColor">#6683A9</Color>
+        <Color x:Key="BackgroundGradientStartColor">#08C8F6</Color>
+        <Color x:Key="BackgroundGradientMidColor">#192E4A</Color>
         <Color x:Key="BackgroundGradientEndColor">#192E4A</Color>
 
         <!--Guage Gradients-->
@@ -51,6 +51,18 @@
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#192E4A"/>
             </Style>
+            
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="WhiteSmoke"/>
+                <Setter Property="FontFamily" Value="{StaticResource Montserrat-SemiBold}"/>
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="WhiteSmoke"/>
+                <Setter Property="PlaceholderColor" Value="SlateGray"/>
+                <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}"/>
+            </Style>
+
             <ResourceDictionary.MergedDictionaries>
                 <themes:LightTheme />
             </ResourceDictionary.MergedDictionaries >

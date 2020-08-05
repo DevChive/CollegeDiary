@@ -10,7 +10,8 @@
             Title="College Diary"
             UnselectedTabColor="LightGray"
             SelectedTabColor="White"
-            BarBackgroundColor="#192E4A">
+            BarBackgroundColor="#192E4A"
+            xmlns:local="clr-namespace:CD">
     <TabbedPage.Children>
         <pages:MyAccount Title="Home"/>
         <pages:ListViewSubjects Title="Subjects"/>
