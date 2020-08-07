@@ -15,11 +15,11 @@
 
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <ScrollView>
-                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="#192E4A">
+                <Frame>
                     <StackLayout 
                              HorizontalOptions="Fill"
                              VerticalOptions="Center">
-                        <Label Text="Add calendar event" FontSize="17" FontFamily="{StaticResource Montserrat-Bold}" FontAttributes="Bold" TextColor="#e1f5fe" HorizontalOptions="Center" />
+                        <Label Text="Add calendar event" FontSize="17" FontFamily="{StaticResource Montserrat-Bold}" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
                         <Label></Label>
                         <StackLayout>
                             <Label Text="Name of the event *" FontSize="13"/>

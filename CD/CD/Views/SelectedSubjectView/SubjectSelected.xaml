@@ -8,9 +8,9 @@
              xmlns:controls="clr-namespace:CD.Controls"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:viewModel="clr-namespace:CD.ViewModel" 
-             BackgroundColor="White"
-             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms">
-
+             BackgroundColor="#192E4A"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms" 
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms">
 
     <ContentPage.BindingContext>
         <viewModel:BaseViewModel/>
@@ -31,24 +31,23 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout Margin="1">
-            <Frame CornerRadius="5" HasShadow="True">
-                <StackLayout>
+        <StackLayout Margin="7,0">
+            <StackLayout>
+                <Frame BackgroundColor="#192e4A" BorderColor="WhiteSmoke">
                     <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Button Text="    " BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}" IsEnabled="False"></Button>
+                        <StackLayout Orientation="Horizontal" Margin="0">
                             <Label Text="Subject Details" 
                                        TextColor="DodgerBlue" 
                                        FontFamily="{StaticResource Montserrat-Medium}" 
                                        FontSize="17"
-                                       Margin="0,5"
-                                       Padding="4"
+                                       Margin="0,0"
+                                       Padding="0,4"
                                        FontAttributes="Bold"
-                                       HorizontalOptions="CenterAndExpand" />
-                            <Button FontSize="12" Text="Help" Clicked="tips" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                                       HorizontalOptions="StartAndExpand" />
+                            <Button FontSize="12" Text="Help" TextColor="PaleVioletRed" Clicked="tips" BackgroundColor="#192E4A" FontFamily="{StaticResource Montserrat-Medium}"></Button>
                         </StackLayout>
                         <StackLayout IsVisible="False" x:Name="hidenSubjectDetailsHelp" Margin="0,0,0,30">
-                            <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
+                            <Frame BorderColor="WhiteSmoke">
                                 <StackLayout>
                                     <Label          
                                             FontFamily="{StaticResource Montserrat-Bold}" 
@@ -64,8 +63,8 @@
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="* The total of your Continuous Assessment weight cannot exceed " FontFamily="{StaticResource Montserrat-Bold}" />
-                                                <Span Text="{Binding subjectL.CA}" FontFamily="{StaticResource Montserrat-Bold}" TextColor="Red" />
-                                                <Span Text="% for this particular subject" FontFamily="{StaticResource Montserrat-Bold}" />
+                                                <Span Text="{Binding subjectL.CA}" TextColor="Red" />
+                                                <Span Text="% for this particular subject" />
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -76,13 +75,11 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label 
-                                                FontFamily="{StaticResource Montserrat-Bold}" FontSize="17"
-                                                Text="Definitions: "/>
+                                    <Label FontSize="17" Text="Definitions: "/>
                                     <Label Margin="0,5">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="* Continuous Assessment: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                                <Span Text="* Continuous Assessment: " />
                                                 <Span Text="The evaluation of a student progress throughout a course of study, distinct from the final exam" FontFamily="{StaticResource Montserrat-Medium}" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -90,7 +87,7 @@
                                     <Label Margin="0,5"  >
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="* Final Exam: " FontFamily="{StaticResource Montserrat-Bold}" />
+                                                <Span Text="* Final Exam: " />
                                                 <Span Text="A test given to students at the end of a course of study " FontFamily="{StaticResource Montserrat-Medium}" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -102,8 +99,8 @@
                             <Label HorizontalOptions="Start" Padding="0,7">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Subject:   " TextColor="DeepPink" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="15"/>
-                                        <Span x:Name="subjectName"  FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.SubjectName}" TextColor="DarkSlateGray" FontSize="13"/>
+                                        <Span Text="Subject:   " TextColor="LightSlateGray" FontSize="15"/>
+                                        <Span x:Name="subjectName"  FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.SubjectName}" TextColor="White" FontSize="13"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -115,14 +112,14 @@
                                 FontFamily="{StaticResource Montserrat-Medium}"
                                 FontSize="15"
                                 Clicked="moreDetailsExpans"
-                                TextColor="DeepPink"/>    
+                                TextColor="DeepPink"/>
                         </StackLayout>
                         <StackLayout x:Name="moreSubjectDetails" IsVisible="False" >
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Lecturer:   "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
-                                        <Span x:Name="lecturerName" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  TextColor="DarkSlateGray" FontSize="13"/>
+                                        <Span Text="Lecturer:   " TextColor="LightSlateGray" FontSize="14"/>
+                                        <Span x:Name="lecturerName" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}" FontSize="13"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -130,7 +127,7 @@
                                 <Label Margin="0,10,0,10">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Lecturer Email:"  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
+                                            <Span Text="Lecturer Email:"  FontFamily="{StaticResource Montserrat-Medium}" TextColor="LightSlateGray " FontAttributes="Bold" FontSize="14"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
@@ -142,138 +139,141 @@
                                     Text="{Binding subjectL.LecturerEmail}"
                                     FontSize="13"
                                     Clicked="SendEmail"
-                                    TextColor="DarkSlateGray"
+                                    TextColor="PapayaWhip"
                                     FontFamily="{StaticResource Montserrat-Medium}"/>
                             </StackLayout>
                         </StackLayout>
 
 
-                        <Frame BorderColor="WhiteSmoke" Margin="0" Padding="0">
-                            <StackLayout Margin="0">
+                        <Frame Margin="0" Padding="0">
+                            <StackLayout Margin="0" BackgroundColor="#192e4A">
                                 <Label Margin="0,15,0,0">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Continuous Assessment: "  FontFamily="{StaticResource Montserrat-SemiBold}"  TextColor="DodgerBlue" FontAttributes="Bold" FontSize="15"/>
-                                            <Span Text="{Binding subjectL.CA,StringFormat='{0:N}%'}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray" FontSize="15"  />
+                                            <Span Text="Continuous Assessment: " TextColor="LightSlateGray" FontAttributes="Bold" FontSize="15" FontFamily="{StaticResource Montserrat-SemiBold}" />
+                                            <Span Text="{Binding subjectL.CA,StringFormat='{0:N}%'}"  FontFamily="{StaticResource Montserrat-Medium}"  FontSize="14"  />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                                 <Label Margin="0,0,0,15">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Remaining: "  FontFamily="{StaticResource Montserrat-SemiBold}"  TextColor="DodgerBlue" FontAttributes="Bold" FontSize="13"/>
-                                            <Span x:Name="remainingCA"  Text=""  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"  FontSize="13"/>
+                                            <Span Text="Remaining: " TextColor="LightSlateGray" FontAttributes="Bold" FontSize="15" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                                            <Span x:Name="remainingCA"  Text=""  FontFamily="{StaticResource Montserrat-Medium}" FontSize="14"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                             </StackLayout>
                         </Frame>
 
-                        <Frame BorderColor="WhiteSmoke" Margin="0" Padding="0">
-                            <StackLayout Margin="0">
+                        <Frame Margin="0" Padding="0">
+                            <StackLayout Margin="0" BackgroundColor="#192e4A">
                                 <Label Margin="0,15,0,15">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Final Exam: " TextColor="DodgerBlue" FontAttributes="Bold"  FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="15"/>
-                                            <Span Text="{Binding subjectL.FinalExam,StringFormat='{0:N}%'}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="DarkSlateGray"  FontSize="15" />
+                                            <Span Text="Final Exam: " TextColor="LightSlateGray" FontSize="15" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                                            <Span Text="{Binding subjectL.FinalExam,StringFormat='{0:N}%'}"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="14" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                             </StackLayout>
                         </Frame>
                     </StackLayout>
-                    <Label></Label>
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="    " BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}" IsEnabled="False"></Button>
-                        <Label Text="Your Progress" 
+                </Frame>
+                <StackLayout>
+                    <Frame BackgroundColor="#192e4A" BorderColor="WhiteSmoke">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Your Progress" 
                                        TextColor="DodgerBlue" 
                                        FontFamily="{StaticResource Montserrat-Medium}" 
                                        FontSize="17"
-                               Padding="4"
+                                       Padding="0,4"
                                        Margin="0,5"
                                        FontAttributes="Bold"
-                                       HorizontalOptions="CenterAndExpand" />
-                        <Button FontSize="12" Text="Help" Clicked="tipsYourResults" BackgroundColor="White" FontFamily="{StaticResource Montserrat-Medium}"></Button>
-                    </StackLayout>
-                    <StackLayout IsVisible="False" x:Name="hidenYourResultsHelp" Margin="0,0,0,30">
-                        <Frame CornerRadius="10" BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Gray">
-                            <StackLayout>
-                                <Label          
+                                       HorizontalOptions="StartAndExpand" />
+                                <Button FontSize="12" Text="Help" TextColor="PaleVioletRed" Clicked="tipsYourResults" BackgroundColor="#192E4A" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                            </StackLayout>
+                            <StackLayout IsVisible="False" x:Name="hidenYourResultsHelp" Margin="0,0,0,30">
+                                <Frame BorderColor="WhiteSmoke">
+                                    <StackLayout>
+                                        <Label          
                                     FontFamily="{StaticResource Montserrat-Bold}" 
                                     Text="The status bars are a reflection of your progress"/>
-                                <Label Margin="0,5">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="* The Continuous Assessment status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
-                                            <Span Text=" -  Reflects your progress for this particular subject regarding your Continuous Assessment results." FontFamily="{StaticResource Montserrat-Medium}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                                <Label Margin="0,5">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="* The Final Exam status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
-                                            <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result." FontFamily="{StaticResource Montserrat-Medium}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                                <Label Margin="0,5">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="* The GPA status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
-                                            <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result plus your Continuous Assessment results." FontFamily="{StaticResource Montserrat-Medium}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
+                                        <Label Margin="0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="* The Continuous Assessment status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
+                                                    <Span Text=" -  Reflects your progress for this particular subject regarding your Continuous Assessment results." FontFamily="{StaticResource Montserrat-Medium}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Margin="0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="* The Final Exam status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
+                                                    <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result." FontFamily="{StaticResource Montserrat-Medium}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Margin="0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="* The GPA status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
+                                                    <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result plus your Continuous Assessment results." FontFamily="{StaticResource Montserrat-Medium}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
                             </StackLayout>
-                        </Frame>
-                    </StackLayout>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Continuous Assessment:  "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontSize="13" />
-                                <Span x:Name="Ca_StatusBar" FontFamily="{StaticResource Montserrat-SemiBold}" Text="{Binding subjectL.TotalCA, StringFormat='{0:N}'}" TextColor="DodgerBlue"  FontSize="13"/>
-                                <Span Text="/"  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
-                                <Span FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.CA, StringFormat='{0:N}%'}" TextColor="DarkSlateGray"  FontSize="13"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <progressBar:SfLinearProgressBar x:Name="statusCA" Progress="0" ScaleY="2" Minimum="0" Maximum="{Binding subjectL.CA}" CornerRadius="20"/>
-                    <Label></Label>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Final Exam:  "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
-                                <Span x:Name="Fe_StatusBar" FontFamily="{StaticResource Montserrat-SemiBold}" Text="{Binding subjectL.TotalFinalExam, StringFormat='{0:N}'}" TextColor="DodgerBlue"  FontSize="13"/>
-                                <Span Text="/"  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
-                                <Span FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.FinalExam, StringFormat='{0:N}%'}" TextColor="DarkSlateGray"  FontSize="13"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <progressBar:SfLinearProgressBar x:Name="statusFinalExam" Progress="0" ScaleY="2" Minimum="0" Maximum="{Binding subjectL.FinalExam}" CornerRadius="20"/>
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Continuous Assessment:  "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="LightSlateGray" FontSize="13" />
+                                        <Span x:Name="Ca_StatusBar" Text="{Binding subjectL.TotalCA, StringFormat='{0:N}'}" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                        <Span Text="/"  FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" />
+                                        <Span FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.CA, StringFormat='{0:N}%'}" FontSize="13"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <progressBar:SfLinearProgressBar x:Name="statusCA" TrackColor="Black" Progress="0" ScaleY="2" Minimum="0" Maximum="{Binding subjectL.CA}" CornerRadius="20"/>
+                            <Label></Label>
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Final Exam:  "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="LightSlateGray" FontAttributes="Bold" FontSize="13" />
+                                        <Span x:Name="Fe_StatusBar"  Text="{Binding subjectL.TotalFinalExam, StringFormat='{0:N}'}" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                        <Span Text="/" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" />
+                                        <Span FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.FinalExam, StringFormat='{0:N}%'}" FontSize="13"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <progressBar:SfLinearProgressBar x:Name="statusFinalExam" TrackColor="Black" Progress="0" ScaleY="2" Minimum="0" Maximum="{Binding subjectL.FinalExam}" CornerRadius="20"/>
 
-                    <Label></Label>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span x:Name="SubjectNameGpa" Text="{Binding subjectL.SubjectName} "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13"/>
-                                <Span Text=" GPA: "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="{DynamicResource Gray-800}" FontAttributes="Bold" FontSize="13" />
-                                <Span x:Name="gpa_StatusBar" FontFamily="{StaticResource Montserrat-SemiBold}" Text="" TextColor="DodgerBlue"  FontSize="13"/>
-                                <Span FontFamily="{StaticResource Montserrat-Medium}" Text="/100%" TextColor="DarkSlateGray"  FontSize="13"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <progressBar:SfLinearProgressBar x:Name="statusSubjectGPA" Progress="0"  ScaleY="3" Minimum="0" Maximum="100" CornerRadius="20"/>
+                            <Label></Label>
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span x:Name="SubjectNameGpa" Text="{Binding subjectL.SubjectName} "  FontFamily="{StaticResource Montserrat-Bold}" TextColor="LightSlateGray" FontSize="13"/>
+                                        <Span Text=" GPA: "  FontFamily="{StaticResource Montserrat-Bold}" FontSize="13" />
+                                        <Span x:Name="gpa_StatusBar" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" />
+                                        <Span FontFamily="{StaticResource Montserrat-Medium}" Text="/100%" FontSize="13"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <progressBar:SfLinearProgressBar x:Name="statusSubjectGPA" Progress="0" TrackColor="Black" ScaleY="3" Minimum="0" Maximum="100" CornerRadius="20"/>
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <buttons:SfButton FontSize="14" x:Name="add_ca_button" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Text="Add CA Result" Clicked="add_new_mark"/>
-                        <buttons:SfButton FontSize="14" x:Name="add_fe_button" Text="Add Final Exam" Clicked="add_final_exam" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" />
-                    </StackLayout>
-                                       
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <buttons:SfButton FontSize="14" x:Name="add_ca_button" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" Text="Add CA Result" Clicked="add_new_mark"/>
+                                <buttons:SfButton FontSize="14" x:Name="add_fe_button" Text="Add Final Exam" Clicked="add_final_exam" HorizontalOptions="Center" Margin="0,24,0,0"  Style="{StaticResource SfButtonStyle}" WidthRequest="150" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
-            </Frame>
-            
-            <StackLayout  Grid.Row="1" Spacing="0" BackgroundColor="White">
+            </StackLayout>
+
+                <StackLayout  Grid.Row="1" Spacing="0" BackgroundColor="#192E4A">
                 <Label Text="Results" FontSize="17" FontFamily="{StaticResource Montserrat-Medium}" TextColor="DodgerBlue" Margin="10" />
                 <!-- Seperator -->
                 <BoxView Style="{StaticResource BoxViewStyle}" />
@@ -281,23 +281,23 @@
                     <Label Text="There are no results in your list"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
                 </StackLayout>
                 <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding MarkListL}"
-                    AutoFitMode="Height"
-                    HeightRequest="300"
-                    AllowSwiping="True"
-                    IsScrollBarVisible="false"
-                    FocusBorderThickness="0"
-                    ItemSpacing="0"
-                    SearchText="{Binding SearchText}"
-                    SelectionBackgroundColor="Transparent"
-                    RowSpacing="0"
-                    TapCommand="{Binding ItemSelectedCommand}"
-                    ItemHolding="delete_mark"
-                    VerticalOptions="FillAndExpand">
+                            AutoFitMode="Height"
+                            HeightRequest="300"
+                            AllowSwiping="True"
+                            IsScrollBarVisible="false"
+                            FocusBorderThickness="0"
+                            ItemSpacing="0"
+                            SearchText="{Binding SearchText}"
+                            SelectionBackgroundColor="Transparent"
+                            RowSpacing="0"
+                            TapCommand="{Binding ItemSelectedCommand}"
+                            ItemHolding="delete_mark"
+                            VerticalOptions="FillAndExpand">
                     <controls:SearchableSubjectList.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="White">
+                                    <Grid ColumnSpacing="0" RowSpacing="0">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
@@ -307,14 +307,14 @@
                                         <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
                                                      VerticalOptions="FillAndExpand" Spacing="0" >
                                             <!--  Name of the item  -->
-                                            <Label Margin="16,13,0,0">
+                                            <Label Margin="16,13,0,0" TextColor="LightSlateGray">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                    <Span Text="{Binding MarkName}" TextColor="DodgerBlue" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
-                                                    <Span FontSize="13" Text=" ("  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="{DynamicResource Gray-700}"/>
-                                                    <Span FontSize="13" Text="{Binding Category}" FontFamily="{StaticResource Montserrat-Medium}" TextColor="{DynamicResource Gray-700}"/>
-                                                    <Span FontSize="13" Text=")" FontFamily="{StaticResource Montserrat-Medium}"  TextColor="{DynamicResource Gray-700}"/>
-                                                </FormattedString>  
+                                                        <Span Text="{Binding MarkName}" TextColor="#ffcccb" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
+                                                        <Span FontSize="13" Text=" ("  FontFamily="{StaticResource Montserrat-Medium}" />
+                                                        <Span FontSize="13" Text="{Binding Category}" FontFamily="{StaticResource Montserrat-Medium}" />
+                                                        <Span FontSize="13" Text=")" FontFamily="{StaticResource Montserrat-Medium}" />
+                                                    </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
 
@@ -323,16 +323,14 @@
                                                 HeightRequest="21"
                                                 FontFamily="{StaticResource Montserrat-SemiBold}"
                                                 FontSize="14"
-                                                LineHeight="{OnPlatform Android=1.25,
-                                                             Default=-1}"
-                                                Text="{Binding Result,StringFormat='Result: {0:N}%'}"
-                                                TextColor="{DynamicResource Gray-700}" />
+                                                LineHeight="{OnPlatform Android=1.25, Default=-1}"
+                                                Text="{Binding Result,StringFormat='Result: {0:N}%'}" />
                                             <Label HorizontalOptions="Start" Margin="16,0,0,12" LineHeight="{OnPlatform Android=1.25, Default=-1}">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Result weight: " TextColor="{DynamicResource Gray-700}" FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="13"/>
-                                                        <Span FontSize="13" Text="{Binding Weight}"  FontFamily="{StaticResource Montserrat-Medium}"  TextColor="{DynamicResource Gray-700}"/>
-                                                        <Span Text="%"  FontSize="13" FontFamily="{StaticResource Montserrat-Medium}"  TextColor="{DynamicResource Gray-700}"/>
+                                                        <Span Text="Result weight: " FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="13"/>
+                                                        <Span FontSize="13" Text="{Binding Weight}"  FontFamily="{StaticResource Montserrat-Medium}"  />
+                                                        <Span Text="%"  FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -346,7 +344,6 @@
                     </controls:SearchableSubjectList.ItemTemplate>
                 </controls:SearchableSubjectList>
             </StackLayout>
-
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -22,13 +22,13 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="10" Padding="10" >
             <ScrollView>
-                <Frame CornerRadius="10" HasShadow="True" BorderColor="#192E4A" BackgroundColor="#192E4A">
+                <Frame>
                     <StackLayout 
                          HorizontalOptions="Fill"
                          VerticalOptions="Center">
                         <StackLayout Margin="0">
-                            <Frame x:Name="SubjectFrame" CornerRadius="10">
-                                <StackLayout Orientation="Horizontal">
+                            <Frame x:Name="SubjectFrame">
+                                <StackLayout Orientation="Horizontal" x:Name="StackLayoutFrame">
                                     <Label x:Name="AppointmentSubject" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="White" FontSize="17" HorizontalOptions="StartAndExpand"/>
                                     <buttons:SfButton
                                         HorizontalTextAlignment="End"

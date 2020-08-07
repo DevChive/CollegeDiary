@@ -103,5 +103,10 @@ namespace CD.Views.Login
 			await Navigation.PushAsync(new SimpleForgotPasswordPage());
 			ForgotPasswordLabel.IsEnabled = true;
 		}
+
+		private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+		{
+			MyAccount.setGradientWallpaper(e);
+		}
 	}
 }

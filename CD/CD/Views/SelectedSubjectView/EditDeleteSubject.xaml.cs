@@ -20,8 +20,8 @@ namespace CD.Views.SelectedSubjectView
             subjectName.Text = subject.SubjectName;
             lecturerName.Text = subject.LecturerName;
             lecturerEmail.Text = subject.LecturerEmail;
-            CA.Text = subject.CA.ToString();
-            finalExam.Text = subject.FinalExam.ToString();
+            CA.Text = subject.CA.ToString() + "%";
+            finalExam.Text = subject.FinalExam.ToString() + "%";
         }
         protected override void OnAppearing()
         {

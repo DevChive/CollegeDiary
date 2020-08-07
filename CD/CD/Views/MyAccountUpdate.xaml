@@ -11,14 +11,14 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <ScrollView>
-                <Frame CornerRadius="10" BackgroundColor="#0066cc" HasShadow="True" BorderColor="Gray">
+                <Frame>
                     <StackLayout 
-                     BackgroundColor="#0066cc"
+                     BackgroundColor="#192E4A"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
                         <ScrollView>
                             <StackLayout Margin="10">
-                                <Label Text="Update Account" FontSize="17" TextColor="#e1f5fe" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                <Label Text="Update Account" FontSize="17" TextColor="#ffcccb" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
                                 <Label></Label>
                                 <Label Text="Name *"  FontSize="13"/>
                                 <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontSize="13"/>

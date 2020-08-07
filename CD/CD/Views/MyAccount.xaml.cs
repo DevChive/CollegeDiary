@@ -28,6 +28,7 @@ namespace CD.Views
         
         IFirebaseDeleteAccount authDeleteAccount;
         IFirebaseSignOut authSignOut;
+        Student user;
         protected override bool OnBackButtonPressed() => false;
         public MyAccount()
         {
@@ -35,13 +36,13 @@ namespace CD.Views
             userID = App.UserUID;
             authDeleteAccount = DependencyService.Get<IFirebaseDeleteAccount>();
             authSignOut = DependencyService.Get<IFirebaseSignOut>();
-            RunHourlyTasks();
+            //RunHourlyTasks();
         }
         protected override async void OnAppearing()
         {       
             await fireBaseHelperStudent.AddGPA(userID);
 
-            Student user = await fireBaseHelperStudent.GetStudent(userID);
+            user = await fireBaseHelperStudent.GetStudent(userID);
             List<EventModel> allEvents = await fireBaseHelperCalendar.GetAllEvents();
             List<EventModel> listEvents = next7DaysEvents(allEvents);
 
@@ -125,30 +126,30 @@ namespace CD.Views
             }
         }
 
-        public static async void RunHourlyTasks(params Action[] tasks)
-        {
-            DateTime runHour = DateTime.Now.AddHours(1.0);
-            TimeSpan ts = new TimeSpan(runHour.Hour, 0, 0);
-            runHour = runHour.Date + ts;
+        //public static async void RunHourlyTasks(params Action[] tasks)
+        //{
+        //    DateTime runHour = DateTime.Now.AddHours(1.0);
+        //    TimeSpan ts = new TimeSpan(runHour.Hour, 0, 0);
+        //    runHour = runHour.Date + ts;
 
 
-            Console.WriteLine("next run will be at: {0} and current hour is: {1}", runHour, DateTime.Now);
-            while (true)
-            {
-                TimeSpan duration = runHour.Subtract(DateTime.Now);
-                if (duration.TotalMilliseconds <= 0.0)
-                {
-                    Parallel.Invoke(tasks);
-                    Console.WriteLine("It is the run time as shown before to be: {0} confirmed with system time, that is: {1}", runHour, DateTime.Now);
-                    runHour = DateTime.Now.AddHours(1.0);
-                    Console.WriteLine("next run will be at: {0} and current hour is: {1}", runHour, DateTime.Now);
-                    await App.Current.MainPage.DisplayAlert("ONE HOUR!", DateTime.Now.ToLongDateString(), "ok");
-                    continue;
-                }
-                int delay = (int)(duration.TotalMilliseconds / 2);
-                await Task.Delay(30000);  // 30 seconds
-            }
-        }
+        //    Console.WriteLine("next run will be at: {0} and current hour is: {1}", runHour, DateTime.Now);
+        //    while (true)
+        //    {
+        //        TimeSpan duration = runHour.Subtract(DateTime.Now);
+        //        if (duration.TotalMilliseconds <= 0.0)
+        //        {
+        //            Parallel.Invoke(tasks);
+        //            Console.WriteLine("It is the run time as shown before to be: {0} confirmed with system time, that is: {1}", runHour, DateTime.Now);
+        //            runHour = DateTime.Now.AddHours(1.0);
+        //            Console.WriteLine("next run will be at: {0} and current hour is: {1}", runHour, DateTime.Now);
+        //            await App.Current.MainPage.DisplayAlert("ONE HOUR!", DateTime.Now.ToLongDateString(), "ok");
+        //            continue;
+        //        }
+        //        int delay = (int)(duration.TotalMilliseconds / 2);
+        //        await Task.Delay(30000);  // 30 seconds
+        //    }
+        //}
         private List<EventModel> next7DaysEvents(List<EventModel> listEvents)
         {
             List<EventModel> next7Days = new List<EventModel>();

@@ -25,8 +25,8 @@ namespace CD
             InitializeComponent();
             Container = BuildContainer(module);
             checkUserLogIn();
-        }
 
+        }
         protected override void OnStart()
         {
             checkUserLogIn();

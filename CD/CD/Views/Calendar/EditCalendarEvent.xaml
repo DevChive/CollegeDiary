@@ -12,13 +12,13 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <ScrollView>
-                <Frame CornerRadius="10" BackgroundColor="#192E4A" HasShadow="True" BorderColor="#192E4A">
+                <Frame>
                     <StackLayout 
-                     BackgroundColor="#192E4A"
-                     HorizontalOptions="Fill"
-                     VerticalOptions="Center">
+                         BackgroundColor="#2f5280"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Center">
 
-                        <Label Text="Edit calendar event" FontSize="17" FontAttributes="Bold" TextColor="#e1f5fe" HorizontalOptions="Center" />
+                        <Label Text="Edit calendar event" FontSize="17" FontAttributes="Bold" TextColor="DodgerBlue" HorizontalOptions="Center" />
                         <Label></Label>
                         <Label Text="Name of the event" FontSize="13"/>
                         <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"  Placeholder="e.g. Mathematics Test" FontSize="13"/>
