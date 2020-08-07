@@ -136,7 +136,7 @@ namespace CD.Views.SelectedSubjectView
                 else if (process > 70)
                 {
                     rangeColors.Add(new RangeColor() { Color = Color.FromHex("#d2f8d2"), IsGradient = true, Start = 0, End = segments * 2 });
-                    rangeColors.Add(new RangeColor() { Color = Color.Green, IsGradient = true, Start = segments * 2, End = segments * 3 });
+                    rangeColors.Add(new RangeColor() { Color = Color.FromHex("#287c37"), IsGradient = true, Start = segments * 2, End = segments * 3 });
                     bar.RangeColors = rangeColors;
                 }
             }
@@ -248,7 +248,7 @@ namespace CD.Views.SelectedSubjectView
 
         private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
         {
-
+            MyAccount.setGradientWallpaper(e);
         }
     }
 }

@@ -12,16 +12,15 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <ScrollView>
-                <Frame CornerRadius="10" BackgroundColor="white" HasShadow="True" BorderColor="WhiteSmoke">
+                <Frame>
                     <StackLayout 
-                     BackgroundColor="White"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
                         <Label></Label>
-                        <Label Text="Final Exam" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                        <Label Text="Final Exam" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center"/>
                         <Label></Label>
-                        <Label Text="Result in % (from 100) *" FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="Gray" FontSize="13"/>
-                        <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Black" FontSize="13" Placeholder="e.g. 84%"/>
+                        <Label Text="Result in % (from 100) *"  FontSize="13"/>
+                        <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Placeholder="e.g. 84%"/>
                         <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Your result must be respresented by a number between 0 and 100" IsVisible="False"  x:Name="Error1"/>
                         <Label Padding="0" FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" TextColor="Red" Text="Your result must be a positive decimal or a whole number " IsVisible="False"  x:Name="Error2"/>
                         <Label></Label>

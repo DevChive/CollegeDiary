@@ -120,11 +120,11 @@
                                     FontSize="17"/>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,15">
                                     <StackLayout Orientation="Vertical">
-                                        <progressBar:SfCircularProgressBar x:Name="totalGPA" Margin="10" Scale="2" Progress="{Binding studentSelected.CA}" ProgressColor="#FF90a84e"  ValueChanged="GPA_Changed">
+                                        <progressBar:SfCircularProgressBar TrackColor="Gray" x:Name="totalGPA" Margin="10" Scale="2" Progress="{Binding studentSelected.FinalGPA}" ProgressColor="#FF90a84e"  ValueChanged="GPA_Changed">
                                             <progressBar:SfCircularProgressBar.RangeColors>
                                                 <progressBar:RangeColorCollection>
-                                                    <progressBar:RangeColor IsGradient="True" Color="LightGreen" Start="0" End="50"/>
-                                                    <progressBar:RangeColor IsGradient="True" Color="Green" Start="50" End="100"/>
+                                                <progressBar:RangeColor IsGradient="True" Color="#90fda9" Start="0" End="50"/>
+                                                <progressBar:RangeColor IsGradient="True" Color="#089404" Start="50" End="100"/>
                                                 </progressBar:RangeColorCollection>
                                             </progressBar:SfCircularProgressBar.RangeColors>
                                         </progressBar:SfCircularProgressBar>
@@ -134,10 +134,10 @@
                         </Frame>
                     </StackLayout>
                     <StackLayout>
-                        <Frame BorderColor="WhiteSmoke" CornerRadius="10" Padding="1" BackgroundColor="Transparent">
+                    <Frame Padding="1" BackgroundColor="Transparent" BorderColor="WhiteSmoke">
                             <StackLayout>
                             <Label HorizontalOptions="CenterAndExpand"
-                                Text="Next 7 days calendar events: " 
+                                Text="Next 7 days calendar events " 
                                 TextColor="WhiteSmoke" 
                                 FontFamily="{StaticResource Montserrat-Medium}" 
                                 FontSize="17"

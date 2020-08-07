@@ -31,6 +31,7 @@ namespace CD.Views.SelectedSubjectView
                 FEError.IsVisible = false;
                 CA_FE_Error.IsVisible = false;
                 CA_FE_Decimal.IsVisible = false;
+                NameAlreadyExists.IsVisible = false;
 
                 // Checking if all the fields are filled
                 if (string.IsNullOrEmpty(this.subjectName.Text) || string.IsNullOrWhiteSpace(this.subjectName.Text))
@@ -77,7 +78,7 @@ namespace CD.Views.SelectedSubjectView
                 }
                 if (!validateSubjectName)
                 {
-                    await DisplayAlert("Subject not added ", "Subject already exists", "OK");
+                    NameAlreadyExists.IsVisible = true;
                     validate = false;
                 }
 
@@ -92,7 +93,7 @@ namespace CD.Views.SelectedSubjectView
                         var subject = await fireBaseHelper.GetSubject(subjectName.Text);
 
                         await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
-                        await DisplayAlert("Subject Added", $"{this.subjectName.Text}\n{this.lecturerName.Text}", "OK");
+                        DependencyService.Get<IToastMessage>().Show("Subject Added" + $"\n{this.subjectName.Text}");
                         MainPage.Instance.toListSubjects();                     
                         await Navigation.PopToRootAsync();
                     }
@@ -130,6 +131,11 @@ namespace CD.Views.SelectedSubjectView
             {
                 hiden.IsVisible = true;
             }
+        }
+
+        private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+        {
+            MyAccount.setGradientWallpaper(e);
         }
     }
 }

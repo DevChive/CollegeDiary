@@ -8,9 +8,9 @@
             xmlns:pages1="clr-namespace:CD.Views.Calendar"
             x:Class="CD.MainPage"
             Title="College Diary"
-            UnselectedTabColor="LightGray"
+            UnselectedTabColor="LightSlateGray"
             SelectedTabColor="White"
-            BarBackgroundColor="#192E4A"
+            BarBackgroundColor="#192e4A"
             xmlns:local="clr-namespace:CD">
     <TabbedPage.Children>
         <pages:MyAccount Title="Home"/>

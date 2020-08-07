@@ -10,35 +10,34 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="15" Padding="15">
             <ScrollView>
-                <Frame CornerRadius="10" BackgroundColor="white" HasShadow="True" BorderColor="WhiteSmoke">
+                <Frame>
                     <StackLayout 
-                     BackgroundColor="White"
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
-                        <Label Text="Are you sure you want" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
-                        <Label Text="to delete this result?" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                        <Label Text="Are you sure you want" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center"/>
+                        <Label Text="to delete this result?" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center"/>
                         <Label></Label>
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Mark name:   "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
-                                    <Span x:Name="MarkName" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  TextColor="DarkSlateGray" FontSize="13"/>
+                                    <Span Text="Mark name:   " FontSize="14"/>
+                                    <Span x:Name="MarkName" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  FontSize="13"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Mark weight:   "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
-                                    <Span x:Name="MarkWeight" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  TextColor="DarkSlateGray" FontSize="13"/>
+                                    <Span Text="Mark weight:   "  FontSize="14"/>
+                                    <Span x:Name="MarkWeight" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  FontSize="13"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Your result:   "  FontFamily="{StaticResource Montserrat-SemiBold}" TextColor="DeepPink" FontAttributes="Bold" FontSize="14"/>
-                                    <Span x:Name="MarkResult" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  TextColor="DarkSlateGray" FontSize="13"/>
+                                    <Span Text="Your result:   "   FontSize="14"/>
+                                    <Span x:Name="MarkResult" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}" FontSize="13"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>

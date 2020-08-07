@@ -74,7 +74,7 @@
                                 <!--  Songs page Title  -->
                                 <Label Margin="16,0"
                                     HeightRequest="24"
-                                    FontFamily="{StaticResource Montserrat-Medium}"
+                                    FontFamily="{StaticResource Montserrat-Bold}"
                                     FontSize="16"
                                     HorizontalOptions="CenterAndExpand"
                                     LineHeight="1.25"
@@ -110,6 +110,7 @@
                             <!--  Search Button  -->
                             <buttons:SfButton x:Name="SearchButton"
                                 IsVisible="True"
+                                TextColor="WhiteSmoke"
                                 Clicked="SearchButton_Clicked"
                                 Style="{StaticResource NavigationBarButtonStyle }"
                                 Text="{StaticResource Search}" />
@@ -148,23 +149,22 @@
                                                             </Grid.ColumnDefinitions>
 
                                                             <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
-                                                     VerticalOptions="FillAndExpand" Spacing="0" >
+                                                                VerticalOptions="FillAndExpand" Spacing="0" >
                                                                 <!--  Name of the item  -->
                                                                 <Label Margin="16,13,0,0"
                                                                     HeightRequest="24"
-                                                                    FontFamily="{StaticResource Montserrat-Medium}"
-                                                                    FontSize="16"
-                                                                    LineHeight="{OnPlatform Android=1.5,
-                                                                                           Default=-1}"
+                                                                    FontFamily="{StaticResource Montserrat-SemiBold}"
+                                                                    FontSize="14"
+                                                                    TextColor="White"   
+                                                                    LineHeight="{OnPlatform Android=1.5, Default=-1}"
                                                                     Text="{Binding SubjectName}" />
 
                                                                 <!--  Composer of the item  -->
                                                                 <Label  Margin="16,0,0,12"
                                                                     HeightRequest="21"
                                                                     FontFamily="{StaticResource Montserrat-Medium}"
-                                                                    FontSize="14"
-                                                                    LineHeight="{OnPlatform Android=1.25,
-                                                                                 Default=-1}"
+                                                                    FontSize="12"
+                                                                    LineHeight="{OnPlatform Android=1.25, Default=-1}"
                                                                     Text="{Binding LecturerName}"
                                                                     TextColor="WhiteSmoke" />
                                                             </StackLayout>

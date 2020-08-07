@@ -27,6 +27,7 @@ namespace CD.Views.Calendar
             EndDate.Text = args.EndTime.Date.ToLongDateString();
             EndDate.TextColor = args.Color;
             EndTime.Text = args.EndTime.ToShortTimeString();
+            StackLayoutFrame.BackgroundColor = args.Color;
 
             appointment = args;
             sourcePage = motiv;

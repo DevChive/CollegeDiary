@@ -60,6 +60,7 @@ namespace CD.Views
         private void BackToTitle_Clicked(object sender, EventArgs e)
         {
             this.SearchButton.IsVisible = true;
+            add_subject.IsVisible = true;
             if (this.TitleView != null)
             {
                 double opacity;
@@ -80,6 +81,7 @@ namespace CD.Views
 
         private void SearchButton_Clicked(object sender, EventArgs e)
         {
+            add_subject.IsVisible = false;
             this.Search.IsVisible = true;
             this.Title.IsVisible = false;
             this.SearchButton.IsVisible = false;
@@ -98,7 +100,6 @@ namespace CD.Views
                     }, 0, TitleView.Width, Easing.Linear);
                 expandAnimation.Commit(Search, "Expand", 16, 250, Easing.Linear, (p, q) => this.SearchExpandAnimationCompleted());
             }
-
         }
         private void SearchBoxAnimationCompleted()
         {
