@@ -80,7 +80,16 @@ namespace CD.Views
         {
             var result = await DisplayAlert("Are you sure you want to delete your account?",
                 "If you delete your account all your information will be permanently deleted.", "Yes", "No");
-            if (result) // if it's equal to Yes
+            if (!App.loggedInNow && result)
+            {
+                await DisplayAlert("For security reasons", "Please log in again before deleting your account!", "Ok");
+                App.UserUID = "";
+                App.Current.Properties.Remove("App.UserUID");
+                await App.Current.SavePropertiesAsync();               
+                App.Current.MainPage = new NavigationPage(new LogIn());
+                OnBackButtonPressed();
+            }
+            if (result && App.loggedInNow) // if it's equal to Yes
             {
                 try
                 {

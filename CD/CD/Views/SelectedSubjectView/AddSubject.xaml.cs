@@ -93,7 +93,7 @@ namespace CD.Views.SelectedSubjectView
                         var subject = await fireBaseHelper.GetSubject(subjectName.Text);
 
                         await fireBaseHelper.AddSubject(subjectName.Text, lecturerName.Text, lecturerEmail.Text, CA, FinalExam);
-                        DependencyService.Get<IToastMessage>().Show("Subject Added" + $"\n{this.subjectName.Text}");
+                        DependencyService.Get<IToastMessage>().Show("Subject added " + $"{this.subjectName.Text}");
                         MainPage.Instance.toListSubjects();                     
                         await Navigation.PopToRootAsync();
                     }

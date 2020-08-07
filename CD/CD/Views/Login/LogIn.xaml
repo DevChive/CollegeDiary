@@ -176,6 +176,7 @@
                                     x:Name="sign_up_button"
                                     Command="{Binding SignUpCommand}"
                                     CornerRadius="4"
+                                    FontFamily="{StaticResource Montserrat-Bold}"
                                     Style="{StaticResource SfFlatButtonStyle}"
                                     Text="Sign Up" 
                                     Clicked="SignUpPage"

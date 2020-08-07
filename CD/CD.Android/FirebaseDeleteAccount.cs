@@ -16,9 +16,9 @@ namespace CD.Droid
             {
                 await FirebaseAuth.Instance.CurrentUser.DeleteAsync();
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                
+                Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + ex.ToString());
             }
         }
     }
