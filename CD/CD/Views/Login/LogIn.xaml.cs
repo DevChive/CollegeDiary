@@ -67,6 +67,7 @@ namespace CD.Views.Login
 						App.Current.MainPage = new NavigationPage(new MainPage());
 						Application.Current.Properties["App.UserUID"] =  App.UserUID;
 						await App.Current.SavePropertiesAsync();
+						App.loggedInNow = true;
 					}
 					else
 					{

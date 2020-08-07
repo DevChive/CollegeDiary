@@ -16,6 +16,7 @@ namespace CD
         public string AuthToken { get; set; }
         static public string UserUID { get; set; }
         static public CD_Configuration conf;
+        public static bool loggedInNow = false;
 
         public App(Module module)
         {
