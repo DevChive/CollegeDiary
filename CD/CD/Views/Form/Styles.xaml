@@ -201,5 +201,10 @@
         <Setter Property="Color" Value="Transparent" />
         <Setter Property="VerticalOptions" Value="Center" />
     </Style>
+    <Style x:Key="BoxViewStyleResults" TargetType="BoxView">
+        <Setter Property="HeightRequest" Value="1" />
+        <Setter Property="Color" Value="WhiteSmoke" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
 
 </ResourceDictionary>

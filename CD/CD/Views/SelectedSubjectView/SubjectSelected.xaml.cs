@@ -243,12 +243,27 @@ namespace CD.Views.SelectedSubjectView
         [Obsolete]
         private void SendEmail(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri("mailto:" + lecturerEmail.Text));
+            if(!string.IsNullOrEmpty(lecturerEmail.Text) || !string.IsNullOrWhiteSpace(lecturerEmail.Text))
+            {
+                Device.OpenUri(new Uri("mailto:" + lecturerEmail.Text));
+            }
         }
 
         private void BackgroundGradient_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
         {
             MyAccount.setGradientWallpaper(e);
+        }
+
+        private void tipsResults(object sender, EventArgs e)
+        {
+            if (hidenResultsDetails.IsVisible == false)
+            {
+                hidenResultsDetails.IsVisible = true;
+            }
+            else if (hidenResultsDetails.IsVisible == true)
+            {
+                hidenResultsDetails.IsVisible = false;
+            }
         }
     }
 }

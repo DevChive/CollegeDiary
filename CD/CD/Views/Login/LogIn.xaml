@@ -112,7 +112,7 @@
                                 <!--  Entry to get password from user  -->
                                 <border:SfBorder
                                     Grid.Row="5"
-                                    BorderColor="{Binding Source={x:Reference PasswordEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=0}"
+                                    BorderColor="{Binding Source={x:Reference PasswordEntry}, Path=IsFocused, ConverterParameter=0}"
                                     Style="{StaticResource SfBorderStyle}">
                                     <control:BorderlessEntry
                                         x:Name="PasswordEntry"

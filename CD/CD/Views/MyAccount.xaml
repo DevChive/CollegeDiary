@@ -86,8 +86,7 @@
                             x:Name="helpMyAccount">
                     <Frame CornerRadius="10" 
                                 HasShadow="True" 
-                                BorderColor="LightGray"
-                                BackgroundColor="Transparent">
+                                BorderColor="PaleVioletRed">
                         <ScrollView>
                             <StackLayout Margin="0,0,0,0">
                                 <Label 
@@ -120,7 +119,7 @@
                                     FontSize="17"/>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,15">
                                     <StackLayout Orientation="Vertical">
-                                        <progressBar:SfCircularProgressBar TrackColor="Gray" x:Name="totalGPA" Margin="10" Scale="2" Progress="{Binding studentSelected.FinalGPA}" ProgressColor="#FF90a84e"  ValueChanged="GPA_Changed">
+                                        <progressBar:SfCircularProgressBar TrackColor="Black" x:Name="totalGPA" Margin="10" Scale="2" Progress="{Binding studentSelected.FinalGPA}" ProgressColor="#FF90a84e"  ValueChanged="GPA_Changed">
                                             <progressBar:SfCircularProgressBar.RangeColors>
                                                 <progressBar:RangeColorCollection>
                                                 <progressBar:RangeColor IsGradient="True" Color="#90fda9" Start="0" End="50"/>

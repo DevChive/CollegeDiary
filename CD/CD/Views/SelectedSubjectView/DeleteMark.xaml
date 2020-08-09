@@ -20,7 +20,7 @@
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Mark name:   " FontSize="14"/>
+                                    <Span Text="Result name:   " FontSize="14"/>
                                     <Span x:Name="MarkName" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  FontSize="13"/>
                                 </FormattedString>
                             </Label.FormattedText>
@@ -28,7 +28,7 @@
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Mark weight:   "  FontSize="14"/>
+                                    <Span Text="Result weight:   "  FontSize="14"/>
                                     <Span x:Name="MarkWeight" FontFamily="{StaticResource Montserrat-Medium}" Text="{Binding subjectL.LecturerName}"  FontSize="13"/>
                                 </FormattedString>
                             </Label.FormattedText>

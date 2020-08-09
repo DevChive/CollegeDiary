@@ -17,7 +17,7 @@
                      HorizontalOptions="Fill"
                      VerticalOptions="Center">
                         <Label></Label>
-                        <Label Text="Final Exam" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center"/>
+                        <Label Text="Final exam" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="Center"/>
                         <Label></Label>
                         <Label Text="Result in % (from 100) *"  FontSize="13"/>
                         <Entry x:Name="result" ReturnType="Next" Keyboard="Numeric" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Placeholder="e.g. 84%"/>

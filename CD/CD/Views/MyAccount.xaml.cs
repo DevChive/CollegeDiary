@@ -126,12 +126,10 @@ namespace CD.Views
             if (helpMyAccount.IsVisible)
             {
                 helpMyAccount.IsVisible = false;
-                help_button.Text = "HELP";
             }
             else 
             {
                 helpMyAccount.IsVisible = true;
-                help_button.Text = "HIDE HELP";
             }
         }
 

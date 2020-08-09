@@ -49,7 +49,7 @@
                         <StackLayout>
                             <StackLayout Orientation="Horizontal" Margin="0">
                                 <Label Text="Subject Details" 
-                                       TextColor="DodgerBlue" 
+                                       TextColor="White" 
                                        FontFamily="{StaticResource Montserrat-Bold}" 
                                        FontSize="17"
                                        Margin="0,0"
@@ -59,7 +59,7 @@
                                 <Button FontSize="12" Text="Help" BackgroundColor="Transparent" TextColor="PaleVioletRed" Clicked="tips" FontFamily="{StaticResource Montserrat-Medium}"></Button>
                             </StackLayout>
                             <StackLayout IsVisible="False" x:Name="hidenSubjectDetailsHelp" Margin="0,0,0,30">
-                                <Frame BorderColor="WhiteSmoke">
+                                <Frame BorderColor="PaleVioletRed">
                                     <StackLayout>
                                         <Label          
                                             FontFamily="{StaticResource Montserrat-Bold}" 
@@ -67,7 +67,7 @@
                                         <Label Margin="0,5">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="* Tap long on an mark to delete it" FontFamily="{StaticResource Montserrat-Bold}" />
+                                                    <Span Text="* Long tap on an mark to delete it" FontFamily="{StaticResource Montserrat-Bold}" />
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
@@ -197,7 +197,7 @@
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Your Progress" 
-                                       TextColor="#192e4A" 
+                                       TextColor="White" 
                                        FontFamily="{StaticResource Montserrat-Bold}" 
                                        FontSize="17"
                                        Padding="0,4"
@@ -207,7 +207,7 @@
                                     <Button FontSize="12" Text="Help" TextColor="PaleVioletRed" BackgroundColor="Transparent" Clicked="tipsYourResults" FontFamily="{StaticResource Montserrat-Medium}"></Button>
                                 </StackLayout>
                                 <StackLayout IsVisible="False" x:Name="hidenYourResultsHelp" Margin="0,0,0,30">
-                                    <Frame BorderColor="WhiteSmoke" BackgroundColor="Transparent">
+                                    <Frame BorderColor="PaleVioletRed">
                                         <StackLayout>
                                             <Label          
                                     FontFamily="{StaticResource Montserrat-Bold}" 
@@ -286,13 +286,34 @@
                 </StackLayout>
 
                 <StackLayout  Grid.Row="1" Spacing="0">
-                    <Label Text="Results" FontSize="17" FontFamily="{StaticResource Montserrat-Bold}" TextColor="#192e4A" Margin="10" />
-                    <!-- Seperator -->
-                    <BoxView Style="{StaticResource BoxViewStyle}" />
-                    <StackLayout HorizontalOptions="Center" x:Name="results_text" IsVisible="False" Margin="5">
-                        <Label Text="There are no results in your list"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
-                    </StackLayout>
-                    <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding MarkListL}"
+                    <Frame BorderColor="WhiteSmoke" BackgroundColor="Transparent">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                            <Label Text="Results" FontSize="17" FontFamily="{StaticResource Montserrat-Bold}" TextColor="White" Margin="10" HorizontalOptions="StartAndExpand"/>
+                                <Button FontSize="12" Text="Help" BackgroundColor="Transparent" TextColor="PaleVioletRed" Clicked="tipsResults" FontFamily="{StaticResource Montserrat-Medium}"></Button>
+                            </StackLayout>
+                            <StackLayout IsVisible="False" x:Name="hidenResultsDetails" Margin="0,0,0,30">
+                                <Frame BorderColor="PaleVioletRed">
+                                    <StackLayout>
+                                        <Label          
+                                            FontFamily="{StaticResource Montserrat-Bold}" 
+                                            Text="* The final exam can be added just once "/>
+                                        <Label Margin="0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="* Long tap on an mark to delete it" FontFamily="{StaticResource Montserrat-Bold}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <!-- Seperator -->
+                            <BoxView Style="{StaticResource BoxViewStyleResults}" />
+                            <StackLayout HorizontalOptions="Center" x:Name="results_text" IsVisible="False" Margin="5">
+                                <Label Text="There are no results in your list"  FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <controls:SearchableSubjectList x:Name="LstMarks" ItemsSource="{Binding MarkListL}"
                             AutoFitMode="Height"
                             HeightRequest="300"
                             AllowSwiping="True"
@@ -305,56 +326,58 @@
                             TapCommand="{Binding ItemSelectedCommand}"
                             ItemHolding="delete_mark"
                             VerticalOptions="FillAndExpand">
-                        <controls:SearchableSubjectList.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout>
-                                        <Grid ColumnSpacing="0" RowSpacing="0">
+                                <controls:SearchableSubjectList.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Grid ColumnSpacing="0" RowSpacing="0">
 
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
 
-                                            <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
+                                                    <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" 
                                                      VerticalOptions="FillAndExpand" Spacing="0" >
-                                                <!--  Name of the item  -->
-                                                <Label Margin="16,13,0,0" TextColor="LightSlateGray">
-                                                    <Label.FormattedText>
-                                                        <FormattedString>
-                                                            <Span Text="{Binding MarkName}" TextColor="#ffcccb" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
-                                                            <Span FontSize="13" Text=" ("  FontFamily="{StaticResource Montserrat-Medium}" TextColor="LightGray" />
-                                                            <Span FontSize="13" Text="{Binding Category}" FontFamily="{StaticResource Montserrat-Medium}" TextColor="LightGray"/>
-                                                            <Span FontSize="13" Text=")" FontFamily="{StaticResource Montserrat-Medium}" TextColor="LightGray" />
-                                                        </FormattedString>
-                                                    </Label.FormattedText>
-                                                </Label>
+                                                        <!--  Name of the item  -->
+                                                        <Label Margin="16,13,0,0" TextColor="LightSlateGray">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{Binding MarkName}" TextColor="#ffcccb" FontFamily="{StaticResource Montserrat-SemiBold}" FontAttributes="Bold" FontSize="13"/>
+                                                                    <Span FontSize="13" Text=" ("  FontFamily="{StaticResource Montserrat-Medium}" TextColor="LightGray" />
+                                                                    <Span FontSize="13" Text="{Binding Category}" FontFamily="{StaticResource Montserrat-Medium}" TextColor="LightGray"/>
+                                                                    <Span FontSize="13" Text=")" FontFamily="{StaticResource Montserrat-Medium}" TextColor="LightGray" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
 
-                                                <!--  Composer of the item  -->
-                                                <Label  Margin="16,0,0,0"
+                                                        <!--  Composer of the item  -->
+                                                        <Label  Margin="16,0,0,0"
                                                 HeightRequest="21"
                                                 FontFamily="{StaticResource Montserrat-SemiBold}"
                                                 FontSize="14"
                                                 LineHeight="{OnPlatform Android=1.25, Default=-1}"
                                                 Text="{Binding Result,StringFormat='Result: {0:N}%'}" />
-                                                <Label HorizontalOptions="Start" Margin="16,0,0,12" LineHeight="{OnPlatform Android=1.25, Default=-1}">
-                                                    <Label.FormattedText>
-                                                        <FormattedString>
-                                                            <Span Text="Result weight: " FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="13"/>
-                                                            <Span FontSize="13" Text="{Binding Weight}"  FontFamily="{StaticResource Montserrat-Medium}"  />
-                                                            <Span Text="%"  FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" />
-                                                        </FormattedString>
-                                                    </Label.FormattedText>
-                                                </Label>
+                                                        <Label HorizontalOptions="Start" Margin="16,0,0,12" LineHeight="{OnPlatform Android=1.25, Default=-1}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Result weight: " FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="13"/>
+                                                                    <Span FontSize="13" Text="{Binding Weight}"  FontFamily="{StaticResource Montserrat-Medium}"  />
+                                                                    <Span Text="%"  FontSize="13" FontFamily="{StaticResource Montserrat-Medium}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                </Grid>
+                                                <!-- Seperator -->
+                                                <BoxView Style="{StaticResource BoxViewStyle}" />
                                             </StackLayout>
-                                        </Grid>
-                                        <!-- Seperator -->
-                                        <BoxView Style="{StaticResource BoxViewStyle}" />
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </controls:SearchableSubjectList.ItemTemplate>
-                    </controls:SearchableSubjectList>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </controls:SearchableSubjectList.ItemTemplate>
+                            </controls:SearchableSubjectList>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
             </StackLayout>
         </Grid>

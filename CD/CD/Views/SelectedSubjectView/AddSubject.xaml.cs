@@ -31,6 +31,7 @@ namespace CD.Views.SelectedSubjectView
                 FEError.IsVisible = false;
                 CA_FE_Error.IsVisible = false;
                 CA_FE_Decimal.IsVisible = false;
+                EmailError.IsVisible = false;
                 NameAlreadyExists.IsVisible = false;
 
                 // Checking if all the fields are filled

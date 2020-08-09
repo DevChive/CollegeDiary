@@ -11,7 +11,7 @@
             xmlns:converter="clr-namespace:CD.Converters"
             xmlns:viewModel="clr-namespace:CD.ViewModel.Forms" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              BackgroundColor="{DynamicResource Gray-100}"
-            Title="Add New Subject">
+            Title="Add new subject">
 
     <ContentPage.BindingContext>
         <viewModel:BusinessRegistrationFormViewModel />
@@ -48,7 +48,7 @@
                 <StackLayout Padding="7,0,7,0">
                     <StackLayout Spacing="0" Padding="16,10">
                         <StackLayout IsVisible="False" x:Name="hiden">
-                            <Frame BorderColor="WhiteSmoke" CornerRadius="10">
+                            <Frame BorderColor="PaleVioletRed" CornerRadius="10">
                                 <StackLayout>
                                     <Label          
                                 FontFamily="{StaticResource Montserrat-Bold}" 

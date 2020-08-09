@@ -16,7 +16,7 @@
                     <StackLayout 
                          HorizontalOptions="Fill"
                          VerticalOptions="Center">
-                        <Label Text="Continuous Assessment" FontSize="17"  TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
+                        <Label Text="Continuous assessment" FontSize="17"  TextColor="DodgerBlue" HorizontalOptions="Center" FontFamily="{StaticResource Montserrat-SemiBold}"/>
                         <Label></Label>
                         <Label Text="Name of the assessment *" FontSize="13"/>
                         <Entry x:Name="mark_name" ReturnType="Next" Keyboard="Text" FontFamily="{StaticResource Montserrat-Medium}" FontSize="13" Placeholder="e.g. Test Linear Algebra"/>
