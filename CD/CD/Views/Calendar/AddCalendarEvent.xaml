@@ -23,12 +23,12 @@
                         <Label></Label>
                         <StackLayout>
                             <Label Text="Name of the event *" FontSize="13"/>
-                            <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"  Placeholder="e.g. Mathematics Test" FontSize="13" />
+                            <Entry x:Name="event_name" ReturnType="Next" Keyboard="Text"  Placeholder="e.g. Mathematics Test" FontSize="13" BackgroundColor="#2f5280"/>
                             <Label FontSize="13" TextColor="Red" Text="Please enter a name " IsVisible="False"  x:Name="ErrorName"/>
                         </StackLayout>
 
                         <Label Text="Description" FontSize="13" />
-                        <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" Placeholder="e.g. Logic Chapter 1, 2" FontSize="13"/>
+                        <Entry x:Name="event_description" ReturnType="Next" Keyboard="Text" Placeholder="e.g. Logic Chapter 1, 2" FontSize="13" BackgroundColor="#2f5280"/>
                         <StackLayout Orientation="Horizontal">
                             <StackLayout>
                                 <Label Text="Start date" FontSize="13"/>
@@ -37,6 +37,7 @@
                                     Format="dd/MM/yyyy"
                                     Date="{Binding selectedDate, Mode=TwoWay}"
                                     TextColor="WhiteSmoke"
+                                    BackgroundColor="#2f5280"
                                     FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
                             </StackLayout>
                             <StackLayout>
@@ -45,6 +46,7 @@
                                     Time="12:00"
                                     Format="T"
                                     TextColor="WhiteSmoke"
+                                    BackgroundColor="#2f5280"
                                     PropertyChanged="OnTimePickerPropertyChanged"
                                     FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
                             </StackLayout>
@@ -56,6 +58,7 @@
                                     x:Name="endDate"
                                     TextColor="WhiteSmoke"
                                     Format="dd/MM/yyyy"
+                                    BackgroundColor="#2f5280"
                                     Date="{Binding selectedDate, Mode=TwoWay}"
                                     MinimumDate="{Binding selctedDate, Mode=TwoWay}"
                                     FontFamily="{StaticResource Montserrat-Medium}" FontSize="13"/>
@@ -66,6 +69,7 @@
                                     Time="12:00"
                                     TextColor="WhiteSmoke"
                                     Format="T"
+                                    BackgroundColor="#2f5280"
                                     FontFamily="{StaticResource Montserrat-Medium}"
                                     PropertyChanged="OnTimePickerPropertyChanged"  FontSize="13"/>
                             </StackLayout>

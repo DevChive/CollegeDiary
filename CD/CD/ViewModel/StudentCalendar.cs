@@ -9,11 +9,11 @@ namespace CD.ViewModel
         public Student studentSelected { get; set; }
         public List<EventModel> studentEvents {get; set;}
 
-        public StudentCalendar(Student s, List<EventModel> studentEvents)
+        public StudentCalendar(Student s, List<EventModel> studentEventss)
         {
             this.studentSelected = s;
-            this.studentEvents = studentEvents;
+            this.studentEvents = studentEventss;
         }
-
+        
     }
 }

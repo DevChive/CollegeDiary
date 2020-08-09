@@ -28,18 +28,27 @@ namespace CD.Views
         }
         private async Task FetchAllSubjects()
         {
-            var allSubjects = await fireBaseHelper.GetAllSubjects();
-            LstSubjects.ItemsSource = allSubjects;
-            if (allSubjects.Count == 0)
+            try
             {
-                Subject_text.IsVisible = true;
-                //add_Subject_Arrow.IsVisible = true;
+                var allSubjects = await fireBaseHelper.GetAllSubjects();
+                LstSubjects.ItemsSource = allSubjects;
+                if (allSubjects.Count == 0)
+                {
+                    Subject_text.IsVisible = true;
+                    //add_Subject_Arrow.IsVisible = true;
+                }
+                else
+                {
+                    Subject_text.IsVisible = false;
+                    //add_Subject_Arrow.IsVisible = false;
+                }
             }
-            else 
+            catch(Exception e)
             {
-                Subject_text.IsVisible = false;
-                //add_Subject_Arrow.IsVisible = false;
+                Console.WriteLine(e.ToString());
             }
+
+
         }
 
         private void BackButton(object sender, EventArgs e)
