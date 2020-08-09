@@ -48,7 +48,7 @@ namespace CD.Views
 
             // creating a new model from 2 classes - student and calendar
             StudentCalendar studentCalendar = new StudentCalendar(user, listEvents);
-            //this.BindingContext = studentCalendar;
+            this.BindingContext = studentCalendar;
 
             // progress bar
             totalGPA.Progress = Convert.ToDouble(user.FinalGPA);

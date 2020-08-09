@@ -196,34 +196,36 @@ namespace CD.Views.SelectedSubjectView
 
         private void tips(object sender, EventArgs e)
         {
-            if (hidenSubjectDetailsHelp.IsVisible)
+            if (!hidenSubjectDetailsHelp.IsVisible)
             {
-                hidenSubjectDetailsHelp.IsVisible = false;
+                hidenSubjectDetailsHelp.IsVisible = true;
+                hidenYourResultsHelp.IsVisible = false;
+                hidenResultsDetails.IsVisible = false;
             }
             else
             {
-                hidenSubjectDetailsHelp.IsVisible = true;
-                if (hidenYourResultsHelp.IsVisible)
-                {
-                    hidenYourResultsHelp.IsVisible = false;
-                }
+                hidenYourResultsHelp.IsVisible = false;
+                hidenResultsDetails.IsVisible = false;
+                hidenSubjectDetailsHelp.IsVisible = false;
             }
+
         }
 
         private void tipsYourResults(object sender, EventArgs e)
         {
-            if (hidenYourResultsHelp.IsVisible)
+            if (!hidenYourResultsHelp.IsVisible)
             {
-                hidenYourResultsHelp.IsVisible = false;
+                hidenYourResultsHelp.IsVisible = true;
+                hidenSubjectDetailsHelp.IsVisible = false;
+                hidenResultsDetails.IsVisible = false;
             }
             else
             {
-                hidenYourResultsHelp.IsVisible = true;
-                if (hidenSubjectDetailsHelp.IsVisible)
-                {
-                    hidenSubjectDetailsHelp.IsVisible = false;
-                }
+                hidenYourResultsHelp.IsVisible = false;
+                hidenResultsDetails.IsVisible = false;
+                hidenYourResultsHelp.IsVisible = false;
             }
+            
         }
 
         private void moreDetailsExpans(object sender, EventArgs e)
@@ -259,10 +261,14 @@ namespace CD.Views.SelectedSubjectView
             if (hidenResultsDetails.IsVisible == false)
             {
                 hidenResultsDetails.IsVisible = true;
+                hidenSubjectDetailsHelp.IsVisible = false;
+                hidenYourResultsHelp.IsVisible = false;
             }
             else if (hidenResultsDetails.IsVisible == true)
             {
                 hidenResultsDetails.IsVisible = false;
+                hidenSubjectDetailsHelp.IsVisible = false;
+                hidenYourResultsHelp.IsVisible = false;
             }
         }
     }

@@ -67,7 +67,7 @@
                                         <Label Margin="0,5">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="* Long tap on an mark to delete it" FontFamily="{StaticResource Montserrat-Bold}" />
+                                                    <Span Text="* Long tap on a result to delete it" FontFamily="{StaticResource Montserrat-Bold}" />
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
@@ -75,8 +75,8 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span Text="* The total of your Continuous Assessment weight cannot exceed " FontFamily="{StaticResource Montserrat-Bold}" />
-                                                    <Span Text="{Binding subjectL.CA}" TextColor="Red" />
-                                                    <Span Text="% for this particular subject" />
+                                                    <Span Text="{Binding subjectL.CA}" TextColor="Red" FontFamily="{StaticResource Montserrat-Bold}" />
+                                                    <Span Text="% for this particular subject" FontFamily="{StaticResource Montserrat-Bold}" />
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
@@ -216,7 +216,7 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="* The Continuous Assessment status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
-                                                        <Span Text=" -  Reflects your progress for this particular subject regarding your Continuous Assessment results." FontFamily="{StaticResource Montserrat-Medium}" />
+                                                        <Span Text=" -  Reflects your progress for this particular subject regarding your Continuous Assessment results" FontFamily="{StaticResource Montserrat-Medium}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -224,7 +224,7 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="* The Final Exam status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
-                                                        <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result." FontFamily="{StaticResource Montserrat-Medium}" />
+                                                        <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result" FontFamily="{StaticResource Montserrat-Medium}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -232,7 +232,7 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="* The GPA status bar" FontFamily="{StaticResource Montserrat-SemiBold}" />
-                                                        <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result plus your Continuous Assessment results." FontFamily="{StaticResource Montserrat-Medium}" />
+                                                        <Span Text=" -  Reflects your progress for this particular subject regarding your Final Exam result plus your Continuous Assessment results" FontFamily="{StaticResource Montserrat-Medium}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>

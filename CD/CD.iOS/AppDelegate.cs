@@ -7,6 +7,7 @@ using Syncfusion.XForms.iOS.Buttons;
 using Xamarin;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
 using Rg.Plugins.Popup;
+using Syncfusion.ListView.XForms.iOS;
 
 namespace CD.iOS
 {
@@ -33,6 +34,7 @@ namespace CD.iOS
             SfSegmentedControlRenderer.Init();
             IQKeyboardManager.SharedManager.Enable = true;
             new SfBusyIndicatorRenderer();
+            SfListViewRenderer.Init();
             LoadApplication(new App(new IOSModule()));
 
             Firebase.Core.App.Configure();
