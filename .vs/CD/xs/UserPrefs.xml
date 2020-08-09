@@ -1,10 +1,13 @@
-﻿<Properties StartupConfiguration="{F70CBE5B-8C89-4B99-9915-C41C9496A043}|Default">
+﻿<Properties StartupConfiguration="{D14D18DA-52EA-4275-8D6C-AF4C4F264E6A}|Default">
   <MonoDevelop.Ide.ItemProperties.CD.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.EF4BD744-6A5C-49C8-A46E-92921B3FD3B0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CD/CD/Views/SelectedSubjectView/SubjectSelected.xaml.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="CD/CD/Views/MyAccount.xaml" Line="101" Column="152" />
-      <File FileName="CD/CD/Views/SelectedSubjectView/SubjectSelected.xaml" Line="235" Column="196" />
-      <File FileName="CD/CD/Views/SelectedSubjectView/SubjectSelected.xaml.cs" Line="26" Column="10" />
+      <File FileName="CD/CD/Views/SelectedSubjectView/AddSubject.xaml.cs" Line="97" Column="95" />
+      <File FileName="CD/CD/App.xaml.cs" Line="84" Column="18" />
+      <File FileName="CD/CD.iOS/Main.cs" Line="21" Column="1" />
+      <File FileName="CD/CD/Views/SignUp/SignUpPage.xaml.cs" Line="110" Column="43" />
+      <File FileName="CD/CD/Views/SelectedSubjectView/DeleteMark.xaml.cs" Line="37" Column="100" />
+      <File FileName="CD/CD/Views/SelectedSubjectView/SubjectSelected.xaml.cs" Line="180" Column="96" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,17 +15,14 @@
           <Node name="CD" expanded="True">
             <Node name="CD" expanded="True">
               <Node name="Views" expanded="True">
-                <Node name="Calendar" expanded="True">
-                  <Node name="EditCalendarEvent.xaml" expanded="True" />
-                </Node>
-                <Node name="SelectedSubjectView" expanded="True">
-                  <Node name="SubjectSelected.xaml" expanded="True">
-                    <Node name="SubjectSelected.xaml.cs" selected="True" />
-                  </Node>
+                <Node name="SelectedSubjectView" expanded="True" />
+                <Node name="SignUp" expanded="True">
+                  <Node name="SignUpPage.xaml" expanded="True" />
                 </Node>
               </Node>
               <Node name="App.xaml" expanded="True" />
             </Node>
+            <Node name="CD.Android" selected="True" />
             <Node name="CD.iOS" expanded="True" />
           </Node>
         </State>
@@ -33,7 +33,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.ItemProperties.CD.Android PreferredExecutionTarget="Android.pixel_3_pie_9_0_-_api_28" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

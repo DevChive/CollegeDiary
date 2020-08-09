@@ -22,7 +22,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary"/>
         <ToolbarItem Text="Edit Account" Order="Secondary" Clicked="edit_account"  />
-        <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account"/>
+        <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account" />
         <ToolbarItem Text="Sign out" Order="Secondary" Clicked="sign_out"/>
     </ContentPage.ToolbarItems>
     
