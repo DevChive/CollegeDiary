@@ -20,6 +20,7 @@ namespace CD
 
         public App(Module module)
         {
+            checkPreviousInstall();
             LoadJson();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(conf.syncfusion);
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
@@ -77,6 +78,15 @@ namespace CD
             {
                 MainPage = new NavigationPage(new MainPage());
             }
-        }     
+        }
+        void checkPreviousInstall()
+        {
+            if (!App.Current.Properties.ContainsKey("PreviosInstalled"))
+            {
+                App.Current.Properties.Clear();
+                App.Current.Properties["PreviosInstalled"] = "true";
+                App.Current.SavePropertiesAsync();
+            }
+        }
     }
 }

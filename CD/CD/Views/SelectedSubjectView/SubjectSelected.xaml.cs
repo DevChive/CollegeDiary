@@ -177,7 +177,7 @@ namespace CD.Views.SelectedSubjectView
                 {
                     await fireBaseHelperSubject.DeleteSubject(_subject.SubjectID);
                     await fireBaseHelperMark.DeleteMarks(_subject.SubjectID);
-                    DependencyService.Get<IToastMessage>().Show(_subject.SubjectName + " was deleted"); 
+                    await DisplayAlert("Success", _subject.SubjectName + " was deleted", "ok");
                     await Navigation.PopAsync();
                 }
                 catch (Exception)

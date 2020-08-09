@@ -34,7 +34,7 @@ namespace CD.Views.SelectedSubjectView
             {
                 await fireBaseHelperMark.DeleteMark(_mark.MarkID);
                 await Navigation.PushAsync(new SubjectSelected(_subject), false);
-                DependencyService.Get<IToastMessage>().Show(_mark.Category + " was deleted");
+                await DisplayAlert(_mark.Category, "The " + _mark.MarkName + " was deleted", "ok");
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 await PopupNavigation.RemovePageAsync(this);
             }
