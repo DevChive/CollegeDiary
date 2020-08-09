@@ -69,7 +69,7 @@ namespace CD.Views.Calendar
             checkDates(start_Date, end_Date);
             Color colorEvent = changeColor(color);
 
-            if (string.IsNullOrEmpty(event_name.Text) && string.IsNullOrWhiteSpace(event_name.Text))
+            if (string.IsNullOrEmpty(event_name.Text) || string.IsNullOrWhiteSpace(event_name.Text))
             {
                 validate = false;
                 ErrorName.IsVisible = true;

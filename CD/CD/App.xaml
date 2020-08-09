@@ -50,6 +50,7 @@
             
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#192E4A"/>
+                <Setter Property="BarTextColor" Value="WhiteSmoke"/>
             </Style>
             
             <Style TargetType="Label">
@@ -60,6 +61,7 @@
             <Style TargetType="Entry">
                 <Setter Property="TextColor" Value="WhiteSmoke"/>
                 <Setter Property="PlaceholderColor" Value="#a1b7d4"/>
+                <Setter Property="BackgroundColor" Value="#2f5280"/>
                 <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}"/>
             </Style>
             <Style TargetType="Frame">

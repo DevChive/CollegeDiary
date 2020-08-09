@@ -17,7 +17,7 @@
                      VerticalOptions="Center">
                         <ScrollView>
                             <StackLayout Margin="10">
-                                <Label Text="Edit Account Details" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
+                                <Label Text="Edit Account" FontSize="17" TextColor="DodgerBlue" HorizontalOptions="CenterAndExpand" Margin="0,0,20,0" FontFamily="{StaticResource Montserrat-Medium}"/>
                                 <Label></Label>
                                 <Label Text="Name *"  FontSize="13"/>
                                 <Entry Placeholder="Name" x:Name="userName" ReturnType="Next" Keyboard="Text" FontSize="13"/>

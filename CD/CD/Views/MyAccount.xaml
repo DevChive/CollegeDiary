@@ -21,7 +21,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary"/>
-        <ToolbarItem Text="Edit Account Details" Order="Secondary" Clicked="edit_account" />
+        <ToolbarItem Text="Edit Account" Order="Secondary" Clicked="edit_account"  />
         <ToolbarItem Text="Delete Account" Order="Secondary" Clicked="delete_account"/>
         <ToolbarItem Text="Sign out" Order="Secondary" Clicked="sign_out"/>
     </ContentPage.ToolbarItems>
@@ -91,14 +91,14 @@
                             <StackLayout Margin="0,0,0,0">
                                 <Label 
                                             FontFamily="{StaticResource Montserrat-Bold}" 
-                                            Text="* This page displays the GPA between all your subjects" TextColor="WhiteSmoke"/>
+                                            Text="* This page displays the GPA from all your subjects" TextColor="WhiteSmoke"/>
                                 <Label 
                                             FontFamily="{StaticResource Montserrat-Medium}" 
                                             Text="  - The GPA is an approximation as the number of credits is not taken in consideration" TextColor="WhiteSmoke"/>
                                 <Label Margin="0,5">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span TextColor="WhiteSmoke" Text="* The process bar on this page, shows an estimated GPA that takes in consideration each subject's " FontFamily="{StaticResource Montserrat-Medium}" />
+                                            <Span TextColor="WhiteSmoke" Text=" - The progress bar on this page, shows an estimated GPA that takes into consideration each subject's " FontFamily="{StaticResource Montserrat-Medium}" />
                                             <Span Text=" Continuous Assessment" FontFamily="{StaticResource Montserrat-Medium}" TextColor="PaleVioletRed" />
                                             <Span TextColor="WhiteSmoke" Text=" and " FontFamily="{StaticResource Montserrat-Medium}" />
                                             <Span Text="Final Exam" FontFamily="{StaticResource Montserrat-Medium}" TextColor="PaleVioletRed" />

@@ -19,7 +19,6 @@ namespace CD.Views
         public ListViewSubjects()
         {
             InitializeComponent();
-            //TODO: scale the images
         }
         protected override async void OnAppearing()
         {
