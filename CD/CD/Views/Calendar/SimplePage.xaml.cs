@@ -40,6 +40,7 @@ namespace CD.Views.Calendar
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            
             var theListOfEvents = await fireBaseHelperEvents.GetAllEvents();
             listEvents = theListOfEvents;
         }
