@@ -19,7 +19,7 @@ namespace CD.iOS
                 var user = await Auth.DefaultInstance.CreateUserAsync(email, password);
                 var token = await user.User.GetIdTokenAsync(false);
                 await user.User.SendEmailVerificationAsync();
-                UserID = user.User.Uid.ToString();
+                App.UserUID = user.User.Uid.ToString();
                 return token;
             }
             catch (Exception ex) 

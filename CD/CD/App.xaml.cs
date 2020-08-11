@@ -66,17 +66,9 @@ namespace CD
         async Task checkUserLogInAsync()
         {
             App.UserUID = App.Current.Properties.ContainsKey("App.UserUID") ? App.Current.Properties["App.UserUID"] as string : "";
-            if (!string.IsNullOrEmpty(App.UserUID) && !string.IsNullOrWhiteSpace(App.UserUID))
+            if (!string.IsNullOrEmpty(App.UserUID) && !string.IsNullOrWhiteSpace(App.UserUID) && await userExists(UserUID))
             {
-                bool userExist = await userExists(UserUID);
-                if (userExist)
-                {
-                    App.Current.MainPage = new NavigationPage(new MainPage());
-                }
-                else
-                {
-                    notSignedIn();
-                }
+                App.Current.MainPage = new NavigationPage(new MainPage());
             }
             else
             {
@@ -95,11 +87,9 @@ namespace CD
         public static async Task<bool> userExists(string StudentID)
         {
             FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
-            var user = (await firebase.Child(UserUID)
-                .OnceAsync<Student>())
-                .FirstOrDefault
-                (a => a.Object.StudentID == StudentID);
-            return (user != null);
+            FireBaseHelperStudent fireBaseHelperStudent = new FireBaseHelperStudent();
+            var user = await fireBaseHelperStudent.GetStudent(StudentID);
+            return user != null;
         }
         public static void notSignedIn()
         {
