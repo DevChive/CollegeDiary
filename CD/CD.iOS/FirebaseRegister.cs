@@ -4,6 +4,7 @@ using CD.Helper;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using CD.iOS;
+using Foundation;
 
 [assembly: Dependency(typeof(FirebaseRegister))]
 namespace CD.iOS
@@ -21,9 +22,16 @@ namespace CD.iOS
                 UserID = user.User.Uid.ToString();
                 return token;
             }
-            catch (Exception) //TODO: check if the user has an account with that email or not
+            catch (Exception ex) 
             {
-                return "";
+                if (ex is NSErrorException)
+                {
+                    return "existing";
+                }
+                else
+                {
+                    return "";
+                }
             }
         }
         public string UserUID()

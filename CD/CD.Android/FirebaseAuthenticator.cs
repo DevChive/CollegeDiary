@@ -12,9 +12,23 @@ namespace CD.Droid
     {
         public async Task<string> LoginWithEmailPassword(string email, string password)
         {
-            var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
-            var token = await user.User.GetIdTokenAsync(false);
-            return user.User.Uid;
+            try
+            {
+                var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
+                var token = await user.User.GetIdTokenAsync(false);
+                return user.User.Uid;
+            }
+            catch (Exception ex)
+            {
+                if (ex is FirebaseAuthInvalidUserException)
+                {
+                    return "noUserFound";
+                }
+                else 
+                {
+                    return "";
+                }
+            }
         }
 
         public bool IsSignedIn()

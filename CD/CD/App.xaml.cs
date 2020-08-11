@@ -5,8 +5,9 @@ using CD.Views.Login;
 using CD.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
-using Xamarin.Essentials;
-using Plugin.Connectivity;
+using System.Linq;
+using System.Threading.Tasks;
+using Firebase.Database;
 
 namespace CD
 {
@@ -26,22 +27,21 @@ namespace CD
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
             InitializeComponent();
             Container = BuildContainer(module);
-            checkUserLogIn();
+            checkUserLogInAsync();
 
         }
         protected override void OnStart()
         {
-            checkUserLogIn();
+            checkUserLogInAsync();
         }
 
         protected override void OnSleep()
         {
-            //checkUserLogIn();
-        }
 
+        }
         protected override void OnResume()
         {
-            //checkUserLogIn();
+
         }
         IContainer BuildContainer(Module module)
         {
@@ -63,20 +63,24 @@ namespace CD
                 conf = JsonConvert.DeserializeObject<CD_Configuration>(jsonString);
             }
         }
-        void checkUserLogIn()
+        async Task checkUserLogInAsync()
         {
             App.UserUID = App.Current.Properties.ContainsKey("App.UserUID") ? App.Current.Properties["App.UserUID"] as string : "";
-
-            if (string.IsNullOrEmpty(App.UserUID) || string.IsNullOrWhiteSpace(App.UserUID))
+            if (!string.IsNullOrEmpty(App.UserUID) && !string.IsNullOrWhiteSpace(App.UserUID))
             {
-                MainPage = new NavigationPage(new LogIn());
-                App.Current.Properties.Remove("App.UserUID");
-                App.Current.SavePropertiesAsync();
-                App.UserUID = "";
+                bool userExist = await userExists(UserUID);
+                if (userExist)
+                {
+                    App.Current.MainPage = new NavigationPage(new MainPage());
+                }
+                else
+                {
+                    notSignedIn();
+                }
             }
             else
             {
-                MainPage = new NavigationPage(new MainPage());
+                notSignedIn();
             }
         }
         void checkPreviousInstall()
@@ -87,6 +91,23 @@ namespace CD
                 App.Current.Properties["PreviosInstalled"] = "true";
                 App.Current.SavePropertiesAsync();
             }
+        }
+        public static async Task<bool> userExists(string StudentID)
+        {
+            FirebaseClient firebase = new FirebaseClient(App.conf.firebase);
+            var user = (await firebase.Child(UserUID)
+                .OnceAsync<Student>())
+                .FirstOrDefault
+                (a => a.Object.StudentID == StudentID);
+            return (user != null);
+        }
+        public static void notSignedIn()
+        {
+            App.Current.MainPage = new NavigationPage(new LogIn());
+
+            App.Current.Properties.Remove("App.UserUID");
+            App.Current.SavePropertiesAsync();
+            App.UserUID = "";
         }
     }
 }
