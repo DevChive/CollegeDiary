@@ -62,28 +62,35 @@ namespace CD.Views.Login
 				{
 					App.UserUID = (Application.Current as App).AuthToken = await auth.LoginWithEmailPassword(userEmail, PasswordEntry.Text);
 
-					if (auth.IsSignedIn() && !string.IsNullOrWhiteSpace(App.UserUID) && !string.IsNullOrEmpty(App.UserUID))
+					if (auth.IsSignedIn() && !string.IsNullOrWhiteSpace(App.UserUID) && !string.IsNullOrEmpty(App.UserUID) && await App.userExists(App.UserUID))
 					{
 						App.Current.MainPage = new NavigationPage(new MainPage());
-						Application.Current.Properties["App.UserUID"] =  App.UserUID;
+						Application.Current.Properties["App.UserUID"] = App.UserUID;
 						await App.Current.SavePropertiesAsync();
 						App.loggedInNow = true;
 					}
-					else
+					else if (App.UserUID == "noUserFound")
 					{
 						App.UserUID = "";
 						App.Current.Properties["App.UserUID"] = "";
 						await App.Current.SavePropertiesAsync();
-
+						await DisplayAlert("Login Failed", "There is no user record corresponding to this email", "OK");
+					}
+					else 
+					{
+						App.UserUID = "";
+						App.Current.Properties["App.UserUID"] = "";
+						await App.Current.SavePropertiesAsync();
+						await DisplayAlert("Login Failed", "Invalid e-mail or password", "OK");
 					}
 				}
 
 				catch (Exception)
 				{
 					App.UserUID = "";
-					await DisplayAlert("Login Failed", "Invalid e-mail or password", "OK");
 					App.Current.Properties["App.UserUID"] = "";
-
+					await App.Current.SavePropertiesAsync();
+					await DisplayAlert("Login Failed", "Something went wrong, \nCheck you internet connection", "OK");
 				}
 			}
 			Login_Button.IsEnabled = true;

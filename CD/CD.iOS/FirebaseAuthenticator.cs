@@ -19,10 +19,16 @@ namespace CD.iOS
                 var token = await user.User.GetIdTokenAsync();
                 return user.User.Uid;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("----------------------------------" + ex.ToString());
-                return "";
+                if (ex is NSErrorException)
+                {
+                    return "noUserFound";
+                }
+                else
+                {
+                    return "";
+                }
             }
         }
         public bool IsSignedIn()
